@@ -1,0 +1,11 @@
+/*display tags pagbanner kai links*/
+.pagebanner { display:block; font-size:11px;  padding-left: 3px; padding-right: 3px; padding-bottom:1px; padding-top:5px; margin-bottom:0px; margin-top:10px; ; }
+
+.pagelinks { display:block; font-size:11px;  padding-left: 3px; padding-right: 3px; padding-bottom:5px; padding-top:5px; margin-bottom:3px;  background-color:#ebebe8;}
+
+.pagelinks a { margin-left:5px; display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#F0F1F1; text-decoration:none;
+	border:1px solid #DDE4E4;}
+.pagelinks a:hover { display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#D1E3E3; }
+.pagelinks_selected { margin-left:5px; display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#D1E3E3; border:1px solid #000;}
+
+/*END display tags pagbanner kai links*/

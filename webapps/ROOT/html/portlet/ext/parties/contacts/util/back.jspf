@@ -1,0 +1,10 @@
+
+<br>
+<% if (Validator.isNotNull(redirect) && !redirect.equals("null")) {%>
+<img src="<%= themeDisplay.getPathThemeImage() %>/common/back.png" border="0" align="absmiddle"><a href="<%= redirect %>"><%= LanguageUtil.get(pageContext, "back") %></a>
+<% } else { %>
+<img src="<%= themeDisplay.getPathThemeImage() %>/common/back.png" border="0" align="absmiddle">
+<html:link action="/ext/parties/contacts/search">
+<%= LanguageUtil.get(pageContext, "back") %>
+</html:link>
+<% } %>

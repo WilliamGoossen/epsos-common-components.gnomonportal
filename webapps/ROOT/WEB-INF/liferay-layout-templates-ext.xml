@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 4.3.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_4_3_0.dtd">
+
+<layout-templates>
+	<standard>
+		<layout-template id="max">
+			<template-path>/layouttpl/standard/max.tpl</template-path>
+			<wap-template-path>/layouttpl/standard/max.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/standard/max.png</thumbnail-path>
+		</layout-template>
+	</standard>
+	<custom>
+		<layout-template id="3_columns_30_50_20" name="3 Columns_30_50_20">
+			<template-path>/layouttpl/custom/3_columns_30_50_20.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/3_columns_30_50_20.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/3_columns_30_50_20.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="1_2_columns_ii" name="1_2 Columns_100_30_70">
+			<template-path>/layouttpl/custom/1_2_columns_ii.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/1_2_columns_ii.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/1_2_columns_ii.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="1_2_columns_iii" name="1_2 Columns_100_50_50">
+			<template-path>/layouttpl/custom/1_2_columns_iii.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/1_2_columns_iii.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/1_2_columns_iii.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="2_columns_iiii" name="2 Columns_70-split2_30">
+			<template-path>/layouttpl/custom/2_columns_iiii.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/2_columns_iiii.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/2_columns_iiii.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="2_columns_V" name="2 Columns_70-split2_30_B">
+			<template-path>/layouttpl/custom/2_columns_V.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/2_columns_V.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/2_columns_iiii.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="2_3_columns_V.tpl" name="2_3_columns_V">
+			<template-path>/layouttpl/custom/2_3_columns_V.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/2_3_columns_V.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/2_3_columns_V.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="2_2_columns_V.tpl" name="2_2_columns_V">
+			<template-path>/layouttpl/custom/2_2_columns_V.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/2_2_columns_V.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/2_2_columns_V.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="3_columns_top1row.tpl" name="3_columns_top1row">
+			<template-path>/layouttpl/custom/3_columns_top1row.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/3_columns_top1row.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/3_columns_top1row.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="3_columns_topdownrow.tpl" name="3_columns_topdownrow">
+			<template-path>/layouttpl/custom/3_columns_topdownrow.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/3_columns_topdownrow.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/3_columns_topdownrow.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

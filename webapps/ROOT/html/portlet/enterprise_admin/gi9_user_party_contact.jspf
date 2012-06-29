@@ -1,0 +1,53 @@
+<%try{ %>
+<bean:define id="labels1" name="ContactForm" property="genderKeys"/>
+<bean:define id="labels2" name="ContactForm" property="physicalTypeKeys"/>
+<bean:define id="labels3" name="ContactForm" property="addressTypeKeys"/>
+<%
+// correct the list of keys for translations to be shown properly
+String[] labelsList1 = (String[])labels1;
+for (int i=0; i<labelsList1.length; i++)
+{
+ 	labelsList1[i] = LanguageUtil.get(pageContext, labelsList1[i]);
+}
+String[] labelsList2 = (String[])labels2;
+for (int i=0; i<labelsList2.length; i++)
+{
+ 	labelsList2[i] = LanguageUtil.get(pageContext, labelsList2[i]);
+}
+String[] labelsList3 = (String[])labels3;
+for (int i=0; i<labelsList3.length; i++)
+{
+ 	labelsList3[i] = LanguageUtil.get(pageContext, labelsList3[i]);
+}
+%>
+
+
+<input type="hidden" name="partyType" value="<%= com.ext.portlet.parties.lucene.PartiesLuceneUtilities.PARTY_TYPE_PERSON %>">
+<input type="hidden" name="loadaction" value="edit">
+
+<div class="uni-form">
+<tiles:insert page="/html/portlet/ext/struts_includes/metaData_div.jsp" flush="true">
+	<tiles:put name="formName" value="ContactForm"/>
+	<tiles:put name="attributeName" value="ContactForm_metadata_fields"/>
+	<tiles:put name="className" value="gnomon.hibernate.model.parties.PaPerson"/>
+	<% gnomon.hibernate.model.parties.PaPerson person = gnomon.hibernate.PartiesService.getInstance(null).getPaPerson(user.getUserId());
+	if (person != null && person.getMainid() != null) {%>
+	<tiles:put name="primaryKey" value="<%= person.getMainid().toString() %>"/>
+	<% } %>
+</tiles:insert>
+
+<tiles:insert page="/html/portlet/ext/struts_includes/struts_div_fields.jsp" flush="true">
+	<tiles:put name="formName" value="ContactForm"/>
+	<tiles:put name="useTabs" value="true"/>
+</tiles:insert>
+</div>
+
+
+<br />
+
+<input type="button" value="<liferay-ui:message key="save" />" onClick="<portlet:namespace />saveUser('contact');" />
+
+<br /><br />
+<%}catch(Exception ex){
+	ex.printStackTrace();
+}%>

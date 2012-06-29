@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+    	<form-bean name="GnActionForm" type="com.ext.portlet.permissions.gnactions.GnActionForm"/>
+    	<form-bean name="GnPublishForm" type="com.ext.portlet.permissions.publish.GnPublishForm"/>
+	    <form-bean name="GnPortletSettingForm" type="com.ext.portlet.permissions.GnPortletSettingForm"/>
+    	<form-bean name="GnRoleLookupForm" type="com.ext.portlet.permissions.lookup.RoleLookupForm"/>
+    	<form-bean name="GnTopicForm" type="com.ext.portlet.topics.GnTopicForm"/>
+    	<form-bean name="GnTopicArticlesLookupForm" type="com.ext.portlet.topics.GnTopicArticlesLookupForm"/>
+
+    	<form-bean name="GnKmsAspectForm" type="com.ext.portlet.cms.kms.aspects.GnKmsAspectForm"/>
+    	<form-bean name="GnKmsClassForm" type="com.ext.portlet.cms.kms.classes.GnKmsClassForm"/>
+    	<form-bean name="GnKmsClassAspectForm" type="com.ext.portlet.cms.kms.classaspects.GnKmsClassAspectForm"/>
+    	<form-bean name="GnKmsPropertyForm" type="com.ext.portlet.cms.kms.properties.GnKmsPropertyForm"/>
+    	<form-bean name="GnKmsOptionForm" type="com.ext.portlet.cms.kms.options.GnKmsOptionForm"/>
+    	<form-bean name="GnKmsTagGroupForm" type="com.ext.portlet.cms.kms.taggroups.GnKmsTagGroupForm"/>
+    	<form-bean name="GnKmsTagEntryForm" type="com.ext.portlet.cms.kms.tagentries.GnKmsTagEntryForm"/>
+    	
+    	<form-bean name="SearchPortalMessagesForm" type="com.ext.portlet.messages.SearchPortalMessagesForm"/>
+    	
+    </form-beans>
+	<action-mappings>
+
+		<action path="/ext/*/edit_configuration" type="com.ext.portlet.cms.generic.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.portlet_configuration.edit_configuration" />
+		</action>
+
+		<!-- My favorites -->
+		<!-- <action path="/ext/favorites/view" forward="portlet.ext.favorites.view" />-->
+		
+		<action path="/ext/favorites/get" type="com.ext.portlet.favorites.action.GetFavoritesAction" />
+		
+		<action path="/ext/favorites/save" type="com.ext.portlet.favorites.action.SaveFavoritesAction" />
+		
+		<action path="/ext/favorites/delete" type="com.ext.portlet.favorites.action.DeleteFavoritesAction" />
+		
+		<action path="/ext/favorites/send" type="com.ext.portlet.favorites.action.SendMessageAction" />
+		
+		<action path="/ext/favorites/view" type="com.ext.portlet.favorites.action.ViewAction">
+			<forward name="portlet.ext.favorites.view" path="portlet.ext.favorites.view" />
+		</action>
+		
+		<action path="/ext/favorites/edit" type="com.ext.portlet.favorites.action.EditFavoritesAction">
+			<forward name="portlet.ext.favorites.view" path="portlet.ext.favorites.view" />
+		</action>
+		
+		<!-- Media Show -->
+        <action path="/ext/mediashow/view" forward="portlet.ext.mediashow.view" />
+
+		<!-- Quick Map -->
+		<action path="/ext/quickmap/view" forward="portlet.ext.quickmap.view" />
+
+		<!-- PERMISSIONS-->
+		<action path="/ext/permissions/view" type="com.ext.portlet.permissions.gnactions.ListGnActionsAction" scope="request">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.view"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/load" type="com.ext.portlet.permissions.gnactions.LoadGnActionAction"
+		    name="GnActionForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.permissions.add" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.edit" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.delete" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/add" type="com.ext.portlet.permissions.gnactions.AddGnActionAction"
+		    name="GnActionForm" validate="false" scope="request">
+			<forward name="/ext/permissions/view" path="/ext/permissions/view"  redirect="true"/>
+			<forward name="portlet.ext.cms.generic.validation" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/update" type="com.ext.portlet.permissions.gnactions.UpdateGnActionAction"
+		    name="GnActionForm" validate="false" scope="request">
+			<forward name="/ext/permissions/view" path="/ext/permissions/view"  redirect="true"/>
+			<forward name="portlet.ext.cms.generic.validation" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/delete" type="com.ext.portlet.permissions.gnactions.DeleteGnActionAction"
+		    name="GnActionForm" validate="false" scope="request">
+			<forward name="/ext/permissions/view" path="/ext/permissions/view"  redirect="true"/>
+			<forward name="com.ext.portlet.permissions.validation" path="portlet.ext.permissions.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/viewPortlets" type="com.ext.portlet.permissions.ListPortletsAction" scope="request">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.portlet.view"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/loadPortletActions" type="com.ext.portlet.permissions.LoadPortletActionsAction" scope="request">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.portlet.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/updatePortletActions" type="com.ext.portlet.permissions.UpdatePortletActionsAction" scope="request">
+			<forward name="/ext/permissions/viewPortlets" path="/ext/permissions/viewPortlets" redirect="true" />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/loadPortletSettings" type="com.ext.portlet.permissions.LoadPortletSettingsAction" scope="request"
+			name="GnPortletSettingForm" validate="false">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.portlet.settings.form"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/updatePortletSettings" type="com.ext.portlet.permissions.UpdatePortletSettingsAction" scope="request"
+			name="GnPortletSettingForm" validate="true" input="portlet.ext.permissions.portlet.settings.form">
+			<forward name="/ext/permissions/viewPortlets" path="/ext/permissions/viewPortlets" redirect="true" />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/roleLookupStrutsAction" type="com.ext.portlet.permissions.lookup.RoleLookupAction" scope="request" name="GnRoleLookupForm" validate="false">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.settings.role.lookup"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/listPortletTopics" type="com.ext.portlet.permissions.ListPortletTopicsAction" scope="request">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.portlet.topics.view"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/loadPortletTopics" type="com.ext.portlet.permissions.LoadPortletTopicsAction" scope="request">
+			<forward name="com.ext.portlet.permissions.success" path="portlet.ext.permissions.portlet.topics.treeview"  />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/addPortletTopic" type="com.ext.portlet.permissions.AddPortletTopicAction" scope="request">
+			<forward name="/ext/permissions/listPortletTopics" path="/ext/permissions/listPortletTopics" redirect="true" />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/permissions/deletePortletTopic" type="com.ext.portlet.permissions.DeletePortletTopicAction" scope="request">
+			<forward name="/ext/permissions/listPortletTopics" path="/ext/permissions/listPortletTopics" redirect="true" />
+			<forward name="com.ext.portlet.permissions.failure" path="/common/error.jsp"  />
+		</action>
+
+
+		<!-- TOPICS-->
+		<action path="/ext/topics/view" type="com.ext.portlet.topics.ListTopicsAction">
+			<forward name="success" path="portlet.ext.topics.view"  />
+			<forward name="failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/load" type="com.ext.portlet.topics.LoadTopicAction"
+		    name="GnTopicForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.topics.add" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.edit" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.delete" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/add" type="com.ext.portlet.topics.AddTopicAction"
+		    name="GnTopicForm" validate="false" scope="request">
+			<forward name="/ext/topics/view" path="/ext/topics/view"  redirect="true"/>
+			<forward name="com.ext.portlet.topics.validation" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/update" type="com.ext.portlet.topics.UpdateTopicAction"
+		    name="GnTopicForm" validate="false" scope="request">
+			<forward name="/ext/topics/view" path="/ext/topics/view"  redirect="true"/>
+			<forward name="com.ext.portlet.topics.validation" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/delete" type="com.ext.portlet.topics.DeleteTopicAction"
+		    name="GnTopicForm" validate="false" scope="request">
+			<forward name="/ext/topics/view" path="/ext/topics/view"  redirect="true"/>
+			<forward name="com.ext.portlet.topics.validation" path="portlet.ext.topics.form"  />
+			<forward name="com.ext.portlet.topics.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/lookupArticles" type="com.ext.portlet.topics.LookupArticlesAction"
+		    name="GnTopicArticlesLookupForm" validate="false" scope="request">
+			<forward name="success" path="portlet.ext.topics.lookup.articles"  />
+			<forward name="failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/topics/edit_topic" type="com.ext.portlet.topics.action.UpdateTopicsAction">
+			<forward name="portlet.ext.topics.edit_topic" path="portlet.ext.topics.edit_topic" />
+			<forward name="portlet.ext.topics.view_topic" path="portlet.ext.topics.view_topic" />
+			<forward name="portlet.ext.topics.view_topics" path="portlet.ext.topics.view_topics" />
+			<forward name="1" path="portlet.ext.topics.edit_topic" />
+			<forward name="2" path="portlet.ext.topics.error" />
+			<forward name="3" path="/common/referer_jsp.jsp" />
+			<forward name="4" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/topics/edit_topic_trans" type="com.ext.portlet.topics.action.UpdateTopicsAction">
+			<forward name="portlet.ext.topics.edit_topic" path="portlet.ext.topics.edit_topic_trans" />
+			<forward name="portlet.ext.topics.view_topic" path="portlet.ext.topics.view_topic" />
+			<forward name="portlet.ext.topics.view_topics" path="portlet.ext.topics.view_topics" />
+			<forward name="1" path="portlet.ext.topics.edit_topic_trans" />
+			<forward name="2" path="portlet.ext.topics.error" />
+			<forward name="3" path="/common/referer_jsp.jsp" />
+			<forward name="4" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/topics/view_topic" type="com.ext.portlet.topics.action.UpdateTopicsAction">
+			<forward name="portlet.ext.topics.edit_topic" path="portlet.ext.topics.edit_topic" />
+			<forward name="portlet.ext.topics.view_topic" path="portlet.ext.topics.view_topic" />
+			<forward name="portlet.ext.topics.view_topics" path="portlet.ext.topics.view_topics" />
+			<forward name="1" path="portlet.ext.topics.view_topic" />
+			<forward name="2" path="portlet.ext.topics.error" />
+			<forward name="3" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/topics/view_topics" type="com.ext.portlet.topics.action.ViewTopicAction">
+			<forward name="1" path="portlet.ext.topics.view_topics" />
+		</action>
+
+		<action path="/ext/topics/topics_tree" type="com.ext.portlet.topics.action.ViewTopicAction">
+			<forward name="1" path="portlet.ext.topics.topics_tree" />
+		</action>
+
+		<action path="/ext/topics/itemstopics" type="com.ext.portlet.topics.action.EditItemsTopicAction">
+			<forward name="1" path="portlet.ext.topics.edit_itemtopics" />
+			<forward name="2" path="portlet.ext.topics.error" />
+			<forward name="3" path="portlet.ext.topics.edit_itemtopics" />
+			<forward name="4" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/topics/portlettopics" type="com.ext.portlet.topics.action.EditPortletsTopicAction">
+			<forward name="1" path="portlet.ext.topics.portlettopics" />
+			<forward name="2" path="portlet.ext.topics.error" />
+			<forward name="3" path="/common/referer_jsp.jsp" />
+			<forward name="4" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/topics/crossPublish" type="com.ext.portlet.topics.CrossPublishAction" scope="request">
+			<forward name="common.success" path="portlet.ext.topics.cross.publish" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+
+	<!-- GN_KMS_ASPECTS -->
+
+		<action path="/ext/kms/viewAspect" type="com.ext.portlet.cms.kms.aspects.ListGnKmsAspectAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.aspect.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadAspect" type="com.ext.portlet.cms.kms.aspects.LoadGnKmsAspectAction"
+		    name="GnKmsAspectForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addAspect" type="com.ext.portlet.cms.kms.aspects.AddGnKmsAspectAction"
+		    name="GnKmsAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewAspect" path="/ext/kms/viewAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateAspect" type="com.ext.portlet.cms.kms.aspects.UpdateGnKmsAspectAction"
+		    name="GnKmsAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewAspect" path="/ext/kms/viewAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteAspect" type="com.ext.portlet.cms.kms.aspects.DeleteGnKmsAspectAction"
+		    name="GnKmsAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewAspect" path="/ext/kms/viewAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.aspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+   <!-- GN_KMS_CLASS -->
+
+		<action path="/ext/kms/viewClass" type="com.ext.portlet.cms.kms.classes.ListGnKmsClassAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.class.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadClass" type="com.ext.portlet.cms.kms.classes.LoadGnKmsClassAction"
+		    name="GnKmsClassForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addClass" type="com.ext.portlet.cms.kms.classes.AddGnKmsClassAction"
+		    name="GnKmsClassForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClass" path="/ext/kms/viewClass"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateClass" type="com.ext.portlet.cms.kms.classes.UpdateGnKmsClassAction"
+		    name="GnKmsClassForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClass" path="/ext/kms/viewClass"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteClass" type="com.ext.portlet.cms.kms.classes.DeleteGnKmsClassAction"
+		    name="GnKmsClassForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClass" path="/ext/kms/viewClass"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.class.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+	<!-- GN_KMS_CLASSASPECTS -->
+
+		<action path="/ext/kms/viewClassAspect" type="com.ext.portlet.cms.kms.classaspects.ListGnKmsClassAspectAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.classaspect.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadClassAspect" type="com.ext.portlet.cms.kms.classaspects.LoadGnKmsClassAspectAction"
+		    name="GnKmsClassAspectForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addClassAspect" type="com.ext.portlet.cms.kms.classaspects.AddGnKmsClassAspectAction"
+		    name="GnKmsClassAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClassAspect" path="/ext/kms/viewClassAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateClassAspect" type="com.ext.portlet.cms.kms.classaspects.UpdateGnKmsClassAspectAction"
+		    name="GnKmsClassAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClassAspect" path="/ext/kms/viewClassAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteClassAspect" type="com.ext.portlet.cms.kms.classaspects.DeleteGnKmsClassAspectAction"
+		    name="GnKmsClassAspectForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewClassAspect" path="/ext/kms/viewClassAspect"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.classaspect.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+
+	<!-- GN_KMS_PROPERTIES -->
+
+		<action path="/ext/kms/listProperty" type="com.ext.portlet.cms.kms.properties.ListGnKmsPropertyAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.property.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadProperty" type="com.ext.portlet.cms.kms.properties.LoadGnKmsPropertyAction"
+		    name="GnKmsPropertyForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addProperty" type="com.ext.portlet.cms.kms.properties.AddGnKmsPropertyAction"
+		    name="GnKmsPropertyForm" validate="false" scope="request">
+			<forward name="/ext/kms/listProperty" path="/ext/kms/listProperty"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateProperty" type="com.ext.portlet.cms.kms.properties.UpdateGnKmsPropertyAction"
+		    name="GnKmsPropertyForm" validate="false" scope="request">
+			<forward name="/ext/kms/listProperty" path="/ext/kms/listProperty"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteProperty" type="com.ext.portlet.cms.kms.properties.DeleteGnKmsPropertyAction"
+		    name="GnKmsPropertyForm" validate="false" scope="request">
+			<forward name="/ext/kms/listProperty" path="/ext/kms/listProperty"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.property.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+	<!-- GN_KMS_OPTIONS -->
+
+		<action path="/ext/kms/listOption" type="com.ext.portlet.cms.kms.options.ListGnKmsOptionAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.option.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadOption" type="com.ext.portlet.cms.kms.options.LoadGnKmsOptionAction"
+		    name="GnKmsOptionForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addOption" type="com.ext.portlet.cms.kms.options.AddGnKmsOptionAction"
+		    name="GnKmsOptionForm" validate="false" scope="request">
+			<forward name="/ext/kms/listOption" path="/ext/kms/listOption"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateOption" type="com.ext.portlet.cms.kms.options.UpdateGnKmsOptionAction"
+		    name="GnKmsOptionForm" validate="false" scope="request">
+			<forward name="/ext/kms/listOption" path="/ext/kms/listOption"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteOption" type="com.ext.portlet.cms.kms.options.DeleteGnKmsOptionAction"
+		    name="GnKmsOptionForm" validate="false" scope="request">
+			<forward name="/ext/kms/listOption" path="/ext/kms/listOption"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.option.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+
+		<!-- GN_KMS_TAGGROUPS -->
+
+		<action path="/ext/kms/viewTagGroup" type="com.ext.portlet.cms.kms.taggroups.ListGnKmsTagGroupAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.taggroup.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadTagGroup" type="com.ext.portlet.cms.kms.taggroups.LoadGnKmsTagGroupAction"
+		    name="GnKmsTagGroupForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addTagGroup" type="com.ext.portlet.cms.kms.taggroups.AddGnKmsTagGroupAction"
+		    name="GnKmsTagGroupForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagGroup" path="/ext/kms/viewTagGroup"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateTagGroup" type="com.ext.portlet.cms.kms.taggroups.UpdateGnKmsTagGroupAction"
+		    name="GnKmsTagGroupForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagGroup" path="/ext/kms/viewTagGroup"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteTagGroup" type="com.ext.portlet.cms.kms.taggroups.DeleteGnKmsTagGroupAction"
+		    name="GnKmsTagGroupForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagGroup" path="/ext/kms/viewTagGroup"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.taggroup.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+
+		<!-- GN_KMS_TAGENTRIES -->
+
+		<action path="/ext/kms/viewTagEntry" type="com.ext.portlet.cms.kms.tagentries.ListGnKmsTagEntryAction" scope="request">
+			<forward name="com.ext.portlet.kms.success" path="portlet.ext.kms.tagentry.view"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/loadTagEntry" type="com.ext.portlet.cms.kms.tagentries.LoadGnKmsTagEntryAction"
+		    name="GnKmsTagEntryForm" validate="false" scope="request">
+			<forward name="com.ext.portlet.kms.add" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.edit" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.delete" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/addTagEntry" type="com.ext.portlet.cms.kms.tagentries.AddGnKmsTagEntryAction"
+		    name="GnKmsTagEntryForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagEntry" path="/ext/kms/viewTagEntry"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/updateTagEntry" type="com.ext.portlet.cms.kms.tagentries.UpdateGnKmsTagEntryAction"
+		    name="GnKmsTagEntryForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagEntry" path="/ext/kms/viewTagEntry"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/kms/deleteTagEntry" type="com.ext.portlet.cms.kms.tagentries.DeleteGnKmsTagEntryAction"
+		    name="GnKmsTagEntryForm" validate="false" scope="request">
+			<forward name="/ext/kms/viewTagEntry" path="/ext/kms/viewTagEntry"  redirect="true"/>
+			<forward name="com.ext.portlet.kms.validation" path="portlet.ext.kms.tagentry.form"  />
+			<forward name="com.ext.portlet.kms.failure" path="/common/error.jsp"  />
+		</action>
+
+		<!--  KMS TAG Search -->
+		<action path="/ext/kms/tagsearch/view" forward="portlet.ext.cms.kms.tagsearch.view" />
+
+
+		<!--  CMS Search -->
+		<action path="/ext/cms/search/search" forward="portlet.ext.cms.search.search" />
+
+		<action path="/ext/cms/search/view" forward="portlet.ext.cms.search.view" />
+
+		<!--  CMS Help -->
+		<action path="/ext/cms/help/view"  type="com.ext.portlet.cms.help.ViewHelpAction" scope="request">
+			<forward name="common.success" path="portlet.ext.cms.help.view"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/cms/help/save"  type="com.ext.portlet.cms.help.SaveHelpAction" scope="request">
+			<forward name="common.success" path="portlet.ext.cms.help.view"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/dyngrid/view" type="com.ext.portlet.dyngrid.ViewAction" scope="request">
+			<forward name="portlet.ext.dyngrid.success" path="portlet.ext.dyngrid.view"  />
+			<forward name="portlet.ext.dyngrid.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/jpivot/view" forward="portlet.ext.jpivot.view" />
+		<action path="/ext/jpivot/busy" forward="portlet.ext.jpivot.busy" />
+		<action path="/ext/jpivot/mondrian" forward="portlet.ext.jpivot.mondrian" />
+
+
+
+		<action path="/my_account/addpersonal" type="com.ext.portlet.topics.AddPersonalTopicAction"  scope="request">
+			
+		</action>
+		
+		
+		<!--  GN PORTAL MESSAGES -->
+		
+		<action path="/ext/portalMessages/view"  
+		         name="SearchPortalMessagesForm" validate="false"
+		         type="com.ext.portlet.messages.ListPortalMessagesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.messages.view"  />
+			<forward name="common.failure" path="/common/error.jsp"/>
+		</action>	
+		
+		
+		<action path="/ext/portalMessages/load" type="com.ext.portlet.messages.LoadPortalMessageAction" scope="request">
+			<forward name="common.success" path="portlet.ext.messages.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>	
+
+		<action path="/ext/portalMessages/markAsRead" type="com.ext.portlet.messages.UpdatePortalMessageAction" scope="request">
+			<forward name="/ext/portalMessages/view" path="/ext/portalMessages/view" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+	</action-mappings>
+
+
+	<!-- Message Resources -->
+
+	<message-resources parameter="content.Language,content.Language-ext,content.Language-ext-gn,content.Language-ext-base,content.Language-ext-parties,content.Language-ext-egov,content.Language-ext-crm,content.Language-ext-dms,content.Language-ext-srv,content.Language-ext-ecommerce,content.Language-ext-novacert,content.Language-ext-papaki,content.Language-ext-FOF,content.Language-ext-kleemann,content.Language-ext-epsos,content.Language-ext-ESA" factory="com.liferay.portal.struts.MultiMessageResourcesFactory" />
+
+
+	<!-- Tiles Plugin -->
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml,/WEB-INF/tiles-defs-ext.xml,/WEB-INF/tiles-defs-gn.xml,/WEB-INF/tiles-defs-tnav.xml,/WEB-INF/tiles-defs-base.xml,/WEB-INF/tiles-defs-parties.xml,/WEB-INF/tiles-defs-egov.xml,/WEB-INF/tiles-defs-crm.xml,/WEB-INF/tiles-defs-create_account.xml,/WEB-INF/tiles-defs-dms.xml,/WEB-INF/tiles-defs-jbpm.xml,/WEB-INF/tiles-defs-srv.xml,/WEB-INF/tiles-defs-ecommerce.xml,/WEB-INF/tiles-defs-novacert.xml,/WEB-INF/tiles-defs-FOF.xml,/WEB-INF/tiles-defs-kleemann.xml,/WEB-INF/tiles-defs-epsos.xml,/WEB-INF/tiles-defs-ESA.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		  <set-property property="pathnames" value="/WEB-INF/validator-rules.xml, /WEB-INF/validation-gn.xml, /WEB-INF/validation-base.xml, /WEB-INF/validation-parties.xml, /WEB-INF/validation-egov.xml, /WEB-INF/validation-crm.xml, /WEB-INF/validation-create_account.xml, /WEB-INF/validation-srv.xml,/WEB-INF/validation-ecommerce.xml,/WEB-INF/validation-novacert.xml,/WEB-INF/validation-FOF.xml,/WEB-INF/validation-kleemann.xml,/WEB-INF/validation-epsos.xml" />
+	</plug-in>
+
+</struts-config>

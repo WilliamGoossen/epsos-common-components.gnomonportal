@@ -1,0 +1,126 @@
+<c:if test="<%=PortletPermissionUtil.contains(permissionChecker, plid.longValue(), PortletKeys.JOURNAL, ActionKeys.ADD_ARTICLE) %>">
+
+<%
+	String journalPortletNamespace = PortalUtil.getPortletNamespace(PortletKeys.JOURNAL);
+%>
+
+<script type="text/javascript">
+
+	function <portlet:namespace />addArticleWithTopics() {
+
+		var topicEntriesField = document.getElementById("<%=journalPortletNamespace%>topicEntries");
+		var primaryTopicField = document.getElementById("<portlet:namespace />primaryTopic");
+		var secondaryTopicField = document.getElementById("<portlet:namespace />secondaryTopic");
+		
+		if (primaryTopicField!=null && primaryTopicField.value!=null && primaryTopicField.value!="" && primaryTopicField.value!="0") {
+			topicEntriesField.value = primaryTopicField.value;
+			if (secondaryTopicField!=null && secondaryTopicField.value!=null && secondaryTopicField.value!="" && secondaryTopicField.value!="0")
+				topicEntriesField.value = topicEntriesField.value + "," + secondaryTopicField.value;
+		} else {
+			if (secondaryTopicField!=null && secondaryTopicField.value!=null && secondaryTopicField.value!="" && secondaryTopicField.value!="0")
+				topicEntriesField.value = secondaryTopicField.value;			
+		}
+		submitForm(document.<portlet:namespace />fm);
+	}
+	
+</script>
+
+<div class="select-article-topic" style="padding-top:20px;">
+	
+	<liferay-portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="addURL" portletName="<%= PortletKeys.JOURNAL %>">
+		<portlet:param name="struts_action" value="/journal/edit_article" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</liferay-portlet:renderURL>
+	
+	
+	<form action="<%=addURL%>" method="post" name="<portlet:namespace />fm">
+	<input type="hidden" id="<%=journalPortletNamespace%>topicEntries" name="<%=journalPortletNamespace%>topicEntries" value="">
+	
+	
+	<c:choose>
+		<c:when test="<%=selTopicView!=null%>">
+			<select id="<portlet:namespace />primaryTopic">
+				<option value=""></option>
+				<option value="<%=selTopicView.getMainid() %>" selected><%=ViewResultUtil.toString(selTopicView.getField2())%></option>
+			</select>
+		</c:when>
+		<c:otherwise>
+		<%--
+			<select id="<portlet:namespace />primaryTopic">
+				<option value=""></option>
+				<%
+					StringMaker sm = new StringMaker();
+				
+					_buildTopicNavigation(selTopicView, selTopicView, selTopicId, 0, 
+							sm, srv, companyId, lang);
+				
+					out.print(sm.toString());
+				%>
+			</select>
+		--%>
+		<input type="hidden" id="<portlet:namespace />primaryTopic" value="">
+		</c:otherwise>
+	</c:choose>
+	
+	<c:choose>
+		<c:when test="<%=selTopicView!=null%>">
+			<select id="<portlet:namespace />secondaryTopic">
+				<option value=""></option>
+				<%
+					StringMaker sm = new StringMaker();
+				
+					_buildTopicNavigation(instanceTopicView, instanceTopicView, secTopicId, 0, 
+							sm, srv, companyId, lang);
+				
+					out.print(sm.toString());
+				%>
+			</select>
+		</c:when>
+		<c:otherwise>
+			<input type="hidden" id="<portlet:namespace />secondaryTopic" value="">
+		</c:otherwise>
+	</c:choose>
+	
+	<c:if test="<%=selTopicView!=null%>">
+
+	</c:if>
+	
+	<%--
+	<input type="button" value="<liferay-ui:message key="add-article" />" onClick="self.location = '<%=addURL %>';" />
+	--%>
+	
+	<input class="portlet-form-button" type="button" value="<bean:message key="add-article" />" onClick="<portlet:namespace />addArticleWithTopics();">
+	</form>
+</div>
+
+
+<%!
+private void _buildTopicNavigation(ViewResult instanceRootTopicView, ViewResult rootTopicView, String selTopicId, int depth, 
+		StringMaker sm, TopicsService srv, Long companyId, String lang) throws Exception {
+	
+	List topicViewChildren = topicViewChildren = srv.getTopics(companyId, instanceRootTopicView.getMainid()+"", rootTopicView.getMainid()+"", lang);
+	
+	for (int i=0; topicViewChildren!=null && i<topicViewChildren.size(); i++) {
+		
+		ViewResult iTopicView = (ViewResult)topicViewChildren.get(i);
+		String iTopicId = ViewResultUtil.toString(iTopicView.getMainid());
+		String title = ViewResultUtil.toString(iTopicView.getField2());
+		
+		for (int j = 0; j < depth; j++) {
+			title = "-&nbsp;&nbsp;" + title;
+		}
+		
+		sm.append("<option");
+		if (iTopicId.equals(selTopicId))
+			sm.append(" selected");
+		sm.append(" value=\"").append(iTopicId).append("\"");
+		sm.append(">").append(title).append("</option>");
+		
+		_buildTopicNavigation(instanceRootTopicView, iTopicView, selTopicId, depth+1, 
+				sm, srv, companyId, lang);
+		
+	}
+}
+%>
+
+</c:if>

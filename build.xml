@@ -1,0 +1,88 @@
+<project name="example" default="build-all">
+  <!-- declare ant4eclipse -->
+  <taskdef resource="net/sf/ant4eclipse/antlib.xml" />
+  <taskdef resource="net/sf/antcontrib/antlib.xml" />
+  <property environment="env"/>
+ 
+  <!-- What projects to build -->
+	
+  <!-- The workspace directory -->
+  <property name="workspace.dir" value=".." />
+  <property file="build.properties"/>
+
+
+    
+  <target name="build-all" depends="clean-all">
+    <echo>Building project ${project.name}</echo>
+    <!-- Get the sourcepath of your project -->
+    <getSourcepath property="mySourcepath" allowMultipleFolders="true" pathSeparator="#" relative="true" workspace=".." projectName="${project.name}" />
+     <foreach list="${mySourcepath}" delimiter="#"
+      target="compile" param="source" />
+      </target>
+      
+  <target name="compile">
+               
+    <!-- Get the outputpath of your project -->
+  
+    <getOutputpath  workspace=".." projectName="${project.name}" 
+       property="class" relative="true"
+       resolve="forSourceFolder" sourceFolder="${source}"/>
+
+    <!-- Get classpath of your project -->
+    <getEclipseClasspath pathId="myClasspath" workspace=".." projectName="${project.name}"/>
+    
+  
+    <mkdir dir="${class}"/>
+  
+    <javac classpathref="myClasspath" srcdir="${source}" destdir="${class}" 
+           executable="${env.JAVA_HOME}/bin/javac"
+           compiler="javac1.6"
+           source="1.6"
+           target="1.6"
+           fork="yes"
+           encoding="iso8859-7"
+           memoryMaximumSize="512m"
+           memoryInitialSize="256m"
+           includeJavaRuntime="yes"
+           debug="on"
+           debuglevel="lines"
+    
+    />
+   
+   <copy todir="${class}" preservelastmodified="false">
+    <fileset dir="${source}">
+      <exclude name="**/*.java" />
+    </fileset>
+  </copy>
+    
+</target>    
+    
+
+  <target name="clean-all">
+    <echo>Cleaning project ${project.name}</echo>
+    <!-- Get the sourcepath of your project -->
+    <getSourcepath property="mySourcepath" allowMultipleFolders="true" pathSeparator="#" relative="true"  workspace=".." projectName="${project.name}" />
+     <foreach list="${mySourcepath}" delimiter="#"
+      target="clean" param="source" />
+      </target>
+      
+  <target name="clean">
+               
+    <!-- Get the outputpath of your project -->
+  
+    <getOutputpath workspace=".." projectName="${project.name}" 
+       property="class" relative="true"
+       resolve="forSourceFolder" sourceFolder="${source}"/>
+  
+  <delete failonerror="false">
+    <fileset dir="${class}">
+    </fileset>
+  </delete>
+    
+</target>    
+
+    
+  
+</project>
+         
+         

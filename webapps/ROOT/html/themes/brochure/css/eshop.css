@@ -1,0 +1,305 @@
+
+/* shopping cart 1*/
+
+#cart-1{ border:1px solid #c0bfbf; padding:5px; list-style:none; list-style-image:none; margin:5px;}
+
+#cart-1 .cart-checkout  { 
+	background: transparent url(../images/ecommerce/checkout-button1.gif) no-repeat right top; 
+	padding-top:5px; 
+	padding-right:35px;
+	margin-top:20px;
+	height:26px;
+	width:150px;
+	border:0px solid #CCC;
+	text-align:right;
+}
+#cart-1 .cart-checkout a { font-size:1.1em; font-weight:bold; }
+
+#cart-1 #cart-items { }
+#cart-1 .price { color:#2F8E00; padding:3px; font-weight:bold;  }
+#cart-1 .quantity {
+	padding:3px;
+	font-weight:bold;
+}
+
+#cart-1 .cart-item-image {}
+#cart-1 .cart-item-details{ border-bottom:1px solid #CCC; padding-bottom:7px; padding-top:7px}
+
+/* shopping cart 1*/
+
+
+
+/* shopping cart 2*/
+.cart-2 .update-cart-button input {	
+	background: transparent url(../images/ecommerce/update-cart-button.gif) no-repeat left center; 
+	border-left:1px solid #b0b0b0;
+	border-right:1px solid #b0b0b0;
+	height:26px;
+	width:250px;
+	padding-left:25px;
+	cursor:pointer;
+}
+.cart-2 .cart-total { margin-top:8px; margin-bottom:8px; color:#F00; border:0px solid #666; font-size:1.0em; font-weight:bold;}
+
+
+
+.cart-2 .continueshopping-button { 
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	background:transparent url(../images/ecommerce/continueshopping-button.gif) no-repeat left top ;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-weight:bold;
+	width:140px;
+	height:22px;
+}
+
+.cart-2 .checkout-is-signed-in { }
+.cart-2 .checkout-is-signed-in .checkout-button {
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	margin-top:5px;
+	margin-bottom:5px;
+	background:transparent url(../images/ecommerce/checkoutnow.gif) no-repeat left top ;
+	width:100px;
+	height:21px;
+}
+
+.cart-2 .checkout-log-in { border:0px solid #F00; padding:5px; margin-top:5px; margin-bottom:5px;}
+
+.cart-2 .checkout-create-account{
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	margin-top:5px;
+	margin-bottom:5px;
+	background:transparent url(../images/ecommerce/subscribe-to-shopping.gif) no-repeat left top ;
+	width:140px;
+	height:22px;
+
+}
+
+
+.cart-2 .checkout-continue-guest {
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	margin-top:5px;
+	margin-bottom:5px;
+	background:transparent url(../images/ecommerce/checkout-continue-guest.gif) no-repeat left top ;
+	width:320px;
+	height:22px;
+}
+
+.button-next  { 
+	background: transparent url(../images/ecommerce/button-next.gif) no-repeat 0 0; 
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	margin-top:5px;
+	margin-bottom:5px;
+	width:140px;
+	height:22px;
+}
+.button-previous  { 
+	background: transparent url(../images/ecommerce/button-previous.gif) no-repeat 0 0; 
+	padding-top:5px;
+	padding-left:25px;
+	border-left:1px solid #b0b0b0; 
+	border-right:1px solid #b0b0b0; 
+	margin-top:5px;
+	margin-bottom:5px;
+	width:140px;
+	height:22px;
+}
+
+
+
+
+/* css styles gia tin epilogi emfanisis ton proionton se lista h se parathesi */
+
+#list-grid-view{  border:0px solid #666; padding:5px; text-align:right; }
+.viewinlist {background: transparent url(../images/ecommerce/list_icon.gif) no-repeat left center; padding-left:18px;}
+.viewinlist_active {background: transparent url(../images/ecommerce/list_icon_off.gif) no-repeat left center; padding-left:18px;}
+
+.viewingrid { background: transparent url(../images/ecommerce/grid_icon.gif) no-repeat left center; padding-left:18px;}
+.viewingrid_active {background: transparent url(../images/ecommerce/grid_icon_off.gif) no-repeat left center; padding-left:18px;}
+
+/* css styles gia tin epilogi emfanisis ton proionton se lista h se parathesi */
+
+
+
+
+
+
+
+
+/* products */
+
+/** PRODUCT PAGE VIEW **/
+.productpage { 
+	border:0px solid #F00; 
+	padding:2px; 
+	background-color:#F0F0F0; 
+	margin-top:10px;
+	margin-right:2px;
+}
+
+.productimage {
+		border:1px solid #E7E7E7; 
+		padding:6px; 
+		text-align:right; 
+		float:left; 
+		margin-bottom:10px; 
+		background:white;
+}
+
+
+.productInfo{  border:0px solid; padding:5px; float:right; margin:5px; width:365px; background-color:#ecebeb; }
+
+.productInfo .producttitle { font-weight:bold; text-align:left; color:#065d7a; font-size:1.1em; padding:3px; margin:3px; }
+
+.productInfo .productbuttons  {padding:5px; text-align:right; clear:both}
+.productInfo .productcombination  {padding:5px; text-align:right; border:0px solid #CCC; }
+
+.productInfo .product-field { padding:3px; margin:3px; background-color:#F9F9F9;}
+
+.productcomments {
+	font-size:0.9em; 
+	font-weight:normal; 
+	height:auto; 
+	border:0; 
+	border-bottom:1px solid #fbbc61; 	
+	background: #e9e9e9 url(../images/ecommerce/product_comment_bg.gif) no-repeat 0 0; 
+	padding:10px; 
+	margin-bottom:8px; 
+	margin-top:8px;
+}
+
+	div.PrdMSTRFLchartitle { float: left;  padding: 2px 10px 2px 5px; width: 200px; color:#036; }
+	div.PrdMSTRFLchars { border: none; float: left;  padding: 2px 0px 2px 5px;  }
+	div.space-line {clear: both; margin: 0; padding: 0; font-size:0; height:0px; }
+	div.row-odd  {border-top:1px solid #bebebe;width: 100%; float:none;  overflow:auto; padding:2px 0px 2px 0px;}
+
+.clearproduct {clear:both;}
+
+.productinstances {border:1px solid; padding:2px; text-align:right; margin:5px; }
+.productline  { color: #12558E;  padding:2px; border:1px solid #CCC}
+
+.productcfeatures  {padding:5px; text-align:left;font-size:12px;clear:left}
+
+.imagegallery {clear:left;margin-top:5px; border-top:1px dotted #e7e7e7; text-align:left}
+
+
+
+
+/** FOR LISTING Both For PRODUCT VIEW ALSO **/
+.producttitle a { font-weight:bold; text-align:left; color:#065d7a; padding-left:3px;}
+
+.productprice {  color:#2F8E00; font-weight:bold; text-align:left; padding-top:7px; padding-bottom:7px; font-size:1.1em; margin:2px;}
+
+.productdescription  {padding-top:5px; padding-bottom:5px; text-align:left; margin-top:10px; margin-bottom:10px;}
+
+.productavailability, .productInfo .productavailability { padding:5px; margin:15px; border:1px solid #cccccc; color:#383834; }
+
+.producttools  {color:#999999;padding:2px;margin:2px; text-align:left;}
+.producttools .addtowishlist {}
+.producttools .picktocompare {}
+.producttools .sendtoafriend {}
+
+/** FOR LISTING Both For PRODUCT VIEW ALSO **/
+
+
+
+
+/** Provoli Grid - Parathesi **/
+.gridtable {
+	/*background: #fff;*/
+	border:0;
+	padding: 0;
+	margin:0;
+}
+.gridtable tbody{
+	background: #fff;
+	border:0;
+	padding: 0;
+	margin:0;
+}
+.gridrow {
+/*	background: #fff;*/
+	border:0;
+	padding: 0;
+	margin:0;
+}
+.gridrow td,  {
+/*	background: fff;*/
+	border:0;
+	padding: 0;
+	margin:0;
+}
+
+
+.listing-type-grid-odd, .listing-type-grid-even { border-bottom:0px solid #d9dde3; width:100%; text-align:center;}
+.listing-type-grid-odd li, .listing-type-grid-even li { list-style:none; list-style-type:none; list-style-image:none;  }
+
+.listing-type-grid-odd .grid-row, .listing-type-grid-even .grid-row { border-bottom:0px solid #d9dde3; height:100%; width:100%;background:#fff}
+
+.listing-type-grid-odd li, .listing-type-grid-even li { text-align:center;}
+
+.listing-type-grid-odd li.griditem, .listing-type-grid-even li.griditem { float:left; width:130px; margin:10px; padding:3px; border:1px solid #CCC; 	background: #e9e9e9 url(../images/portlet/portlet_bg.jpg) repeat-x 0 0; height:auto; padding-top:5px;}
+
+/*.grid-row { border-bottom:1px solid #d9dde3; height:100%;width:100%;background: #D3DEEB}*/
+/*li.griditem { float:left; width:130px; padding:5px 5px; line-height:1.6em; overflow:hidden;background: #D3DEEB }*/
+
+.griditem .productdescription { }
+
+
+
+
+
+
+
+
+
+/* new product icon */
+.new_product { 
+	display:block;
+	position:relative;
+	background: transparent url(../images/ecommerce/icon-new-product.png) no-repeat 0 0;
+	z-index:1;
+	zoom:1;
+	height:48px;
+	width:48px;
+
+}
+.ie7 .new_product { 	
+	width:48px;
+	display:inherit;
+	position:absolute;
+	left:10px;
+}
+.portlet-section-alternate .new_product {
+	display:inherit;
+	position:absolute;
+}
+
+/*.new_product .new_product_text { visibility:hidden;} */
+
+
+
+/* carousel view */
+
+.jcarousel-skin-tango .productimage { float:none; text-align:center; display:block; border:0; margin:0; padding:0; }
+.jcarousel-skin-tango .productimage img { width:110px;}
+.jcarousel-skin-tango .producttitle {  text-align:center; display:block; margin:0; padding:0;   }
+.jcarousel-skin-tango .productprice { float:none;  text-align:center; display:block; margin:0 auto; padding:0; }
+
+
+

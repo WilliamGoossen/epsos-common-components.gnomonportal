@@ -1,0 +1,13 @@
+<%
+int total = PartyPermissionService.searchPartyOrganizationsCount(company.getCompanyId(), 
+		searchTerms.getKeywords(), partyParams, lang);
+
+searchContainer.setTotal(total);
+
+List results = PartyPermissionService.searchPartyOrganizations(company.getCompanyId(), 
+		searchTerms.getKeywords(), partyParams, lang, 
+		searchContainer.getStart(), searchContainer.getEnd());
+
+searchContainer.setResults(results);
+
+%>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet1" path="/common/themes/portlet1.jsp">
+		<put name="portlet_sub_nav" value="" />
+		<put name="portlet_content" value="" />
+		<put name="portlet_decorate" value="true" />
+		<put name="portlet_padding" value="true" />
+	</definition>
+	
+	<!-- Navigation -->
+
+	<definition name="portlet.navigation" extends="portlet" />
+
+	<definition name="portlet.navigation.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/navigation/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.navigation.view" extends="portlet.navigation">
+		<put name="portlet_content" value="/portlet/navigation/view.jsp" />
+	</definition>
+	
+		
+	
+	
+	<!-- Reports -->
+
+	<definition name="portlet.ext.reports.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/reports/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.reports.view_reports" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/reports/view_reports.jsp" />
+	</definition>
+
+
+	<!-- GILAYOUT -->
+
+	<!-- <definition name="portlet.ext.gilayout" path="/themes/portlet/gnomon_theme/gnomon.jsp" /> -->
+
+	<definition name="portlet.ext.gilayout" extends="portlet" />
+
+	<definition name="portlet.ext.gilayout.view_layouts" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/view_layouts.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.course_tree" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/course_tree.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.edit_menu" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/edit_menu.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.edit_menu_item" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/edit_menu_item.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.edit_menu_item_trans" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/edit_menu_item_trans.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.view_layout_menus" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/view_layout_menus.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.view_menu_items" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/view_menu_items.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.gilayout.view_menus" extends="portlet.ext.gilayout">
+		<put name="portlet_content" value="/portlet/ext/gilayout/view_menus.jsp" />
+	</definition>
+
+ 	<!-- <definition name="portlet.ext.layout_menu" path="/themes/portlet/gnomon_theme/empty.jsp" /> -->
+ 	<definition name="portlet.ext.layout_menu" extends="portlet"/>
+
+	<definition name="portlet.ext.menu_layout.view" extends="portlet.ext.layout_menu">
+		<put name="portlet_content" value="/portlet/ext/menu_layout/view.jsp" />
+	</definition>
+
+</tiles-definitions>

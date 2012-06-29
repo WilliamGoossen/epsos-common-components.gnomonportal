@@ -1,0 +1,125 @@
+<%
+String title = asset.getTitle();
+String summary = StringPool.BLANK;
+String viewURL = null;
+String viewURLMessage = StringPool.BLANK;
+String editURL = StringPool.BLANK;
+
+if (className.equals(BookmarksEntry.class.getName())) {
+	BookmarksEntry entry = BookmarksEntryLocalServiceUtil.getEntry(classPK);
+
+	if (Validator.isNull(title)) {
+		title = entry.getName();
+	}
+
+	summary = entry.getComments();
+	viewURL = entry.getUrl();
+	viewURLMessage = "go";
+}
+else if (className.equals(DLFileEntry.class.getName())) {
+	DLFileEntry fileEntry = DLFileEntryLocalServiceUtil.getFileEntry(classPK);
+
+	if (Validator.isNull(title)) {
+		StringMaker sm = new StringMaker();
+
+		sm.append("<img align=\"left\" border=\"0\" src=\"");
+        sm.append(themeDisplay.getPathThemeImages());
+        sm.append("/document_library/");
+        sm.append(DLUtil.getFileExtension(fileEntry.getName()));
+        sm.append(".png\" />");
+		sm.append(fileEntry.getTitle());
+
+		title = sm.toString();
+	}
+
+	summary = fileEntry.getDescription();
+	viewURL = themeDisplay.getPathMain() + "/document_library/get_file?folderId=" + fileEntry.getFolderId() + "&name=" + HttpUtil.encodeURL(fileEntry.getName());
+	viewURLMessage = "download";
+}
+else if (className.equals(IGImage.class.getName())) {
+	IGImage image = IGImageLocalServiceUtil.getImage(classPK);
+
+	summary = image.getDescription();
+
+	PortletURL imageURL = new PortletURLImpl(request, PortletKeys.IMAGE_GALLERY, plid.longValue(), false);
+
+	imageURL.setWindowState(WindowState.MAXIMIZED);
+
+	imageURL.setParameter("struts_action", "/image_gallery/view");
+	imageURL.setParameter("folderId", String.valueOf(image.getFolderId()));
+
+	viewURL = imageURL.toString();
+
+	viewURLMessage = "view";
+}
+else if (className.equals(JournalArticle.class.getName())) {
+	JournalArticleResource articleResource = JournalArticleResourceLocalServiceUtil.getArticleResource(classPK);
+
+	String languageId = LanguageUtil.getLanguageId(request);
+
+	JournalArticleDisplay articleDisplay = JournalArticleLocalServiceUtil.getArticleDisplay(articleResource.getGroupId(), articleResource.getArticleId(), languageId, themeDisplay);
+
+	if (Validator.isNull(title)) {
+		title = articleDisplay.getTitle();
+	}
+
+	summary = articleDisplay.getDescription();
+
+	PortletURL articleURL = renderResponse.createRenderURL();
+
+	articleURL.setParameter("struts_action", "/tagged_content/view_content");
+	articleURL.setParameter("redirect", currentURL);
+	articleURL.setParameter("assetId", String.valueOf(asset.getAssetId()));
+
+	viewURL = articleURL.toString();
+
+	viewURLMessage = "read-more";
+
+	if (JournalArticlePermission.contains(permissionChecker, articleDisplay.getGroupId(), articleDisplay.getArticleId(), ActionKeys.UPDATE)) {
+		PortletURLImpl editArticleURL = new PortletURLImpl(request, PortletKeys.JOURNAL, plid.longValue(), false);
+
+		editArticleURL.setWindowState(WindowState.MAXIMIZED);
+
+		editArticleURL.setParameter("struts_action", "/journal/edit_article");
+		editArticleURL.setParameter("redirect", currentURL);
+		editArticleURL.setParameter("groupId", String.valueOf(articleDisplay.getGroupId()));
+		editArticleURL.setParameter("articleId", articleDisplay.getArticleId());
+		editArticleURL.setParameter("version", String.valueOf(articleDisplay.getVersion()));
+
+		editURL = editArticleURL.toString();
+	}
+}
+
+// URLs set through the asset override automatically generated URLs
+
+if (Validator.isNotNull(asset.getUrl())) {
+	viewURL = asset.getUrl();
+}
+%>
+
+<div class="portlet-journal-abstract">
+	<c:choose>
+		<c:when test="<%= Validator.isNotNull(viewURL) %>">
+			<h3><a href="<%= viewURL %>"><%= title %></a></h3>
+		</c:when>
+		<c:otherwise>
+			<h3><%= title %></h3>
+		</c:otherwise>
+	</c:choose>
+
+	<p class="portlet-journal-summary">
+		<%= summary %>
+	</p>
+
+	<c:if test="<%= Validator.isNotNull(viewURL) %>">
+		<div class="portlet-journal-more">
+			<a href="<%= viewURL %>"><liferay-ui:message key="<%= viewURLMessage %>" /></a>
+		</div>
+	</c:if>
+</div>
+
+<c:choose>
+	<c:when test="<%= Validator.isNotNull(editURL) %>">
+		<liferay-ui:icon image="edit" message="edit" url="<%= editURL %>" />
+	</c:when>
+</c:choose>

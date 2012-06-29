@@ -1,0 +1,361 @@
+﻿## EPSOS  ##
+
+category.epsos=EPSOS
+
+javax.portlet.title.EPSOS_DEMO=EPSOS DEMO
+javax.portlet.title.EPSOS_INFO=EPSOS BİLGİ
+javax.portlet.title.EPSOS_CONSENT=EPSOS ONAY YÖNETİMİ
+
+
+epsos.user.displayname=Adı
+epsos.user.organizationname=Ajans
+epsos.user.loginrole=Rol
+
+epsos.demo.search.givenName=Adı
+epsos.demo.search.familyName=Soyadı
+epsos.demo.search.birthdate=Doğum Tarihi
+epsos.demo.search.sex=Seks
+epsos.demo.search.sex.M=Arsenik
+epsos.demo.search.sex.F=Kadın
+epsos.demo.search.streetAddress=Sokak
+epsos.demo.search.zip=Posta Kodu
+epsos.demo.search.city=Şehir
+epsos.demo.search.country=Ülke
+epsos.demo.search.country.UK=İNGİLTERE
+epsos.demo.search.country.GR=YUNANİSTAN
+epsos.demo.search.country.IT=İTALYA
+epsos.demo.search.country.DE=ALMANYA
+epsos.demo.search.country.AT=AVUSTURYA
+epsos.demo.search.pid=Hasta Kimlik
+epsos.demo.search.ssnNumber=Güvenlik Numarası
+epsos.demo.search.driversLicense=Sürücüleri Lisans Numarası
+epsos.demo.search.accountNumber=Hesap Numarası
+
+epsos.demo.search.namePrefix=Başlık
+epsos.demo.search.middleName=Baba Adı
+epsos.demo.search.state=Bölge
+epsos.demo.search.homePhone=Ev Telefonu
+epsos.demo.search.businessPhone=Iş telefonu
+epsos.demo.search.emailHome=Ev e-posta ile
+epsos.demo.search.emailBusiness=Iş Email
+epsos.demo.search.birthPlace=Doğum yeri
+epsos.demo.search.citizenship=Vatandaşlık
+epsos.demo.search.nationality=Milliyet
+epsos.demo.search.accountData=Hesap Bilgileri
+epsos.demo.search.drivingLicense=Sürücüleri Lisans Numarası
+epsos.demo.search.dateOfDeath=Ölüm tarihi
+epsos.demo.search.lastUpdate=Son Güncelleme
+
+epsos.demo.pid.id=Sayı
+epsos.demo.pid.type=Türü Kimliği
+epsos.demo.pid.domain=Etki
+epsos.demo.pid.domainType=Etki alanını yazın
+epsos.demo.pid.namespace=Namespace
+epsos.demo.pid.ehrType=EHR Tip
+
+epsos.demo.search.patientCard=Hasta Tab
+epsos.demo.search.patiendIds=Hasta Tanıma
+
+epsos.demo.document.list=Özet hasta kayıtları
+epsos.demo.document.details=Veri Arşiv
+epsos.demo.document.name=Başlık
+epsos.demo.document.description=Açıklama
+epsos.demo.document.formatCode=Format Kodu
+epsos.demo.document.language=Dil
+epsos.demo.document.creationTime=Tarih düzenlendi
+epsos.demo.document.documentClass=Klasik Arşiv
+epsos.demo.document.status=Durumu
+epsos.demo.document.documentType=Dosya Türü
+epsos.demo.document.healthcareFacilityCode=Vücut Sağlığı
+epsos.demo.document.practiceSetting=Uzmanlık
+epsos.demo.document.confidentiality=Derece
+epsos.demo.document.authorPerson=Yazar
+epsos.demo.document.size=Boyut
+epsos.demo.document.mimeType=mime tipi
+epsos.demo.document.submission.details=Veri Gönderme
+epsos.demo.document.submission.title=Başlık
+epsos.demo.document.submission.description=Açıklama
+epsos.demo.document.submission.date=Gönderildiği Tarih
+epsos.demo.document.submission.authorInstitution=Organizasyon Yazar
+epsos.demo.document.submission.authorDepartment=Fakülte Yazar
+epsos.demo.document.submission.contentType=İçerik Türü
+epsos.demo.document.folder.details=Veri Dosyası
+epsos.demo.document.folder.title=Başlık
+epsos.demo.document.folder.description=Açıklama
+epsos.demo.document.folder.code=Dosya Kodu
+
+epsos.demo.prescription.list=reçete Listesi Hasta
+epsos.demo.dispensation.list=reçete Listesi Hasta
+epsos.demo.prescription.lines.list=Ilaçların kısmi listesi
+
+epsos.demo.prescription.id=Reçete sayısı
+epsos.demo.prescription.performer=Tarifi Müdürü
+epsos.demo.prescription.facility=Vücut
+epsos.demo.prescription.profession=Durumu
+epsos.demo.prescription.address=Adres
+epsos.demo.prescription.prescriber=tarafından reçete
+epsos.demo.prescription.name=Adı
+epsos.demo.prescription.ingredient=Aktif İçerik
+epsos.demo.prescription.strength=hazırlık Miktarı
+epsos.demo.prescription.package=Paketleme
+epsos.demo.prescription.dosage=Dozaj
+epsos.demo.prescription.frequency=Frekans alın
+epsos.demo.prescription.route=Yöntem
+epsos.demo.prescription.start=Evde Bakım
+epsos.demo.prescription.end=Sonunda Tedavi
+epsos.demo.prescription.nrOfPacks=Paket sayısı
+epsos.demo.prescription.instruction.patient=Hastaya Not
+epsos.demo.prescription.instruction.filler=Eczacı notu
+
+epsos.demo.dispensation=Reçete
+epsos.demo.dispensation.id=reçete Corp sayısı
+epsos.demo.dispensation.name=Öğesi adı reçete
+epsos.demo.dispensation.strength=hazırlık Miktarı
+epsos.demo.dispensation.packaging=Paketleme
+epsos.demo.dispensation.packaging-form=Form
+epsos.demo.dispensation.packaging-pack=Paketleme
+epsos.demo.dispensation.packaging-quantity=Miktar
+epsos.demo.dispensation.substitute=Yedek
+epsos.demo.dispensation.substitute-not-permitted=Ve Değiştirme
+epsos.demo.dispensation.nrOfPacks=Paket sayısı
+
+epsos.demo.confirmation.title=Eğer kuruluşunuzun verilerini Hasta Erişim Onay girmelisiniz.
+epsos.demo.confirmation.error=bir sorun ve kayıtlı olabilir hastanın onayı vardı.
+epsos.demo.confirmation.button=Kayıt Onayı
+
+epsos.demo.consent.title=Veri erişim için hastanın rızası girmelisiniz.
+epsos.demo.consent.error=bir sorun ve hastanın rızası kayıtlı olamazdı vardı.
+epsos.demo.consent.form=Hasta Olur Formu
+epsos.demo.consent.button=Rıza Kayıt
+epsos.demo.consent.info=Aşağıdaki durumlardan birini seçiniz
+epsos.demo.consent.choice.1=Hasta zaten veri epSOS erişmek için onun onayı verdi
+epsos.demo.consent.choice.2=Acil durumda
+epsos.demo.consent.choice.3=Hasta şimdi veri erişim epSOS rıza imzalamak istiyor
+epsos.demo.consent.date=Rıza kadar geçerlidir
+
+epsos.demo.consent.create.button=Create New Onayı
+epsos.demo.consent.continue.button=Rıza Mevcut Kullanımı
+
+epsos.consent.patients=Hasta listesi
+epsos.consent.list=Liste Hasta Onayı
+epsos.consent.view=Hasta İnceleme Onayı
+epsos.consent.add=Hastanın onayı ekle
+epsos.consent.edit=Hastanın onayı Düzenle
+epsos.consent.delete=Silmek Hasta Onayı
+epsos.consent.country=Ülke Bakımı
+epsos.consent.creationDate=Tarih Rıza gönderildi
+epsos.consent.validFrom=Geçerli dan
+epsos.consent.validTo=Tarihine kadar geçerlidir
+epsos.consent.doctor.name=Doktor Adı
+epsos.consent.doctor.address=Doktor Adresi
+
+epsos.identifier.username=Kullanıcı hesabı EPSOS
+epsos.identifier.password=Şifre EPSOS
+
+epsos.xsl.view=Inceleme Arşiv
+epsos.patient.card.view=Genel bakış Hasta Bilgilendirme
+epsos.patient.doc.view=Inceleme Dosya Bilgileri
+
+epsos.demo.confirmation.purposeofuse=Bu hizmeti kullanmanın amacı
+epsos.demo.confirmation.treatment=Sağlık Tesisi (TEDAVİ)
+epsos.demo.confirmation.emergency=Acil Bölümü (ACİL)
+
+# properties translations
+
+epsos.search.countries.supported=Ülkeler destek
+epsos.always.show.consent.denied=Rıza View ¶ Reddi
+epsos.always.show.confirmation.denied=Görmek ¶ Onay Reddi
+epsos.webservice.password=Varsayılan Tiani web hizmeti şifre
+epsos.webservice.url=Varsayılan Tiani web servisi URL
+epsos.webservice.username=Varsayılan Tiani web servis adı
+epsos.patient.identifier.main.type=Hastanın kimliği ana türü
+
+epsos.consent.workflow.check.GR=Check Onay - Yunanistan
+epsos.consent.workflow.check.AT=Check Onay - Avusturya
+epsos.consent.workflow.check.FR=Check Onay - Fransa
+epsos.consent.workflow.check.DE=Check Onay - Almanya
+epsos.consent.workflow.check.default=Kontrol Onayı
+
+epsos.search.demographics.GR=Hasta Demografik Arama kullanma - Yunanistan
+epsos.search.demographics.AT=Hasta Demografik Arama kullanma - Avusturya
+epsos.search.demographics.FR=Hasta Demografik Arama'yı Kullanma - Fransa
+epsos.search.demographics.DE=Hasta Demografik Arama'yı Kullanma - Almanya
+epsos.search.demographics.default=Hasta Demografik Arama'yı Kullanma
+
+epsos.search.metadata.ids.GR=Yunanistan - artımlı kimlikleri Arama
+epsos.search.metadata.ids.AT=Avusturya - artımlı kimlikleri Arama
+epsos.search.metadata.ids.FR=Fransa - artımlı kimlikleri Arama
+epsos.search.metadata.ids.DE=Almanya - artımlı kimlikleri Arama
+epsos.search.metadata.ids.default=artımlı kimlikleri Arama
+
+epsos.search.patient.ids.GR=Hasta tanımlayıcılarla Arama - Yunanistan
+epsos.search.patient.ids.AT=Hasta tanımlayıcılarla Arama - Avusturya
+epsos.search.patient.ids.FR=Hasta tanımlayıcılarla Arama - Fransa
+epsos.search.patient.ids.DE=Hasta tanımlayıcılarla Arama - Almanya
+epsos.search.patient.ids.default=Hasta tanımlayıcıları göre ara
+
+
+epsos.search.patient.confirmation.duration.GR=Süresi (dakika) hasta onaylamak - Yunanistan
+epsos.search.patient.confirmation.duration.AT=Süresi (dakika) hasta onaylamak - Avusturya
+epsos.search.patient.confirmation.duration.FR=Süresi (dakika) hasta onaylamak - Fransa
+epsos.search.patient.confirmation.duration.DE=Süresi (dakika) hasta onaylamak - Almanya
+epsos.search.patient.confirmation.duration.default=Süresi (dakika) hasta onaylamak
+
+epsos.search.requires.patient.confirmation.GR=Ilk hasta onaylamanız gerekir - Yunanistan
+epsos.search.requires.patient.confirmation.AT=Ilk hasta onaylamanız gerekir - Avusturya
+epsos.search.requires.patient.confirmation.FR=Ilk hasta-Fransa onaylamanız gerekir
+epsos.search.requires.patient.confirmation.DE=Ilk hasta onaylamanız gerekir - Almanya
+epsos.search.requires.patient.confirmation.default=Ilk hasta onaylamanız gerekir
+
+epsos.demo.search.pid.TAN=Işlem sayısı (TAN)
+epsos.demo.search.pid.RRI=RRI
+epsos.demo.search.pid.KVNR=Krankenversicherungsnummer (KVNR)
+
+epsos.demo.search.group.pid=Hasta Tanıma
+epsos.demo.search.group.demographics=Hastanın Demografi
+epsos.demo.search.group.metadata=Ek Hasta Bilgilendirme
+
+epsos.dispensation.error.id.required=Madde sayısı reçete doldurulmalıdır
+epsos.dispensation.error.nrOfPacks.required=Paket sayısı tamamlanacak
+epsos.dispensation.error.nrOfPacks.too-large=ambalaj sayısı reçete daha büyük olamaz
+epsos.dispensation.error.name.required=Adı zaruridir
+epsos.dispensation.error.packaging.required=Paket zaruridir
+
+contacts.highrole.PHARMACIST=Kimyager
+contacts.highrole.physician=Hekim
+contacts.highrole.nurse=Hemşire
+contacts.highrole.administrator=Yönetici
+
+epsos.demo.ps.nodocs=O hastanın tıbbi kayıt oldu
+epsos.demo.ep.nodocs=hiçbir reçete hasta için vardı
+
+
+epsos.demo.search.pid.2.16.724.4.42=CITE-Bölgesel Hizmet
+epsos.demo.search.pid.2.16.724.4.41=CIP-Sağlık Kimlik Numarası
+
+error.1002=Eğer hastanın gerekli onay yok.
+error.4701=Eğer tıbbi dedeomena görülebilir haklarını transfer yok
+
+dispensation.submit.ok=The dispensation submitted successfully
+
+## Portal related labels ###
+
+gn.myaccount.account-information=User Account Information
+gn.myaccount.change-password=Change Password
+gn.myaccount.contact-details=Contact Details
+gn.myaccount.eshop-preferences=E-Shop Preferences
+gn.myaccount.portal-preferences=Portal Preferences
+
+
+contacts.telecom.teltype=Telephone Type
+contacts.teltype.home=Home Number
+contacts.teltype.work=Work Number
+contacts.teltype.fax=Fax Number
+contacts.teltype.mobile=Mobile Number
+
+contacts.addresstype.home=Home Address
+contacts.addresstype.work=Work Address
+
+contacts.tab.0=Basic Information
+contacts.tab.1=Extra Information
+
+
+parties.addresses.email=Email
+parties.addresses.webpage=Web Page
+parties.addresses.geographic=Geographic
+parties.addresses.telecom=Telecom
+parties.addresses.webpage.url=URL
+parties.addresses.webpage.description=Description
+parties.addresses.geographic.addressline=Street
+parties.addresses.geographic.region=Region
+parties.addresses.geographic.ziporpostcode=Zip/Post Code
+parties.addresses.geographic.country=Country
+parties.addresses.geographic.type=Address Type
+parties.addresses.telecom.countrycode=Country Code
+parties.addresses.telecom.nationaldialingprefix=National Dialing Prefix
+parties.addresses.telecom.areacode=Area Code
+parties.addresses.telecom.number=Number
+parties.addresses.telecom.extension=Ext.
+parties.addresses.telecom.physicaltype=Physical Type
+parties.addresses.telecom.phonenumber=Phone Number
+
+parties.manager.for-telecom-address-description=Telecom Address
+parties.manager.for-geographic-address-description=Geographic Address
+parties.manager.addresses.delete-are-you-sure=Are you sure you want to delete this Address?
+parties.manager.addresses.remove-are-you-sure=Are you sure you want to remove this Address from the list of Related Addresses?
+
+parties.manager.lang=Language
+parties.manager.party.mainid=Party Unique Identifier
+parties.manager.party.description=Party Description
+parties.manager.person.name=Name
+parties.manager.person.firstname=First Name
+parties.manager.person.prefix=Prefix
+parties.manager.person.familyname=Family Name
+parties.manager.person.fathername=Father's Name
+parties.manager.person.gender=Gender
+parties.manager.person.gender.male=Male
+parties.manager.person.gender.female=Female
+parties.manager.person.gender.notspecified=Not Specified
+parties.manager.person.gender.notknown=Not Known
+parties.manager.person.validfrom=Valid From
+parties.manager.person.validto=Valid To
+parties.manager.person.userid=User Id
+parties.manager.person.createuser=Also create a new Portal User
+parties.manager.person.newuserid=Enter User Id
+parties.manager.person.password1=Enter Password
+parties.manager.person.password2=Re-enter Password
+parties.manager.person.emailaddress=Enter email address
+parties.manager.person.maskmsg={0} may only contain letters
+parties.manager.organization.name=Organization Name
+parties.manager.organization.validto=Valid To
+parties.manager.organization.validfrom=Valid From
+parties.manager.organization.typeid=Organization Type
+parties.manager.organization.liferaycompany=Is Liferay Company
+parties.manager.related-to-party-description=Parties Related to
+parties.manager.for-party-description=Party
+parties.manager.for-role-name=For Party Role
+parties.manager.for-rel-name=For Party Relationship
+parties.manager.add-role-to-party=Add Role to Party
+parties.manager.role.delete-are-you-sure=Are you sure you want to delete this Party Role? This will also delete all Relationships where this Role participates! 
+parties.manager.rel.delete-are-you-sure=Are you sure you want to delete this Relationship?
+parties.manager.party.delete-are-you-sure=Are you sure you want to delete this Party? This will also delete all addresses, names, roles and relationships assigned to this Party!
+parties.manager.RolesAndRelsForm.partyRoleId=Related Party Role
+parties.manager.RolesAndRelsForm.relationshipTypeId=Relationship Type
+parties.manager.RolesAndRelsForm.supplier=Role Allocation (Client/Supplier)
+parties.manager.person.name.validity.error=No other currently valid name exists for Person
+parties.manager.person.name.validity.action.update=update
+parties.manager.person.name.validity.action.delete=delete
+parties.manager.org.name.validity.error=No other currently valid name exists for Organization
+parties.manager.org.name.validity.action.update=update
+parties.manager.org.name.validity.action.delete=delete
+parties.manager.partyname.dates.error="Valid From" date must be before "Valid To" date
+parties.manager.relatedparty=Related Party
+parties.manager.relatedparty.role=Related Party Role
+parties.manager.partyrole.features.none=No features were defined for this Party Role Type!
+parties.manager.errors.company-already-assigned-to-organization=Liferay Company is already assigned to Organization {0}. You must first unassign that Organization, and then proceed in a new assignment.
+
+contacts.search.comments=Comments
+parties.manager.identifier.identifier=Identifier
+contacts.search.name=Party Name
+contacts.search.email=Email Address
+contacts.search.address=Geographic Address
+contacts.search.region=City/Region
+contacts.search.country=Country
+contacts.search.company=Belongs to company
+contacts.search.phone=Phone Number
+contacts.search.webpage=Web page
+contacts.search.identifier=Identifier
+contacts.search.comments=Comments
+contacts.search.isperson=Person
+contacts.search.modified=Last modified
+contacts.search.created=Created
+contacts.search.private=Private
+contacts.search.public=Public
+contacts.search.all=All
+contacts.search.contacttype=Contact Type
+
+epsos.identifier.poc=Epsos Identifier
+
+error.1002=You have to give confirmation in order to proceed 
+error.4701=You have to give consent in order to proceed
+

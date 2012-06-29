@@ -1,0 +1,96 @@
+<br>
+
+<%
+List items = (List) request.getAttribute("items");
+%>
+
+<c:choose>
+<c:when test="<%=items != null && items.size() > 0 %>">
+
+	<display:table id="item" name="items" requestURI="//ext/orders/admin/view?actionURL=true" pagesize="25" sort="list" export="true" style="font-weight: normal; width: 100%; border-spacing: 0">
+	<% ViewResult gnItem = (ViewResult) pageContext.getAttribute("item"); %>
+		<display:setProperty name="export.csv" value="false" />
+		<display:setProperty name="export.xml" value="false" />
+		<display:setProperty name="export.pdf" value="true" />
+		<display:setProperty name="export.excel.filename" value="admin_orders.xls" />
+		<display:setProperty name="export.pdf.filename" value="admin_orders.pdf" />
+	
+	<display:column titleKey="ec.admin.order.referenceCode" sortable="true" property="field1"/>
+	<display:column titleKey="ec.admin.order.dateCreated" sortable="true" property="field2" decorator="org.displaytag.sample.LongDateTimeWrapper"/>
+	<display:column titleKey="ec.admin.order.history.state" sortable="true" property="field8"/>
+	<display:column titleKey="ec.admin.order.AFM" sortable="true" property="field3"/>
+	<display:column titleKey="ec.admin.order.FirstName" sortable="true" property="field4" media="excel"/>
+	<display:column titleKey="ec.admin.order.LastName" sortable="true" property="field5" media="excel"/>
+	<display:column titleKey="ec.admin.order.CompanyName" sortable="true" property="field6" media="excel"/>
+	<display:column titleKey="ec.admin.order.Customer" sortable="true" media="html pdf">
+	    <%
+	    String firstName = ViewResultUtil.getString(gnItem, "field4", "");
+	    String lastName = ViewResultUtil.getString(gnItem, "field5", "");
+	    String fullName = Validator.isNotNull(lastName)? lastName + " " + firstName: firstName;
+	    String companyName = ViewResultUtil.getString(gnItem, "field6", "");
+	    String displayName = Validator.isNotNull(companyName)? 
+	            companyName + (Validator.isNotNull(fullName)? "<br/>(" + fullName + ")": ""):
+	            fullName;
+	    %>
+	    <%=displayName %>
+	</display:column>
+	<display:column titleKey="ec.admin.order.totalPrice" sortable="true" media="html pdf" style="text-align:right; white-space: nowrap;">
+	<%= gnItem.getField7() != null? "\u20ac "+com.ext.portlet.ecommerce.product.service.ProductBrowserService.d2s(((BigDecimal)gnItem.getField7()).doubleValue()) : "" %>
+	</display:column>
+	<display:column titleKey="ec.admin.order.totalPrice" sortable="true" media="excel">
+	<%= gnItem.getField7() != null ? com.ext.portlet.ecommerce.product.service.ProductBrowserService.d2s(((BigDecimal)gnItem.getField7()).doubleValue()) : "" %>
+	</display:column>
+	
+	<display:column style="white-space: nowrap;" media="html">
+	
+	<a title="<%= LanguageUtil.get(pageContext, "gn.link.edit") %>" 
+	   href="<portlet:actionURL><portlet:param name="struts_action" value="/ext/orders/admin/loadOrder"/>
+	   <% if (gnItem.getField9() == null || (!gnItem.getField9().equals(CommonDefs.ORDER_STATE_CLOSED)  &&
+			   !gnItem.getField9().equals(CommonDefs.ORDER_STATE_CANCELLED) && !gnItem.getField9().equals(CommonDefs.ORDER_STATE_SENT_OK))) { %>
+	   <portlet:param name="loadaction" value="edit"/>
+	   <% } else { %>
+	   <portlet:param name="loadaction" value="view"/>
+	   <% }  %>
+	   <portlet:param name="mainid" value="<%= gnItem.getMainid().toString() %>"/>
+	   <portlet:param name="redirect" value="<%= currentURL2 %>"/>
+	   </portlet:actionURL>">
+	   <img src="<%= themeDisplay.getPathThemeImage() %>/common/edit.png" alt="<%= LanguageUtil.get(pageContext, "gn.link.edit") %>">
+	</a>
+	&nbsp;
+	
+	<a title="<%= LanguageUtil.get(pageContext, "print.order") %>" 
+	   href="<liferay-portlet:actionURL portletName="EC_ORDER_ADMIN" windowState="<%=LiferayWindowState.EXCLUSIVE.toString() %>" >
+				<liferay-portlet:param name="struts_action" value="/ext/orders/admin/genericPdfAction"/>
+				<liferay-portlet:param name="reportsPathPrefix" value="/com/ext/portlet/ecommerce/order/print/"/>
+				<liferay-portlet:param name="reportFileName" value="ec_order.jasper"/>
+				<liferay-portlet:param name="reportName" value="<%="order_"+gnItem.getMainid()+".pdf"%>"/>
+				<liferay-portlet:param name="param_orderId_Integer" value="<%=gnItem.getMainid()+"" %>"/>
+				<liferay-portlet:param name="param_pathToReports_String" value="/com/ext/portlet/ecommerce/order/print/"/>
+				<liferay-portlet:param name="param_showPrices_String" value="<%=""+showPrices %>"/>
+		</liferay-portlet:actionURL>">
+	   <img src="<%= themeDisplay.getPathThemeImage() %>/document_library/pdf.gif" alt="<%= LanguageUtil.get(pageContext, "print.order") %>">
+	</a>
+	&nbsp;
+		
+	<a title="<%= LanguageUtil.get(pageContext, "ec.admin.order.history.list") %>" 
+	   href="<portlet:actionURL><portlet:param name="struts_action" value="/ext/orders/admin/viewOrderHistory"/>
+	   <portlet:param name="orderid" value="<%= gnItem.getMainid().toString() %>"/>
+	    <portlet:param name="redirect" value="<%= currentURL2 %>"/>
+	   </portlet:actionURL>">
+	   <img src="<%= themeDisplay.getPathThemeImage() %>/common/history.png" alt="<%= LanguageUtil.get(pageContext, "ec.admin.order.history.list") %>">
+	</a>
+	&nbsp;
+	<%
+	request.setAttribute("line_orderid", gnItem.getMainid().toString());
+	request.setAttribute("line_state",  gnItem.getField9().toString());
+	%>
+	<jsp:include page="/html/portlet/ext/ecommerce/order/admin/orderStateChangesTile.jsp"/>
+	
+	</display:column>
+	
+	</display:table>
+</c:when>
+<c:otherwise>
+    <%= LanguageUtil.get(pageContext, "ec.admin.order.no.orders.found.meeting.selected.criteria") %>
+</c:otherwise>
+</c:choose>

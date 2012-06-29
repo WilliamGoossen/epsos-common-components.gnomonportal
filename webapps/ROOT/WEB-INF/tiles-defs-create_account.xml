@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!-- ====================================== -->
+	<!--  Create account -->
+	<!-- ====================================== -->
+		
+	<definition name="portlet.parties.my_account.create_account" extends="portlet.my_account">
+		<put name="portlet_content" value="/portlet/ext/parties/createAccount/CreateAccountBasicFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.parties.my_account.company.create_account" extends="portlet.my_account">
+		<put name="portlet_content" value="/portlet/ext/parties/createAccount/CreateCompanyAccountFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.parties.my_account.company.foundByAfm" extends="portlet.my_account">
+		<put name="portlet_content" value="/portlet/ext/parties/createAccount/CreateAccount_CompanyFoundByAfmFormView.jsp" />
+	</definition>
+	
+</tiles-definitions>
+
+

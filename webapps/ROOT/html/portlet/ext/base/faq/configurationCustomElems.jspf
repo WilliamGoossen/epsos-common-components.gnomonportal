@@ -1,0 +1,8 @@
+<div class="ctrl-holder"><label>
+		<%= LanguageUtil.get(pageContext, "bs.faq.contact.notify-on-add") %></label>
+		<liferay-ui:input-checkbox param="notifyOnAdd" defaultValue="<%=notifyOnAdd%>" />
+</div>
+
+<div class="ctrl-holder"><label>		<%= LanguageUtil.get(pageContext, "bs.faq.contact.notify-at-email") %></label>
+		<input class="form-text" name="<portlet:namespace />notifyAtEmail" style="width: 150px;" type="text" value="<%= notifyAtEmail %>">
+</div>

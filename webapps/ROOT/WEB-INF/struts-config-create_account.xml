@@ -1,0 +1,45 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+<form-bean name="CreateAccountForm" type="com.ext.portlet.parties.createAccount.CreateAccountForm" />
+</form-beans>
+
+<action-mappings>
+
+
+	<!--  Create account -->
+	<!-- ============================================= -->
+
+<!--	<action path="/my_account/create_account" type="com.ext.portlet.parties.createAccount.LoadCreateAccountAction"
+		name="CreateAccountForm" scope="request" validate="false">
+			<forward name="portlet.my_account.create_account" path="portlet.parties.my_account.create_account" />
+	</action>
+-->
+	<action path="/my_account/create_account_dispatch_usertype" type="com.ext.portlet.parties.createAccount.ExecuteDispatchTypedAccountAction"
+		name="CreateAccountForm"  scope="request"  validate="false">
+			<forward name="portlet.my_account.basicfields.validationerror" path="portlet.parties.my_account.create_account" />
+			<forward name="portlet.my_account.company.success" path="portlet.parties.my_account.company.create_account" />
+			<forward name="portlet.my_account.company.foundByAfm" path="portlet.parties.my_account.company.foundByAfm" />
+			<forward name="portlet.my_account.user.validationerror" path="portlet.parties.my_account.create_account" />
+			<forward name="portlet.my_account.generalerror" path="portlet.parties.my_account.create_account" />
+	</action>
+
+	<action path="/my_account/create_account_company" type="com.ext.portlet.parties.createAccount.CreateAccountForCompanyAction"
+		name="CreateAccountForm"  scope="request"  validate="false">
+
+		<!-- forward name="portlet.my_account.company.success" path="portlet.parties.my_account.company.create_account" /-->
+		<forward name="portlet.my_account.company.foundByAfm" path="portlet.parties.my_account.company.foundByAfm" />
+		<forward name="portlet.my_account.company.validationerror" path="portlet.parties.my_account.company.create_account" />
+		<forward name="portlet.my_account.generalerror" path="portlet.parties.my_account.create_account" />
+	</action>
+
+
+	<action path="/my_account/TEST_OLD_create_account" type="com.liferay.portlet.myaccount.action.AddUserAction">
+			<forward name="portlet.my_account.create_account" path="portlet.my_account.create_account" />
+	</action>
+	<!-- ============================================= -->
+
+</action-mappings>
+
+</struts-config>

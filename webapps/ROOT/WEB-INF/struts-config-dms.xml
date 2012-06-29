@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<action-mappings>
+
+		<!-- Alfresco Content -->
+
+		<action path="/ext/dms/browseFolders" forward="portlet.ext.dms.browse.folders"/>
+
+		<action path="/ext/dms/view" type="com.ext.portlet.dms.action.ViewAction">
+			<forward name="portlet.ext.dms.view" path="portlet.ext.dms.view" />
+			<forward name="portlet.ext.dms.portletnotsetup" path="portlet.ext.dms.portletnotsetup" />
+		</action>
+
+		<action path="/ext/dms/browse" type="com.ext.portlet.dms.action.BrowseAction">
+			<forward name="portlet.ext.dms.browse" path="portlet.ext.dms.browse" />
+		</action>
+
+		<action path="/ext/dms/getfile" type="com.ext.portlet.dms.action.GetFileAction">
+			<forward name="portlet.ext.dms.getFile" path="portlet.ext.dms.getFile" />
+		</action>
+
+		<action path="/ext/dms/filedetails" type="com.ext.portlet.dms.action.ViewFileDetailsAction">
+			<forward name="portlet.ext.dms.filedetails" path="portlet.ext.dms.filedetails" />
+			<forward name="portlet.ext.dms.addVersion" path="portlet.ext.dms.addVersion"/>
+			<forward name="/ext/dms/viewPermissions" path="/ext/dms/filedetails" redirect="true"/>
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/edit_file_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<!-- <forward name="portlet.message_boards.error" path="portlet.ext.dms.error" />-->
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+		<action path="/ext/dms/getversionfile" type="com.ext.portlet.dms.action.GetVersionFileAction">
+			<forward name="portlet.ext.dms.getVersionFile" path="portlet.ext.dms.getVersionFile" />
+		</action>
+
+		<action path="/ext/dms/createFolder" type="com.ext.portlet.dms.action.CreateFolderAction">
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/editFolder" type="com.ext.portlet.dms.action.EditFolderAction">
+			<forward name="portlet.ext.dms.editFolder" path="portlet.ext.dms.editFolder"/>
+		</action>
+
+		<action path="/ext/dms/updateFolder" type="com.ext.portlet.dms.action.UpdateFolderAction">
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/createContent" type="com.ext.portlet.dms.action.CreateContentAction">
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/updateContent" type="com.ext.portlet.dms.action.UpdateContentAction">
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/changeProperties" type="com.ext.portlet.dms.action.ChangePropertiesAction">
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/changeMetaData" type="com.ext.portlet.dms.action.ChangeMetaDataAction">
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/deleteContent" type="com.ext.portlet.dms.action.DeleteContentAction">
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/addVersion" type="com.ext.portlet.dms.action.AddVersionAction">
+			<forward name="portlet.ext.dms.addVersion" path="portlet.ext.dms.addVersion"/>
+			<forward name="/ext/dms/view" path="/ext/dms/view" redirect="true"/>
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/makeversionable" type="com.ext.portlet.dms.action.MakeVersionableAction">
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+<!--
+		<action path="/ext/dms/viewVersions" type="com.ext.portlet.dms.action.ViewVersionsAction">
+			<forward name="portlet.ext.dms.viewVersions" path="portlet.ext.dms.viewVersions"/>
+		</action>
+-->
+		<action path="/ext/dms/viewPermissions" type="com.ext.portlet.dms.action.ViewPermissionsAction">
+			<forward name="portlet.ext.dms.viewPermissions" path="portlet.ext.dms.viewPermissions"/>
+			<forward name="portlet.ext.dms.viewFolderPermissions" path="portlet.ext.dms.viewFolderPermissions"/>
+		</action>
+
+		<action path="/ext/dms/setPermissions" type="com.ext.portlet.dms.action.SetPermissionsAction">
+			<forward name="/ext/dms/viewPermissions" path="/ext/dms/viewPermissions" redirect="true"/>
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/deletePermissions" type="com.ext.portlet.dms.action.DeletePermissionsAction">
+			<forward name="/ext/dms/viewPermissions" path="/ext/dms/viewPermissions" redirect="true"/>
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/inheritPermissions" type="com.ext.portlet.dms.action.InheritPermissionsAction">
+			<forward name="/ext/dms/viewPermissions" path="/ext/dms/viewPermissions" redirect="true"/>
+			<forward name="/ext/dms/filedetails" path="/ext/dms/filedetails" redirect="true"/>
+		</action>
+
+		<action path="/ext/dms/addMessage" type="com.ext.portlet.dms.action.AddMessageAction">
+			<forward name="/message_boards/view" path="/message_boards/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/googlemaps/process" type="com.ext.portlet.googlemaps.action.ProcessAction">
+			<forward name="/ext/googlemaps/view" path="/ext/googlemaps/view" redirect="true"/>
+		</action>
+
+		<action path="/ext/googlemaps/view" type="com.ext.portlet.googlemaps.action.ViewAction">
+			<forward name="portlet.ext.googlemaps.view" path="portlet.ext.googlemaps.view" />
+		</action>
+
+		<action path="/ext/wf/view" type="com.ext.portlet.wf.action.ViewAction">
+			<forward name="portlet.ext.wf.view" path="portlet.ext.wf.view" />
+		</action>
+
+		<action path="/ext/wf/listprocesses" type="com.ext.portlet.wf.action.ListProcesses">
+			<forward name="portlet.ext.wf.listprocesses" path="portlet.ext.wf.listprocesses" />
+		</action>
+
+		<action path="/ext/wf/startprocess" type="com.ext.portlet.wf.action.StartProcess">
+			<forward name="portlet.ext.wf.startprocess" path="portlet.ext.wf.StartProcess" />
+			<forward name="portlet.ext.wf.listprocesses" path="portlet.ext.wf.listprocesses" />
+		</action>
+
+
+	</action-mappings>
+</struts-config>

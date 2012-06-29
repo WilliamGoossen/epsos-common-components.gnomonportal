@@ -1,0 +1,216 @@
+@import "uni-form-generic.css";
+/* Your styles below */
+/* Keep in mind that wherever you see "Required property" it means that the property must exist, adjust it's value to your liking */
+
+/* Generals */
+.uni-form fieldset{
+  margin: .5em; 
+  border:1px solid #cccccc;
+  padding: .2em;
+}
+.uni-form fieldset legend{
+  color:#fff; /* Reset IE */
+  font-weight:bold; 
+  font-size:120%;
+  padding:4px;
+  border:0px solid #999;
+  margin-left:10px;
+  background-color:#cccccc;
+
+}
+.uni-form .ctrl-holder{ /* This is the main unit that contains our form elements */
+  padding:7px; 
+}
+.uni-form .buttonHolder{
+  text-align:right; /* Recommended */
+}
+.uni-form .focused{
+  background:#FFFCDF; 
+}
+
+/* .inline-labels */
+.uni-form .inline-labels label,
+.uni-form .inline-labels .label{
+  width:45%; /* Required property */
+}
+.uni-form .inline-labels .textInput,
+.uni-form .inline-labels .fileUpload{
+  width:45%; /* Required property */
+}
+.uni-form .inline-labels .selectInput{
+  width:45%; /* Required property */
+}
+.uni-form .inline-labels textarea{
+  width:45%; /* Required property */
+  height:12em; 
+}
+.uni-form .inline-labels .formHint{
+  margin-top:0;
+  margin-left:47%; 
+}
+
+/* .block-labels */
+.uni-form .block-labels .textInput,
+.uni-form .block-labels .fileUpload{
+  /*width:53%; *//* Required property */
+}
+
+.uni-form .block-labels .selectInput{
+  display:block;
+  width:53.5%; /* Required property */
+}
+.uni-form .block-labels textarea{
+  width:53%; /* Required property */
+  height:12em; 
+}
+.uni-form .block-labels .formHint{
+  /*width:45%;*/ /* Required property */
+}
+
+/* Columns */
+.uni-form .col{
+  width:47.9%; /* Required property */
+  margin:0 2% 0 0; 
+}
+.uni-form .columnLeft{
+  width:49%; /* Required property */
+}
+.uni-form .columnRight{
+  width:49%; /* Required property */
+}
+
+/* Messages */
+.uni-form #errorMsg{
+  background:#ffdfdf;
+  border:1px solid #df7d7d; border-width:1px 0;
+  margin:0 0 1em 0; padding:1em;
+}
+.uni-form .error{
+  background:#ffdfdf;
+  border:1px solid #df7d7d; border-width:1px 0;
+}
+  .uni-form #errorMsg dt,
+  .uni-form #errorMsg h3{
+    margin:0 0 .5em 0;
+    font-size:110%;
+    line-height:100%;
+    font-weight:bold;
+  }
+  .uni-form #errorMsg dd{
+    margin:0; padding:0;
+  }
+    .uni-form #errorMsg ol{
+      margin:0; padding:0;
+    }
+      .uni-form #errorMsg ol li{
+        margin:0; padding:2px;
+        list-style-position:inside;
+        border-bottom:1px dotted #df7d7d;
+        position:relative;
+      }
+    .uni-form .errorField{
+      color:#af4c4c;
+      margin:0 0 6px 0; padding:4px;
+      background:#ffbfbf;
+    }
+	
+.uni-form em { color:#F00; padding:2px;}
+
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+/*LOGIN FORM $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+.uni-form#login-form{
+ padding:0px;
+}
+ 
+.uni-form#login-form #login-fieldset{
+ border:none;
+ padding:0;
+ margin:0; 
+}
+ 
+.uni-form#login-form .ctrl-holder{
+ padding:4px 0 0;
+}
+ 
+.uni-form#login-form .ctrl-holder label{
+ width:150px;
+ text-align:left;
+ padding-right:5px;
+ padding-top:3px;
+ padding-bottom:3px;
+}
+ 
+.uni-form#login-form .ctrl-holder .textInput{
+ width:100px;
+ margin:2px;
+}
+ 
+.uni-form#login-form .buttonHolder{
+ padding-top:10px;
+ padding-left:5px;
+ overflow:hidden;
+ clear:none;
+}
+ 
+.uni-form#login-form .buttonHolder button{
+ background-color: #fafafa;
+ background-image: url(../images/forms/button.png);
+ background-repeat: repeat-x;
+ background-position: 0% 0%;
+ border-width: 3px;
+ border-style: double;
+ border-color:#CCC;
+ border-bottom-color:#666;
+ border-right-color:#666;
+ cursor:pointer;
+ font-size:1.0em;
+ padding:2px;
+}
+ 
+.uni-form#login-form .buttonHolder button:active{
+ border-color:#CCC;
+ border-bottom-color:#CCC;
+ border-right-color:#CCC;
+ border-top-color:#666;
+ border-left-color:#666;
+}
+ 
+.formHint{
+ font-size:0.8em;
+ text-align:left;
+}
+ 
+/*REMEMBER ME*/
+.uni-form#login-form .ctrl-holder#remember-me label{
+ font-size:0.8em;
+ padding-top:0;
+ width:auto;
+}
+.ie .uni-form#login-form .ctrl-holder#remember-me label{
+ padding-top:3px;
+}
+ 
+.uni-form#login-form .ctrl-holder#remember-me{
+ padding:10px 0 0;
+}
+ 
+/*LOGIN BTN*/
+.uni-form#login-form .buttonHolder#password-btn,.uni-form#login-form .buttonHolder#login-btn{
+float:left;
+}
+ 
+/*FORGOT PASSWORD*/
+.uni-form#login-form .ctrl-holder#forgot-password, .uni-form#login-form .ctrl-holder#forgot-password p{
+ text-align:left;
+ margin:0;
+ padding:10px 0 0 5px;
+}
+/*ADDITIONAL INFO*/
+.uni-form#login-form .ctrl-holder#additional-info, .uni-form#login-form .ctrl-holder#additional-info p{
+ text-align:left;
+ margin:0;
+ padding:10px 0 0 5px;
+ display:none;
+}

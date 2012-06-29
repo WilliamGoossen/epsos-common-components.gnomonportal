@@ -1,0 +1,216 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+
+<!-- Helpdesk Categories -->
+<form-bean name="SrvServiceForm" type="com.ext.portlet.srv.SrvServiceForm"/>
+<form-bean name="SrvServiceRegistrationForm" type="com.ext.portlet.srv.registrations.SrvServiceRegistrationForm"/>
+<form-bean name="SrvServiceAdminRegistrationForm" type="com.ext.portlet.srv.registrations.admin.SrvServiceAdminRegistrationForm"/>
+<form-bean name="SrvServiceReportForm" type="com.ext.portlet.srv.reports.SrvServiceReportForm"/>
+<form-bean name="SrvServiceActionForm" type="com.ext.portlet.srv.actions.SrvServiceActionForm"/>
+</form-beans>
+
+<action-mappings>
+	
+	<!-- Services -->
+	
+		<action path="/ext/srv/list" type="com.ext.portlet.srv.ListSrvServicesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.srv.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv/load" type="com.ext.portlet.srv.LoadSrvServiceAction"
+		    name="SrvServiceForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.srv.form"  />
+			<forward name="common.add" path="portlet.ext.srv.form"  />
+			<forward name="common.edit" path="portlet.ext.srv.form"  />
+			<forward name="common.delete" path="portlet.ext.srv.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv/add" type="com.ext.portlet.srv.AddSrvServiceAction"
+		    name="SrvServiceForm" validate="false" scope="request">
+			<forward name="/ext/srv/list" path="/ext/srv/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv/update" type="com.ext.portlet.srv.UpdateSrvServiceAction"
+		    name="SrvServiceForm" validate="false" scope="request">
+			<forward name="/ext/srv/list" path="/ext/srv/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv/delete" type="com.ext.portlet.srv.DeleteSrvServiceAction"
+		    name="SrvServiceForm" validate="false" scope="request">
+			<forward name="/ext/srv/list" path="/ext/srv/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+	                   
+	
+	
+	
+	<!-- User Registration to Services -->
+	
+			<action path="/ext/srv_registrations/load" type="com.ext.portlet.srv.registrations.LoadSrvServiceRegistrationAction"
+		    name="SrvServiceRegistrationForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.srv.registrations.form"  />
+			<forward name="common.add" path="portlet.ext.srv.registrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_registrations/add" type="com.ext.portlet.srv.registrations.AddSrvServiceRegistrationAction"
+		    name="SrvServiceRegistrationForm" validate="false" scope="request">
+			<forward name="/ext/srv_registrations/load" path="/ext/srv_registrations/load" redirect="true"/>
+			<forward name="srv.registrations.list" path="srv.registrations.list"/>
+			<forward name="common.validation" path="portlet.ext.srv.registrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+ 
+	               
+	               
+<!-- Admin User Registration to Services -->
+	
+		<action path="/ext/srv_adminregistrations/list" type="com.ext.portlet.srv.registrations.admin.ListSrvServiceRegistrationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.srv.srv_adminregistrations.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_adminregistrations/load" type="com.ext.portlet.srv.registrations.admin.LoadSrvServiceRegistrationAction"
+		    name="SrvServiceAdminRegistrationForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.add" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.edit" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.delete" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_adminregistrations/add" type="com.ext.portlet.srv.registrations.admin.AddSrvServiceRegistrationAction"
+		    name="SrvServiceAdminRegistrationForm" validate="false" scope="request">
+			<forward name="/ext/srv_adminregistrations/list" path="/ext/srv_adminregistrations/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_adminregistrations/update" type="com.ext.portlet.srv.registrations.admin.UpdateSrvServiceRegistrationAction"
+		    name="SrvServiceAdminRegistrationForm" validate="false" scope="request">
+			<forward name="/ext/srv_adminregistrations/list" path="/ext/srv_adminregistrations/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_adminregistrations/delete" type="com.ext.portlet.srv.registrations.admin.DeleteSrvServiceRegistrationAction"
+		    name="SrvServiceAdminRegistrationForm" validate="false" scope="request">
+			<forward name="/ext/srv_adminregistrations/list" path="/ext/srv_adminregistrations/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.srv_adminregistrations.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+<!-- SERVICE REPORTS -->
+
+
+
+
+<action path="/ext/srv_reports/list" type="com.ext.portlet.srv.reports.ListSrvServiceReportsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.srv.reports.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_reports/load" type="com.ext.portlet.srv.reports.LoadSrvServiceReportAction"
+		    name="SrvServiceReportForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.add" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.edit" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.delete" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_reports/add" type="com.ext.portlet.srv.reports.AddSrvServiceReportAction"
+		    name="SrvServiceReportForm" validate="false" scope="request">
+			<forward name="/ext/srv_reports/list" path="/ext/srv_reports/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_reports/update" type="com.ext.portlet.srv.reports.UpdateSrvServiceReportAction"
+		    name="SrvServiceReportForm" validate="false" scope="request">
+			<forward name="/ext/srv_reports/list" path="/ext/srv_reports/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_reports/delete" type="com.ext.portlet.srv.reports.DeleteSrvServiceReportAction"
+		    name="SrvServiceReportForm" validate="false" scope="request">
+			<forward name="/ext/srv_reports/list" path="/ext/srv_reports/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.reports.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>	               	                  
+
+
+
+
+<!-- USER REPORTS -->
+
+
+<action path="/ext/srv_userreports/list" type="com.ext.portlet.srv.reports.user.ListSrvServiceUserReportsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.srv.reports.user.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+<!-- SERVICE ACTIONS -->
+	<action path="/ext/srv_actions/list" type="com.ext.portlet.srv.actions.ListSrvServiceActionsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.srv.actions.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_actions/load" type="com.ext.portlet.srv.actions.LoadSrvServiceActionAction"
+		    name="SrvServiceActionForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.add" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.edit" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.delete" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_actions/add" type="com.ext.portlet.srv.actions.AddSrvServiceActionAction"
+		    name="SrvServiceActionForm" validate="false" scope="request">
+			<forward name="/ext/srv_actions/list" path="/ext/srv_actions/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_actions/update" type="com.ext.portlet.srv.actions.UpdateSrvServiceActionAction"
+		    name="SrvServiceActionForm" validate="false" scope="request">
+			<forward name="/ext/srv_actions/list" path="/ext/srv_actions/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/srv_actions/delete" type="com.ext.portlet.srv.actions.DeleteSrvServiceActionAction"
+		    name="SrvServiceActionForm" validate="false" scope="request">
+			<forward name="/ext/srv_actions/list" path="/ext/srv_actions/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.srv.actions.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+	                   
+	
+	
+
+
+
+
+
+
+
+
+
+
+</action-mappings>
+
+
+</struts-config>

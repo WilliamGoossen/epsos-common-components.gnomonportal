@@ -1,0 +1,194 @@
+/* Uni-Form by Dragan Babic  - http://dnevnikeklektika.com/ , http://draganbabic.com/ */ 
+/* Some rights reserved - http://creativecommons.org/licenses/by-sa/2.5/ */
+/* It is suggested not to edit this file directly, but rather the uni-form.css provided in the Uni-Form zip archive */
+
+.uni-form{
+  margin:0; padding:0;
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+  /* Some generals */
+  .uni-form fieldset{
+    border:none;
+    margin:0; padding:0;
+  }
+    .uni-form fieldset legend{
+      margin:0; padding:0;
+    }
+
+    .uni-form .ctrl-holder{ /* This is the main unit that contains our form elements */
+      overflow:hidden;
+      margin:0; padding:0;
+      clear:both;
+    }
+
+    .uni-form .buttonHolder{
+      overflow:hidden;
+      clear:both;
+    }
+      .uni-form .resetButton{
+      }
+      .uni-form .submitButton{
+      }
+
+    .uni-form .inline-label,
+    .uni-form .inline-labels .inline-label,
+    .uni-form .block-labels .inline-label{
+      width:auto;
+      float:none;
+      margin:0 1em 0 0;
+      display:inline;
+    }
+      .uni-form .inline-label input{
+      }
+    
+    .uni-form .focused{ /* For highlighting the rows on input focus */
+    }
+
+    /* ########################################################################## */
+
+    /* Styles for form controls where labels are in line with the input elements */
+    /* Set the class of the parent (preferably to a fieldset) to .inline-labels */
+    .uni-form .inline-labels .ctrl-holder{
+    }
+        .uni-form .inline-labels label,
+        .uni-form .inline-labels .label{
+          float:left;
+          margin:.3em 2% 0 0; padding:0;
+          line-height:100%;
+          position:relative;
+        }
+
+        .uni-form .inline-labels .textInput,
+        .uni-form .inline-labels .fileUpload{
+          float:left;
+        }
+        .uni-form .inline-labels .fileUpload{
+        }
+        
+        .uni-form .inline-labels .selectInput{
+          float:left;
+        }
+
+        .uni-form .inline-labels textarea{
+          float:left;
+        }
+
+      .uni-form .inline-labels .formHint{
+        clear:both;
+      }
+
+        /* inline-labels esthetics */
+        .uni-form .inline-labels .formHint strong{
+        }
+
+
+    /* ########################################################################## */
+
+    /* Styles for form controls where labels are above the input elements */
+    /* Set the class of the parent (preferably to a fieldset) to .block-labels */
+    .uni-form .block-labels .ctrl-holder{
+    }
+
+      .uni-form .block-labels label,
+      .uni-form .block-labels .label{
+        display:block;
+        float:none;
+        margin:.3em 0; padding:0;
+        line-height:100%;
+        width:auto;
+      }
+      .uni-form .block-labels .label{
+        float:left;
+        margin-right:3em;
+      }
+
+      .uni-form .block-labels .inline-label{
+        position:relative; top:.15em;
+      }
+
+      .uni-form .block-labels .textInput,
+      .uni-form .block-labels .fileUpload{
+        float:left;
+      }
+      .uni-form .block-labels .fileUpload{
+      }
+      
+      .uni-form .block-labels .selectInput{
+        display:block;
+      }
+
+      .uni-form .block-labels textarea{
+        float:left;
+        display:block;
+      }
+
+      .uni-form .block-labels .formHint{
+        float:left;
+        margin:0;
+        clear:none;
+      }
+
+      /* block-labels esthetics */
+      .uni-form .block-labels .ctrl-holder{
+      }
+
+      .uni-form .block-labels .focused{
+      }
+
+    /* ########################################################################## */
+
+    /* Focus pseudoclasses */
+    .uni-form .ctrl-holder .textInput:focus{
+    }
+    .uni-form div.focused .textInput:focus{
+    }
+    .uni-form div.focused .formHint{
+    }
+
+    /* Required fields asterisk styling, use if needed */
+    .uni-form label em,
+    .uni-form .label em{
+      display:block;
+      position:absolute; left:100%;
+      font-style:normal;
+      font-weight:bold;
+    }
+    .uni-form .block-labels label em,
+    .uni-form .block-labels .label em{
+      position:static;
+      display:inline;
+    }
+
+    /* ########################################################################## */
+
+    /* Messages */
+    .uni-form #errorMsg,
+    .uni-form .error{
+    }
+      .uni-form #errorMsg dt,
+      .uni-form #errorMsg h3{
+      }
+      .uni-form #errorMsg dd{
+      }
+        .uni-form #errorMsg ol{
+        }
+          .uni-form #errorMsg ol li{
+          }
+      .uni-form .errorField{
+      }
+
+    /* ########################################################################## */
+
+    /* Add the following classes to your fieldsets (preferably) if you want columns */
+    .uni-form .col{
+      float:left;
+    }
+    .uni-form .columnLeft{
+      float:left;
+    }
+    .uni-form .columnRight{
+      float:right;
+    }

@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	
+		<form-bean name="SearchComponentsForm" type="com.ext.portlet.esa.componentBrowsing.searchComponents.SearchComponentsForm"/>
+		<form-bean name="EsaComponentForm" type="com.ext.portlet.esa.componentBrowsing.EsaComponentForm"/>
+		<form-bean name="EsaFeatureForm" type="com.ext.portlet.esa.componentBrowsing.features.EsaFeatureForm"/>
+		<form-bean name="EsaSubComponentForm" type="com.ext.portlet.esa.componentBrowsing.subComponents.EsaSubComponentForm"/>
+		<form-bean name="EsaConnectionForm" type="com.ext.portlet.esa.componentBrowsing.connections.EsaConnectionForm"/>
+		<form-bean name="EsaModeTransitionForm" type="com.ext.portlet.esa.componentBrowsing.modesAndTransitions.EsaModeTransitionForm"/>
+		<form-bean name="EsaFlowsForm" type="com.ext.portlet.esa.componentBrowsing.flows.EsaFlowsForm"/>
+		<form-bean name="EsaCallSpecForm" type="com.ext.portlet.esa.componentBrowsing.callSpecs.EsaCallSpecForm"/>
+		
+		<form-bean name="EsaErrorModelForm" type="com.ext.portlet.esa.errorModelBrowsing.EsaErrorModelForm"/>
+		<form-bean name="EsaEventForm" type="com.ext.portlet.esa.errorModelBrowsing.events.EsaEventForm"/>
+		<form-bean name="EsaStateForm" type="com.ext.portlet.esa.errorModelBrowsing.states.EsaStateForm"/>
+		<form-bean name="EsaTransitionForm" type="com.ext.portlet.esa.errorModelBrowsing.transitions.EsaTransitionForm"/>
+
+    </form-beans>
+    
+	<action-mappings>
+		<!-- ESA_COMPONENT_BROWSING  -->
+		<action path="/ext/esa/componentBrowsing/view" forward="portlet.ext.esa.componentBrowsing.view" />
+		
+		<action path="/ext/esa/componentBrowsing/viewHierarchy" 
+			type="com.ext.portlet.esa.componentBrowsing.ViewComponentHierarhyAction">
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.viewHierarchy" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/getComponentsByType" 
+			type="com.ext.portlet.esa.componentBrowsing.GetComponentsByTypeAction">
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponentsByType" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/searchComponents" 
+			name="SearchComponentsForm" validate="false"
+			type="com.ext.portlet.esa.componentBrowsing.searchComponents.SearchComponentsAction">
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.searchComponents" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/esa/componentBrowsing/getComponent"
+			type="com.ext.portlet.esa.componentBrowsing.GetComponentAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeComponent"
+			type="com.ext.portlet.esa.componentBrowsing.ExecuteComponentAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success.redirect" path="/ext/esa/componentBrowsing/getComponent" redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+
+
+		
+		<!--  Properties -->
+		<action path="/ext/esa/componentBrowsing/handleProperty"
+			type="com.ext.portlet.esa.componentBrowsing.properties.HandlePropertyAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+
+		<!--  Features -->		
+		<action path="/ext/esa/componentBrowsing/loadFeatureAction"
+			type="com.ext.portlet.esa.componentBrowsing.features.LoadFeatureAction"
+			name="EsaFeatureForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.features.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeFeatureAction"
+			type="com.ext.portlet.esa.componentBrowsing.features.ExecuteFeatureAction"
+			name="EsaFeatureForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.features.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.features.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadFeatureAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteFeatureAction"
+			type="com.ext.portlet.esa.componentBrowsing.features.DeleteFeatureAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!-- Modes - Transitions -->
+		<action path="/ext/esa/componentBrowsing/loadModeTransitionAction"
+			type="com.ext.portlet.esa.componentBrowsing.modesAndTransitions.LoadModeTransitionAction"
+			name="EsaModeTransitionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.modeTransitions.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeModeTransitionAction"
+			type="com.ext.portlet.esa.componentBrowsing.modesAndTransitions.ExecuteModeTransitionAction"
+			name="EsaModeTransitionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.modeTransitions.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.modeTransitions.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadModeTransitionAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteModeTransitionAction"
+			type="com.ext.portlet.esa.componentBrowsing.modesAndTransitions.DeleteModeTransitionAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!-- Call Specs -->
+		<action path="/ext/esa/componentBrowsing/loadCallSpecAction"
+			type="com.ext.portlet.esa.componentBrowsing.callSpecs.LoadCallSpecAction"
+			name="EsaCallSpecForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.callSpecs.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeCallSpecAction"
+			type="com.ext.portlet.esa.componentBrowsing.callSpecs.ExecuteCallSpecAction"
+			name="EsaCallSpecForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.callSpecs.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.callSpecs.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadCallSpecAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteCallSpecAction"
+			type="com.ext.portlet.esa.componentBrowsing.callSpecs.DeleteCallSpecAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!-- Flows -->
+		<action path="/ext/esa/componentBrowsing/loadFlowAction"
+			type="com.ext.portlet.esa.componentBrowsing.flows.LoadFlowAction"
+			name="EsaFlowsForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.flows.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeFlowAction"
+			type="com.ext.portlet.esa.componentBrowsing.flows.ExecuteFlowAction"
+			name="EsaFlowsForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.flows.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.flows.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadFlowAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteFlowAction"
+			type="com.ext.portlet.esa.componentBrowsing.flows.DeleteFlowAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!-- SubComponents -->
+		<action path="/ext/esa/componentBrowsing/loadSubComponentAction"
+			type="com.ext.portlet.esa.componentBrowsing.subComponents.LoadSubComponentAction"
+			name="EsaSubComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.subComponents.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeSubComponentAction"
+			type="com.ext.portlet.esa.componentBrowsing.subComponents.ExecuteSubComponentAction"
+			name="EsaSubComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.subComponents.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.subComponents.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadSubComponentAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteSubComponentAction"
+			type="com.ext.portlet.esa.componentBrowsing.subComponents.DeleteSubComponentAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  Connections -->
+		<action path="/ext/esa/componentBrowsing/loadConnectionAction"
+			type="com.ext.portlet.esa.componentBrowsing.connections.LoadConnectionAction"
+			name="EsaConnectionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.connections.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/executeConnectionAction"
+			type="com.ext.portlet.esa.componentBrowsing.connections.ExecuteConnectionAction"
+			name="EsaConnectionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.connections.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.componentBrowsing.connections.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/componentBrowsing/loadConnectionAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteConnectionAction"
+			type="com.ext.portlet.esa.componentBrowsing.connections.DeleteConnectionAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  Applicable Error Models -->
+		<action path="/ext/esa/componentBrowsing/listApplicableErrorModelsAction"
+			type="com.ext.portlet.esa.componentBrowsing.errorModels.ListApplicableErrorModelsAction"
+			validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.applicableErrorModelsList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/addCompErrorModelAction"
+			type="com.ext.portlet.esa.componentBrowsing.errorModels.AddComponentErrorModelAction"
+			validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.applicableErrorModelsList" />
+			<forward name="action.success.redirect" path="/ext/esa/componentBrowsing/listApplicableErrorModelsAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/componentBrowsing/deleteCompErrorModelAction"
+			type="com.ext.portlet.esa.componentBrowsing.errorModels.DeleteComponentErrorModelAction"
+			name="EsaComponentForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.getComponent" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/esa/componentBrowsing/loadErrorModelAssocAction"
+			type="com.ext.portlet.esa.componentBrowsing.errorModels.LoadErrorModelAssociationAction"
+			validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.componentBrowsing.errorModelAssoc" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+	
+	
+		<!-- ESA_ERROR_MODEL_BROWSING -->
+		<action path="/ext/esa/errorModelBrowsing/view" forward="portlet.ext.esa.errorModelBrowsing.view" />
+	
+		<action path="/ext/esa/errorModelBrowsing/viewHierarchy" 
+			type="com.ext.portlet.esa.errorModelBrowsing.ViewErrorModelHierarhyAction">
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.viewHierarchy" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/getErrorModelsList" 
+			type="com.ext.portlet.esa.errorModelBrowsing.GetErrorModelsListAction" scope="request">
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.getErrorModelsList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/esa/errorModelBrowsing/getErrorModel" 
+			name="EsaErrorModelForm" type="com.ext.portlet.esa.errorModelBrowsing.GetErrorModelAction" scope="request">
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.getErrorModel" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		
+		<!--  Events -->
+		<action path="/ext/esa/errorModelBrowsing/loadEventAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.events.LoadEventAction"
+			name="EsaEventForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.events.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/executeEventAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.events.ExecuteEventAction"
+			name="EsaEventForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.events.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.errorModelBrowsing.events.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/errorModelBrowsing/loadEventAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/deleteEventAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.events.DeleteEventAction"
+			name="EsaErrorModelForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.getErrorModel" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  States -->
+		<action path="/ext/esa/errorModelBrowsing/loadStateAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.states.LoadStateAction"
+			name="EsaStateForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.states.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/executeStateAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.states.ExecuteStateAction"
+			name="EsaStateForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.states.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.errorModelBrowsing.states.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/errorModelBrowsing/loadStateAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/deleteStateAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.states.DeleteStateAction"
+			name="EsaErrorModelForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.getErrorModel" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  Transitions -->
+		<action path="/ext/esa/errorModelBrowsing/loadTransitionAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.transitions.LoadTransitionAction"
+			name="EsaTransitionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.transitions.formView" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/executeTransitionAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.transitions.ExecuteTransitionAction"
+			name="EsaTransitionForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.transitions.formView" />
+			<forward name="action.validationError" path="portlet.ext.esa.errorModelBrowsing.transitions.formView" />
+			<forward name="action.success.loadRedirect" path="/ext/esa/errorModelBrowsing/loadTransitionAction" redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/esa/errorModelBrowsing/deleteTransitionAction"
+			type="com.ext.portlet.esa.errorModelBrowsing.transitions.DeleteTransitionAction"
+			name="EsaErrorModelForm" validate="false" scope="request" >
+			
+			<forward name="action.success" path="portlet.ext.esa.errorModelBrowsing.getErrorModel" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

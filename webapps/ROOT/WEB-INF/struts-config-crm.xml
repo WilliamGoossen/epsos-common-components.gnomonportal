@@ -1,0 +1,897 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+
+<!-- Helpdesk Categories -->
+<form-bean name="CrCategoryForm" type="com.ext.portlet.crm.helpdesk.categories.CrCategoryForm"/>
+<form-bean name="CrCategoryAuditorForm" type="com.ext.portlet.crm.helpdesk.categories.auditors.CrCategoryAuditorForm"/>
+<form-bean name="CrCheckTypeForm" type="com.ext.portlet.crm.helpdesk.checkTypes.CrCheckTypeForm"/>
+<!-- Helpdesk -->
+<form-bean name="CrRequestForm" type="com.ext.portlet.crm.helpdesk.CrRequestForm"/>
+<form-bean name="CrRequestCommentForm" type="com.ext.portlet.crm.helpdesk.requestComments.CrRequestCommentForm"/>
+<form-bean name="CrRequestAttachmentForm" type="com.ext.portlet.crm.helpdesk.requestAttachments.CrRequestAttachmentForm"/>
+<form-bean name="CrRequestSearchForm" type="com.ext.portlet.crm.helpdesk.CrRequestSearchForm"/>
+<form-bean name="CrRequestStatsSearchForm" type="com.ext.portlet.crm.helpdesk.stats.CrRequestStatsSearchForm"/>
+<form-bean name="CrRequestXTabStatsForm" type="com.ext.portlet.crm.helpdesk.stats.CrRequestXTabStatsForm"/>
+<form-bean name="CrRequestFlowForm" type="com.ext.portlet.crm.helpdesk.CrRequestFlowForm"/>
+<form-bean name="CrRequestTypeForm" type="com.ext.portlet.crm.helpdesk.requestTypes.CrRequestTypeForm"/>
+
+<!--  MESSAGES - TASKS - MEETINGS - DEVICES-->
+<form-bean name="CrMessageTypeForm" type="com.ext.portlet.crm.messagetypes.CrMessageTypeForm"/>
+<form-bean name="CrTaskTypeForm" type="com.ext.portlet.crm.tasktypes.CrTaskTypeForm"/>
+<form-bean name="CrTaskForm" type="com.ext.portlet.crm.tasks.CrTaskForm"/>
+<form-bean name="SearchCrTaskForm" type="com.ext.portlet.crm.tasks.SearchCrTaskForm"/>
+<form-bean name="CrmPartyLookupForm" type="com.ext.portlet.crm.tasks.lookup.PartyLookupForm"/>
+<form-bean name="CrMessageForm" type="com.ext.portlet.crm.messages.CrMessageForm"/>
+<form-bean name="SearchCrMessageForm" type="com.ext.portlet.crm.messages.SearchCrMessageForm"/>
+<form-bean name="CrTaskCommentForm" type="com.ext.portlet.crm.tasks.comments.CrTaskCommentForm"/>
+<form-bean name="CrMeetingForm" type="com.ext.portlet.crm.meetings.CrMeetingForm"/>
+<form-bean name="SearchCrMeetingForm" type="com.ext.portlet.crm.meetings.SearchCrMeetingForm"/>
+<form-bean name="CrMeetingCommentForm" type="com.ext.portlet.crm.meetings.comments.CrMeetingCommentForm"/>
+<form-bean name="CrDeviceForm" type="com.ext.portlet.crm.devices.CrDeviceForm"/>
+<form-bean name="SearchCrDeviceForm" type="com.ext.portlet.crm.devices.SearchCrDeviceForm"/>
+<form-bean name="CrDeviceAssignmentForm" type="com.ext.portlet.crm.devices.assignments.CrDeviceAssignmentForm"/>
+<form-bean name="CrDeviceAlertForm" type="com.ext.portlet.crm.devicealerts.CrDeviceAlertForm"/>
+<form-bean name="SearchCrDeviceAlertForm" type="com.ext.portlet.crm.devicealerts.SearchCrDeviceAlertForm"/>
+<form-bean name="SearchCrDeviceAlertStatsForm" type="com.ext.portlet.crm.devicealerts.SearchCrDeviceAlertStatsForm"/>
+<form-bean name="CrDeviceAlertCommentForm" type="com.ext.portlet.crm.devicealerts.comments.CrDeviceAlertCommentForm"/>
+
+</form-beans>
+
+<action-mappings>
+
+	<!-- Helpdesk Categories -->
+
+		<action path="/ext/crm/helpdeskCategories/list" type="com.ext.portlet.crm.helpdesk.categories.ListCrCategoriesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.categories.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/load" type="com.ext.portlet.crm.helpdesk.categories.LoadCrCategoryAction"
+		    name="CrCategoryForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/add" type="com.ext.portlet.crm.helpdesk.categories.AddCrCategoryAction"
+		    name="CrCategoryForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/list" path="/ext/crm/helpdeskCategories/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/update" type="com.ext.portlet.crm.helpdesk.categories.UpdateCrCategoryAction"
+		    name="CrCategoryForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/list" path="/ext/crm/helpdeskCategories/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/delete" type="com.ext.portlet.crm.helpdesk.categories.DeleteCrCategoryAction"
+		    name="CrCategoryForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/list" path="/ext/crm/helpdeskCategories/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/listAuditors" type="com.ext.portlet.crm.helpdesk.categories.auditors.ListCrCategoryAuditorsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.categories.auditors.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/loadAuditor" type="com.ext.portlet.crm.helpdesk.categories.auditors.LoadCrCategoryAuditorAction"
+		    name="CrCategoryAuditorForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/addAuditor" type="com.ext.portlet.crm.helpdesk.categories.auditors.AddCrCategoryAuditorAction"
+		    name="CrCategoryAuditorForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/listAuditors" path="/ext/crm/helpdeskCategories/listAuditors" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/updateAuditor" type="com.ext.portlet.crm.helpdesk.categories.auditors.UpdateCrCategoryAuditorAction"
+		    name="CrCategoryAuditorForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/listAuditors" path="/ext/crm/helpdeskCategories/listAuditors" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCategories/deleteAuditor" type="com.ext.portlet.crm.helpdesk.categories.auditors.DeleteCrCategoryAuditorAction"
+		    name="CrCategoryAuditorForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCategories/listAuditors" path="/ext/crm/helpdeskCategories/listAuditors" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.categories.auditors.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+	<!-- Helpdesk CheckTypes -->
+
+		<action path="/ext/crm/helpdeskCheckTypes/list" type="com.ext.portlet.crm.helpdesk.checkTypes.ListCrCheckTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.checkTypes.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCheckTypes/load" type="com.ext.portlet.crm.helpdesk.checkTypes.LoadCrCheckTypeAction"
+		    name="CrCheckTypeForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCheckTypes/add" type="com.ext.portlet.crm.helpdesk.checkTypes.AddCrCheckTypeAction"
+		    name="CrCheckTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCheckTypes/list" path="/ext/crm/helpdeskCheckTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCheckTypes/update" type="com.ext.portlet.crm.helpdesk.checkTypes.UpdateCrCheckTypeAction"
+		    name="CrCheckTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCheckTypes/list" path="/ext/crm/helpdeskCheckTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskCheckTypes/delete" type="com.ext.portlet.crm.helpdesk.checkTypes.DeleteCrCheckTypeAction"
+		    name="CrCheckTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskCheckTypes/list" path="/ext/crm/helpdeskCheckTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.checkTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+	<!-- Helpdesk -->
+	  <action path="/ext/crm/helpdesk/list" type="com.ext.portlet.crm.helpdesk.ListCrRequestsAction"
+	        name="CrRequestSearchForm" validate="false" scope="request">
+	        <forward name="portlet.ext.crm.helpdesk.lists" path="portlet.ext.crm.helpdesk.shortcutlists"  />
+	  		<forward name="portlet.ext.crm.helpdesk.search" path="portlet.ext.crm.helpdesk.search"  />
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.list"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/crm/helpdesk/listForCrmParty" type="com.ext.portlet.crm.helpdesk.ListCrRequestsForCrmPartyAction"
+	        name="CrRequestSearchForm" validate="false" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.list"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/listChildren" type="com.ext.portlet.crm.helpdesk.ListChildrenCrRequestsAction"
+	        name="CrRequestSearchForm" validate="false" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.children.list"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/load" type="com.ext.portlet.crm.helpdesk.LoadCrRequestAction"
+		    name="CrRequestForm" validate="false" scope="request">
+		    <forward name="portlet.ext.crm.helpdesk.guest.view" path="portlet.ext.crm.helpdesk.guest.form"  />
+			<forward name="portlet.ext.crm.helpdesk.guest.add" path="portlet.ext.crm.helpdesk.guest.form"  />
+			<forward name="portlet.ext.crm.helpdesk.form" path="portlet.ext.crm.helpdesk.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+			<forward name="portlet.ext.crm.requiredlogin" path="portlet.ext.crm.requiredlogin"  />
+
+		</action>
+
+		<action path="/ext/crm/helpdesk/loadveveosi" type="com.ext.portlet.crm.helpdesk.LoadCrRequestVeveosiAction"
+		    name="CrRequestForm" validate="false" scope="request">
+		    <forward name="portlet.ext.crm.helpdesk.guest.veveosi.view" path="portlet.ext.crm.helpdesk.guest.veveosi.form"  />
+			<forward name="portlet.ext.crm.helpdesk.guest.veveosi.add" path="portlet.ext.crm.helpdesk.guest.veveosi.form"  />
+			<forward name="portlet.ext.crm.helpdesk.form" path="portlet.ext.crm.helpdesk.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+			<forward name="portlet.ext.crm.requiredlogin" path="portlet.ext.crm.requiredlogin"  />
+
+		</action>
+
+
+    	<action path="/ext/crm/helpdesk/add" type="com.ext.portlet.crm.helpdesk.AddCrRequestAction"
+		    name="CrRequestForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/list" path="/ext/crm/helpdesk/list" redirect="true"/>
+			<forward name="portlet.ext.crm.helpdesk.notice" path="portlet.ext.crm.helpdesk.guest.notice"/>
+			<forward name="portlet.ext.crm.helpdesk.validation" path="portlet.ext.crm.helpdesk.guest.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/update" type="com.ext.portlet.crm.helpdesk.UpdateCrRequestAction"
+		    name="CrRequestForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/list" path="/ext/crm/helpdesk/list" redirect="true"/>
+			<forward name="/ext/crm/helpdesk/listChildren" path="/ext/crm/helpdesk/listChildren" redirect="true"/>
+			<forward name="portlet.ext.crm.helpdesk.validation" path="portlet.ext.crm.helpdesk.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/delete" type="com.ext.portlet.crm.helpdesk.DeleteCrRequestAction"
+		    name="CrRequestForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/list" path="/ext/crm/helpdesk/list" redirect="true"/>
+			<forward name="portlet.ext.crm.helpdesk.validation" path="portlet.ext.crm.helpdesk.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<!--  Request Comments  -->
+		<action path="/ext/crm/helpdesk/listRequestComments" type="com.ext.portlet.crm.helpdesk.requestComments.ListCrRequestCommentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.requestComments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/loadRequestComment" type="com.ext.portlet.crm.helpdesk.requestComments.LoadCrRequestCommentAction"
+		    name="CrRequestCommentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/addRequestComment" type="com.ext.portlet.crm.helpdesk.requestComments.AddCrRequestCommentAction"
+		    name="CrRequestCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestComments" path="/ext/crm/helpdesk/listRequestComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/updateRequestComment" type="com.ext.portlet.crm.helpdesk.requestComments.UpdateCrRequestCommentAction"
+		    name="CrRequestCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestComments" path="/ext/crm/helpdesk/listRequestComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/deleteRequestComment" type="com.ext.portlet.crm.helpdesk.requestComments.DeleteCrRequestCommentAction"
+		    name="CrRequestCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestComments" path="/ext/crm/helpdesk/listRequestComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestComments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<!--  Request Attachments  -->
+		<action path="/ext/crm/helpdesk/listRequestAttachments" type="com.ext.portlet.crm.helpdesk.requestAttachments.ListCrRequestAttachmentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.requestAttachments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/loadRequestAttachment" type="com.ext.portlet.crm.helpdesk.requestAttachments.LoadCrRequestAttachmentAction"
+		    name="CrRequestAttachmentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/addRequestAttachment" type="com.ext.portlet.crm.helpdesk.requestAttachments.AddCrRequestAttachmentAction"
+		    name="CrRequestAttachmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestAttachments" path="/ext/crm/helpdesk/listRequestAttachments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/updateRequestAttachment" type="com.ext.portlet.crm.helpdesk.requestAttachments.UpdateCrRequestAttachmentAction"
+		    name="CrRequestAttachmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestAttachments" path="/ext/crm/helpdesk/listRequestAttachments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/deleteRequestAttachment" type="com.ext.portlet.crm.helpdesk.requestAttachments.DeleteCrRequestAttachmentAction"
+		    name="CrRequestAttachmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdesk/listRequestAttachments" path="/ext/crm/helpdesk/listRequestAttachments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestAttachments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/listFlows" type="com.ext.portlet.crm.helpdesk.ListCrRequestFlowsAction" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.flow.list"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/loadFlow" type="com.ext.portlet.crm.helpdesk.LoadCrRequestFlowAction"
+		    name="CrRequestFlowForm" validate="false" scope="request">
+		    <forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.flow.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdesk/loadAudio" type="com.ext.portlet.crm.helpdesk.LoadAudioFileAction"
+		    scope="request">
+		    <forward name="/ext/crm/helpdesk/list" path="/ext/crm/helpdesk/list" redirect="true"/>
+		    <forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.audio"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+
+	<!-- Helpdesk Statistics -->
+	    <action path="/ext/crm/helpdeskStats/view" forward="portlet.ext.crm.helpdesk.stats.view"/>
+
+	    <action path="/ext/crm/helpdeskStats/list" type="com.ext.portlet.crm.helpdesk.stats.ListCrRequestsAction"
+	        name="CrRequestStatsSearchForm" validate="false" scope="request">
+	  		<forward name="portlet.ext.crm.helpdesk.search" path="portlet.ext.crm.helpdesk.stats.search"  />
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.stats.list"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskStats/load" type="com.ext.portlet.crm.helpdesk.stats.LoadCrRequestAction"
+		    name="CrRequestForm" validate="false" scope="request">
+		    <forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.stats.form"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskStats/listStats" type="com.ext.portlet.crm.helpdesk.stats.ListCrRequestXTabStatsAction"
+	        name="CrRequestXTabStatsForm" validate="false" scope="request">
+	        <forward name="portlet.ext.crm.helpdesk.search" path="portlet.ext.crm.helpdesk.stats.tabsearch"  />
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.stats.tablist"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskStats/listComments" type="com.ext.portlet.crm.helpdesk.stats.ListStatsCommentsAction"
+	        name="CrRequestXTabStatsForm" validate="false" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.stats.commentlist"  />
+			<forward name="portlet.ext.crm.helpdesk.failure" path="/common/error.jsp"  />
+		</action>
+
+
+<!-- HelpDesk RequestTypes -->
+
+		<action path="/ext/crm/helpdeskRequestTypes/list" type="com.ext.portlet.crm.helpdesk.requestTypes.ListCrRequestTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.helpdesk.requestTypes.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskRequestTypes/load" type="com.ext.portlet.crm.helpdesk.requestTypes.LoadCrRequestTypeAction"
+		    name="CrRequestTypeForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.add" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskRequestTypes/add" type="com.ext.portlet.crm.helpdesk.requestTypes.AddCrRequestTypeAction"
+		    name="CrRequestTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskRequestTypes/list" path="/ext/crm/helpdeskRequestTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskRequestTypes/update" type="com.ext.portlet.crm.helpdesk.requestTypes.UpdateCrRequestTypeAction"
+		    name="CrRequestTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskRequestTypes/list" path="/ext/crm/helpdeskRequestTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/helpdeskRequestTypes/delete" type="com.ext.portlet.crm.helpdesk.requestTypes.DeleteCrRequestTypeAction"
+		    name="CrRequestTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/helpdeskRequestTypes/list" path="/ext/crm/requestTypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.helpdesk.requestTypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+
+
+
+	<action path="/ext/crm/helpdeskCategories/assignRequestTypeToCategory" type="com.ext.portlet.crm.helpdesk.categories.AssignRtypeToCategoryAction"
+		scope="request" name="CrCategoryForm" validate="false">
+		<forward name="/ext/crm/helpdeskCategories/load" path="/ext/crm/helpdeskCategories/load" redirect="true"  />
+		<forward name="common.failure" path="/common/error.jsp"  />
+	</action>
+
+	<action path="/ext/crm/helpdeskCategories/deleteRequestTypeFromCategory" type="com.ext.portlet.crm.helpdesk.categories.DeleteRtypeFromCategoryAction"
+		scope="request" name="CrCategoryForm" validate="false">
+		<forward name="/ext/crm/helpdeskCategories/load" path="/ext/crm/helpdeskCategories/load" redirect="true"  />
+		<forward name="common.failure" path="/common/error.jsp"  />
+	</action>
+
+
+	<action path="/ext/crm/helpdesk/creatertf" type="com.ext.portlet.crm.helpdesk.CrmCreateRtfFile" >
+		<forward name="/ext/crm/helpdesk/list"  path="/ext/crm/helpdesk/list"  redirect="true"/>
+		<forward name="common.failure" path="/common/error.jsp"  />
+	</action>
+
+
+	<!--  HELPDESK_CERTIFICATES -->
+	<action path="/ext/crm/helpdeskCertificates/loadRequest" type="com.ext.portlet.crm.helpdesk.certificates.LoadRequestAction" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.certificates.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+			<forward name="portlet.ext.crm.requiredlogin" path="portlet.ext.crm.requiredlogin"  />
+	</action>
+
+	<action path="/ext/crm/helpdeskCertificates/addRequest" type="com.ext.portlet.crm.helpdesk.certificates.AddRequestAction" scope="request">
+			<forward name="portlet.ext.crm.helpdesk.success" path="portlet.ext.crm.helpdesk.guest.notice"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+	</action>
+	
+	
+	
+	<!-- CRM MessageTypes -->
+
+		<action path="/ext/crm/messagetypes/list" type="com.ext.portlet.crm.messagetypes.ListCrMessageTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.messagetypes.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/messagetypes/load" type="com.ext.portlet.crm.messagetypes.LoadCrMessageTypeAction"
+		    name="CrMessageTypeForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.add" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/messagetypes/add" type="com.ext.portlet.crm.messagetypes.AddCrMessageTypeAction"
+		    name="CrMessageTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/messagetypes/list" path="/ext/crm/messagetypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/messagetypes/update" type="com.ext.portlet.crm.messagetypes.UpdateCrMessageTypeAction"
+		    name="CrMessageTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/messagetypes/list" path="/ext/crm/messagetypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/messagetypes/delete" type="com.ext.portlet.crm.messagetypes.DeleteCrMessageTypeAction"
+		    name="CrMessageTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/messagetypes/list" path="/ext/crm/messagetypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messagetypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<!-- CRM TaskTypes -->
+
+		<action path="/ext/crm/tasktypes/list" type="com.ext.portlet.crm.tasktypes.ListCrTaskTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.tasktypes.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasktypes/load" type="com.ext.portlet.crm.tasktypes.LoadCrTaskTypeAction"
+		    name="CrTaskTypeForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.add" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasktypes/add" type="com.ext.portlet.crm.tasktypes.AddCrTaskTypeAction"
+		    name="CrTaskTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasktypes/list" path="/ext/crm/tasktypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasktypes/update" type="com.ext.portlet.crm.tasktypes.UpdateCrTaskTypeAction"
+		    name="CrTaskTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasktypes/list" path="/ext/crm/tasktypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasktypes/delete" type="com.ext.portlet.crm.tasktypes.DeleteCrTaskTypeAction"
+		    name="CrTaskTypeForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasktypes/list" path="/ext/crm/tasktypes/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasktypes.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<!--  CRM_TASKS -->
+		
+		<action path="/ext/crm/tasks/list"
+				type="com.ext.portlet.crm.tasks.ListCrTasksAction" 
+				name="SearchCrTaskForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.tasks.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/tasks/load"
+				name="CrTaskForm" validate="false" type="com.ext.portlet.crm.tasks.LoadCrTaskAction" scope="request">
+			<forward name="common.view" path="portlet.ext.crm.tasks.taskForm" />
+			<forward name="common.add" path="portlet.ext.crm.tasks.taskForm" />
+			<forward name="common.edit" path="portlet.ext.crm.tasks.taskForm" />
+			<forward name="common.delete" path="portlet.ext.crm.tasks.taskForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/tasks/add" type="com.ext.portlet.crm.tasks.AddCrTaskAction"
+		    name="CrTaskForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/list" path="/ext/crm/tasks/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/crm/tasks/update" type="com.ext.portlet.crm.tasks.UpdateCrTaskAction"
+		    name="CrTaskForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/list" path="/ext/crm/tasks/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/tasks/delete" type="com.ext.portlet.crm.tasks.DeleteCrTaskAction"
+		    name="CrTaskForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/list" path="/ext/crm/tasks/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/crm/tasks/partyLookupAction" type="com.ext.portlet.crm.tasks.lookup.PartyLookupAction" 
+			 name="CrmPartyLookupForm" scope="request" validate="false">
+			<forward name="common.success" path="portlet.ext.crm.tasks.lookup.parties" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/tasks/helperLookupAction" type="com.ext.portlet.crm.tasks.lookup.HelperLookupAction" 
+			 name="CrmPartyLookupForm" scope="request" validate="false">
+			<forward name="common.success" path="portlet.ext.crm.tasks.lookup.helpers" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  CRM_MESSAGES -->
+		
+		<action path="/ext/crm/messages/list"
+				type="com.ext.portlet.crm.messages.ListCrMessagesAction" 
+				name="SearchCrMessageForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.messages.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/messages/load"
+				name="CrMessageForm" validate="false" type="com.ext.portlet.crm.messages.LoadCrMessageAction" scope="request">
+			<forward name="common.view" path="portlet.ext.crm.messages.messageForm" />
+			<forward name="common.add" path="portlet.ext.crm.messages.messageForm" />
+			<forward name="common.edit" path="portlet.ext.crm.messages.messageForm" />
+			<forward name="common.delete" path="portlet.ext.crm.messages.messageForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/messages/add" type="com.ext.portlet.crm.messages.AddCrMessageAction"
+		    name="CrMessageForm" validate="false" scope="request">
+			<forward name="/ext/crm/messages/list" path="/ext/crm/messages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messages.messageForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/crm/messages/update" type="com.ext.portlet.crm.messages.UpdateCrMessageAction"
+		    name="CrMessageForm" validate="false" scope="request">
+			<forward name="/ext/crm/messages/list" path="/ext/crm/messages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messages.messageForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/messages/send" type="com.ext.portlet.crm.messages.SendCrMessageAction"
+		    name="CrMessageForm" validate="false" scope="request">
+			<forward name="/ext/crm/messages/list" path="/ext/crm/messages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.messages.messageForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<action path="/ext/crm/messages/delete" type="com.ext.portlet.crm.messages.DeleteCrMessageAction"
+		    name="CrMessageForm" validate="false" scope="request">
+			<forward name="/ext/crm/messages/list" path="/ext/crm/messages/list"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/crm/messages/partyLookupAction" type="com.ext.portlet.crm.tasks.lookup.PartyLookupAction" 
+			 name="CrmPartyLookupForm" scope="request" validate="false">
+			<forward name="common.success" path="portlet.ext.crm.tasks.lookup.parties" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  Task Comments  -->
+		<action path="/ext/crm/tasks/listComments" type="com.ext.portlet.crm.tasks.comments.ListCrTaskCommentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.tasks.comments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasks/loadComment" type="com.ext.portlet.crm.tasks.comments.LoadCrTaskCommentAction"
+		    name="CrTaskCommentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasks/addComment" type="com.ext.portlet.crm.tasks.comments.AddCrTaskCommentAction"
+		    name="CrTaskCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/listComments" path="/ext/crm/tasks/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasks/updateComment" type="com.ext.portlet.crm.tasks.comments.UpdateCrTaskCommentAction"
+		    name="CrTaskCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/listComments" path="/ext/crm/tasks/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/tasks/deleteComment" type="com.ext.portlet.crm.tasks.comments.DeleteCrTaskCommentAction"
+		    name="CrTaskCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/tasks/listComments" path="/ext/crm/tasks/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.tasks.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<!--  CRM_DEVICES -->
+		
+		<action path="/ext/crm/devices/list"
+				type="com.ext.portlet.crm.devices.ListCrDevicesAction" 
+				name="SearchCrDeviceForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.devices.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/crm/devices/load"
+				name="CrDeviceForm" validate="false" type="com.ext.portlet.crm.devices.LoadCrDeviceAction" scope="request">
+			<forward name="common.view" path="portlet.ext.crm.devices.deviceForm" />
+			<forward name="common.add" path="portlet.ext.crm.devices.deviceForm" />
+			<forward name="common.edit" path="portlet.ext.crm.devices.deviceForm" />
+			<forward name="common.delete" path="portlet.ext.crm.devices.deviceForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/devices/add" type="com.ext.portlet.crm.devices.AddCrDeviceAction"
+		    name="CrDeviceForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/list" path="/ext/crm/devices/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.deviceForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/crm/devices/update" type="com.ext.portlet.crm.devices.UpdateCrDeviceAction"
+		    name="CrDeviceForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/list" path="/ext/crm/devices/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.deviceForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/devices/delete" type="com.ext.portlet.crm.devices.DeleteCrDeviceAction"
+		    name="CrDeviceForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/list" path="/ext/crm/devices/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.deviceForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/crm/devices/listAssignments" type="com.ext.portlet.crm.devices.assignments.ListCrDeviceAssignmentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.devices.assignments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devices/loadAssignment" type="com.ext.portlet.crm.devices.assignments.LoadCrDeviceAssignmentAction"
+		    name="CrDeviceAssignmentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devices/addAssignment" type="com.ext.portlet.crm.devices.assignments.AddCrDeviceAssignmentAction"
+		    name="CrDeviceAssignmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/listAssignments" path="/ext/crm/devices/listAssignments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devices/updateAssignment" type="com.ext.portlet.crm.devices.assignments.UpdateCrDeviceAssignmentAction"
+		    name="CrDeviceAssignmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/listAssignments" path="/ext/crm/devices/listAssignments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devices/deleteAssignment" type="com.ext.portlet.crm.devices.assignments.DeleteCrDeviceAssignmentAction"
+		    name="CrDeviceAssignmentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devices/listAssignments" path="/ext/crm/devices/listAssignments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devices.assignments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		<!--  CRM_DEVICE_ALERTS -->
+		
+		<action path="/ext/crm/devicealerts/list"
+				type="com.ext.portlet.crm.devicealerts.ListCrDeviceAlertsAction" 
+				name="SearchCrDeviceAlertForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.devicealerts.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/devicealerts/stats"
+				type="com.ext.portlet.crm.devicealerts.ListCrDeviceAlertStatsAction" 
+				name="SearchCrDeviceAlertStatsForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.devicealerts.stats.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/devicealerts/load"
+				name="CrDeviceAlertForm" validate="false" type="com.ext.portlet.crm.devicealerts.LoadCrDeviceAlertAction" scope="request">
+			<forward name="common.view" path="portlet.ext.crm.devicealerts.devicealertForm" />
+			<forward name="common.add" path="portlet.ext.crm.devicealerts.devicealertForm" />
+			<forward name="common.edit" path="portlet.ext.crm.devicealerts.devicealertForm" />
+			<forward name="common.delete" path="portlet.ext.crm.devicealerts.devicealertForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/devicealerts/add" type="com.ext.portlet.crm.devicealerts.AddCrDeviceAlertAction"
+		    name="CrDeviceAlertForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/list" path="/ext/crm/devicealerts/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.devicealertForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/crm/devicealerts/update" type="com.ext.portlet.crm.devicealerts.UpdateCrDeviceAlertAction"
+		    name="CrDeviceAlertForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/list" path="/ext/crm/devicealerts/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.devicealertForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/devicealerts/delete" type="com.ext.portlet.crm.devicealerts.DeleteCrDeviceAlertAction"
+		    name="CrDeviceAlertForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/list" path="/ext/crm/devicealerts/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.devicealertForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/crm/devicealerts/listComments" type="com.ext.portlet.crm.devicealerts.comments.ListCrDeviceAlertCommentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.devicealerts.comments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devicealerts/loadComment" type="com.ext.portlet.crm.devicealerts.comments.LoadCrDeviceAlertCommentAction"
+		    name="CrDeviceAlertCommentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devicealerts/addComment" type="com.ext.portlet.crm.devicealerts.comments.AddCrDeviceAlertCommentAction"
+		    name="CrDeviceAlertCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/listComments" path="/ext/crm/devicealerts/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devicealerts/updateComment" type="com.ext.portlet.crm.devicealerts.comments.UpdateCrDeviceAlertCommentAction"
+		    name="CrDeviceAlertCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/listComments" path="/ext/crm/devicealerts/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/devicealerts/deleteComment" type="com.ext.portlet.crm.devicealerts.comments.DeleteCrDeviceAlertCommentAction"
+		    name="CrDeviceAlertCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/devicealerts/listComments" path="/ext/crm/devicealerts/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.devicealerts.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<!--  CRM_MEETINGS -->
+		
+		<action path="/ext/crm/meetings/list"
+				type="com.ext.portlet.crm.meetings.ListCrMeetingsAction" 
+				name="SearchCrMeetingForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.meetings.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/meetings/load"
+				name="CrMeetingForm" validate="false" type="com.ext.portlet.crm.meetings.LoadCrMeetingAction" scope="request">
+			<forward name="common.view" path="portlet.ext.crm.meetings.taskForm" />
+			<forward name="common.add" path="portlet.ext.crm.meetings.taskForm" />
+			<forward name="common.edit" path="portlet.ext.crm.meetings.taskForm" />
+			<forward name="common.delete" path="portlet.ext.crm.meetings.taskForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/crm/meetings/add" type="com.ext.portlet.crm.meetings.AddCrMeetingAction"
+		    name="CrMeetingForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/list" path="/ext/crm/meetings/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/meetings/quickAdd" type="com.ext.portlet.crm.meetings.QuickAddCrMeetingAction"
+		    scope="request">
+			<forward name="/ext/crm/meetings/list" path="/ext/crm/meetings/list"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+	
+		<action path="/ext/crm/meetings/update" type="com.ext.portlet.crm.meetings.UpdateCrMeetingAction"
+		    name="CrMeetingForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/list" path="/ext/crm/meetings/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/crm/meetings/delete" type="com.ext.portlet.crm.meetings.DeleteCrMeetingAction"
+		    name="CrMeetingForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/list" path="/ext/crm/meetings/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.taskForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+	
+		<!--  Meeting Comments  -->
+		<action path="/ext/crm/meetings/listComments" type="com.ext.portlet.crm.meetings.comments.ListCrMeetingCommentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.crm.meetings.comments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/meetings/loadComment" type="com.ext.portlet.crm.meetings.comments.LoadCrMeetingCommentAction"
+		    name="CrMeetingCommentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.add" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.edit" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.delete" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/meetings/addComment" type="com.ext.portlet.crm.meetings.comments.AddCrMeetingCommentAction"
+		    name="CrMeetingCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/listComments" path="/ext/crm/meetings/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/meetings/updateComment" type="com.ext.portlet.crm.meetings.comments.UpdateCrMeetingCommentAction"
+		    name="CrMeetingCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/listComments" path="/ext/crm/meetings/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/crm/meetings/deleteComment" type="com.ext.portlet.crm.meetings.comments.DeleteCrMeetingCommentAction"
+		    name="CrMeetingCommentForm" validate="false" scope="request">
+			<forward name="/ext/crm/meetings/listComments" path="/ext/crm/meetings/listComments" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.crm.meetings.comments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!--  CRM DASHBOARD -->
+
+		<action path="/ext/crm/dashboard/list"
+				type="com.ext.portlet.crm.dashboard.ListCrmDashboardAction" 
+				scope="request">
+			<forward name="common.success" path="portlet.ext.crm.dashboard.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+</action-mappings>
+
+
+</struts-config>

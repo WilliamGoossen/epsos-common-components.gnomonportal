@@ -1,0 +1,592 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+<form-bean name="EgovSearchMyDebdtForm" type="com.ext.portlet.egov.tax.SearchMyDebdtForm" />
+<form-bean name="EgovDebtForm" type="com.ext.portlet.egov.tax.DebtForm" />
+<form-bean name="EgovTapForm" type="com.ext.portlet.egov.tap.TapForm" />
+
+<!--  KOK -->
+<form-bean name="EgovSearchKokForm" type="com.ext.portlet.egov.kok.SearchKokForm" />
+<form-bean name="EgovKokRecordForm" type="com.ext.portlet.egov.kok.KokRecordForm" />
+
+<!-- Certificates -->
+<form-bean name="EgovSearchCertificateForm" type="com.ext.portlet.egov.certificates.SearchCertificateForm" />
+<form-bean name="EgovCertificateForm" type="com.ext.portlet.egov.certificates.CertificateForm" />
+
+<!-- Council Meetings -->
+<form-bean name="EgovCouncilMeetingForm" type="com.ext.portlet.egov.council.CouncilMeetingForm"/>
+<form-bean name="EgovSearchCouncilMeetingForm" type="com.ext.portlet.egov.council.SearchCouncilMeetingForm"/>
+<form-bean name="EgovCouncilMeetingMemberForm" type="com.ext.portlet.egov.council.members.MeetingMemberForm"/>
+<form-bean name="EgovCouncilMeetingFileForm" type="com.ext.portlet.egov.council.files.MeetingFileForm"/>
+<form-bean name="EgovCouncilMeetingSubjectForm" type="com.ext.portlet.egov.council.subjects.MeetingSubjectForm"/>
+<form-bean name="EgovRoleLookupForm" type="com.ext.portlet.egov.council.lookup.EgovRoleLookupForm"/>
+<form-bean name="EgovPartyLookupForm" type="com.ext.portlet.egov.council.lookup.PartyLookupForm"/>
+
+<!--  Roles -->
+<form-bean name="EgovRoleForm" type="com.ext.portlet.egov.council.roles.EgovRoleForm"/>
+
+
+<form-bean name="EgovDepartmentForm" type="com.ext.portlet.egov.applications.departments.EgovDepartmentForm"/>
+
+<form-bean name="EgovApplicationForm" type="com.ext.portlet.egov.applications.EgovApplicationForm"/>
+
+</form-beans>
+
+<action-mappings>
+
+	<!-- EPAYMENTS -->
+	<action path="/portal/pay" type="com.liferay.portal.action.payAction">
+		<forward name="portal.pay" path="portal.pay" />
+	</action>
+
+	<action path="/portal/pay_response" type="com.liferay.portal.action.responseAction">
+		<forward name="portal.pay.response" path="portal.pay.response" />
+		<forward name="portal.pay.response.ok" path="portal.pay.response.ok" />
+		<forward name="portal.pay.response.error" path="portal.pay.response.error" />
+		<forward name="portal.pay.response.backofficeerror" path="portal.pay.response.backofficeerror" />
+	</action>
+
+	<action path="/ext/e-services/debtor/listMyDebts"
+		type="com.ext.portlet.egov.debtor.ExecuteListDebtorAction">
+		<forward name="portlet.ext.egov.success" path="portlet.ext.egov.debtor.myDebtsListView"/>
+		<forward name="portlet.ext.egov.singular.success" path="portlet.ext.egov.debtor.singular.DebtsListView"/>
+		<forward name="portlet.ext.egov.requiredlogin" path="portlet.ext.egov.requiredlogin" />
+		<forward name="portlet.ext.egov.requiredlink" path="portlet.ext.egov.requiredlink" />
+	</action>
+
+
+	<action path="/ext/e-services/debt/listMyDebts"
+		type="com.ext.portlet.egov.debts.ExecuteListDebtAction">
+		<forward name="portlet.ext.egov.success" path="portlet.ext.egov.debts.myDebtsListView"/>
+		<forward name="portlet.ext.egov.requiredlogin" path="portlet.ext.egov.requiredlogin" />
+		<forward name="portlet.ext.egov.requiredlink" path="portlet.ext.egov.requiredlink" />
+	</action>
+
+	<action path="/ext/e-services/debt/pay"
+		type="com.ext.portlet.egov.debts.PayRedirectAction">
+		<forward name="portlet.ext.egov.debts.pay" path="portlet.ext.egov.debts.pay"/>
+		<forward name="/ext/e-services/debt/listMyDebts" path="/ext/e-services/debt/listMyDebts" redirect="true"/>
+	</action>
+
+	<action path="/ext/e-services/tap/pay"
+		type="com.ext.portlet.egov.tap.PayRedirectAction">
+		<forward name="portlet.ext.egov.tap.pay" path="portlet.ext.egov.tap.pay"/>
+		<forward name="/ext/e-services/tap/listMyDebts" path="/ext/e-services/tap/listMyDebts" redirect="true"/>
+	</action>
+
+
+	<!--  TAX -->
+	<action path="/ext/e-services/tap/listMyDebtsAction"
+		type="com.ext.portlet.egov.tap.ListMyDebtsAction"
+		scope="request" name="EgovTapForm" validate="false">
+		<forward name="portlet.ext.egov.success" path="portlet.ext.egov.tap.myDebtsListView"/>
+		<forward name="portlet.ext.egov.tap.ots.DebtsListView" path="portlet.ext.egov.tap.ots.DebtsListView"/>
+		<forward name="portlet.ext.egov.requiredlogin" path="portlet.ext.egov.requiredlogin" />
+		<forward name="portlet.ext.egov.requiredlink" path="portlet.ext.egov.requiredlink" />
+	</action>
+
+
+	<!--  TAX -->
+	<action path="/ext/e-services/tax/listMyDebtsAction"
+		type="com.ext.portlet.egov.tax.ListMyDebtsAction"
+		scope="request" name="EgovDebtForm" validate="false">
+		<forward name="portlet.ext.egov.success" path="portlet.ext.egov.tax.myDebtsListView"/>
+		<forward name="portlet.ext.egov.tax.ots.DebtsListView" path="portlet.ext.egov.tax.ots.DebtsListView"/>
+		<forward name="portlet.ext.egov.tax.singular.DebtsListView" path="portlet.ext.egov.tax.singular.DebtsListView"/>
+		<forward name="portlet.ext.egov.requiredlogin" path="portlet.ext.egov.requiredlogin" />
+		<forward name="portlet.ext.egov.requiredlink" path="portlet.ext.egov.requiredlink" />
+	</action>
+
+	<action path="/ext/e-services/tax/pay"
+		type="com.ext.portlet.egov.tax.PayRedirectAction">
+				<forward name="/ext/e-services/tax/listMyDebtsAction" path="/ext/e-services/tax/listMyDebtsAction" redirect="true"/>
+	</action>
+
+	<action path="/ext/e-services/kok/pay"
+		type="com.ext.portlet.egov.kok.PayRedirectAction">
+				<forward name="/ext/e-services/kok/listMyKokFines" path="/ext/e-services/kok/listMyKokFines" redirect="true"/>
+	</action>
+
+
+	<action path="/ext/e-services/tax/declare"
+		type="com.ext.portlet.egov.tax.DeclareMunicipalTaxAction">
+		<forward name="portlet.ext.egov.tax.singular.DebtsListView" path="portlet.ext.egov.tax.singular.DebtsListView" />
+		<forward name="/ext/e-services/tax/listMyDebtsAction" path="/ext/e-services/tax/listMyDebtsAction" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="portlet.ext.egov.failure" />		
+	</action>
+
+	<action path="/ext/e-services/tax/loadTaxAction"
+    		type="com.ext.portlet.egov.tax.LoadDebtAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.submit" path="portlet.ext.egov.tax.submitDebitFormView" />
+		<forward name="portlet.ext.egov.pay" path="portlet.ext.egov.tax.payDebitFormView" />
+		<forward name="portlet.ext.egov.failure" path="portlet.ext.egov.failure" />
+    </action>
+
+        <action path="/ext/e-services/tax/viewPaidTaxAction"
+    		type="com.ext.portlet.egov.tax.ViewPaidTaxAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="false" >
+		<forward name="portlet.ext.egov.tax.viewPaidTax" path="portlet.ext.egov.tax.viewPaidTax"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+
+     <action path="/ext/e-services/tax/calculatePeriodAmountAction"
+    		type="com.ext.portlet.egov.tax.CalculatePeriodAmountAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="false" input="portlet.ext.egov.tax.viewPaidTax">
+		<forward name="portlet.ext.egov.tax.viewPaidTax" path="portlet.ext.egov.tax.viewPaidTax"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+    <action path="/ext/e-services/tax/payTaxAction"
+    		type="com.ext.portlet.egov.tax.PayDebtAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="true" input="portlet.ext.egov.tax.payDebitFormView">
+		<forward name="/ext/e-services/tax/listMyDebtsAction" path="/ext/e-services/tax/listMyDebtsAction" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+
+    <action path="/ext/e-services/tax/submitTaxAction"
+    		type="com.ext.portlet.egov.tax.SubmitDebtAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="true" input="portlet.ext.egov.tax.submitDebitFormView">
+		<forward name="portlet.ext.egov.submit" path="portlet.ext.egov.tax.submitDebitFormView" />
+		<forward name="/ext/e-services/tax/listMyDebtsAction" path="/ext/e-services/tax/listMyDebtsAction" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+
+
+    <action path="/ext/e-services/tax/declareTaxRecordAction"
+    		type="com.ext.portlet.egov.tax.declareTaxRecordAction"
+    		name="EgovDebtForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.tax.declarePayForm" path="portlet.ext.egov.tax.declarePayForm" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+	<!-- =========================== -->
+
+	<!-- KOK -->
+
+	<action path="/ext/e-services/kok/listMyKokFines"
+    		type="com.ext.portlet.egov.kok.ExecuteListKokAction"
+    		name="EgovSearchKokForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.kok.listKokForm" path="portlet.ext.egov.kok.listKokForm" />
+		<forward name="portlet.ext.egov.kok.singular.listKokForm" path="portlet.ext.egov.kok.singular.listKokForm" />
+		<forward name="portlet.ext.egov.kok.ots.listKokForm" path="portlet.ext.egov.kok.ots.listKokForm" />
+		<forward name="portlet.ext.egov.requiredlogin" path="portlet.ext.egov.requiredlogin" />
+		<forward name="portlet.ext.egov.requiredlink" path="portlet.ext.egov.requiredlink" />
+    </action>
+
+	<action path="/ext/e-services/kok/searchKokRecordAction"
+    		type="com.ext.portlet.egov.kok.LoadSearchKokAction"
+    		name="EgovSearchKokForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.kok.searchForm" path="portlet.ext.egov.kok.searchFormView" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+    <action path="/ext/e-services/kok/executeSearchKokRecordAction"
+    		type="com.ext.portlet.egov.kok.ExecuteSearchKokAction"
+    		name="EgovSearchKokForm"
+			scope="request"
+			validate="true" input="portlet.ext.egov.kok.searchFormView">
+		<forward name="portlet.ext.egov.kok.searchForm" path="portlet.ext.egov.kok.kokRecordFormView" />
+		<forward name="portlet.ext.egov.kok.notFound" path="portlet.ext.egov.kok.notFoundView" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+    <action path="/ext/e-services/kok/payKokRecordAction"
+    		type="com.ext.portlet.egov.kok.PayKokRecordAction"
+    		name="EgovSearchKokForm"
+			scope="request"
+			validate="false">
+		<forward name="/ext/e-services/kok/searchKokRecordAction" path="/ext/e-services/kok/searchKokRecordAction" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+        <action path="/ext/e-services/kok/declareKokRecordAction"
+    		type="com.ext.portlet.egov.kok.declareKokRecordAction"
+    		name="EgovSearchKokForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.kok.declarePayForm" path="portlet.ext.egov.kok.declarePayForm" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+    <!--
+    <action path="/ext/e-services/paycenter/response" type="com.ext.portlet.egov.paycenter.ResponseAction" >
+		<forward name="portlet.ext.egov.paycenter.success" path="portlet.ext.egov.paycenter.success" />
+		<forward name="portlet.ext.egov.paycenter.failure" path="portlet.ext.egov.paycenter.failure" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+    -->
+
+    <action path="/ext/e-services/paycenter/response" forward="portlet.ext.egov.paycenter.success" />
+
+    <action path="/ext/e-services/paycenter/pay" type="com.ext.portlet.egov.paycenter.PayAction">
+		<forward name="portlet.ext.egov.paycenter.paykok" path="portlet.ext.egov.paycenter.paykok" />
+		<forward name="portlet.ext.egov.paycenter.paytax" path="portlet.ext.egov.paycenter.paytax" />
+		<forward name="/ext/e-services/paycenter/response" path="/ext/e-services/paycenter/response" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+
+	<!-- =========================== -->
+
+	<!--  Certificates -->
+	<action path="/ext/e-services/certificates/listMyCertificates"
+    		type="com.ext.portlet.egov.certificates.ListCertificatesAction"
+    		name="EgovSearchCertificateForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.certificates.listView" path="portlet.ext.egov.certificates.listView" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+    <action path="/ext/e-services/certificates/loadCertificateAction"
+    		type="com.ext.portlet.egov.certificates.LoadCertificateAction"
+    		name="EgovCertificateForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.certificates.formView" path="portlet.ext.egov.certificates.formView" />
+		<forward name="portlet.ext.egov.certificates.formView.protocol" path="portlet.ext.egov.certificates.protocolNumber" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+    <action path="/ext/e-services/certificates/submitCertificateAction"
+    		type="com.ext.portlet.egov.certificates.SubmitCertificateAction"
+    		name="EgovCertificateForm"
+			scope="request"
+			validate="true" input="portlet.ext.egov.helpdesk.formView">
+
+		<forward name="/ext/e-services/certificates/loadCertificateAction" path="/ext/e-services/certificates/loadCertificateAction" redirect="true"/>
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+
+
+    <!-- =========================== -->
+
+   	<!--  ADMIN Certificates -->
+    <action path="/ext/e-services/adminCertificates/searchCertificateRequests"
+    		type="com.ext.portlet.egov.certificates.ListAdminCertificatesAction"
+    		name="EgovSearchCertificateForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.certificates.listView" path="portlet.ext.egov.certificates.adminListView" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+    <action path="/ext/e-services/adminCertificates/loadCertificateAction"
+    		type="com.ext.portlet.egov.certificates.LoadCertificateAction"
+    		name="EgovCertificateForm"
+			scope="request"
+			validate="false">
+		<forward name="portlet.ext.egov.certificates.formView" path="portlet.ext.egov.certificates.formView" />
+		<forward name="portlet.ext.egov.certificates.formView.protocol" path="portlet.ext.egov.certificates.admin.protocolNumber" />
+		<forward name="portlet.ext.egov.failure" path="/common/error.jsp" />
+    </action>
+    <!-- =========================== -->
+
+    <!--  Council Meetings -->
+
+    	<action path="/ext/e-services/council/viewMeetings" type="com.ext.portlet.egov.council.ListCouncilMeetings" scope="request">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.list" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/searchMeetings" type="com.ext.portlet.egov.council.SearchCouncilMeetings" scope="request"
+		 name="EgovSearchCouncilMeetingForm" validate="false">
+		 	<forward name="portlet.ext.egov.council.search" path="portlet.ext.egov.council.search" />
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.list" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+
+		<action path="/ext/e-services/council/loadMeeting" type="com.ext.portlet.egov.council.LoadCouncilMeetingAction" name="EgovCouncilMeetingForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.add" path="portlet.ext.egov.council.add" />
+			<forward name="portlet.ext.egov.council.edit" path="portlet.ext.egov.council.edit" />
+			<forward name="portlet.ext.egov.council.delete" path="portlet.ext.egov.council.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/loadMeetingSummary" type="com.ext.portlet.egov.council.LoadCouncilMeetingSummaryAction" name="EgovCouncilMeetingForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.summary" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/addMeeting" type="com.ext.portlet.egov.council.AddCouncilMeetingAction" name="EgovCouncilMeetingForm" scope="request" validate="true" input="portlet.ext.egov.council.add">
+			<forward name="/ext/e-services/council/viewMeetings" path="/ext/e-services/council/viewMeetings" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/editMeeting" type="com.ext.portlet.egov.council.UpdateCouncilMeetingAction" name="EgovCouncilMeetingForm" scope="request" validate="true" input="portlet.ext.egov.council.edit">
+			<forward name="/ext/e-services/council/viewMeetings" path="/ext/e-services/council/viewMeetings" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/deleteMeeting" type="com.ext.portlet.egov.council.DeleteCouncilMeetingAction" name="EgovCouncilMeetingForm" scope="request" validate="true" input="portlet.ext.egov.council.delete">
+			<forward name="/ext/e-services/council/viewMeetings" path="/ext/e-services/council/viewMeetings" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<!--  Council Meeting Members -->
+		<action path="/ext/e-services/council/viewMeetingMembers" type="com.ext.portlet.egov.council.members.ListMeetingMembers" scope="request">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.members.list" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/loadMeetingMember" type="com.ext.portlet.egov.council.members.LoadMeetingMemberAction" name="EgovCouncilMeetingMemberForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.add" path="portlet.ext.egov.council.members.add" />
+			<forward name="portlet.ext.egov.council.edit" path="portlet.ext.egov.council.members.edit" />
+			<forward name="portlet.ext.egov.council.delete" path="portlet.ext.egov.council.members.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/addMeetingMember" type="com.ext.portlet.egov.council.members.AddMeetingMemberAction" name="EgovCouncilMeetingMemberForm" scope="request" validate="true" input="portlet.ext.egov.council.members.add">
+			<forward name="/ext/e-services/council/viewMeetingMembers" path="/ext/e-services/council/viewMeetingMembers" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/editMeetingMember" type="com.ext.portlet.egov.council.members.UpdateMeetingMemberAction" name="EgovCouncilMeetingMemberForm" scope="request" validate="true" input="portlet.ext.egov.council.members.edit">
+			<forward name="/ext/e-services/council/viewMeetingMembers" path="/ext/e-services/council/viewMeetingMembers" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/deleteMeetingMember" type="com.ext.portlet.egov.council.members.DeleteMeetingMemberAction" name="EgovCouncilMeetingMemberForm" scope="request" validate="false">
+			<forward name="/ext/e-services/council/viewMeetingMembers" path="/ext/e-services/council/viewMeetingMembers" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.members.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<!--  Council Meeting Files -->
+		<action path="/ext/e-services/council/viewMeetingFiles" type="com.ext.portlet.egov.council.files.ListMeetingFiles" scope="request">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.files.list" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/loadMeetingFile" type="com.ext.portlet.egov.council.files.LoadMeetingFileAction" name="EgovCouncilMeetingFileForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.add" path="portlet.ext.egov.council.files.add" />
+			<forward name="portlet.ext.egov.council.edit" path="portlet.ext.egov.council.files.edit" />
+			<forward name="portlet.ext.egov.council.delete" path="portlet.ext.egov.council.files.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/addMeetingFile" type="com.ext.portlet.egov.council.files.AddMeetingFileAction" name="EgovCouncilMeetingFileForm" scope="request" validate="true" input="portlet.ext.egov.council.files.add">
+			<forward name="/ext/e-services/council/viewMeetingFiles" path="/ext/e-services/council/viewMeetingFiles" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.files.add" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/editMeetingFile" type="com.ext.portlet.egov.council.files.UpdateMeetingFileAction" name="EgovCouncilMeetingFileForm" scope="request" validate="true" input="portlet.ext.egov.council.files.edit">
+			<forward name="/ext/e-services/council/viewMeetingFiles" path="/ext/e-services/council/viewMeetingFiles" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.files.edit" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/deleteMeetingFile" type="com.ext.portlet.egov.council.files.DeleteMeetingFileAction" name="EgovCouncilMeetingFileForm" scope="request" validate="false">
+			<forward name="/ext/e-services/council/viewMeetingFiles" path="/ext/e-services/council/viewMeetingFiles" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.files.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<!--  Council Meeting Subjects -->
+		<action path="/ext/e-services/council/viewMeetingSubjects" type="com.ext.portlet.egov.council.subjects.ListMeetingSubjects" scope="request">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.subjects.list" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/loadMeetingSubject" type="com.ext.portlet.egov.council.subjects.LoadMeetingSubjectAction" name="EgovCouncilMeetingSubjectForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.add" path="portlet.ext.egov.council.subjects.add" />
+			<forward name="portlet.ext.egov.council.edit" path="portlet.ext.egov.council.subjects.edit" />
+			<forward name="portlet.ext.egov.council.delete" path="portlet.ext.egov.council.subjects.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/addMeetingSubject" type="com.ext.portlet.egov.council.subjects.AddMeetingSubjectAction" name="EgovCouncilMeetingSubjectForm" scope="request" validate="true" input="portlet.ext.egov.council.subjects.add">
+			<forward name="/ext/e-services/council/viewMeetingSubjects" path="/ext/e-services/council/viewMeetingSubjects" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/editMeetingSubject" type="com.ext.portlet.egov.council.subjects.UpdateMeetingSubjectAction" name="EgovCouncilMeetingSubjectForm" scope="request" validate="true" input="portlet.ext.egov.council.subjects.edit">
+			<forward name="/ext/e-services/council/viewMeetingSubjects" path="/ext/e-services/council/viewMeetingSubjects" redirect="true" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/deleteMeetingSubject" type="com.ext.portlet.egov.council.subjects.DeleteMeetingSubjectAction" name="EgovCouncilMeetingSubjectForm" scope="request" validate="true" input="portlet.ext.egov.council.subjects.delete">
+			<forward name="/ext/e-services/council/viewMeetingSubjects" path="/ext/e-services/council/viewMeetingSubjects" redirect="true" />
+			<forward name="portlet.ext.egov.council.validation" path="portlet.ext.egov.council.subjects.delete" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/roleLookupAction" type="com.ext.portlet.egov.council.lookup.EgovRoleLookupAction" name="EgovRoleLookupForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.lookup.roles" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/e-services/council/partyLookupAction" type="com.ext.portlet.egov.council.lookup.PartyLookupAction" name="EgovPartyLookupForm" scope="request" validate="false">
+			<forward name="portlet.ext.egov.council.success" path="portlet.ext.egov.council.lookup.parties" />
+			<forward name="portlet.ext.egov.council.failure" path="/common/error.jsp" />
+		</action>
+
+
+		<!--  EGov Roles -->
+
+    	<action path="/ext/e-services/roles/view" type="com.ext.portlet.egov.council.roles.ListEgovRolesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.egov.council.roles.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/e-services/roles/load" type="com.ext.portlet.egov.council.roles.LoadEgovRoleAction"
+		    name="EgovRoleForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.add" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.edit" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.delete" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/e-services/roles/add" type="com.ext.portlet.egov.council.roles.AddEgovRoleAction"
+		    name="EgovRoleForm" validate="false" scope="request">
+			<forward name="/ext/e-services/roles/view" path="/ext/e-services/roles/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/e-services/roles/update" type="com.ext.portlet.egov.council.roles.UpdateEgovRoleAction"
+		    name="EgovRoleForm" validate="false" scope="request">
+			<forward name="/ext/e-services/roles/view" path="/ext/e-services/roles/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/e-services/roles/delete" type="com.ext.portlet.egov.council.roles.DeleteEgovRoleAction"
+		    name="EgovRoleForm" validate="false" scope="request">
+			<forward name="/ext/e-services/roles/view" path="/ext/e-services/roles/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.council.roles.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+
+
+
+
+
+
+<!-- egov departments -->
+
+	<action path="/ext/egov/departments/list" type="com.ext.portlet.egov.applications.departments.ListEgovDepartmentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.egov.departments.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/departments/load" type="com.ext.portlet.egov.applications.departments.LoadEgovDepartmentAction"
+		    name="EgovDepartmentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.add" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.edit" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.delete" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/departments/add" type="com.ext.portlet.egov.applications.departments.AddEgovDepartmentAction"
+		    name="EgovDepartmentForm" validate="false" scope="request">
+			<forward name="/ext/egov/departments/list" path="/ext/egov/departments/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/departments/update" type="com.ext.portlet.egov.applications.departments.UpdateEgovDepartmentAction"
+		    name="EgovDepartmentForm" validate="false" scope="request">
+			<forward name="/ext/egov/departments/list" path="/ext/egov/departments/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/departments/delete" type="com.ext.portlet.egov.applications.departments.DeleteEgovDepartmentAction"
+		    name="EgovDepartmentForm" validate="false" scope="request">
+			<forward name="/ext/egov/departments/list" path="/ext/egov/departments/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.departments.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+
+
+
+<!-- egov applications -->
+
+	<action path="/ext/egov/applications/list" type="com.ext.portlet.egov.applications.ListEgovApplicationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.egov.applications.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/applications/load" type="com.ext.portlet.egov.applications.LoadEgovApplicationAction"
+		    name="EgovApplicationForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.egov.applications.view"  />
+			<forward name="common.add" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.edit" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.delete" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/applications/add" type="com.ext.portlet.egov.applications.AddEgovApplicationAction"
+		    name="EgovApplicationForm" validate="false" scope="request">
+			<forward name="/ext/egov/applications/list" path="/ext/egov/applications/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/applications/update" type="com.ext.portlet.egov.applications.UpdateEgovApplicationAction"
+		    name="EgovApplicationForm" validate="false" scope="request">
+			<forward name="/ext/egov/applications/list" path="/ext/egov/applications/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/egov/applications/delete" type="com.ext.portlet.egov.applications.DeleteEgovApplicationAction"
+		    name="EgovApplicationForm" validate="false" scope="request">
+			<forward name="/ext/egov/applications/list" path="/ext/egov/applications/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.egov.applications.form"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+
+
+<action path="/ext/egov/applications/userview" type="com.ext.portlet.egov.applications.ListEgovDepartmentsViewAction" scope="request">
+			<forward name="common.success" path="portlet.ext.egov.applications.listdepts"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/egov/applications/loadGuest" type="com.ext.portlet.egov.applications.LoadEgovApplicationGuestAction"
+		    name="EgovApplicationForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.egov.applications.view"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+<action path="/ext/egov/applications/applications_list" type="com.ext.portlet.egov.applications.ListEgovApplicationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.egov.applications.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+
+
+</action-mappings>
+
+
+</struts-config>

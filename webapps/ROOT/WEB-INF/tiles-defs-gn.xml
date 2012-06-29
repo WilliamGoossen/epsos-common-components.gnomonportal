@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!--  My favorites -->
+	<definition name="portlet.ext.favorites" extends="portlet" />
+	
+	<definition name="portlet.ext.favorites.view" extends="portlet.ext.favorites">
+		<put name="portlet_content" value="/portlet/ext/favorites/view.jsp" />
+		<!-- <put name="portlet_decorate" value="false" /> -->
+	</definition>
+	
+	<!--  Media Show -->
+    <definition name="portlet.ext.mediashow" extends="portlet" />
+    
+    <definition name="portlet.ext.mediashow.view" extends="portlet.ext.mediashow">
+        <put name="portlet_content" value="/portlet/ext/mediashow/view.jsp" />
+    </definition>
+
+	<!--  Quick Map -->
+	<definition name="portlet.ext.quickmap" extends="portlet" />
+	
+	<definition name="portlet.ext.quickmap.view" extends="portlet.ext.quickmap">
+		<put name="portlet_content" value="/portlet/ext/quickmap/view.jsp" />
+	</definition>
+
+	<!--  Permissions -->
+	<definition name="portlet.ext.permissions" extends="portlet" />
+
+	<definition name="portlet.ext.permissions.view" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/gnactions/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.permissions.form" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/gnactions/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.permissions.portlet.view" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/viewPortlets.jsp" />
+	</definition>
+	<definition name="portlet.ext.permissions.portlet.form" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/editPortletActions.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.portlet.settings.form" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/editPortletSettings.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.portlet.topics.view" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/listPortletTopics.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.portlet.topics.view" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/listPortletTopics.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.portlet.topics.treeview" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/loadPortletTopics.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.settings.role.lookup" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/lookup/lookupRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.permissions.error" extends="portlet.ext.permissions">
+		<put name="portlet_content" value="/portlet/ext/permissions/error.jsp" />
+	</definition>
+
+
+	<!-- Topics -->
+	<!-- <definition name="portlet.ext.topics" path="/themes/portlet/gnomon_theme/gnomon.jsp" /> -->
+	<definition name="portlet.ext.topics" extends="portlet" />
+
+	<definition name="portlet.ext.topics.view" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.topics.form" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.topics.lookup.articles" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/lookupArticles.jsp" />
+	</definition>
+
+
+	<definition name="portlet.ext.topics.error" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.topics.cross.publish" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/crossPublish.jsp" />
+	</definition>
+	
+
+
+	<definition name="portlet.ext.topics.edit_topic" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/edit_topic.jsp" />
+	</definition>
+	<definition name="portlet.ext.topics.edit_topic_trans" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/edit_topic_trans.jsp"/>
+	</definition>
+	<definition name="portlet.ext.topics.view_topic" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/view_topic.jsp" />
+	</definition>
+	<definition name="portlet.ext.topics.view_topics" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/view_topics.jsp" />
+	</definition>
+	<definition name="portlet.ext.topics.topics_tree" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/topics_tree.jsp" />
+	</definition>
+	<definition name="portlet.ext.topics.edit_itemtopics" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/edit_itemtopics.jsp" />
+	</definition>
+	<definition name="portlet.ext.topics.portlettopics" extends="portlet.ext.topics">
+		<put name="portlet_content" value="/portlet/ext/topics/edit_portlettopics.jsp" />
+	</definition>
+
+
+	<!-- GN_KMS_ASPECTS and METADATA PROPERTIES -->
+	<definition name="portlet.ext.kms" extends="portlet" />
+
+	<definition name="portlet.ext.kms.aspect.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/aspects/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.aspect.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/aspects/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.class.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/classes/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.class.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/classes/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.classaspect.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/classaspects/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.classaspect.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/classaspects/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.property.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/properties/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.property.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/properties/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.option.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/options/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.option.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/options/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.taggroup.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/taggroups/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.taggroup.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/taggroups/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kms.tagentry.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/tagentries/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.kms.tagentry.form" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/tagentries/form.jsp" />
+	</definition>
+
+	<!--  kms tag search -->
+	<definition name="portlet.ext.cms.kms.tagsearch.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/kms/tagsearch/view.jsp" />
+	</definition>
+
+	<!--  cms search -->
+	<definition name="portlet.ext.cms.search.search" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/search/search.jsp" />
+	</definition>
+	<definition name="portlet.ext.cms.search.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/search/view.jsp" />
+	</definition>
+	
+	<!--  cms help -->
+	<definition name="portlet.ext.cms.help.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/cms/help/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dyngrid.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/dyngrid/view.jsp" />
+	</definition>
+
+	<!-- mondrian -->
+	<definition name="portlet.ext.jpivot.view" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/jpivot/index.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.jpivot.busy" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/jpivot/busy.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.jpivot.mondrian" extends="portlet.ext.kms">
+		<put name="portlet_content" value="/portlet/ext/jpivot/mondrian1.jsp" />
+	</definition>
+
+	<!--  PORTAL MESSAGES -->
+	<definition name="portlet.ext.messages.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/messages/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.messages.form" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/messages/form.jsp" />
+	</definition>
+	
+</tiles-definitions>

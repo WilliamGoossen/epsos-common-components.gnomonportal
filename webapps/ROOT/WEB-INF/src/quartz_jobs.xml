@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+  http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+  version="1.5">
+  
+  <!-- 
+	CRON TRIGGER EXPRESSIONS:
+  	#	Scheduling the import to occure every day on the
+	#	specified time ()
+	#  Field Name  	   		Allowed Values  	   	Allowed Special Characters
+	#    Seconds 	  		0-59 	  					, - * /
+	#	 Minutes 	  		0-59 	  					, - * /
+	#	 Hours 	  			0-23 	  					, - * /
+	#	 Day-of-month 	  	1-31 	  					, - * ? / L W C
+	#	 Month 	  			1-12 or JAN-DEC 	  		, - * /
+	#	 Day-of-Week 	  	1-7 or SUN-SAT 	  			, - * ? / L C #
+	#	 Year (Optional) 	empty, 1970-2099 	  		, - * /
+	#
+	#		sec min hour day month wday [year]
+   -->
+  
+  <!-- 
+    #####   An example of a simple job, with key-value pairs for the job data map
+    
+    
+  <job>
+    <job-detail>
+      <name>testJob2</name>
+      <group>testJobs</group>
+      <description>Test Job Number 2</description>
+      <job-class>org.quartz.examples.example10.SimpleJob</job-class>
+      <volatility>false</volatility>
+      <durability>false</durability>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>path</key>
+          <value>E:\j2ee\apps\gi9-eproject-431\webapps\ROOT</value>
+        </entry>
+        <entry>
+          <key>test2</key>
+          <value>test2</value>
+        </entry>
+      </job-data-map>
+    </job-detail>
+    <trigger>
+      <simple>
+        <name>testTrigger2</name>
+        <group>testJobs</group>
+        <description>Test Trigger Number 2</description>
+        <calendar-name>holidayCalendar</calendar-name>
+        <job-name>testJob2</job-name>
+        <job-group>testJobs</job-group>
+        <start-time>2004-02-26T12:26:00</start-time>
+        <repeat-count>10</repeat-count>
+        <repeat-interval>5000</repeat-interval>
+      </simple>
+    </trigger>
+  </job>
+  -->
+  
+  <!-- 
+  <job>
+    <job-detail>
+      <name>CronJobSaveStartQuarterPropSnapshot</name>
+      <group>E-Project-Jobs</group>
+      <description>Start Of Quarter Proposal Snapshot</description>
+      <job-class>com.ext.portlet.eproject.projectMgmt.proposal.estimations.CronJobSaveStartQuarterPropSnapshot</job-class>
+      <volatility>false</volatility>
+      <durability>false</durability>
+      <recover>false</recover>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>CronJobSaveStartQuarterPropSnapshot_TRIGGER</name>
+        <group>E-Project-Jobs</group>
+        <description>Start Of Quarter Proposal Snapshot Trigger</description>
+        <job-name>CronJobSaveStartQuarterPropSnapshot</job-name>
+        <job-group>E-Project-Jobs</job-group>
+        <cron-expression>0 5 0 1 1,4,7,10 ?</cron-expression>
+      </cron>
+    </trigger>
+  </job>
+  -->
+  
+</quartz>

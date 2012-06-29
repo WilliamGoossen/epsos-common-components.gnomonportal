@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.ecommerce" extends="portlet" />
+
+	<definition name="portlet.ext.ecommerce.admin.view" extends="portlet.ext.ecommerce" >
+		<put name="portlet_content" value="/portlet/ext/ecommerce/admin/view.jsp" />
+	</definition>
+	
+	<!-- Payment -->
+	<!-- ============= Service Admin ================= -->
+	<definition name="portlet.ext.payment.service.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/service/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.service.form" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/service/form.jsp" />
+	</definition>
+	
+	<!-- ============ Pay for Service ================ -->
+	
+	<definition name="portlet.ext.payment.pay_form.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/pay_form/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.pay_form.form" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/pay_form/form.jsp" />
+	</definition>
+	
+	<!-- ============ Service Payment Type ================ -->
+	
+	<definition name="portlet.ext.payment.service_payment_type.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/service_payment_type/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.service_payment_type.form" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/service_payment_type/form.jsp" />
+	</definition>
+	
+	<!-- ============ List Payment History by Service Responsible ================ -->
+	
+	<definition name="portlet.ext.payment.pmt_history_resp.viewServicesOfResponsible" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/viewServicesOfResponsible.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.pmt_history_resp.listPaymentsByService" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/listPaymentsByService.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.pmt_history_resp.loadPmtStatusForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/loadPmtStatusForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.payment.pmt_history_resp.viewPmt" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/payment/viewPmt.jsp" />
+    </definition>
+	
+	
+	<!-- ============ List My Payment History ================ -->
+	
+	<definition name="portlet.ext.payment.pmt_history_my_pmts.viewMyPmts" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/payment/viewMyPmts.jsp" />
+	</definition>
+	
+    <definition name="portlet.ext.payment.pmt_history_my_pmts.viewPmt" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/payment/viewPmt.jsp" />
+    </definition>
+	
+	<!-- =============================================== -->
+	
+	<!-- Paycenter -->
+	<!-- 
+	<definition name="portlet.ext.paycenter" extends="portlet" />
+	
+ 	<definition name="portlet.ext.paycenter.view" extends="portlet.ext.paycenter">
+		<put name="portlet_content" value="/portlet/ext/paycenter/view.jsp" />
+	</definition>
+	-->
+	
+	<definition name="portal.paycenter" extends="portal">
+		<put name="title" value="Paycenter" />
+	</definition>
+	
+	<definition name="portal.paycenter.view" extends="portal.paycenter">
+		<put name="title" value="Paycenter" />
+		<put name="content" value="/portlet/ext/paycenter/pay/view.jsp" />
+	</definition>
+
+	<definition name="portal.paycenter.banktransfer.pay" extends="portal.paycenter">
+		<put name="title" value="Paycenter - Bank Transfer" />
+		<put name="content" value="/portlet/ext/paycenter/pay/banktransfer.jsp" />
+	</definition>
+
+	<definition name="portal.paycenter.paypal.pay" extends="portal.paycenter">
+		<put name="title" value="Paycenter - Paypal" />
+		<put name="content" value="/portlet/ext/paycenter/pay/paypal.jsp" />
+	</definition>
+	
+	<definition name="portal.paycenter.winbank.pay" extends="portal.paycenter">
+		<put name="title" value="Paycenter - Winbank" />
+		<put name="content" value="/portlet/ext/paycenter/pay/winbank.jsp" />
+	</definition>
+	
+	<definition name="portal.paycenter.banktransfer.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/response/banktransfer.jsp" />
+	</definition>	
+
+	<definition name="portal.paycenter.winbank.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/response/winbank.jsp" />
+	</definition>
+
+	<definition name="portal.paycenter.paypal.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/response/paypal.jsp" />
+	</definition>
+	
+	<definition name="portal.paycenter.cod.pay" extends="portal.paycenter">
+        <put name="title" value="Paycenter - Cash On Delivery" />
+        <put name="content" value="/portlet/ext/paycenter/pay/cod.jsp" />
+    </definition>
+    
+    <definition name="portal.paycenter.cod.response" extends="portal.paycenter">
+        <put name="content" value="/portlet/ext/paycenter/response/cod.jsp" />
+    </definition>
+    
+    <definition name="portal.paycenter.oncredit.pay" extends="portal.paycenter">
+        <put name="title" value="Paycenter - Cash On Delivery" />
+        <put name="content" value="/portlet/ext/paycenter/pay/oncredit.jsp" />
+    </definition>
+    
+    <definition name="portal.paycenter.oncredit.response" extends="portal.paycenter">
+        <put name="content" value="/portlet/ext/paycenter/response/oncredit.jsp" />
+    </definition>
+	
+	<!-- 
+	<definition name="portal.paycenter.winbank.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/winbank/response.jsp" />
+	</definition>
+
+	<definition name="portal.paycenter.paypal.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/paypal/response.jsp" />
+	</definition>
+	-->
+
+	<!--
+	<definition name="portal.paycenter.response" extends="portal.paycenter">
+		<put name="content" value="/portlet/ext/paycenter/response.jsp" />
+	</definition>
+	
+	<definition name="portal.pay.response" extends="portal">
+		<put name="title" value="egov.payments" />
+		<put name="content" value="/portlet/ext/egov/paycenter/response.jsp" />
+	</definition>
+	
+	<definition name="portal.pay.response.ok" extends="portal">
+		<put name="title" value="egov.payments" />
+		<put name="content" value="/portlet/ext/egov/paycenter/success.jsp" />
+	</definition>
+	 -->
+	
+	<!-- USER ORDERS -->
+	<definition name="portlet.ext.orders.user.view.orders" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/user/viewOrders.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.orders.user.find.order" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/user/findOrder.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.orders.user.view.order" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/user/viewOrder.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.orders.user.order.payment.form" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/order/user/paymentForm.jsp" />
+    </definition>
+	
+	<!-- Product Browser -->
+ 	<definition name="portlet.ext.products.browser.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/browser/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.products.browser.viewProduct" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/browser/viewProduct.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.products.menuBrowser.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/browser/menuView.jsp" />
+	</definition>
+	
+	
+	<!--  Shopping Cart -->	
+	<definition name="portlet.ext.ecommerce.cart.view" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/view.jsp" />
+		<!-- <put name="portlet_decorate" value="false" /> -->
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.null" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/null.jsp" />
+		<put name="portlet_decorate" value="false" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.welcome" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_welcome.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.create_account" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_create_account.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.billing_info" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_billing_info.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.shipping_info" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_shipping_info.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.shipping_method" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_shipping_method.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.payment_info" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_payment_info.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.confirm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_confirm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.result" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_result.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.ecommerce.cart.checkout.error" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/checkout_error.jsp" />
+	</definition>
+	
+	<!--
+	<definition name="portlet.ext.ecommerce.cart.configuration" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/cart/configuration.jsp" />
+	</definition>
+	-->
+	
+	<!--  PRODUCT ADMIN -->
+	<definition name="portlet.ext.products.admin.view.products" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/viewProducts.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.features" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/features/viewFeatures.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.manufacturers" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/manufacturers/viewManufacturers.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.suppliers" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/suppliers/viewSuppliers.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.metrics" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/metrics/viewMetrics.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.catalogs" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/catalogs/viewCatalogs.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.producttypes" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/producttypes/viewProductTypes.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.productForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/productForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.photo.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/photos/listPhotos.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.photo.form" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/photos/photoForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.spec.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/specs/listSpecs.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.spec.translations.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/specs/listSpecTranslations.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.attribute.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/attributes/listAttributes.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.attribute.values.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/attributes/listAttributeValues.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.attribute.values.translations.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/attributes/listAttributeValueTranslations.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.products.admin.combinations.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/combinations/listCombinations.jsp" />
+	</definition>
+    <definition name="portlet.ext.products.admin.combinations.remaining.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/combinations/listRemainingCombinations.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.combinationForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/combinations/combinationForm.jsp" />
+	</definition>
+		
+	<definition name="portlet.ext.products.admin.visibility.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/visibility/listVisibility.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.visibilityForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/visibility/visibilityForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.discount.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/discounts/listDiscounts.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.discountForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/discounts/discountForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.products.admin.manufacturerForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/manufacturers/manufacturerForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.supplierForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/suppliers/supplierForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.producttypeForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/producttypes/producttypeForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.catalogForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/catalogs/catalogForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.products.admin.catalog.profile.list" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/catalogs/profileList.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.products.admin.metricForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/metrics/metricForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.featureForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/features/featureForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.featuresetForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/features/featuresetForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.featureset.members" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/features/featuresetMembers.jsp" />
+	</definition>
+	<definition name="portlet.ext.products.admin.view.bulkimport.form" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/bulkimport/bulkImportForm.jsp" />
+    </definition>
+    <definition name="portlet.ext.products.admin.view.bulkimport.result" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/product/admin/bulkimport/bulkImportResult.jsp" />
+    </definition>
+	
+	<!--  ORDER ADMIN -->
+	<definition name="portlet.ext.orders.admin.view.orders" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/viewOrders.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.history" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/viewOrderHistory.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.orderForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/orderForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.orderLineForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/orderlines/orderLineForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.customers" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/customers/viewCustomers.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.taxes" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/taxes/viewTaxes.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.payments" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/paymenttypes/viewPaymenttypes.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.shippings" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/shippings/viewShippings.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.view.orderstates" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/orderstates/viewOrderstates.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.taxForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/taxes/taxForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.shippingForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/shippings/shippingForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.paymenttypeForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/paymenttypes/paymenttypeForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.orders.admin.orderstateForm" extends="portlet.ext.ecommerce">
+		<put name="portlet_content" value="/portlet/ext/ecommerce/order/admin/orderstates/orderstateForm.jsp" />
+	</definition>
+	
+	<!-- ERP SYNC -->
+    <definition name="portlet.ext.ecommerce.erpsync.view" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/view.jsp" />
+    </definition>
+    <!--  Testing Savvinopoulos ERP DATA -->
+    <definition name="portlet.ext.ecommerce.erpsync.testViewErpViews" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/testViewErpViews.jsp" />
+    </definition>
+    <definition name="portlet.ext.ecommerce.erpsync.error" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/error.jsp" />
+    </definition>
+    
+    <definition name="portlet.ext.ecommerce.erpsync.entersoft.products" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/entersoft/products.jsp" />
+    </definition>
+
+    <definition name="portlet.ext.ecommerce.erpsync.entersoft.inventory" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/entersoft/inventory.jsp" />
+    </definition>
+    
+    <definition name="portlet.ext.ecommerce.erpsync.entersoft.customers" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/entersoft/customers.jsp" />
+    </definition>
+    
+    <definition name="portlet.ext.ecommerce.erpsync.kefweb.products" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/kefweb/products.jsp" />
+    </definition>
+    
+    <definition name="portlet.ext.ecommerce.erpsync.kefweb.inventory" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/kefweb/inventory.jsp" />
+    </definition>
+    
+    <definition name="portlet.ext.ecommerce.erpsync.kefweb.customers" extends="portlet.ext.ecommerce">
+        <put name="portlet_content" value="/portlet/ext/ecommerce/erpsync/kefweb/customers.jsp" />
+    </definition>
+    
+</tiles-definitions>

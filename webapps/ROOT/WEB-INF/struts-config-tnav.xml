@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<action-mappings>
+
+		<!-- Topic Journal Articles -->
+		<action path="/ext/topicarts/get_articles" type="com.ext.portlet.topicarts.action.GetArticlesAction" />
+		
+		<action path="/ext/topicarts/view" type="com.ext.portlet.topicarts.action.ViewAction">
+			<forward name="portlet.ext.topicarts.view" path="portlet.ext.topicarts.view" />
+		</action>
+
+		<action path="/ext/topicarts/edit_configuration" type="com.ext.portlet.topicarts.action.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.topicarts.edit_configuration" />
+		</action>
+		
+		<action path="/ext/topicarts/viewArticle" type="com.ext.portlet.topicarts.action.ViewArticleAction">
+			<forward name="portlet.ext.topicarts.view_article" path="portlet.ext.topicarts.view_article" />
+		</action>
+
+		<action path="/ext/topicarts/printArticle" type="com.ext.portlet.topicarts.action.ViewArticleAction">
+			<forward name="portlet.ext.topicarts.view_article" path="portlet.ext.topicarts.view_article" />
+		</action>
+
+		<!-- Topic View -->
+		<action path="/ext/topicview/view" type="com.ext.portlet.topicview.action.ViewAction">
+			<forward name="portlet.ext.topicview.view" path="portlet.ext.topicview.view" />
+		</action>
+		
+		<!-- Topic Navigation -->
+		<!-- <action path="/ext/topicnav/view" forward="portlet.ext.topicnav.view" />-->
+		<action path="/ext/topicnav/view" type="com.ext.portlet.topicnav.action.ViewAction">
+			<forward name="portlet.ext.topicnav.view" path="portlet.ext.topicnav.view" />
+		</action>
+		
+		<action path="/ext/topicnav/edit_configuration" type="com.ext.portlet.topicnav.action.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.topicnav.edit_configuration" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

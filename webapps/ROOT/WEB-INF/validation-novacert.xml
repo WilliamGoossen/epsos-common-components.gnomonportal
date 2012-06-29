@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+	<formset> 
+		<!--  ======  -->
+		<form name="ProdKalliergiaForm">
+        	<field property="agrotemNumber" depends="required,maxlength">
+        		<arg0 key="nvc.prodKalliergies.agrotemNumber"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="agrotemType" depends="required">
+        		<arg0 key="nvc.prodKalliergies.agrotemType"/>
+        	</field>
+        	<field property="region" depends="maxlength">
+        		<arg0 key="nvc.prodKalliergies.region"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        </form>
+		<!--  ======  -->
+		<!--  ======  -->
+		<form name="ProdInspectionForm">
+			<field property="evaluator" depends="maxlength">
+        		<arg0 key="nvc.prodInspection.evaluator"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>1000</var-value>
+                     </var>
+        	</field>
+        	<field property="description" depends="maxlength">
+        		<arg0 key="nvc.prodInspection.description"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>1000</var-value>
+                     </var>
+        	</field>
+        	<field property="correctionTasks" depends="maxlength">
+        		<arg0 key="nvc.prodInspection.correctionTasks"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>1000</var-value>
+                     </var>
+        	</field>
+		</form>
+		<!--  ======  -->
+		<!--  ======  -->
+		<form name="TaskKalliergiaCareForm">
+        	<field property="startDate" depends="required">
+        		<arg0 key="nvc.taskKalliergiaCare.startDate"/>
+        	</field>
+        	<field property="endDate" depends="required">
+        		<arg0 key="nvc.taskKalliergiaCare.endDate"/>
+        	</field>
+        </form>
+		<!--  ======  -->
+        <!--  ======  -->
+		<form name="TaskHarvestForm">
+        	<field property="harvestCode" depends="maxlength">
+        		<arg0 key="nvc.taskHarvest.harvestCode"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="harvestDate" depends="required">
+        		<arg0 key="nvc.taskHarvest.harvestDate"/>
+        	</field>
+        </form>
+		<!--  ======  -->
+        <!--  ======  -->
+		<form name="NvcSynetairismosForm">
+        	<field property="organizationName" depends="required,maxlength">
+        		<arg0 key="nvc.synetairismoi.synetairName"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="orgtypeid" depends="required">
+        		<arg0 key="parties.manager.organization.typeid"/>
+        	</field>
+        	<field property="afmDoy" depends="maxlength">
+        		<arg0 key="nvc.synetairismoi.afmDoy"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	
+        	<field property="afmIdentifier" depends="maxlength">
+        		<arg0 key="nvc.synetairismoi.afmIdentifier"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>10</var-value>
+                     </var>
+        	</field>
+        	 <field property="email"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="telephone"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        	<field property="webpage"
+         	   depends="maxlength,mask">
+         	     <msg name="mask" key="parties.addresses.webpage"/>
+				 <arg0 key="parties.addresses.webpage.url"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^http://|ftp://[\w./]+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>500</var-value>
+                     </var>
+        	</field> 
+        </form>
+		<!--  ======  -->
+		<!--  ======  -->
+		<form name="NvcProducerForm">
+        	<field property="organizationName" depends="maxlength">
+        		<arg0 key="nvc.producers.producerName"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	
+        	<field property="afmDoy" depends="maxlength">
+        		<arg0 key="nvc.producers.afmDoy"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="afmIdentifier" depends="maxlength">
+        		<arg0 key="nvc.producers.afmIdentifier"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>10</var-value>
+                     </var>
+        	</field>
+        	 <field property="email"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="telephone"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        	<field property="webpage"
+         	   depends="maxlength,mask">
+         	     <msg name="mask" key="parties.addresses.webpage"/>
+				 <arg0 key="parties.addresses.webpage.url"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^http://|ftp://[\w./]+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>500</var-value>
+                     </var>
+        	</field> 
+        </form>
+        <!--  ======  -->
+        <form name="TaskLipansiForm">
+        	<field property="traceElementName1" depends="maxlength">
+        		<arg0 key="nvc.taskLipansi.traceElementName1"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	<field property="traceElementName2" depends="maxlength">
+        		<arg0 key="nvc.taskLipansi.traceElementName1"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	<field property="traceElementName3" depends="maxlength">
+        		<arg0 key="nvc.taskLipansi.traceElementName1"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	<field property="traceElementName4" depends="maxlength">
+        		<arg0 key="nvc.taskLipansi.traceElementName1"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	<field property="traceElementName5" depends="maxlength">
+        		<arg0 key="nvc.taskLipansi.traceElementName1"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	
+        </form>
+		<!--  ======  -->
+		<!--  ======  -->
+		<form name="DirectiveForm">
+			<field property="directiveType" depends="required,maxlength">
+        		<arg0 key="nvc.directive.type"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="directiveNumber" depends="required,maxlength">
+        		<arg0 key="nvc.directive.directiveNumber"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>100</var-value>
+                     </var>
+        	</field>
+        	<field property="directiveDate" depends="required">
+        		<arg0 key="nvc.directive.directiveDate"/>
+        	</field>
+        	<field property="title" depends="required,maxlength">
+        		<arg0 key="nvc.directive.title"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        	<field property="description" depends="maxlength">
+        		<arg0 key="nvc.directive.description"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>1000</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        
+        
+        <form name="NvcAnalysisLabForm">
+        	<field property="labName" depends="required,maxlength">
+        		<arg0 key="nvc.analysislab.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>250</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        <form name="NvcFppAnalysisForm">
+        	<field property="analysisDate" depends="required">
+        		<arg0 key="nvc.fppanalysis.date"/>
+        	</field>
+        	<field property="analysisCode" depends="required,maxlength">
+        		<arg0 key="nvc.fppanalysis.code"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+
+        	<field property="kalliergeiaName" depends="required">
+        		<arg0 key="nvc.fppanalysis.kalliergeia"/>
+        	</field>
+        </form>
+
+	</formset>
+</form-validation>

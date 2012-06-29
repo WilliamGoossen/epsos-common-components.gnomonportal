@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+	<formset>
+		<form name="ProviderProfileForm">
+        	<field property="telephone"
+         	   depends="mask">
+         	     <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="fof.provider.telephone"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+        	</field>
+        	<field property="fax"
+         	   depends="mask">
+         	     <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="fof.provider.fax"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+        	</field>
+        	<field property="url"
+         	   depends="mask">
+         	     <msg name="mask" key="fof.provider.webpage.maskmsg"/>
+				 <arg0 key="fof.provider.url"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^http://|ftp://[\w./]+$</var-value>
+				 </var>
+        	</field> 
+        	
+        </form>
+
+
+	</formset>
+</form-validation>

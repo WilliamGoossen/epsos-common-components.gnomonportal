@@ -1,0 +1,157 @@
+
+<%
+NumberFormat numberFormat = NumberFormat.getNumberInstance(locale);
+NumberFormat percentFormat = NumberFormat.getPercentInstance(locale);
+%>
+
+
+<table border="0" cellpadding="0" cellspacing="0" >
+		<tr class="portlet-section-header" style="font-size: x-small; font-weight: bold;">
+			<td>
+				%
+			</td>
+			<td colspan="2">
+				<liferay-ui:message key="votes" />
+			</td>
+		</tr>
+
+		<%
+		int totalVotes = PollsVoteLocalServiceUtil.getQuestionVotesCount(question.getQuestionId());
+
+		for (int i = 0; i < choices.size(); i++) {
+			PollsChoice choice = (PollsChoice)choices.get(i);
+
+			int choiceVotes = PollsVoteLocalServiceUtil.getChoiceVotesCount(choice.getChoiceId());
+
+			String className = "portlet-section-body";
+			String classHoverName = "portlet-section-body-hover";
+
+			if (MathUtil.isEven(i)) {
+				className = "portlet-section-alternate";
+				classHoverName = "portlet-section-alternate-hover";
+			}
+
+			double votesPercent = 0.0;
+
+			if (totalVotes > 0) {
+				votesPercent = (double)choiceVotes / totalVotes;
+			}
+
+			int votesPixelWidth = 35;
+
+			if (renderRequest.getWindowState().equals(WindowState.MAXIMIZED)) {
+				votesPixelWidth = 100;
+			}
+
+			int votesPercentWidth = (int)Math.floor(votesPercent * votesPixelWidth);
+		%>
+
+			<tr class="<%= className %>" style="font-size: x-small;" >
+				<td>
+					<%= percentFormat.format(votesPercent) %>
+				</td>
+				<td >
+					<%= numberFormat.format(choiceVotes) %>
+				</td>
+
+				<td >
+					<%= pollsmultilingual.equals("true")?InternationalizationUtil.parseLocalizedXml(choice.getDescription(),LanguageUtil.getLanguageId(request)):choice.getDescription() %>
+				</td>
+			</tr>
+
+		<%
+		}
+		%>
+
+</table>
+
+
+
+<br />
+
+<div>
+	<b><liferay-ui:message key="total-votes" />:</b> <%= numberFormat.format(totalVotes) %>
+</div>
+
+<c:if test="<%= portletName.equals(PortletKeys.POLLS) %>">
+	<br />
+
+	<div>
+		<b><liferay-ui:message key="charts" />:</b>
+		<a href="javascript: var viewChartWindow = window.open('<%= themeDisplay.getPathMain() %>/polls/view_chart?questionId=<%= question.getQuestionId() %>&chartType=area', 'viewChart', 'directories=no,height=430,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=420'); void(''); viewChartWindow.focus();"><liferay-ui:message key="area" /></a>,
+		<a href="javascript: var viewChartWindow = window.open('<%= themeDisplay.getPathMain() %>/polls/view_chart?questionId=<%= question.getQuestionId() %>&chartType=horizontal_bar', 'viewChart', 'directories=no,height=430,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=420'); void(''); viewChartWindow.focus();"><liferay-ui:message key="horizontal-bar" /></a>,
+		<a href="javascript: var viewChartWindow = window.open('<%= themeDisplay.getPathMain() %>/polls/view_chart?questionId=<%= question.getQuestionId() %>&chartType=line', 'viewChart', 'directories=no,height=430,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=420'); void(''); viewChartWindow.focus();"><liferay-ui:message key="line" /></a>,
+		<a href="javascript: var viewChartWindow = window.open('<%= themeDisplay.getPathMain() %>/polls/view_chart?questionId=<%= question.getQuestionId() %>&chartType=pie', 'viewChart', 'directories=no,height=430,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=420'); void(''); viewChartWindow.focus();"><liferay-ui:message key="pie" /></a>,
+		<a href="javascript: var viewChartWindow = window.open('<%= themeDisplay.getPathMain() %>/polls/view_chart?questionId=<%= question.getQuestionId() %>&chartType=vertical_bar', 'viewChart', 'directories=no,height=430,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=420'); void(''); viewChartWindow.focus();"><liferay-ui:message key="vertical-bar" /></a>
+	</div>
+
+	<c:if test="<%= PollsQuestionPermission.contains(permissionChecker, question, ActionKeys.UPDATE) %>">
+		<br />
+
+		<liferay-ui:tabs names="actual-votes" />
+
+		<%
+		PortletURL portletURL = renderResponse.createRenderURL();
+
+		portletURL.setWindowState(WindowState.MAXIMIZED);
+
+		portletURL.setParameter("struts_action", "/polls/view_question");
+		portletURL.setParameter("redirect", redirect);
+		portletURL.setParameter("questionId", String.valueOf(question.getQuestionId()));
+
+		List headerNames = new ArrayList();
+
+		headerNames.add("user");
+		headerNames.add("choice");
+		headerNames.add("vote-date");
+
+		SearchContainer searchContainer = new SearchContainer(renderRequest, null, null, SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_DELTA, portletURL, headerNames, null);
+
+		int total = PollsVoteLocalServiceUtil.getQuestionVotesCount(question.getQuestionId());
+
+		searchContainer.setTotal(total);
+
+		List results = PollsVoteLocalServiceUtil.getQuestionVotes(question.getQuestionId(), searchContainer.getStart(), searchContainer.getEnd());
+
+		searchContainer.setResults(results);
+
+		List resultRows = searchContainer.getResultRows();
+
+		for (int i = 0; i < results.size(); i++) {
+			PollsVote vote = (PollsVote)results.get(i);
+
+			ResultRow row = new ResultRow(vote, vote.getVoteId(), i);
+
+			// User
+
+			row.addText(PortalUtil.getUserName(vote.getUserId(), String.valueOf(vote.getUserId()), request));
+
+			// Choice
+
+			PollsChoice choice = vote.getChoice();
+
+			row.addText(choice.getName() + ". " + InternationalizationUtil.parseLocalizedXml(choice.getDescription(),LanguageUtil.getLanguageId(request)));
+
+			// Vote date
+
+			row.addText(dateFormatDateTime.format(vote.getVoteDate()));
+
+			// Add result row
+
+			resultRows.add(row);
+		}
+		%>
+
+		<liferay-ui:search-iterator searchContainer="<%= searchContainer %>" />
+
+		<liferay-ui:search-paginator searchContainer="<%= searchContainer %>" />
+	</c:if>
+</c:if>
+
+<c:if test="<%= question.isExpired() %>">
+	<br />
+
+	<div style="font-size: xx-small;">
+	<%= LanguageUtil.format(pageContext, "voting-is-disabled-because-this-poll-expired-on-x", dateFormatDateTime.format(question.getExpirationDate())) %>.
+	</div>
+</c:if>

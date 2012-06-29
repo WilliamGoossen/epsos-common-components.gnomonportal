@@ -1,0 +1,475 @@
+body {
+	background-color: #fff;
+	font: 65%/1.6em Arial, Helvetica, sans-serif;
+/*	 behavior:url("../images/iepngfix.htc");*/
+
+
+}
+
+#wrapper {
+	width: 1024px;
+}
+
+#content-wrapper {
+	background: #fff url(../images/custom/content_bg.png) repeat-y 100% 0;
+	border-left: 1px solid #D7D7D7;
+	border-right: 1px solid #D7D7D7;
+	font-size: 1.2em;
+	line-height: 1.35;
+	margin: 0 3px;
+	margin-top: -5px;
+	padding: 15px 5px 5px;
+}
+
+#content-wrapper.login {
+	padding-top: 10px;
+}
+
+font {
+	font-size: 1em !important;
+}
+
+#column-1 {
+
+}
+.columns-2 #column-1 {
+	border-right: 1px solid #D7D7D7;
+	width:200px;
+}
+.columns-2 #column-2 {
+
+}
+#layout-grid .lfr-column {
+}
+
+/* ---------- Banner ---------- */
+
+#banner {
+	background: transparent url(../images/common/banner_bg.png) no-repeat 100% 100%;
+	height: auto;
+	margin-bottom: 0;
+	padding-right: 5px;
+	position: relative;
+}
+
+#banner-inner {
+	background: transparent url(../images/common/banner_bg.png) no-repeat 0 100%;
+	min-height: 7em;
+	padding: 1em 0.6em 0.5em;
+}
+
+#banner .logo {
+	background: url() no-repeat;
+	display: block;
+	float: none;
+	font-size: 0;
+	margin-bottom: 20px;
+	margin-left: 0.5em;
+	padding: 0;
+	text-indent: -9999em;
+}
+
+#banner .logo a {
+	text-decoration: none;
+}
+
+.js.ie #banner {
+	z-index: 1;
+}
+
+.ie6 #banner .logo {
+	zoom: 1;
+}
+
+/* ---------- Main navigation ---------- */
+
+#navigation {
+	background: url(../images/navigation/bg.png) no-repeat 0 0;
+	bottom: 0.5em;
+	height: 25px;
+	left: 5px;
+	margin: 1em auto 0.5em;
+	padding: 0;
+	position: relative;
+	width: 99%;
+}
+
+#navigation ul {
+	background: url(../images/navigation/bg_right.png) no-repeat 100% 100%;
+	float: left;
+	height: 25px;
+	left: 0;
+	padding: 0;
+	position: static;
+	top: 0;
+	width: 100%;
+}
+
+.ie6 #navigation, .ie6 #navigation ul {
+	height: 25px;
+}
+.ie6 #navigation ul {
+	
+	background-position: right 0px;
+}
+
+
+#navigation li {
+	
+	background: none;
+	display: inline;
+	float: left;
+	margin: 0 0.89em;
+	padding: 0;
+	
+}
+
+.ie6 #navigation li{
+	
+}
+
+#navigation li a {
+	background: none no-repeat 0 50%;
+	color: #fff;
+	display: block;
+	float: left;
+	font-size: 1.1em;
+	height: 15px;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+
+#navigation li a span {
+	background: none;
+	padding: 0;
+}
+
+#navigation li a:hover span {
+	background: none;
+}
+
+#navigation li a:hover {
+	background: url(../images/navigation/bg_hover.png) repeat-x;
+	border-left: 1px solid #1D4A81;
+	border-right: 1px solid #1D4A81;
+	padding-left: 9px;
+	padding-right: 9px;
+}
+#navigation li.selected
+{
+	border-left: 1px solid #1D4A81;
+	border-right: 1px solid #1D4A81;
+	background-image: url(../images/navigation/bg_selected.png);
+	background-repeat: repeat-x;
+}
+#navigation li.selected a {
+	/*border-left: 1px solid #1D4A81;
+	border-right: 1px solid #1D4A81;*/
+	height:25px;
+	/*background-image: url(../images/navigation/bg_selected.png);
+	background-repeat: repeat-x;
+	background-position: center center;	*/
+}
+.ie6 #navigation li.selected a {
+	height:auto;
+	padding-bottom:4px;
+}
+
+#navigation li.selected a span {
+	background: none;
+	font-size: 1em;
+}
+
+#navigation li.selected a:hover {
+	/*padding-left: 10px;
+	padding-right: 10px;*/
+}
+
+.ie #navigation li a {
+	/*padding-bottom: 3px;
+	padding-top: 5px;*/
+}
+
+/* ---------- Portlet ---------- */
+
+.portlet {
+	background: transparent;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.portlet .portlet-topper {
+	background: none;
+	border-bottom: 1px solid #9CC3E8;
+	color: #12558E;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet .portlet-title, .portlet .portlet-icons {
+	background: none;
+}
+
+.portlet .portlet-title {
+	color: #12558E;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 5px 3px 2px;
+}
+
+.portlet .portlet-content {
+	background: none;
+	border: none;
+	padding: 10px;
+}
+.portlet .portlet-content .journal-content-article img{
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+}
+
+
+.portlet-icons {
+	margin: 1px;
+	position: absolute;
+	right: 3px;
+	text-align: right;
+	top: 0;
+}
+
+.ie6 .portlet .portlet-topper {
+	position: static;
+	z-index: 0;
+}
+
+.ie6 .portlet .portlet-title {
+	/*float: left;*/
+
+}
+
+.ie6 .portlet .portlet-icons {
+	float: right;
+	margin-top: 1px;
+	position: static;
+}
+
+/* ---------- Page search ---------- */
+
+#page-search {
+	position: absolute;
+	right: 10px;
+	top: 60px;
+	zoom:1;
+	z-index:1;
+}
+
+#page-search input[type="text"]{
+/*	background: #fff url(../images/forms/input_shadow.png) no-repeat;*/
+	border: 1px solid #aaa;
+	border-left-color: #777;
+	border-top-color: #777;
+	font: 1em Arial,Verdana,sans-serif;
+	padding: 0.2em;
+	}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+	border-bottom: 1px solid #2B5A79;
+}
+
+.tabs li {
+	background: url(../images/common/tabs_bg.png) no-repeat 0 -100px;
+	display: inline;
+	float: left;
+	line-height: 2.25;
+	margin-right: 0.2em;
+	padding: 0;
+	position: relative;
+	text-decoration: none;
+}
+
+.tabs li a,
+.tabs li span {
+	background: url(../images/common/tabs_bg.png) no-repeat 100% -300px;
+	color: #fff;
+	display: block;
+	float: left;
+	padding: 0.35em 0.8em 0;
+	font-size:1em;
+	text-decoration: none;
+}
+
+.tabs li.current {
+	background: url(../images/common/tabs_bg.png) no-repeat 0 0;
+	border-right: 1px solid #5E90BB;
+	font-weight: normal;
+	top: 0.05em;
+}
+
+.tabs li.current a, .tabs li.current span {
+	background: url(../images/custom/tab_marker.gif) no-repeat 50% bottom;
+	border-right: 1px solid #C3E3FF;
+	color: #fff;
+	margin-top: 1px;
+	padding: 0.15em 1em;
+}
+
+.tabs li a:hover {
+	color: #ABCBE7;
+}
+
+.ie .tabs li {
+	line-height: 2.2;
+}
+
+.ie .tabs li.current a, .ie .tabs li.current span {
+	padding: 0.05em 1em;
+}
+
+.safari .tabs li {
+	line-height: 2.35;
+}
+
+.safari .tabs li a, .safari .tabs li span {
+	padding: 0.25em 1em 0;
+}
+
+/* ---------- Dock with Javascript ---------- */
+
+.js .lfr-dock.interactive-mode h2 {
+	background-position: 100% -25px;
+	font-size: 1.1em;
+}
+
+.js .lfr-dock.interactive-mode h2 span {
+	color: #0C3163;
+	font-size: 1.1em;
+	padding: 0.4em 0.5em 0.35em 2.5em;
+	text-align: left;
+}
+
+.ie.js .lfr-dock.interactive-mode h2 {
+	height: 25px;
+}
+
+/* ---------- Footer ---------- */
+
+#footer {
+	background: transparent url(../images/common/footer.png) no-repeat 0 -50px;
+	padding-left: 20px;
+}
+
+#footer .language {
+	background: transparent url(../images/common/footer.png) no-repeat 100% 0;
+	padding: 0.8em 0.5em 0.25em;
+	text-align: left;
+	height:20px;
+}
+
+#footer .language a {
+	margin-left: 5px;
+}
+
+
+
+
+/* css gia Latest News kai Events */ 
+#latestcontent{
+	width:100%;
+	padding: 0 0 0 0;
+}
+* html #latestcontent{ /*IE 6 only */
+width: 100%; /*Box model bug: 180px minus all left and right paddings for #blueblock */
+}
+#latestcontent ul{
+	list-style-image: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#latestcontent li{
+	margin: 0;
+}
+#latestcontent ul li a{
+	display:block;
+	background-color:#EBF2F6;
+	padding:3px 0 3px 10px;
+	text-decoration:none;
+	color:#333333;
+	margin-bottom: 4px;
+	border: 1px solid #D3E8F4;
+}
+html>body #latestcontent li a{ /*Non IE6 width*/
+width: auto;
+}
+/* END css gia Latest News kai Events */ 
+
+/*mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+.portal-popup { background:url(../images/custom/white_bg_tile.gif) repeat; }
+.portal-popup h1 { font-size:14px;  }
+/* END mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+
+.moreActionsMenu { 
+	position: absolute;
+	border:1px solid #000; 
+	background-color:#CCCCCC; 
+	z-index:4; 
+	float:none;
+}
+.moreActionsMenu a {  }
+
+/* Mono gia ti Lista ton ekdiloseon me display tag etsi oste na min peirazei kai ta alla icons sto display tag */
+#p_p_id_bs_events_browser_ .portlet-section-body td img, #p_p_id_bs_event_locations_ .portlet-section-body td img {
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+	background-color:#FFF;
+}
+#p_p_id_bs_events_browser_ .portlet-section-alternate td img, 
+#p_p_id_bs_event_locations_ .portlet-section-alternate td img,
+#p_p_id_bs_event_locations_ .journal-content-article img
+{
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+	background-color:#FFF;
+}
+/* Mono gia ti Lista ton ekdiloseon me display tag etsi oste na min peirazei kai ta alla icons sto display tag */
+
+
+/* stylesheets gia combo box navigation tou topic nav portlet (style-2 tou configuration) */
+.topic-nav-combo {
+	/*background-image: url(/image/image_gallery?img_id=68026);*/
+	/*height: 160px;
+	width: 270px;*/
+}
+
+.topic-nav-combo-inner {
+    /*position: relative;
+    top: 65px;
+    left: 105px;
+    width: 150px;*/
+}
+
+
+
+
+
+/*bglines gia to title data*/
+.bglines { background-color:#e0e1e1; border:1px solid #d2d2d2; margin-bottom:10px; }
+.bglines td { padding:5px; }
+.bglines .title_left { font-weight:bold; width:200px; text-align:right;}
+.bglines .title_right { font-weight:normal; width:auto; text-align:left;}
+
+
+
+
+
+#portlet-wrapper-PA_CONTACTS .pagelinks { text-align:center; border-bottom:1px solid #d2d2d2;}
+
+
+
+#breadcrub { margin-bottom:5px; border:1px solid #d0d0d0; padding:4px;}

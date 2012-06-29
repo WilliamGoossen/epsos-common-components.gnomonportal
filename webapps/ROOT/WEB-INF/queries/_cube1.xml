@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube1">
+    <Cube name="cube1">
+        <Table name="mondian_Table1"/>
+        <Dimension name="mondian_Table1.Etos" caption="%{etos}">
+            <Hierarchy name="mondian_Table1.Etos" hasAll="true" allMemberName="All mondian_table1.etos" allMemberCaption="%{all_years}">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.Etos" table="mondian_Table1" column="Etos" uniqueMembers="false" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table1.Nomos" caption="%{nomos}">
+            <Hierarchy name="mondian_Table1.Nomos" hasAll="true" allMemberName="All mondian_table1.nomos" allMemberCaption="%{all_nomoi}">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.Nomos" table="mondian_Table1" column="Nomos" uniqueMembers="false" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table1.ektasi">
+            <Hierarchy name="mondian_Table1.ektasi" hasAll="true" allMemberName="All mondian_table1.ektasi">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.ektasi" table="mondian_Table1" column="ektasi" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table1.plithismos">
+            <Hierarchy name="mondian_Table1.plithismos" hasAll="true" allMemberName="All mondian_table1.plithismos">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.plithismos" table="mondian_Table1" column="plithismos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table1.ergatiko_dinamiko">
+            <Hierarchy name="mondian_Table1.ergatiko_dinamiko" hasAll="true" allMemberName="All mondian_table1.ergatiko_dinamiko">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.ergatiko_dinamiko" table="mondian_Table1" column="ergatiko_dinamiko" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table1.simmetoxi_se_aep">
+            <Hierarchy name="mondian_Table1.simmetoxi_se_aep" hasAll="true" allMemberName="All mondian_table1.simmetoxi_se_aep">
+                <Table name="mondian_Table1"/>
+                <Level name="mondian_Table1.simmetoxi_se_aep" table="mondian_Table1" column="simmetoxi_se_aep" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table1.ektasi" column="ektasi" aggregator="sum" datatype="Numeric" formatString="###,##" caption="%{ektasi}"/>
+        <Measure name="SUM of mondian_Table1.ergatiko_dinamiko" column="ergatiko_dinamiko" aggregator="sum" datatype="Numeric" formatString="###,##" caption="%{ergatiko_dynamiko}"/>
+        <Measure name="SUM of mondian_Table1.plithismos" column="plithismos" aggregator="sum" datatype="Numeric" formatString="###,##" caption="%{plithismos}"/>
+        <Measure name="SUM of mondian_Table1.simmetoxi_se_aep" column="simmetoxi_se_aep" aggregator="avg" datatype="Numeric" formatString="###,##" caption="%{simmetoxi_se_aep}"/>
+    </Cube>
+</Schema>

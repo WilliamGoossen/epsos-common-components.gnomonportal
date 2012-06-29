@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube8" measuresCaption="%{measures}">
+    <Cube name="cube8">
+        <View alias="FAM_SERVICES">
+ 			       <SQL dialect="mssql">
+				select * from kostas_TEST()
+     				</SQL>
+    	</View>
+           <Dimension name="mondian_Table5.group_deiktis" caption="%{klados}" foreignKey="group_deiktis">
+            <Hierarchy name="mondian_Table5.group_deiktis" hasAll="true" allMemberName="All mondian_table5.group_deiktis" allMemberCaption="%{all_kladoi}" primaryKey="ID">
+            <Table name="TEST_KOSTAS_ID" />
+                <Level name="mondian_Table5.group_deiktis" table="TEST_KOSTAS_ID" column="group_deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table5.timi" column="timi" aggregator="sum" datatype="Numeric" formatString="###,###" caption="%{timi}"/>
+    </Cube>
+</Schema>

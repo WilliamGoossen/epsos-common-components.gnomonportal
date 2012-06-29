@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name="portlet.ext.crm" extends="portlet" />
+
+	<definition name="portlet.ext.crm.requiredlogin" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requiredlogin.jsp" />
+	</definition>
+
+
+	<!--  Helpdesk Categories -->
+	<definition name="portlet.ext.crm.helpdesk.categories.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/categories/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.categories.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/categories/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.categories.auditors.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/categories/auditors/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.categories.auditors.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/categories/auditors/form.jsp" />
+	</definition>
+
+	<!--  Helpdesk CheckTypes -->
+	<definition name="portlet.ext.crm.helpdesk.checkTypes.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/checkTypes/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.checkTypes.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/checkTypes/form.jsp" />
+	</definition>
+
+	<!--  Helpdesk -->
+	<definition name="portlet.ext.crm.helpdesk.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.shortcutlists" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/shortcutsList.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.search" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/search.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.children.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/childrenList.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.guest.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/guestForm.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.guest.veveosi.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/guestFormVeveosi.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.requestComments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestComments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.requestComments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestComments/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.requestAttachments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestAttachments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.requestAttachments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestAttachments/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.flow.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/flowList.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.flow.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/flowForm.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.audio" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/audioSuccess.jsp" />
+	</definition>
+
+	<!--  Helpdesk statistics -->
+	<definition name="portlet.ext.crm.helpdesk.stats.view" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.stats.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/list.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.stats.search" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/search.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.stats.tablist" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/tabList.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.stats.commentlist" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/commentList.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.stats.tabsearch" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/tabSearch.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.crm.helpdesk.stats.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/stats/guestForm.jsp" />
+	</definition>
+
+
+	<!--  Helpdesk Request types -->
+	<definition name="portlet.ext.crm.helpdesk.requestTypes.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestTypes/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.helpdesk.requestTypes.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/requestTypes/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.crm.helpdesk.guest.notice" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/guestNotice.jsp" />
+	</definition>
+
+	<!--  Helpdesk Certificates -->
+	<definition name="portlet.ext.crm.helpdesk.certificates.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/helpdesk/certificates/form.jsp" />
+	</definition>
+	
+	
+	<!--  CRM MessageTypes -->
+	<definition name="portlet.ext.crm.messagetypes.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/messagetypes/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.messagetypes.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/messagetypes/form.jsp" />
+	</definition>
+	
+	<!--  CRM TaskTypes -->
+	<definition name="portlet.ext.crm.tasktypes.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasktypes/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.tasktypes.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasktypes/form.jsp" />
+	</definition>
+
+	<!--  CRM Tasks -->
+	<definition name="portlet.ext.crm.tasks.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.tasks.taskForm" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.tasks.lookup.parties" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/partyLookup.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.tasks.lookup.helpers" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/helperLookup.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.crm.tasks.comments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/comments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.tasks.comments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/tasks/comments/form.jsp" />
+	</definition>
+	
+	
+	<!--  CRM Devices -->
+	<definition name="portlet.ext.crm.devices.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devices/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devices.deviceForm" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devices/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devices.assignments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devices/assignments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devices.assignments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devices/assignments/form.jsp" />
+	</definition>
+	
+	<!--  CRM Device Alerts -->
+	<definition name="portlet.ext.crm.devicealerts.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devicealerts/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devicealerts.stats.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devicealerts/statsList.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devicealerts.devicealertForm" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devicealerts/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devicealerts.comments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devicealerts/comments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.devicealerts.comments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/devicealerts/comments/form.jsp" />
+	</definition>
+	
+	<!--  CRM Messages -->
+	<definition name="portlet.ext.crm.messages.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/messages/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.messages.messageForm" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/messages/form.jsp" />
+	</definition>
+	
+	
+	<!--  CRM Meetings -->
+	<definition name="portlet.ext.crm.meetings.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/meetings/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.meetings.taskForm" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/meetings/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.meetings.comments.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/meetings/comments/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.crm.meetings.comments.form" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/meetings/comments/form.jsp" />
+	</definition>
+	
+	<!--  CRM Dashboard -->
+	<definition name="portlet.ext.crm.dashboard.list" extends="portlet.ext.crm">
+		<put name="portlet_content" value="/portlet/ext/crm/dashboard/list.jsp" />
+	</definition>
+</tiles-definitions>

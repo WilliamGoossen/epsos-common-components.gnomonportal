@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 4.3.1//EN" "http://www.liferay.com/dtd/liferay-portlet-app_4_3_1.dtd">
+
+<liferay-portlet-app>
+
+	<!-- Custom Portlets -->
+
+	<portlet>
+		<portlet-name>EPSOS_DEMO</portlet-name>
+		<struts-path>ext/epsos/demo</struts-path>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+ 		<show-portlet-access-denied>false</show-portlet-access-denied>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+
+	<portlet>
+		<portlet-name>EPSOS_INFO</portlet-name>
+		<struts-path>ext/epsos/info</struts-path>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+ 		<show-portlet-access-denied>false</show-portlet-access-denied>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+	
+	
+	<portlet>
+		<portlet-name>EPSOS_CONSENT</portlet-name>
+		<struts-path>ext/epsos/consent</struts-path>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+ 		<show-portlet-access-denied>false</show-portlet-access-denied>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>

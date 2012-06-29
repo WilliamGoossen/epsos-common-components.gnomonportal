@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="cs-CZ">České</entry>
+   <entry key="da-DK">Danske</entry>
+   <entry key="de-AT">Deutsch - Österreich</entry>
+   <entry key="de-CH">Deutsch - Schweiz</entry>
+   <entry key="de-DE">Deutsch - Deutschland</entry>
+   <entry key="ee-EE">Estonia</entry>
+   <entry key="el-GR">Ελληνικά</entry>
+   <entry key="en-GB">English - United Kingdom</entry>
+   <entry key="es-ES">Español</entry>
+   <entry key="fr-FR">Française</entry>
+   <entry key="it-IT">Italiano</entry>
+   <entry key="nl-NL">Nederlandse</entry>
+   <entry key="sk-SK">Slovenskému</entry>
+   <entry key="sl-SL">Slovenščina</entry>
+   <entry key="sv-SE">Svenska</entry>
+   <entry key="tr-TR">Türkiye</entry>
+</properties>

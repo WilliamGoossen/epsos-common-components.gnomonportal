@@ -1,0 +1,200 @@
+<style>
+	div.container {
+	  width:100%;
+	  /*
+	  border: 1px dashed #333;
+	  background-color: #ffe;
+	  */
+	  text-align:center;
+	}
+	div.float {
+	  float: left;
+	  text-align:center;
+	  margin-right:50px;
+	  margin-bottom:20px;
+	  padding-top:5px;
+	  padding-left:10px;
+	  padding-right:10px;
+	  padding-bottom:30px;
+	  width:100px;
+	  height:100px;
+	  border: dashed 1px #2FADED;
+	  overflow:hidden;
+	}
+	div.float:hover {
+	  border: solid 1px #12558E;
+	}
+	div.float p {
+	   text-align: center;
+	   vertical-align:bottom;
+	}
+	div.ruler {
+		clear:both;
+	}
+	div.thumbtext {
+		vertical-align:text-bottom;
+		font-size:1.1em;
+	}
+	#thumbpreview {
+		color:gray;
+		text-align:right;
+		font-size:0.6em;
+		decorate:dashed;
+	}
+	#thumbpreview:hover {
+		text-align:right;
+		font-size:0.6em;
+		decorate:solid;
+	}
+	#thumbdate {
+		text-align:right;
+		font-size:0.8em;
+	}
+	#thumbtitle {
+		color:gray;
+		text-align:right;
+		font-size:0.9em;
+	}
+	#thumbgenerictitle {
+		color:gray;
+		font-size:0.9em;
+	}
+</style>
+
+<div class="container">
+
+<% for (int j=0; alfrescodata!=null && j<alfrescodata.size(); j++) {
+	com.ext.portlet.dms.util.AlfrescoRow ar = (com.ext.portlet.dms.util.AlfrescoRow)alfrescodata.get(j);
+	Hashtable permissionResults = AlfrescoContentUtil.getPermissionsForUser(details,ar.getUuid());
+	String linkuuid=selUuid;
+	if (cmd.equals("search"))
+	{
+	linkuuid=ar.getParentuuid();
+	if (Validator.isNull(linkuuid)) linkuuid=selUuid;
+	}
+	boolean hasEditFolder = false;
+	boolean hasReadPermissions = false;
+	boolean hasChangePermissions = false;
+	boolean hasDeleteFolder = false;
+	boolean hasDeleteFile = false;
+
+	if (ar.getContenttype().equalsIgnoreCase("folder") && listFolderButtons)
+	{
+
+	hasEditFolder = permissionResults.containsKey("WriteContent");// com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"WriteContent");
+	hasReadPermissions = permissionResults.containsKey("ReadPermissions");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"ReadPermissions");
+	hasChangePermissions = permissionResults.containsKey("ChangePermissions");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"ChangePermissions");
+	hasDeleteFolder = permissionResults.containsKey("DeleteNode");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"DeleteNode");
+
+	}
+//	boolean hasDeleteFile = com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"DeleteNode");
+//	hasChangePermissions = true;
+	%>
+
+	<portlet:actionURL var="changePermissionsURL">
+		<portlet:param name="struts_action" value="/ext/dms/viewPermissions" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= linkuuid %>" />
+		<portlet:param name="contenttype" value="<%= ar.getContenttype() %>" />
+		<portlet:param name="foldername" value="<%=  ar.getName() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL var="deleteContentURL">
+		<portlet:param name="struts_action" value="/ext/dms/deleteContent" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= selUuid %>" />
+		<portlet:param name="contenttype" value="<%= ar.getContenttype() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>" var="downloadURL">
+		<portlet:param name="struts_action" value="/ext/dms/getfile" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="filename" value="<%= ar.getName() %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL var="editFolderURL">
+		<portlet:param name="struts_action" value="/ext/dms/editFolder" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= selUuid %>" />
+		<portlet:param name="foldername" value="<%=  ar.getName() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<%
+	// create browsing urls
+	String p_strutsaction = "";
+	String p_uuid = "";
+	String p_parentuuid = "";
+	String p_filename = "";
+	String p_contenttype = "";
+	if (ar.getContenttype().equalsIgnoreCase("folder")) {
+		p_strutsaction = "/ext/dms/view";
+		p_uuid = ar.getUuid();
+		p_parentuuid = selUuid;
+	} else {
+		p_strutsaction = "/ext/dms/filedetails";
+		p_uuid = ar.getUuid();
+		p_parentuuid = linkuuid;
+		p_filename = ar.getName();
+		p_contenttype = ar.getContenttype();
+	}
+	String title = "";
+	if (Validator.isNull(ar.getTitle()))
+	{
+	 title = ar.getName();
+	}
+	else
+	{
+	title = ar.getTitle();
+	}
+	%>
+
+		<a title="<%= gnomon.business.StringUtils.check_null(ar.getDescription(),"")%>" href="#" onClick="javascript:browseContent('<%=p_strutsaction%>','<%= p_uuid%>','<%= p_parentuuid%>','<%= p_filename%>','<%= p_contenttype%>');return false;"
+		">
+
+		<div class="float">
+			<div class="thumb">
+			<c:choose>
+				<c:when test="<%=Validator.isNull(p_contenttype) || p_contenttype.equals("space") || p_contenttype.equals("folder")%>">
+					<img border="0" height="70" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/custom/agf_epicblue-70.png">
+					<div class="thumbtext">
+						<p id="thumbdate"><%= gnomon.business.DateUtils.convertDate(ar.getCreated(), "yyyy-MM-dd'T'hh:mm:ss.SSS","dd-MM-yyyy HH:mm") %></p>
+						<p id="thumbtitle">
+							<b><%= title %></b>
+						</p>
+					</div>
+				</c:when>
+				<%--
+				<c:when test="<%=(p_filename.endsWith(".jpg") || p_filename.endsWith(".jpeg") || p_filename.endsWith(".gif") || p_filename.endsWith(".png")) %>">
+					<img border="0" width="100" height="70" src="/dicomimage?uuid=<%=p_uuid%>&filename=<%=p_filename%>&thumb=true&size=100">
+					<div class="thumbtext">
+						<p id="thumbpreview">
+							<a title="Click to view in full size" rel="lightbox" href="/dicomimage?uuid=<%=p_uuid%>&filename=<%=p_filename%>"><%= LanguageUtil.get(pageContext, "preview") %></a>
+						</p>
+						<p id="thumbdate"><%= gnomon.business.DateUtils.convertDate(ar.getCreated(), "yyyy-MM-dd'T'hh:mm:ss.SSS","dd-MM-yyyy HH:mm") %></p>
+						<p id="thumbtitle"><%= title %></p>
+					</div>
+				</c:when>
+				--%>
+				<c:otherwise>
+					<img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/filetypes64/<%=ar.getIcon()%>.png">
+					<div class="thumbtext">
+						<p id="thumbdate"><%= gnomon.business.DateUtils.convertDate(ar.getCreated(), "yyyy-MM-dd'T'hh:mm:ss.SSS","dd-MM-yyyy HH:mm") %></p>
+						<p id="thumbtitle"><%= title %></p>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			</div>
+
+		</div>
+	</a>
+
+<% }%>
+<div class="ruler">&nbsp;</div>
+</div>

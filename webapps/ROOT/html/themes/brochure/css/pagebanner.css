@@ -1,0 +1,73 @@
+/*display tags pagbanner kai links*/
+.pagebanner {
+	display:block;
+	font-size:11px;
+	padding:5px 3px 1px 3px;
+	margin-bottom:0px;
+	margin-top:10px;
+	color:#999;
+	background:none;
+	border-left:0px #cdebfe solid;
+	border-right:0px #cdebfe solid;
+	border-top:0px #cdebfe solid;
+/*	visibility:hidden;*/
+	text-align:right;
+}
+.pagelinks {
+	display:block;
+	font-size:11px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom:5px;
+	padding-top:5px;
+	margin-bottom:0px;
+	background-color:#EAEAEA;
+	border:1px #d0d0d0 solid;
+	text-align:right;
+}
+.pagelinks a {
+	margin-left:5px;
+	display:inline-block;
+	padding: 5px;
+	padding-bottom:2px;
+	padding-top:2px;
+	background-color:#fff;
+	text-decoration:none;
+	border:1px solid #d0d0d0;
+	color:#06C;
+}
+.pagelinks a:hover {
+	display:inline-block;
+	padding: 5px;
+	padding-bottom:2px;
+	padding-top:2px;
+	background-color:#e6e6e6;
+	color:#333;
+	border:1px solid #666;
+}
+.pagelinks_selected {
+	margin-left:5px;
+	display:inline-block;
+	padding: 5px;
+	padding-bottom:2px;
+	padding-top:2px;
+	border:1px solid #d0d0d0;
+/*	background-color:#999;*/
+	color:#000;
+	font-weight:bold;
+}
+
+
+.exportlinks {
+	border:1px solid #d0d0d0;
+	background-color:#EAEAEA;
+	padding:5px;
+}
+.exportlinks a { 
+	display:inline-block;
+	background-color:#fff;
+	text-decoration:none;
+	border:1px solid #d0d0d0;
+	padding-left:7px;
+	padding-right:7px;
+}

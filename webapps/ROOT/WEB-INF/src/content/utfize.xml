@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+
+<project name="gi9-multilingualism" basedir="." default="CALL_ALL_CONVERSIONS">
+<!--	<target name="convert_ALL">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../classes" ext=".properties">
+			<include name="**/*_el.txt"/>
+		</native2ascii>
+	</target>-->
+
+	<target name="CALL_ALL_CONVERSIONS">
+		<antcall target="convert_liferay"/>
+		<antcall target="convert_gn"/>
+		<antcall target="convert_base"/>
+		<antcall target="convert_parties"/>
+		<antcall target="convert_egov"/>
+		<antcall target="convert_srv"/>
+		<antcall target="convert_crm"/>
+		<antcall target="convert_ext"/>
+		<antcall target="convert_dms"/>
+		<antcall target="convert_ecommerce"/>
+		<antcall target="convert_kleemann"/>
+		<antcall target="convert_papaki"/>
+	</target>
+
+	<target name="convert_liferay">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/Language_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/Language_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_gn">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*gn_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*gn_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_base">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*base_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*base_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_parties">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*parties_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*parties_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_egov">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*egov_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*egov_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+    <target name="convert_srv">
+        <native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+            <include name="**/*srv_el.txt"/>
+        </native2ascii>
+        <copy todir="${basedir}/../../classes">
+            <fileset dir="${basedir}/../../src" id="src">
+                <include name="**/*srv_el.properties"/>
+            </fileset>
+        </copy>
+    </target>
+
+	<target name="convert_crm">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*crm_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*crm_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_ext">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*ext_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*ext_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="convert_dms">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*dms_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*dms_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="convert_ecommerce">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*ecommerce_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*ecommerce_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+    <target name="convert_kleemann">
+        <native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+            <include name="**/*kleemann_el.txt"/>
+        </native2ascii>
+        <copy todir="${basedir}/../../classes">
+            <fileset dir="${basedir}/../../src" id="src">
+                <include name="**/*kleemann_el.properties"/>
+            </fileset>
+        </copy>
+    </target>
+	
+	<target name="convert_papaki">
+		<native2ascii encoding="iso-8859-7" src="${basedir}/../../src" dest="${basedir}/../../src" ext=".properties">
+			<include name="**/*papaki_el.txt"/>
+		</native2ascii>
+		<copy todir="${basedir}/../../classes">
+			<fileset dir="${basedir}/../../src" id="src">
+			    <include name="**/*papaki_el.properties"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

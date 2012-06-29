@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.esa" extends="portlet" />
+	
+
+	<!-- ESA_COMPONENT_BROWSING  -->
+	<definition name="portlet.ext.esa.componentBrowsing.view" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.viewHierarchy" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/viewHierarchy.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.getComponentsByType" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponentsByType.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.getComponent" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/getComponent.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.searchComponents" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/searchComponents.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.selectPropertyView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/selectPropertyView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.features.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/features/featureView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.esa.componentBrowsing.subComponents.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/subComponents/subComponentView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.connections.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/connections/connectionView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.modeTransitions.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/modesAndTransitions/modeTransitionView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.esa.componentBrowsing.flows.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/flows/flowView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.applicableErrorModelsList" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/errorModels/applicableErrorModelsList.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.componentBrowsing.callSpecs.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/callSpecs/callSpecView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.esa.componentBrowsing.errorModelAssoc" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/componentBrowsing/getComponent/errorModels/errorModelAssociationView.jsp" />
+	</definition>
+	
+	
+	<!-- ESA_ERROR_MODEL_BROWSING -->
+	<definition name="portlet.ext.esa.errorModelBrowsing.view" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.errorModelBrowsing.viewHierarchy" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/viewHierarchy.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.esa.errorModelBrowsing.getErrorModelsList" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/getErrorModelsList.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.errorModelBrowsing.getErrorModel" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/getErrorModel.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.errorModelBrowsing.events.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/viewErrorModel/events/eventView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.errorModelBrowsing.states.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/viewErrorModel/states/stateView.jsp" />
+	</definition>
+	<definition name="portlet.ext.esa.errorModelBrowsing.transitions.formView" extends="portlet.ext.esa">
+		<put name="portlet_content" value="/portlet/ext/esa/errorModelBrowsing/viewErrorModel/transitions/transitionView.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

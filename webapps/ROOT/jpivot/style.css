@@ -1,0 +1,21 @@
+<style type="text/css">
+a {
+	color: #1d50aa;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #1d50aa;
+	text-decoration: underline;
+}
+
+body {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	font-family: Arial;
+	font-size: 76%;
+}
+.bullet {list-style-type: disc;}
+</style>

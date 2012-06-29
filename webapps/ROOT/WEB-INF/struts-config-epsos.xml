@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+     	<form-bean name="EpsosPatientSearchForm" type="com.ext.portlet.epsos.demo.PatientSearchForm"/>
+     	<form-bean name="EpsosPatientConsentForm" type="com.ext.portlet.epsos.consent.PatientConsentForm"/>
+    </form-beans>
+
+	<action-mappings>
+
+	<!--  EPSOS DEMO -->
+	<action path="/ext/epsos/demo/view" name="EpsosPatientSearchForm" validate="false"
+		type="com.ext.portlet.epsos.demo.SearchPatientsAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.view"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/viewPatientCard" 
+		type="com.ext.portlet.epsos.demo.ViewPatientCardAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.patient.view"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/viewPatientDocuments" 
+		type="com.ext.portlet.epsos.demo.ViewPatientDocumentsAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.document.list"/>
+		<forward name="create.consent" path="portlet.ext.epsos.demo.access.consent"/>
+		<forward name="confirmation" path="portlet.ext.epsos.demo.access.confirmation"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/viewPatientPrescriptions" 
+		type="com.ext.portlet.epsos.demo.ViewPatientPrescriptionsAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.prescription.list"/>
+		<forward name="create.consent" path="portlet.ext.epsos.demo.access.consent"/>
+		<forward name="confirmation" path="portlet.ext.epsos.demo.access.confirmation"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/viewPrescriptionLines" 
+		type="com.ext.portlet.epsos.demo.ViewPrescriptionLinesAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.prescription.lines.list"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/dispensePrescriptionLines" 
+		type="com.ext.portlet.epsos.demo.DispensePrescriptionLinesAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.prescription.lines.list"/>
+		<forward name="common.validation" path="portlet.ext.epsos.demo.prescription.lines.list"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/checkPatientAccess" 
+		type="com.ext.portlet.epsos.demo.CheckPatientAccessAction">
+		<forward name="confirmation" path="portlet.ext.epsos.demo.access.confirmation"/>
+		<forward name="consent" path="portlet.ext.epsos.demo.access.consent"/>
+		<forward name="consentCreated" path="portlet.ext.epsos.demo.access.consentCreated"/>
+		<forward name="/ext/epsos/demo/viewPatientCard" path="/ext/epsos/demo/viewPatientCard" redirect="true"/>
+		<forward name="/ext/epsos/demo/viewPatientDocuments" path="/ext/epsos/demo/viewPatientDocuments" redirect="true"/>
+		<forward name="/ext/epsos/demo/viewPatientPrescriptions" path="/ext/epsos/demo/viewPatientPrescriptions" redirect="true"/>
+		<forward name="/ext/epsos/demo/view" path="/ext/epsos/demo/view" redirect="true"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+
+	<action path="/ext/epsos/demo/getConsentPDF" 
+		type="com.ext.portlet.epsos.demo.GetConsentAction">
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	
+	<action path="/ext/epsos/demo/viewDocumentCard" 
+		type="com.ext.portlet.epsos.demo.ViewDocumentCardAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.document.view"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/getDocument" 
+		type="com.ext.portlet.epsos.demo.GetDocumentAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.document.view"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/demo/xslTransformDocument" 
+		type="com.ext.portlet.epsos.demo.XslTransformDocumentAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.document.xsl"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	
+	<action path="/ext/epsos/demo/viewPatientConsent" type="com.ext.portlet.epsos.demo.ViewPatientConsentAction">
+		<forward name="common.success" path="portlet.ext.epsos.demo.consent.view"/>
+		<forward name="common.print" path="portlet.ext.epsos.demo.consent.print"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<!--  EPSOS INFO -->
+	<action path="/ext/epsos/info/view"
+		type="com.ext.portlet.epsos.info.ViewAction">
+		<forward name="common.success" path="portlet.ext.epsos.info.view"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	
+	<!--  EPSOS CONSENT -->
+	<action path="/ext/epsos/consent/view" name="EpsosPatientSearchForm" validate="false"
+		type="com.ext.portlet.epsos.demo.SearchPatientsAction">
+		<forward name="common.success" path="portlet.ext.epsos.consent.patients"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/consent/list" 
+		type="com.ext.portlet.epsos.consent.ListPatientConsentsAction">
+		<forward name="common.success" path="portlet.ext.epsos.consent.list"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+
+	<action path="/ext/epsos/consent/checkPatientAccess" 
+		type="com.ext.portlet.epsos.consent.CheckPatientAccessAction">
+		<forward name="confirmation" path="portlet.ext.epsos.consent.access.confirmation"/>
+		<forward name="/ext/epsos/consent/list" path="/ext/epsos/consent/list" redirect="true"/>
+		<forward name="/ext/epsos/consent/view" path="/ext/epsos/consent/view" redirect="true"/>
+		<forward name="common.failure" path="portlet.error"/>
+	</action>
+	
+	<action path="/ext/epsos/consent/loadConsent"
+			name="EpsosPatientConsentForm" validate="false" type="com.ext.portlet.epsos.consent.LoadPatientConsentAction" scope="request">
+		<forward name="common.view" path="portlet.ext.epsos.consent.form" />
+		<forward name="common.add" path="portlet.ext.epsos.consent.form" />
+		<forward name="common.edit" path="portlet.ext.epsos.consent.form" />
+		<forward name="common.delete" path="portlet.ext.epsos.consent.form" />
+		<forward name="common.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/epsos/consent/addConsent" type="com.ext.portlet.epsos.consent.AddPatientConsentAction"
+	    name="EpsosPatientConsentForm" validate="false" scope="request">
+		<forward name="/ext/epsos/consent/list" path="/ext/epsos/consent/list"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.epsos.consent.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+
+
+	<action path="/ext/epsos/consent/updateConsent" type="com.ext.portlet.epsos.consent.UpdatePatientConsentAction"
+	    name="EpsosPatientConsentForm" validate="false" scope="request">
+		<forward name="/ext/epsos/consent/list" path="/ext/epsos/consent/list"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.epsos.consent.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+
+	<action path="/ext/epsos/consent/deleteConsent" type="com.ext.portlet.epsos.consent.DeletePatientConsentAction"
+	    name="EpsosPatientConsentForm" validate="false" scope="request">
+		<forward name="/ext/epsos/consent/list" path="/ext/epsos/consent/list"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.epsos.consent.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+	
+	</action-mappings>
+	
+</struts-config>

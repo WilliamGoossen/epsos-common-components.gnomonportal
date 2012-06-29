@@ -1,0 +1,102 @@
+<%@ include file="/html/portlet/ext/base/news/init.jsp" %>
+
+
+<%
+Vector v_news = (Vector) request.getAttribute("new");
+Hashtable newsitem=null;
+if ((v_news!=null) && (v_news.size()>0)) {
+	newsitem = (Hashtable)v_news.get(0);
+}
+
+String mytopicid = "";
+String mytopicname="";
+if(newsitem.get("TOPICID")!=null ) {
+		mytopicid=newsitem.get("TOPICID").toString();
+}
+
+String new_id="";
+if(request.getParameter("projectid")!=null)
+new_id = request.getParameter("new_id").toString();
+%>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+	<td align="center">
+    <table width="95%"  border="0" cellspacing="1" cellpadding="1">
+    <tr>
+    	<td>
+			<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+	          <tr>
+	            <td width="100%" class="gamma1">
+				<span class="title1">
+				<b><%=(String)newsitem.get("TITLE")%>
+				</b>
+				</span>
+				(<%=(String)newsitem.get("NDATE")%>)
+				</td>
+	          </tr>
+	        </table>
+        </td>
+	</tr>
+    <tr>
+    	<td class="gamma1">
+		<%
+		  	String image = (String)newsitem.get("IMAGE");
+		  	String imagepath = com.ext.util.CommonUtil.getRootPath(request)+"FILESYSTEM/news/"+(String)newsitem.get("LANGUAGE")+"/"+image;
+		%>
+		<% if (Validator.isNotNull(image)) { %>
+	  		<img border="1" align="left" src="<%="/FILESYSTEM/news/"+(String)newsitem.get("LANGUAGE")+"/"+(String)newsitem.get("IMAGE")%>">
+		<% } %>
+		<%=(String)newsitem.get("DESCRIPTION")%>
+		</td>
+	</tr>
+	</table>
+	<br>
+	</td>
+</tr>
+<tr>
+	<td align="center">
+		<table border="0" cellpadding="4" cellspacing="0" width="95%">
+		<tr>
+			<td>
+				<a class="gamma1" href="<portlet:actionURL windowState="<%= WindowState.MAXIMIZED.toString() %>"><portlet:param name="struts_action" value="/ext/my/news/view"  />
+										<portlet:param name="p_p_text" value="<%=p_p_text %>"/>
+										<portlet:param name="type" value="<%=type %>"/></portlet:actionURL>">
+				<% if (type.equals("deltia")) { %>
+					<%=LanguageUtil.get(pageContext, "deltia-list")%>
+				<% } %>
+				<% if (type.equals("anakoinoseis")) { %>
+					<%=LanguageUtil.get(pageContext, "news-list")%>
+				<% } %>
+				</a>
+			<td>
+		</tr>
+		<%if (newsitem.get("CALL_ID")!=null && !((newsitem.get("CALL_ID").toString()).equals(""))) { %>
+		<tr>
+			<td>
+				<span class="gamma1">
+				<a  href="<liferay:actionURL windowState="<%= WindowState.MAXIMIZED.toString() %>" portletName="GN_CALLS"><liferay:param name="struts_action" value="/ext/calls/view_call" /><liferay:param name="call_id" value="<%=newsitem.get("CALL_ID").toString() %>" /><liferay:param name="language" value="<%=(String)newsitem.get("LANGUAGE") %>" /><liferay:param name="metra" value="1" />
+						 </liferay:actionURL>"><%=LanguageUtil.get(pageContext, "calls")%></a>
+				</span>
+			<td>
+		</tr>
+		<%} %>
+		<tr>
+			<td>
+				<liferay:include page = "/html/portlet/ext/documents/view_news_documents.jsp">
+					<liferay:param name="vtopicid" value="<%=mytopicid%>" />
+					<liferay:param name="new_id" value="<%=new_id%>" />
+				</liferay:include>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td width="20">
+		<span class="beta1" >
+		<!--<a href="javascript:history.go(-1)" class="gamma1"><img src="/html/themes/portlet/gnomon_theme/img/back_icon.gif" alt="<%=LanguageUtil.get(pageContext, "back")%>" border=0;><%=LanguageUtil.get(pageContext, "back")%></a>-->
+		</span>
+	</td>
+</tr>
+</table>

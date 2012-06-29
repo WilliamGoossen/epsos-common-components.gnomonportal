@@ -1,0 +1,9 @@
+<tr>
+	<td>
+		<%= LanguageUtil.get(pageContext, "bs.guestbook.contact.notify-on-add") %>
+	</td>
+	<td style="padding-left: 10px;"></td>
+	<td>
+		<liferay-ui:input-checkbox param="notifyOnAdd" defaultValue="<%=notifyOnAdd%>" />
+	</td>
+</tr>

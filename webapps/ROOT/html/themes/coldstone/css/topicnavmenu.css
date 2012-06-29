@@ -1,0 +1,111 @@
+/*------ Topic Nav Menu ------*/
+#perioxes .treeview ul{ /*CSS for Simple Tree Menu*/
+	margin: 0;
+	padding: 0;
+	font-size:1.0em;
+}
+
+#perioxes .treeview li{ /*Style for LI elements in general (excludes an LI that contains sub lists)*/
+	background: transparent url(/html/themes/alios/javascript/list_2.gif) no-repeat left 1px;
+	list-style-type: none;
+	padding-left: 20px;
+	margin-bottom: 3px;
+}
+
+#perioxes .treeview li.submenu{ /* Style for LI that contains sub lists (other ULs). */
+	background: transparent url(/html/themes/alios/javascript/closed_2.gif) no-repeat left 1px;
+	cursor: hand !important;
+	cursor: pointer !important;
+}
+
+
+#perioxes .treeview li.submenu ul{ /*Style for ULs that are children of LIs (submenu) */
+	display: none; /*Hide them by default. Don't delete. */
+}
+
+#perioxes .treeview .submenu ul li{ /*Style for LIs of ULs that are children of LIs (submenu) */
+	cursor: default;
+}
+
+#perioxes .treeview li.openfolder ul{ /*Style for ULs that are children of LIs (submenu) */
+	overflow:visible;
+}
+
+#perioxes .treeview li.selected { font-size:1.0em; font-weight:bold; }
+#perioxes .treeview li.selected a{ color:#e87c11; }
+
+
+
+/*------ Topic Nav Menu ------*/
+#thematikes-top {	background: #FFF url(/html/themes/alios/images/custom/topic-nav-top.gif) no-repeat top center; height:15px;}
+#thematikes-bottom {background: #FFF url(/html/themes/alios/images/custom/topic-nav-bottom.gif) no-repeat top center; height:15px; margin-top:-3px;}
+.ie6 #thematikes-bottom { margin-left:-5px;
+}
+#thematikes { 
+	background-color: #00465d ; 
+	border:0;
+	padding:0;
+	margin:0;
+	padding-left:4px;
+	padding-right:4px;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.ie #thematikes {	margin-left:0px; margin-right:0px; }
+.ie6 #thematikes {	margin-left:4px; margin-right:9px; }
+.safari #thematikes {margin-left:7px;}
+
+#thematikes .treeview ul{ /*CSS for Simple Tree Menu*/
+	margin: 0;
+	padding: 0;
+/*	font-size:1.0em;*/
+}
+
+#thematikes .treeview li{ /*Style for LI elements in general (excludes an LI that contains sub lists)*/
+	background: transparent url(/html/themes/alios/javascript/list_1.gif) no-repeat left 1px;
+	list-style-type: none;
+	padding-bottom:3px;
+	padding-left: 16px;
+	margin-bottom: 3px;
+	borderm:0px solid #CCCCCC;
+	color:#FFF;
+}
+
+#thematikes .treeview li a {
+	font-size:1.2em; 
+	font-weight:normal; 
+	color:#fff; 
+	text-decoration:none; 
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+#thematikes .treeview li a:hover { text-decoration:underline;}
+
+#thematikes .treeview li.submenu{ /* Style for LI that contains sub lists (other ULs). */
+	background: transparent url(/html/themes/alios/javascript/closed_1.gif) no-repeat left 1px;
+	cursor: hand !important;
+	cursor: pointer !important;
+}
+
+
+#thematikes .treeview li.submenu ul{ /*Style for ULs that are children of LIs (submenu) */
+	display: none; /*Hide them by default. Don't delete. */
+}
+
+#thematikes .treeview .submenu ul li{ /*Style for LIs of ULs that are children of LIs (submenu) */
+	cursor: default;
+	border-bottom:0px solid #CCCCCC;
+/*	background-color:#FFF;*/
+}
+#thematikes .treeview .submenu ul{
+	border:0px solid #CCCCCC;
+	padding-top:5px;
+}
+#thematikes .treeview li.openfolder ul{ /*Style for ULs that are children of LIs (submenu) */
+	overflow:visible;
+}
+
+#thematikes .treeview li.selected {  font-weight:normal; background-color:#013941;}
+#thematikes .treeview li.selected a{ color:#FFF;  }
+
+#thematikes .treeview .submenu ul li a {  }

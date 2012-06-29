@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube2" measuresCaption="%{measures}">
+    <Cube name="cube2">
+        <Table name="mondian_Table2"/>
+        <Dimension name="mondian_Table2.source">
+            <Hierarchy name="mondian_Table2.source" hasAll="true" allMemberName="All mondian_table2.source">
+                <Table name="mondian_Table2"/>
+                <Level name="mondian_Table2.source" table="mondian_Table2" column="source" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table2.etos" caption="%{year}">
+            <Hierarchy name="mondian_Table2.etos" hasAll="true" allMemberName="All mondian_table2.etos" allMemberCaption="%{all_years}">
+                <Table name="mondian_Table2"/>
+                <Level name="mondian_Table2.etos" table="mondian_Table2" column="etos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table2.nomos" caption="%{nomos}">
+            <Hierarchy name="mondian_Table2.nomos" hasAll="true" allMemberName="All mondian_table2.nomos" allMemberCaption="%{all_nomoi}">
+                <Table name="mondian_Table2"/>
+                <Level name="mondian_Table2.nomos" table="mondian_Table2" column="nomos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table2.aep_kata_kefali">
+            <Hierarchy name="mondian_Table2.aep_kata_kefali" hasAll="true" allMemberName="All mondian_table2.aep_kata_kefali">
+                <Table name="mondian_Table2"/>
+                <Level name="mondian_Table2.aep_kata_kefali" table="mondian_Table2" column="aep_kata_kefali" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table2.aep_kata_kefali" column="aep_kata_kefali" aggregator="avg" datatype="Numeric" formatString="###,###" caption="%{aep_kata_kefali}"/>
+    </Cube>
+</Schema>

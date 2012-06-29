@@ -1,0 +1,2068 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+    	<form-bean name="ProdKalliergiaForm" type="com.ext.portlet.novacert.prodKalliergies.ProdKalliergiaForm"/>
+    	<form-bean name="SearchKalliergCaresForm" type="com.ext.portlet.novacert.tasks.kalliergiesCares.SearchKalliergCaresForm"/>
+		<form-bean name="TaskKalliergiaCareForm" type="com.ext.portlet.novacert.tasks.kalliergiesCares.TaskKalliergiaCareForm"/>
+		<form-bean name="SearchHarvestForm" type="com.ext.portlet.novacert.tasks.harvest.SearchHarvestForm"/>
+		<form-bean name="TaskHarvestForm" type="com.ext.portlet.novacert.tasks.harvest.TaskHarvestForm"/>
+		<form-bean name="ProdEquipmentForm" type="com.ext.portlet.novacert.prodEquipment.ProdEquipmentForm"/>
+		<form-bean name="ProdInspectionForm" type="com.ext.portlet.novacert.prodInspection.ProdInspectionForm"/>
+		<form-bean name="CertProdSearchForm" type="com.ext.portlet.novacert.certifiedProdSearch.CertProdSearchForm"/>
+		<form-bean name="NvcSynetairismosForm" type="com.ext.portlet.novacert.synetairismoi.NvcSynetairismosForm"/>
+		<form-bean name="NvcProducerForm" type="com.ext.portlet.novacert.producers.NvcProducerForm"/>
+		<form-bean name="SearchTaskFppForm" type="com.ext.portlet.novacert.tasks.fpp.SearchTaskFppForm"/>
+		<form-bean name="TaskFppForm" type="com.ext.portlet.novacert.tasks.fpp.TaskFppForm"/>
+		<form-bean name="SearchTaskLipansiForm" type="com.ext.portlet.novacert.tasks.lipansi.SearchTaskLipansiForm"/>
+		<form-bean name="TaskLipansiForm" type="com.ext.portlet.novacert.tasks.lipansi.TaskLipansiForm"/>
+		<form-bean name="NvcSynetCertForm" type="com.ext.portlet.novacert.synetCertificates.NvcSynetCertForm"/>
+		<form-bean name="NvcProdCertForm" type="com.ext.portlet.novacert.producerCertificates.NvcProdCertForm"/>
+		<form-bean name="WeatherConditionsForm" type="com.ext.portlet.novacert.weatherConditions.WeatherConditionsForm"/>
+		<form-bean name="KalliergiaForm" type="com.ext.portlet.novacert.kalliergies.KalliergiaForm"/>
+		<form-bean name="PoikiliaForm" type="com.ext.portlet.novacert.kalliergies.poikilies.PoikiliaForm"/>
+		<form-bean name="DirectiveForm" type="com.ext.portlet.novacert.directives.DirectiveForm"/>
+		<form-bean name="CertificateForeasForm" type="com.ext.portlet.novacert.certificateForeas.CertificateForeasForm"/>
+		<form-bean name="CertificateTypeForm" type="com.ext.portlet.novacert.certificateType.CertificateTypeForm"/>
+		<form-bean name="EquipmentForm" type="com.ext.portlet.novacert.equipment.EquipmentForm"/>
+		<form-bean name="EnemiesForm" type="com.ext.portlet.novacert.enemies.EnemiesForm"/>
+		<form-bean name="SkevasmaForm" type="com.ext.portlet.novacert.skevasmata.SkevasmaForm"/>
+		<form-bean name="DrasticSubstanceForm" type="com.ext.portlet.novacert.drasticSubstance.DrasticSubstanceForm"/>
+		<form-bean name="KalliergiaSkevasmaForm" type="com.ext.portlet.novacert.kalliergies.skevasmata.KalliergiaSkevasmaForm"/>
+		<form-bean name="KalliergiaEnemiesForm" type="com.ext.portlet.novacert.kalliergies.enemies.KalliergiaEnemiesForm"/>
+		<form-bean name="ReportForm" type="com.ext.portlet.novacert.reports.ReportForm"/>
+		
+		<form-bean name="NvcAnalysisLabForm" type="com.ext.portlet.novacert.analysisLabs.NvcAnalysisLabForm"/>
+		<form-bean name="NvcFppAnalysisForm" type="com.ext.portlet.novacert.fppAnalysis.NvcFppAnalysisForm"/>
+		<form-bean name="NvcSalesmanForm" type="com.ext.portlet.novacert.salesman.NvcSalesmanForm"/>
+		<form-bean name="NvcProdSkevasmaForm" type="com.ext.portlet.novacert.producers.skevasma.NvcProdSkevasmaForm"/>
+    </form-beans>
+    
+    
+	<action-mappings>
+	
+	<!--  Synetairismoi -->
+	<!--  ================================  -->	
+		<action path="/ext/novacert/synetairismoi/synetairismoiLookup"
+				type="com.ext.portlet.novacert.synetairismoi.LookupSynetairismoiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synetairismoi.lookupSynetairismoi" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	
+		<action path="/ext/novacert/synetairismoi/list"
+				type="com.ext.portlet.novacert.synetairismoi.ListSynetairismoiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synetairismoi.list" />
+			<forward name="action.success.showMySynetairProfile" path="portlet.ext.novacert.synetairismoi.form" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/synetairismoi/load"
+			name="NvcSynetairismosForm"	
+			type="com.ext.portlet.novacert.synetairismoi.LoadSynetairismosAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetairismoi/add" 
+			type="com.ext.portlet.novacert.synetairismoi.AddSynetairismosAction"
+		    name="NvcSynetairismosForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetairismoi/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetairismoi/update" 
+			type="com.ext.portlet.novacert.synetairismoi.UpdateSynetairismosAction"
+		    name="NvcSynetairismosForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetairismoi/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetairismoi/delete" 
+			type="com.ext.portlet.novacert.synetairismoi.DeleteSynetairismosAction"
+		    name="NvcSynetairismosForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetairismoi/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/synetairismoi/listKalliergies"
+				type="com.ext.portlet.novacert.synetairismoi.ListSynetKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synetairismoi.synetKalliergiesList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	<!--  ================================  -->	
+		
+		
+		<!--  Certificates Synetairismoi  -->
+	<!--  ================================  -->	
+		
+		<action path="/ext/novacert/synetCertificates/addCertifiedKalliergia" 
+			type="com.ext.portlet.novacert.synetCertificates.AddCertKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/synetCertificates/load"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetCertificates/deleteCertifiedKalliergia" 
+			type="com.ext.portlet.novacert.synetCertificates.DeleteCertKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/synetCertificates/load"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<action path="/ext/novacert/synetCertificates/list"
+				type="com.ext.portlet.novacert.synetCertificates.ListSynetCertAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synetCertificates.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/synetCertificates/load"
+			name="NvcSynetCertForm"	
+			type="com.ext.portlet.novacert.synetCertificates.LoadSynetCertAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetCertificates/add" 
+			type="com.ext.portlet.novacert.synetCertificates.AddSynetCertAction"
+		    name="NvcSynetCertForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetCertificates/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetCertificates/update" 
+			type="com.ext.portlet.novacert.synetCertificates.UpdateSynetCertAction"
+		    name="NvcSynetCertForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetCertificates/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetCertificates/delete" 
+			type="com.ext.portlet.novacert.synetCertificates.DeleteSynetCertAction"
+		    name="NvcSynetCertForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/synetCertificates/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		
+		
+	<!--  Producers -->
+	<!--  ================================  -->	
+		<action path="/ext/novacert/producers/producersLookup"
+				type="com.ext.portlet.novacert.producers.LookupProducersAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.lookupProducers" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/producers/list"
+				type="com.ext.portlet.novacert.producers.ListProducersAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/load"
+			name="NvcProducerForm"	
+			type="com.ext.portlet.novacert.producers.LoadProducerAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/add" 
+			type="com.ext.portlet.novacert.producers.AddProducerAction"
+		    name="NvcProducerForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/update" 
+			type="com.ext.portlet.novacert.producers.UpdateProducerAction"
+		    name="NvcProducerForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/delete" 
+			type="com.ext.portlet.novacert.producers.DeleteProducerAction"
+		    name="NvcProducerForm" validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.deleteSummaryForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/loadSummary"
+			name="NvcProducerForm"	
+			type="com.ext.portlet.novacert.producers.LoadProducerSummaryAction" scope="request" validate="false">
+			<forward name="action.delete" path="portlet.ext.novacert.producers.deleteSummaryForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!--  Certificates Producers  -->
+	<!--  ================================  -->	
+		
+		<action path="/ext/novacert/producers/listCertificates"
+				type="com.ext.portlet.novacert.producerCertificates.ListProdCertAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producerCertificates.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadCertificates"
+			name="NvcProdCertForm"	
+			type="com.ext.portlet.novacert.producerCertificates.LoadProdCertAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addCertificates" 
+			type="com.ext.portlet.novacert.producerCertificates.AddProdCertAction"
+		    name="NvcProdCertForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listCertificates"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/deleteCertificates" 
+			type="com.ext.portlet.novacert.producerCertificates.DeleteProdCertAction"
+		    name="NvcProdCertForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listCertificates"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producerCertificates.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+<!--  ================================  -->			
+		
+		
+		<!--  ProducerKalliergies -->
+		<!--  Redefinition of the ProdKalliergies portlet actions to be used from the producers portlet -->
+		<action path="/ext/novacert/producers/listProdKalliergies"
+				type="com.ext.portlet.novacert.prodKalliergies.ListProdKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.prodKalliergies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/producers/loadProdKalliergies"
+			name="ProdKalliergiaForm"	
+			type="com.ext.portlet.novacert.prodKalliergies.LoadProdKalliergiaAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.AddProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.UpdateProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.DeleteProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/loadProdKalliergiesChange"
+			name="ProdKalliergiaForm"	
+			type="com.ext.portlet.novacert.prodKalliergies.LoadProdKalliergiaChangeAction" scope="request" validate="false">
+			
+			<forward name="action.success" path="portlet.ext.novacert.producers.prodKalliergies.changeForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/changeProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.ChangeProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodKalliergies.changeForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/addAdjacentKalliergia" 
+			type="com.ext.portlet.novacert.prodKalliergies.AddAdjasentKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteAdjacentKalliergia" 
+			type="com.ext.portlet.novacert.prodKalliergies.DeleteAdjasentKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<action path="/ext/novacert/producers/addProdKalliergiaPoikilia" 
+			type="com.ext.portlet.novacert.prodKalliergies.AddProdKalliergiaPoikiliaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteProdKalliergiaPoikilia" 
+			type="com.ext.portlet.novacert.prodKalliergies.DeleteProdKalliergiaPoikiliaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!--  Prod Equipment redefinition  -->
+		<action path="/ext/novacert/producers/listProdEquipment"
+			type="com.ext.portlet.novacert.prodEquipment.ListProdEquipmentAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.prodEquipment.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadProdEquipment"
+			name="ProdEquipmentForm"	
+			type="com.ext.portlet.novacert.prodEquipment.LoadProdEquipmentAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addProdEquipment" 
+			type="com.ext.portlet.novacert.prodEquipment.AddProdEquipmentAction"
+		    name="ProdEquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdEquipment"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateProdEquipment" 
+			type="com.ext.portlet.novacert.prodEquipment.UpdateProdEquipmentAction"
+		    name="ProdEquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdEquipment"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+			<action path="/ext/novacert/producers/deleteProdEquipment" 
+			type="com.ext.portlet.novacert.prodEquipment.DeleteProdEquipmentAction"
+		    name="ProdEquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdEquipment"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodEquipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!--  -->
+		<!-- Redifining ProdInspection -->
+		<action path="/ext/novacert/producers/listProdInspection"
+			type="com.ext.portlet.novacert.prodInspection.ListProdInspectionAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.prodInspection.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/producers/loadProdInspection"
+			name="ProdInspectionForm"	
+			type="com.ext.portlet.novacert.prodInspection.LoadProdInspectionAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addProdInspection" 
+			type="com.ext.portlet.novacert.prodInspection.AddProdInspectionAction"
+		    name="ProdInspectionForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdInspection"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateProdInspection" 
+			type="com.ext.portlet.novacert.prodInspection.UpdateProdInspectionAction"
+		    name="ProdInspectionForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdInspection"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+			<action path="/ext/novacert/producers/deleteProdInspection" 
+			type="com.ext.portlet.novacert.prodInspection.DeleteProdInspectionAction"
+		    name="ProdInspectionForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdInspection"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.prodInspection.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!-- Redifining Harvest -->
+		<!--  -->
+		<action path="/ext/novacert/producers/listTaskHarvest"
+			name="SearchHarvestForm"
+			type="com.ext.portlet.novacert.tasks.harvest.ListHarvestAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskHarvest.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadTaskHarvest"
+			name="TaskHarvestForm"	
+			type="com.ext.portlet.novacert.tasks.harvest.LoadHarvestAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addTaskHarvest" 
+			type="com.ext.portlet.novacert.tasks.harvest.AddHarvestAction"
+		    name="TaskHarvestForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskHarvest"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateTaskHarvest" 
+			type="com.ext.portlet.novacert.tasks.harvest.UpdateHarvestAction"
+		    name="TaskHarvestForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskHarvest"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteTaskHarvest" 
+			type="com.ext.portlet.novacert.tasks.harvest.DeleteHarvestAction"
+		    name="TaskHarvestForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskHarvest"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskHarvest.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		<!-- Redifining FPP -->
+		<!--  -->
+		<action path="/ext/novacert/producers/listFppTasks"
+			name="SearchTaskFppForm"
+			type="com.ext.portlet.novacert.tasks.fpp.ListFppAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskFpp.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadAddFpp"
+			name="TaskFppForm"	
+			type="com.ext.portlet.novacert.tasks.fpp.LoadAddFppAction" scope="request" validate="false">
+			
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskFpp.addFppForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.AddFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listFppTasks"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskFpp.addFppForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/loadFpp"
+			name="TaskFppForm"	
+			type="com.ext.portlet.novacert.tasks.fpp.LoadFppAction" scope="request" validate="false">
+			
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskFpp.viewFppForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.UpdateFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    <forward name="action.success" path="/ext/novacert/producers/listFppTasks"  redirect="true"/>
+		    <forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskFpp.viewFppForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.DeleteFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    <forward name="action.success" path="/ext/novacert/producers/listFppTasks"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addSkevasmataToFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.AddSkevasmataAction"
+		    validate="false" scope="request">
+		    <forward name="action.success" path="portlet.ext.novacert.producers.taskFpp.addSkevasmataView" />
+		    <forward name="action.success.redirectToForm" path="/ext/novacert/producers/loadFpp"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/removeSkevasmaFromFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.RemoveSkevasmaFromFppTaskAction"
+		    validate="false" scope="request">
+		    <forward name="action.enemiesToBeRemovedList" path="portlet.ext.novacert.producers.taskFpp.skevasmaEnemiesToBeRemovedView" />
+		    <forward name="action.success" path="/ext/novacert/producers/loadFpp"  redirect="true"/>
+			<forward name="action.success.listFpp" path="/ext/novacert/producers/listFppTasks"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addEnemiesToFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.AddEnemiesAction"
+		    validate="false" scope="request">
+		    <forward name="action.success" path="portlet.ext.novacert.producers.taskFpp.addEnemiesView" />
+		    <forward name="action.success.redirectToForm" path="/ext/novacert/producers/loadFpp"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/removeEnemyFromFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.RemoveEnemyFromFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    <forward name="action.success" path="/ext/novacert/producers/loadFpp"  redirect="true"/>
+			<forward name="action.success.listFpp" path="/ext/novacert/producers/listFppTasks"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!--  -->
+		<!-- Producers Lipansi -->
+		<!--  -->
+		<action path="/ext/novacert/producers/listTaskLipansi"
+			name="SearchTaskLipansiForm"
+			type="com.ext.portlet.novacert.tasks.lipansi.ListTaskLipansiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskLipansi.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadTaskLipansi"
+			name="TaskLipansiForm"	
+			type="com.ext.portlet.novacert.tasks.lipansi.LoadTaskLipansiAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.AddTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.UpdateTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.DeleteTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<action path="/ext/novacert/producers/loadTaskLipansiThermo"
+			name="TaskLipansiForm"	
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.LoadTaskLipansiThermoAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.AddTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.UpdateTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.DeleteTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		
+		<!--  -->
+		<!--  Redefining Kallierg Cares -->
+		<!--  ================================  -->	
+		<action path="/ext/novacert/producers/listTaskKalliergiesCares"
+				name="SearchKalliergCaresForm"
+				type="com.ext.portlet.novacert.tasks.kalliergiesCares.ListKalliergiesCaresAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.taskKalliergiesCares.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadTaskKalliergiesCares"
+			name="TaskKalliergiaCareForm"	
+			type="com.ext.portlet.novacert.tasks.kalliergiesCares.LoadKalliergiesCaresAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addTaskKalliergiesCares" 
+			type="com.ext.portlet.novacert.tasks.kalliergiesCares.AddKalliergiesCaresAction"
+		    name="TaskKalliergiaCareForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskKalliergiesCares"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/updateTaskKalliergiesCares" 
+			type="com.ext.portlet.novacert.tasks.kalliergiesCares.UpdateKalliergiesCaresAction"
+		    name="TaskKalliergiaCareForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskKalliergiesCares"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.taskKalliergiesCares.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/deleteTaskKalliergiesCares" 
+			type="com.ext.portlet.novacert.tasks.kalliergiesCares.DeteKalliergiesCaresAction"
+		    name="TaskKalliergiaCareForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listTaskKalliergiesCares"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+	<!--  ================================  -->	
+		
+	<!--  certified prod search -->
+	<!--  ================================  -->
+	<action path="/ext/novacert/certifiedProdSearch/load"
+				type="com.ext.portlet.novacert.certifiedProdSearch.LoadSearchFormAction"
+				name="CertProdSearchForm" validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.certifiedProdSearch.load" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	
+	
+	<action path="/ext/novacert/certifiedProdSearch/loadProducerProfile"
+				type="com.ext.portlet.novacert.certifiedProdSearch.LoadProducerProfileAction"
+				name="NvcProducerForm" validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.certifiedProdSearch.producerProfile" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/certifiedProdSearch/loadSynetairismosProfile"
+				type="com.ext.portlet.novacert.certifiedProdSearch.LoadSynetairismosProfileAction"
+				name="NvcSynetairismosForm" validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.certifiedProdSearch.synetairismosProfile" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	<!--  ================================  -->	
+		
+
+	<!--  Kalliergies -->
+	<!--  ================================  -->	
+		<action path="/ext/novacert/kalliergies/list"
+				type="com.ext.portlet.novacert.kalliergies.ListKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/novacert/kalliergies/lookupKalliergies"
+				type="com.ext.portlet.novacert.kalliergies.LookupKalliergiesAction" scope="request">
+			<forward name="action.success.mode_normal" path="portlet.ext.novacert.kalliergies.lookupKalliergies" />
+			<forward name="action.success.mode_hierarchical" path="portlet.ext.novacert.kalliergies.hierarchical.lookupKalliergies" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+
+	
+	
+	<!--  Prod Kalliergies -->
+	<!--  ================================  -->	
+	
+		<action path="/ext/novacert/prodKalliergies/listProdKalliergies"
+				type="com.ext.portlet.novacert.prodKalliergies.ListProdKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.prodKalliergies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/prodKalliergies/loadProdKalliergies"
+			name="ProdKalliergiaForm"	
+			type="com.ext.portlet.novacert.prodKalliergies.LoadProdKalliergiaAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/addProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.AddProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/updateProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.UpdateProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/deleteProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.DeleteProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.prodKalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/loadProdKalliergiesChange"
+			name="ProdKalliergiaForm"	
+			type="com.ext.portlet.novacert.prodKalliergies.LoadProdKalliergiaChangeAction" scope="request" validate="false">
+			
+			<forward name="action.success" path="portlet.ext.novacert.prodKalliergies.changeForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/changeProdKalliergies" 
+			type="com.ext.portlet.novacert.prodKalliergies.ChangeProdKalliergiaAction"
+		    name="ProdKalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/listProdKalliergies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.prodKalliergies.changeForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/prodKalliergies/addAdjacentKalliergia" 
+			type="com.ext.portlet.novacert.prodKalliergies.AddAdjasentKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/deleteAdjacentKalliergia" 
+			type="com.ext.portlet.novacert.prodKalliergies.DeleteAdjasentKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/prodKalliergies/loadProdKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/prodKalliergies/prodKalliergiesLookup"
+				type="com.ext.portlet.novacert.prodKalliergies.LookupProdKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.prodKalliergies.lookup" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/multySelectKalliergiesLookup"
+				type="com.ext.portlet.novacert.kalliergies.LookupKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.prodKalliergies.multySelectKalliergiesLookup" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/prodKalliergies/multyProducerProdKalliergiesLookup"
+				type="com.ext.portlet.novacert.prodKalliergies.LookupMultiProducersKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.prodKalliergies.multiProducersLookup" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	<!--  ================================  -->
+	
+	
+	<!--  Prod Equipment -->
+	<!--  ================================  -->	
+	<action path="/ext/novacert/prodEquipment/listProdEquipment"
+			type="com.ext.portlet.novacert.prodEquipment.ListProdEquipmentAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.prodEquipment.list" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	<action path="/ext/novacert/prodEquipment/loadProdEquipment"
+		name="ProdEquipmentForm"	
+		type="com.ext.portlet.novacert.prodEquipment.LoadProdEquipmentAction" scope="request" validate="false">
+		
+		<forward name="action.add" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.edit" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.delete" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/prodEquipment/addProdEquipment" 
+		type="com.ext.portlet.novacert.prodEquipment.AddProdEquipmentAction"
+	    name="ProdEquipmentForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodEquipment/listProdEquipment"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/prodEquipment/updateProdEquipment" 
+		type="com.ext.portlet.novacert.prodEquipment.UpdateProdEquipmentAction"
+	    name="ProdEquipmentForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodEquipment/listProdEquipment"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+		<action path="/ext/novacert/prodEquipment/deleteProdEquipment" 
+		type="com.ext.portlet.novacert.prodEquipment.DeleteProdEquipmentAction"
+	    name="ProdEquipmentForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodEquipment/listProdEquipment"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodEquipment.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<!--  ================================  -->
+	
+
+	<!--  Producers : Iinternal Inspection Management -->
+	<!--  ================================  -->
+	<action path="/ext/novacert/prodInspection/listProdInspection"
+			type="com.ext.portlet.novacert.prodInspection.ListProdInspectionAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.prodInspection.list" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/novacert/prodInspection/loadProdInspection"
+		name="ProdInspectionForm"	
+		type="com.ext.portlet.novacert.prodInspection.LoadProdInspectionAction" scope="request" validate="false">
+		
+		<forward name="action.add" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.edit" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.delete" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/prodInspection/addProdInspection" 
+		type="com.ext.portlet.novacert.prodInspection.AddProdInspectionAction"
+	    name="ProdInspectionForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodInspection/listProdInspection"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/prodInspection/updateProdInspection" 
+		type="com.ext.portlet.novacert.prodInspection.UpdateProdInspectionAction"
+	    name="ProdInspectionForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodInspection/listProdInspection"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+		<action path="/ext/novacert/prodInspection/deleteProdInspection" 
+		type="com.ext.portlet.novacert.prodInspection.DeleteProdInspectionAction"
+	    name="ProdInspectionForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/prodInspection/listProdInspection"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.prodInspection.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<!--  ================================  -->
+	
+	
+	<!--  Tasks : Kallierg Cares -->
+	<!--  ================================  -->	
+	<action path="/ext/novacert/taskKalliergiesCares/listTaskKalliergiesCares"
+			name="SearchKalliergCaresForm"
+			type="com.ext.portlet.novacert.tasks.kalliergiesCares.ListKalliergiesCaresAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.taskKalliergiesCares.list" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	<action path="/ext/novacert/taskKalliergiesCares/loadTaskKalliergiesCares"
+		name="TaskKalliergiaCareForm"	
+		type="com.ext.portlet.novacert.tasks.kalliergiesCares.LoadKalliergiesCaresAction" scope="request" validate="false">
+		
+		<forward name="action.add" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.view" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.edit" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.delete" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskKalliergiesCares/addTaskKalliergiesCares" 
+		type="com.ext.portlet.novacert.tasks.kalliergiesCares.AddKalliergiesCaresAction"
+	    name="TaskKalliergiaCareForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskKalliergiesCares/listTaskKalliergiesCares"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskKalliergiesCares/updateTaskKalliergiesCares" 
+		type="com.ext.portlet.novacert.tasks.kalliergiesCares.UpdateKalliergiesCaresAction"
+	    name="TaskKalliergiaCareForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskKalliergiesCares/listTaskKalliergiesCares"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskKalliergiesCares.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskKalliergiesCares/deleteTaskKalliergiesCares" 
+		type="com.ext.portlet.novacert.tasks.kalliergiesCares.DeteKalliergiesCaresAction"
+	    name="TaskKalliergiaCareForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskKalliergiesCares/listTaskKalliergiesCares"  redirect="true"/>
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<!--  ================================  -->
+	
+	<!--  Tasks : Harvest -->
+	<!--  ================================  -->	
+	<action path="/ext/novacert/taskHarvest/listTaskHarvest"
+			name="SearchHarvestForm"
+			type="com.ext.portlet.novacert.tasks.harvest.ListHarvestAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.taskHarvest.list" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	<action path="/ext/novacert/taskHarvest/loadTaskHarvest"
+		name="TaskHarvestForm"	
+		type="com.ext.portlet.novacert.tasks.harvest.LoadHarvestAction" scope="request" validate="false">
+		
+		<forward name="action.add" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.view" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.edit" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.delete" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskHarvest/addTaskHarvest" 
+		type="com.ext.portlet.novacert.tasks.harvest.AddHarvestAction"
+	    name="TaskHarvestForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskHarvest/listTaskHarvest"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskHarvest/updateTaskHarvest" 
+		type="com.ext.portlet.novacert.tasks.harvest.UpdateHarvestAction"
+	    name="TaskHarvestForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskHarvest/listTaskHarvest"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskHarvest/deleteTaskHarvest" 
+		type="com.ext.portlet.novacert.tasks.harvest.DeleteHarvestAction"
+	    name="TaskHarvestForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskHarvest/listTaskHarvest"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskHarvest.form"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<!--  ================================  -->
+	
+	
+	<!--  Tasks : FPP -->
+	<!--  ================================  -->
+	
+	<action path="/ext/novacert/taskFpp/kalliergiaSkevasmataLookup"
+			type="com.ext.portlet.novacert.tasks.fpp.LookupKalliergiaSkevasmataAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.taskFpp.lookupKalliergiaSkevasmata" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	<action path="/ext/novacert/taskFpp/enemiesLookup"
+			type="com.ext.portlet.novacert.tasks.fpp.LookupEnemiesAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.taskFpp.lookupEnemies" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/novacert/taskFpp/listFppTasks"
+			name="SearchTaskFppForm"
+			type="com.ext.portlet.novacert.tasks.fpp.ListFppAction" scope="request">
+		<forward name="action.success" path="portlet.ext.novacert.taskFpp.list" />
+		<forward name="action.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/novacert/taskFpp/loadAddFpp"
+		name="TaskFppForm"	
+		type="com.ext.portlet.novacert.tasks.fpp.LoadAddFppAction" scope="request" validate="false">
+		
+		<forward name="action.success" path="portlet.ext.novacert.taskFpp.addFppForm"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/addFppTask" 
+		type="com.ext.portlet.novacert.tasks.fpp.AddFppTaskAction"
+	    name="TaskFppForm" validate="false" scope="request">
+	    
+		<forward name="action.success" path="/ext/novacert/taskFpp/listFppTasks"  redirect="true"/>
+		<forward name="action.validationErrors" path="portlet.ext.novacert.taskFpp.addFppForm"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	
+	<action path="/ext/novacert/taskFpp/loadFpp"
+		name="TaskFppForm"	
+		type="com.ext.portlet.novacert.tasks.fpp.LoadFppAction" scope="request" validate="false">
+		
+		<forward name="action.success" path="portlet.ext.novacert.taskFpp.viewFppForm"  />
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/updateFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.UpdateFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    <forward name="action.success" path="/ext/novacert/taskFpp/listFppTasks"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskFpp.viewFppForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+	<action path="/ext/novacert/taskFpp/deleteFppTask" 
+		type="com.ext.portlet.novacert.tasks.fpp.DeleteFppTaskAction"
+	    name="TaskFppForm" validate="false" scope="request">
+	    <forward name="action.success" path="/ext/novacert/taskFpp/listFppTasks"  redirect="true"/>
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/addSkevasmataToFppTask" 
+		type="com.ext.portlet.novacert.tasks.fpp.AddSkevasmataAction"
+	     validate="false" scope="request">
+	    <forward name="action.success" path="portlet.ext.novacert.taskFpp.addSkevasmataView" />
+		<forward name="action.success.redirectToForm" path="/ext/novacert/taskFpp/loadFpp"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/removeSkevasmaFromFppTask" 
+		type="com.ext.portlet.novacert.tasks.fpp.RemoveSkevasmaFromFppTaskAction"
+	    validate="false" scope="request">
+	    <forward name="action.enemiesToBeRemovedList" path="portlet.ext.novacert.taskFpp.skevasmaEnemiesToBeRemovedView" />
+	    <forward name="action.success" path="/ext/novacert/taskFpp/loadFpp"  redirect="true"/>
+		<forward name="action.success.listFpp" path="/ext/novacert/taskFpp/listFppTasks"  redirect="true"/>
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/addEnemiesToFppTask" 
+		type="com.ext.portlet.novacert.tasks.fpp.AddEnemiesAction"
+	    validate="false" scope="request">
+	    <forward name="action.success" path="portlet.ext.novacert.taskFpp.addEnemiesView" />
+	    <forward name="action.success.redirectToForm" path="/ext/novacert/taskFpp/loadFpp"  redirect="true"/>
+		<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	<action path="/ext/novacert/taskFpp/removeEnemyFromFppTask" 
+			type="com.ext.portlet.novacert.tasks.fpp.RemoveEnemyFromFppTaskAction"
+		    name="TaskFppForm" validate="false" scope="request">
+		    <forward name="action.success" path="/ext/novacert/taskFpp/loadFpp"  redirect="true"/>
+			<forward name="action.success.listFpp" path="/ext/novacert/taskFpp/listFppTasks"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+	<!--  ================================  -->	
+	
+	
+	<!-- Producers Lipansi -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/taskLipansi/listTaskLipansi"
+			name="SearchTaskLipansiForm"
+			type="com.ext.portlet.novacert.tasks.lipansi.ListTaskLipansiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.taskLipansi.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/taskLipansi/loadTaskLipansi"
+			name="TaskLipansiForm"	
+			type="com.ext.portlet.novacert.tasks.lipansi.LoadTaskLipansiAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/addTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.AddTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/updateTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.UpdateTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/deleteTaskLipansi" 
+			type="com.ext.portlet.novacert.tasks.lipansi.DeleteTaskLipansiAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<action path="/ext/novacert/taskLipansi/loadTaskLipansiThermo"
+			name="TaskLipansiForm"	
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.LoadTaskLipansiThermoAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/addTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.AddTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/updateTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.UpdateTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/taskLipansi/deleteTaskLipansiThermo" 
+			type="com.ext.portlet.novacert.tasks.lipansi.thermo.DeleteTaskLipansiThermoAction"
+		    name="TaskLipansiForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/taskLipansi/listTaskLipansi"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.taskLipansiThermo.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!--  ================================  -->	
+		<!--  Directives -->
+		<action path="/ext/novacert/directives/listDirectives"
+			type="com.ext.portlet.novacert.directives.ListDirectivesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.directives.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/directives/loadDirective"
+			name="DirectiveForm"	
+			type="com.ext.portlet.novacert.directives.LoadDirectiveAction" scope="request" validate="false">
+			<forward name="action.view" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/directives/addDirective" 
+			type="com.ext.portlet.novacert.directives.AddDirectiveAction"
+		    name="DirectiveForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/directives/listDirectives"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/directives/updateDirective" 
+			type="com.ext.portlet.novacert.directives.UpdateDirectiveAction"
+		    name="DirectiveForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/directives/listDirectives"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/directives/deleteDirective" 
+			type="com.ext.portlet.novacert.directives.DeleteDirectiveAction"
+		    name="DirectiveForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/directives/listDirectives"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/directives/getDirectiveFile" type="com.ext.portlet.novacert.directives.GetFileAction"  />
+		
+		<!--  Directive Kalliergies -->
+		<action path="/ext/novacert/directives/listDirectiveKalliergies"
+			type="com.ext.portlet.novacert.directives.ListDirectiveKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.directives.kalliergiesList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/directives/addKalliergia" 
+			type="com.ext.portlet.novacert.directives.AddKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/directives/listDirectiveKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/directives/removeKalliergia" 
+			type="com.ext.portlet.novacert.directives.RemoveKalliergiaAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/directives/listDirectiveKalliergies"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!--  Directive Synetairismoi -->
+		<action path="/ext/novacert/directives/listDirectiveSynetairismoi"
+			type="com.ext.portlet.novacert.directives.ListDirectiveSynetairismoiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.directives.synetairismoiList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/directives/addSynetairismos" 
+			type="com.ext.portlet.novacert.directives.AddSynetairismoAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/directives/listDirectiveSynetairismoi"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/directives/removeSynetairismos" 
+			type="com.ext.portlet.novacert.directives.RemoveSynetairismoAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/directives/listDirectiveSynetairismoi"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/directives/listProducersForNotification"
+			type="com.ext.portlet.novacert.directives.notifications.ListProducersForNotificationAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.directives.producersForNotificationList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/directives/notifyProducers" 
+			type="com.ext.portlet.novacert.directives.notifications.NotifyProducersAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/directives/listDirectives"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		<!--  ================================  -->	
+		
+		<!--  ================================  -->
+		<!--  Directives assigned to a certain Synetairismo -->
+		<action path="/ext/novacert/synetDirectives/listDirectives"
+			type="com.ext.portlet.novacert.directives.ListDirectivesOfSynetairismosAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.directives.synetDirectivesList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/synetDirectives/getDirectiveFile" type="com.ext.portlet.novacert.directives.GetFileAction"  />
+		
+		<action path="/ext/novacert/synetDirectives/loadDirective"
+			name="DirectiveForm"	
+			type="com.ext.portlet.novacert.directives.LoadDirectiveAction" scope="request" validate="false">
+			<forward name="action.view" path="portlet.ext.novacert.synet.directives.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.synet.directives.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.synet.directives.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.synet.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetDirectives/updateDirective" 
+			type="com.ext.portlet.novacert.directives.UpdateDirectiveAction"
+		    name="DirectiveForm" validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/synetDirectives/listDirectives"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synet.directives.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/synetDirectives/listProducersForNotification"
+			type="com.ext.portlet.novacert.directives.notifications.ListProducersForNotificationAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synet.directives.producersForNotificationList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/synetDirectives/notifyProducers" 
+			type="com.ext.portlet.novacert.directives.notifications.NotifyProducersAction"
+		    validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/synetDirectives/listDirectives"  redirect="true"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		<action path="/ext/novacert/synetDirectives/listDirectiveKalliergies"
+			type="com.ext.portlet.novacert.directives.ListDirectiveKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synet.directives.kalliergiesList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/synetDirectives/listDirectiveSynetairismoi"
+			type="com.ext.portlet.novacert.directives.ListDirectiveSynetairismoiAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.synet.directives.synetairismoiList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<!--  ================================  -->
+		
+		<!-- Weather Conditions -->
+		<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/weatherConditions/list"
+			type="com.ext.portlet.novacert.weatherConditions.ListWeatherConditionsAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.weatherConditions.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/weatherConditions/load"
+			name="WeatherConditionsForm"	
+			type="com.ext.portlet.novacert.weatherConditions.LoadWeatherConditionsAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/weatherConditions/add" 
+			type="com.ext.portlet.novacert.weatherConditions.AddWeatherConditionsAction"
+		    name="WeatherConditionsForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/weatherConditions/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/weatherConditions/update" 
+			type="com.ext.portlet.novacert.weatherConditions.UpdateWeatherConditionsAction"
+		    name="WeatherConditionsForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/weatherConditions/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/weatherConditions/delete" 
+			type="com.ext.portlet.novacert.weatherConditions.DeleteWeatherConditionsAction"
+		    name="WeatherConditionsForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/weatherConditions/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.weatherConditions.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!-- Manage Equipment -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/equipment/list"
+			type="com.ext.portlet.novacert.equipment.ListEquipmentAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.equipment.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/equipment/load"
+			name="EquipmentForm"	
+			type="com.ext.portlet.novacert.equipment.LoadEquipmentAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/equipment/add" 
+			type="com.ext.portlet.novacert.equipment.AddEquipmentAction"
+		    name="EquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/equipment/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/equipment/update" 
+			type="com.ext.portlet.novacert.equipment.UpdateEquipmentAction"
+		    name="EquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/equipment/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/equipment/delete" 
+			type="com.ext.portlet.novacert.equipment.DeleteEquipmentAction"
+		    name="EquipmentForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/equipment/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.equipment.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!-- Foreas Pistopoiisis -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/certificateForeas/list"
+			type="com.ext.portlet.novacert.certificateForeas.ListCertificateForeasAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.certificateForeas.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/certificateForeas/load"
+			name="CertificateForeasForm"	
+			type="com.ext.portlet.novacert.certificateForeas.LoadCertificateForeasAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateForeas/add" 
+			type="com.ext.portlet.novacert.certificateForeas.AddCertificateForeasAction"
+		    name="CertificateForeasForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateForeas/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateForeas/update" 
+			type="com.ext.portlet.novacert.certificateForeas.UpdateCertificateForeasAction"
+		    name="CertificateForeasForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateForeas/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateForeas/delete" 
+			type="com.ext.portlet.novacert.certificateForeas.DeleteCertificateForeasAction"
+		    name="CertificateForeasForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateForeas/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateForeas.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!-- Typos Pistopoiisis -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/certificateType/list"
+			type="com.ext.portlet.novacert.certificateType.ListCertificateTypeAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.certificateType.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/certificateType/load"
+			name="CertificateTypeForm"	
+			type="com.ext.portlet.novacert.certificateType.LoadCertificateTypeAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateType/add" 
+			type="com.ext.portlet.novacert.certificateType.AddCertificateTypeAction"
+		    name="CertificateTypeForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateType/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateType/update" 
+			type="com.ext.portlet.novacert.certificateType.UpdateCertificateTypeAction"
+		    name="CertificateTypeForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateType/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/certificateType/delete" 
+			type="com.ext.portlet.novacert.certificateType.DeleteCertificateTypeAction"
+		    name="CertificateTypeForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/certificateType/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.certificateType.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		<!-- Exthroi -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/enemies/list"
+			type="com.ext.portlet.novacert.enemies.ListEnemiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.enemies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/enemies/load"
+			name="EnemiesForm"	
+			type="com.ext.portlet.novacert.enemies.LoadEnemiesAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/enemies/add" 
+			type="com.ext.portlet.novacert.enemies.AddEnemiesAction"
+		    name="EnemiesForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/enemies/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/enemies/update" 
+			type="com.ext.portlet.novacert.enemies.UpdateEnemiesAction"
+		    name="EnemiesForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/enemies/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/enemies/delete" 
+			type="com.ext.portlet.novacert.enemies.DeleteEnemiesAction"
+		    name="EnemiesForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/enemies/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.enemies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		
+		<!-- Skevasmata -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/skevasma/list"
+			type="com.ext.portlet.novacert.skevasmata.ListSkevasmataAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.skevasmata.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/skevasma/load"
+			name="SkevasmaForm"	
+			type="com.ext.portlet.novacert.skevasmata.LoadSkevasmaAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/skevasma/add" 
+			type="com.ext.portlet.novacert.skevasmata.AddSkevasmaAction"
+		    name="SkevasmaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/skevasma/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/skevasma/update" 
+			type="com.ext.portlet.novacert.skevasmata.UpdateSkevasmaAction"
+		    name="SkevasmaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/skevasma/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/skevasma/delete" 
+			type="com.ext.portlet.novacert.skevasmata.DeleteSkevasmaAction"
+		    name="SkevasmaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/skevasma/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!-- Skevasma Substance -->
+
+		<action path="/ext/novacert/skevasma/listSkevasmaSubstances"
+			type="com.ext.portlet.novacert.skevasmata.substances.ListSkevasmaSubstancesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.skevasmata.substances.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/skevasma/adddeleteSkevasmaSubstance"
+			type="com.ext.portlet.novacert.skevasmata.substances.AddDeleteSkevasmaSubstancesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.skevasmata.substances.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/skevasma/lookupSubstances"
+			type="com.ext.portlet.novacert.skevasmata.LookupSubstancesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.substances.lookupSubstance" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  -->
+		
+		<!-- DrasticSubstance -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/drasticSubstance/list"
+			type="com.ext.portlet.novacert.drasticSubstance.ListDrasticSubstancesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.drasticSubstance.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/drasticSubstance/load"
+			name="DrasticSubstanceForm"	
+			type="com.ext.portlet.novacert.drasticSubstance.LoadDrasticSubstanceAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/drasticSubstance/add" 
+			type="com.ext.portlet.novacert.drasticSubstance.AddDrasticSubstanceAction"
+		    name="DrasticSubstanceForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/drasticSubstance/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/drasticSubstance/update" 
+			type="com.ext.portlet.novacert.drasticSubstance.UpdateDrasticSubstanceAction"
+		    name="DrasticSubstanceForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/drasticSubstance/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/drasticSubstance/delete" 
+			type="com.ext.portlet.novacert.drasticSubstance.DeleteDrasticSubstanceAction"
+		    name="DrasticSubstanceForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/drasticSubstance/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.drasticSubstance.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!--  -->
+		
+		
+		<!-- Kalliergies -->
+	<!--  ================================  -->	
+		<!--  -->
+		<action path="/ext/novacert/kalliergies/list"
+			type="com.ext.portlet.novacert.kalliergies.ListKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/load"
+			name="KalliergiaForm"	
+			type="com.ext.portlet.novacert.kalliergies.LoadKalliergiaAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/kalliergies/add" 
+			type="com.ext.portlet.novacert.kalliergies.AddKalliergiaAction"
+		    name="KalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/list"  redirect="true"/>
+			<forward name="action.success.poikilia" path="/ext/novacert/kalliergies/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/kalliergies/update" 
+			type="com.ext.portlet.novacert.kalliergies.UpdateKalliergiaAction"
+		    name="KalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/kalliergies/delete" 
+			type="com.ext.portlet.novacert.kalliergies.DeleteKalliergiaAction"
+		    name="KalliergiaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<!-- Poikilies -->
+		<action path="/ext/novacert/kalliergies/addPoikilia" 
+			type="com.ext.portlet.novacert.kalliergies.poikilies.AddPoikiliaAction"
+		    name="PoikiliaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/listPoikilies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/kalliergies/deletePoikilia" 
+			type="com.ext.portlet.novacert.kalliergies.poikilies.DeletePoikiliaAction"
+		    name="PoikiliaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/listPoikilies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!-- Poikilies -->
+		<action path="/ext/novacert/kalliergies/listPoikilies"
+			type="com.ext.portlet.novacert.kalliergies.poikilies.ListPoikiliesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.poikilies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/loadPoikilia"
+			name="PoikiliaForm"	
+			type="com.ext.portlet.novacert.kalliergies.poikilies.LoadPoikiliaAction" scope="request" validate="false">
+			<forward name="action.add" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+			<forward name="action.success" path="/ext/novacert/kalliergies/listPoikilies"  redirect="true"/>
+		</action>
+		
+		<action path="/ext/novacert/kalliergies/updatePoikilia" 
+			type="com.ext.portlet.novacert.kalliergies.poikilies.UpdatePoikiliaAction"
+		    name="PoikiliaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/kalliergies/listPoikilies"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.poikilies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!-- Kalliergia Enemies -->
+		<action path="/ext/novacert/kalliergies/listKalliergiaEnemies"
+			type="com.ext.portlet.novacert.kalliergies.enemies.ListKalliergiaEnemiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.enemies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/addDeleteKalliergiaEnemies"
+			type="com.ext.portlet.novacert.kalliergies.enemies.AddDeleteKalliergiaEnemiesAction"
+			name="KalliergiaEnemiesForm" validate="false" scope="request">
+			
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.enemies.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/lookupKalliergiaEnemies"
+			type="com.ext.portlet.novacert.kalliergies.enemies.LookupKalliergiaEnemiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.enemies.lookupKalliergiaEnemies" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/loadKalliergiaEnemies"
+			name="KalliergiaEnemiesForm"	
+			type="com.ext.portlet.novacert.kalliergies.enemies.LoadKalliergiaEnemiesAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.kalliergies.enemies.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.kalliergies.enemies.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.kalliergies.enemies.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.kalliergies.enemies.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!-- Kalliergia Skevasmata -->
+		<action path="/ext/novacert/kalliergies/listKalliergiaSkevasmata"
+			type="com.ext.portlet.novacert.kalliergies.skevasmata.ListKalliergiaSkevasmataAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.skevasmata.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/lookupKalliergiaSkevasmata"
+			type="com.ext.portlet.novacert.kalliergies.skevasmata.LookupKalliergiaSkevasmataAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.skevasmata.lookupKalliergiaSkevasmata" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/kalliergies/addDeleteKalliergiaSkevasmata" 
+			type="com.ext.portlet.novacert.kalliergies.skevasmata.AddDeleteKalliergiaSkevasmataAction"
+		    name="KalliergiaSkevasmaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="portlet.ext.novacert.kalliergies.skevasmata.list"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.kalliergies.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/kalliergies/loadKalliergiaSkevasma"
+			name="KalliergiaSkevasmaForm"	
+			type="com.ext.portlet.novacert.kalliergies.skevasmata.LoadKalliergiaSkevasmaAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.kalliergies.skevasmata.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.kalliergies.skevasmata.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.kalliergies.skevasmata.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.kalliergies.skevasmata.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<!--  -->
+
+		
+		<!--  ================================  -->	
+		<!--  Reports -->
+		<action path="/ext/novacert/reports/list" forward="portlet.ext.novacert.reports.reportsList"/>
+		
+		<action path="/ext/novacert/reports/listProducersOfKalliergies"
+			type="com.ext.portlet.novacert.reports.ListProducersOfKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.reports.listProducersOfKalliergies" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/reports/listAllowedHarvests"
+			type="com.ext.portlet.novacert.reports.ListAllowedHarvestAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.reports.listAllowedHarvests" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<!--  ================================  -->	
+	
+	<!-- imports -->
+	
+<action path="/ext/novacert/import/import" 
+			type="com.ext.portlet.novacert.importData.ImportSynetairismosAction"
+		   scope="request">
+	    
+		<forward name="action.success" path="portlet.ext.novacert.import.importsuccess" />
+			<forward name="action.validationErrors" path="portlet.ext.novacert.synetairismoi.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+	</action>
+	
+	
+	
+	<action path="/ext/novacert/import/list" forward ="portlet.ext.novacert.import.list" />
+		
+	
+	<!-- DYNAMIC REPORTS -->
+	
+		<action path="/ext/novacert/dynreports/list"
+			type="com.ext.portlet.novacert.reports.ListReportAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.reports.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/dynreports/load"
+			name="ReportForm"	
+			type="com.ext.portlet.novacert.reports.LoadReportAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.view" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/dynreports/add" 
+			type="com.ext.portlet.novacert.reports.AddReportAction"
+		    name="ReportForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/dynreports/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/dynreports/update" 
+			type="com.ext.portlet.novacert.reports.UpdateReportAction"
+		    name="ReportForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/dynreports/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/dynreports/delete" 
+			type="com.ext.portlet.novacert.reports.DeleteReportAction"
+		    name="ReportForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/dynreports/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.reports.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+	
+	
+		<!--  ANALYSIS LABS -->
+		<action path="/ext/novacert/analysisLabs/list"
+			type="com.ext.portlet.novacert.analysisLabs.ListNvcAnalysisLabAction" scope="request">
+			<forward name="common.success" path="portlet.ext.novacert.analysisLabs.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/analysisLabs/load"
+				name="NvcAnalysisLabForm" validate="false" type="com.ext.portlet.novacert.analysisLabs.LoadNvcAnalysisLabAction" scope="request">
+			<forward name="common.view" path="portlet.ext.novacert.analysisLabs.form" />
+			<forward name="common.add" path="portlet.ext.novacert.analysisLabs.form" />
+			<forward name="common.edit" path="portlet.ext.novacert.analysisLabs.form" />
+			<forward name="common.delete" path="portlet.ext.novacert.analysisLabs.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/analysisLabs/add" type="com.ext.portlet.novacert.analysisLabs.AddNvcAnalysisLabAction"
+		    name="NvcAnalysisLabForm" validate="false" scope="request">
+			<forward name="/ext/novacert/analysisLabs/list" path="/ext/novacert/analysisLabs/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.analysisLabs.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/novacert/analysisLabs/update" type="com.ext.portlet.novacert.analysisLabs.UpdateNvcAnalysisLabAction"
+		    name="NvcAnalysisLabForm" validate="false" scope="request">
+			<forward name="/ext/novacert/analysisLabs/list" path="/ext/novacert/analysisLabs/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.analysisLabs.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/novacert/analysisLabs/delete" type="com.ext.portlet.novacert.analysisLabs.DeleteNvcAnalysisLabAction"
+		    name="NvcAnalysisLabForm" validate="false" scope="request">
+			<forward name="/ext/novacert/analysisLabs/list" path="/ext/novacert/analysisLabs/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.analysisLabs.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<!--  FPP ANALYSIS -->
+		
+		<action path="/ext/novacert/fppAnalysis/list"
+			type="com.ext.portlet.novacert.fppAnalysis.ListNvcFppAnalysisAction" scope="request">
+			<forward name="common.success" path="portlet.ext.novacert.fppAnalysis.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/fppAnalysis/load"
+				name="NvcFppAnalysisForm" validate="false" type="com.ext.portlet.novacert.fppAnalysis.LoadNvcFppAnalysisAction" scope="request">
+			<forward name="common.view" path="portlet.ext.novacert.fppAnalysis.form" />
+			<forward name="common.add" path="portlet.ext.novacert.fppAnalysis.form" />
+			<forward name="common.edit" path="portlet.ext.novacert.fppAnalysis.form" />
+			<forward name="common.delete" path="portlet.ext.novacert.fppAnalysis.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/fppAnalysis/add" type="com.ext.portlet.novacert.fppAnalysis.AddNvcFppAnalysisAction"
+		    name="NvcFppAnalysisForm" validate="false" scope="request">
+			<forward name="/ext/novacert/fppAnalysis/load" path="/ext/novacert/fppAnalysis/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.fppAnalysis.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/novacert/fppAnalysis/update" type="com.ext.portlet.novacert.fppAnalysis.UpdateNvcFppAnalysisAction"
+		    name="NvcFppAnalysisForm" validate="false" scope="request">
+			<forward name="/ext/novacert/fppAnalysis/list" path="/ext/novacert/fppAnalysis/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.fppAnalysis.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/novacert/fppAnalysis/delete" type="com.ext.portlet.novacert.fppAnalysis.DeleteNvcFppAnalysisAction"
+		    name="NvcFppAnalysisForm" validate="false" scope="request">
+			<forward name="/ext/novacert/fppAnalysis/list" path="/ext/novacert/fppAnalysis/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.fppAnalysis.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+	
+		<action path="/ext/novacert/fppAnalysis/addResult" type="com.ext.portlet.novacert.fppAnalysis.AddNvcFppAnalysisResultAction"
+		    scope="request">
+			<forward name="/ext/novacert/fppAnalysis/load" path="/ext/novacert/fppAnalysis/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.fppAnalysis.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/novacert/fppAnalysis/deleteResult" type="com.ext.portlet.novacert.fppAnalysis.DeleteNvcFppAnalysisResultAction"
+		    scope="request">
+			<forward name="/ext/novacert/fppAnalysis/load" path="/ext/novacert/fppAnalysis/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.novacert.fppAnalysis.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/novacert/fppAnalysis/producerAndKalliergiesLookup"
+				type="com.ext.portlet.novacert.fppAnalysis.LookupProducerAndKalliergiesAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.fppAnalysis.lookup" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+	
+
+
+
+	<!--  SALESMAN -->
+	<!--  ================================  -->	
+		<action path="/ext/novacert/sales/salesmanLookup"
+				type="com.ext.portlet.novacert.salesman.LookupSalesmanAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.salesman.lookupSalesman" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/novacert/sales/list"
+				type="com.ext.portlet.novacert.salesman.ListSalesmanAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.salesman.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/sales/load"
+			name="NvcSalesmanForm"	
+			type="com.ext.portlet.novacert.salesman.LoadSalesmanAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/sales/add" 
+			type="com.ext.portlet.novacert.salesman.AddSalesmanAction"
+		    name="NvcSalesmanForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/sales/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/sales/update" 
+			type="com.ext.portlet.novacert.salesman.UpdateSalesmanAction"
+		    name="NvcSalesmanForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/sales/load"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.salesman.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/sales/delete" 
+			type="com.ext.portlet.novacert.salesman.DeleteSalesmanAction"
+		    name="NvcSalesmanForm" validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/sales/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.salesman.deleteSummaryForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/sales/loadSummary"
+			name="NvcSalesmanForm"	
+			type="com.ext.portlet.novacert.salesman.LoadSalesmanSummaryAction" scope="request" validate="false">
+			<forward name="action.delete" path="portlet.ext.novacert.salesman.deleteSummaryForm"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		
+		<!-- Producer Salesman -->
+		<action path="/ext/novacert/producers/listSalesman"
+			type="com.ext.portlet.novacert.producers.salesman.ListProducerSalesmanAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.salesman.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/lookupProducerSalesman"
+			type="com.ext.portlet.novacert.producers.salesman.LookupProducerSalesmanAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.salesman.lookupProducerSalesman" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/addDeleteProducerSalesman" 
+			type="com.ext.portlet.novacert.producers.salesman.AddDeleteProducerSalesmanAction"
+		     validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.salesman.list"/>
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+	
+		
+			<!--   Producers  skevasmata -->
+	<!--  ================================  -->	
+		
+		<action path="/ext/novacert/producers/listProdSkevasmata"
+				type="com.ext.portlet.novacert.producers.skevasma.ListProdSkevasmaAction" scope="request">
+			<forward name="action.success" path="portlet.ext.novacert.producers.skevasma.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/novacert/producers/loadProdSkevasma"
+			name="NvcProdSkevasmaForm"	
+			type="com.ext.portlet.novacert.producers.skevasma.LoadProdSkevasmaAction" scope="request" validate="false">
+			
+			<forward name="action.view" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.add" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.edit" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.delete" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/novacert/producers/addProdSkevasma" 
+			type="com.ext.portlet.novacert.producers.skevasma.AddProdSkevasmaAction"
+		    name="NvcProdSkevasmaForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/novacert/producers/listProdSkevasmata"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/novacert/producers/deleteProdSkevasma" 
+			type="com.ext.portlet.novacert.producers.skevasma.DeleteProdSkevasmaAction"
+		    name="NvcProdSkevasmaForm" validate="false" scope="request">
+			<forward name="action.success" path="/ext/novacert/producers/listProdSkevasmata"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.novacert.producers.skevasma.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+<!--  ================================  -->			
+		
+		
+		
+		
+		</action-mappings>
+		
+</struts-config>

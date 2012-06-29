@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.novacert" extends="portlet" />
+
+
+	<!-- Synetairismoi -->
+	<definition name="portlet.ext.novacert.synetairismoi.lookupSynetairismoi" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetairismoi/SynetairismoiLookup.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.synetairismoi.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetairismoi/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.synetairismoi.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetairismoi/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.synetairismoi.synetKalliergiesList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetairismoi/SynetKalliergiesList.jsp" />
+	</definition>
+	
+	
+	<!-- Producers -->
+ 	<definition name="portlet.ext.novacert.producers.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.deleteSummaryForm" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/summaryForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.lookupProducers" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/ProducersLookup.jsp" />
+	</definition>
+	
+	<!-- Kalliergies -->
+ 	<definition name="portlet.ext.novacert.kalliergies.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.poikilies.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/poikilies/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.poikilies.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/poikilies/form.jsp" />
+	</definition>
+	
+ 	<definition name="portlet.ext.novacert.kalliergies.lookupKalliergies" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/KalliergiesLookup.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.kalliergies.hierarchical.lookupKalliergies" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/KalliergiesHierarchicalLookup.jsp" />
+	</definition>
+	
+	<!-- kalliergia skevasmata -->
+	<definition name="portlet.ext.novacert.kalliergies.skevasmata.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/skevasmata/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.skevasmata.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/skevasmata/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.skevasmata.lookupKalliergiaSkevasmata" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/skevasmata/skevasmataLookup.jsp" />
+	</definition>
+	
+	<!-- kalliergia enemies -->
+	<definition name="portlet.ext.novacert.kalliergies.enemies.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/enemies/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.enemies.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/enemies/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.kalliergies.enemies.lookupKalliergiaEnemies" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/kalliergies/enemies/enemiesLookup.jsp" />
+	</definition>
+		
+		
+	<!-- Synetairismos Certificates -->
+ 	<definition name="portlet.ext.novacert.synetCertificates.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetCertificates/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.synetCertificates.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/synetCertificates/form.jsp" />
+	</definition>
+		
+	<!-- Producer Certificates -->
+ 	<definition name="portlet.ext.novacert.producerCertificates.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producerCertificates/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.producerCertificates.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producerCertificates/form.jsp" />
+	</definition>
+	
+	<!-- Prod Kalliergies -->
+ 	<definition name="portlet.ext.novacert.prodKalliergies.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.prodKalliergies.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.prodKalliergies.changeForm" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/changeForm.jsp" />
+	</definition>
+	<!--  Redefinition -->
+	<definition name="portlet.ext.novacert.producers.prodKalliergies.list" 
+					extends="portlet.ext.novacert.prodKalliergies.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.prodKalliergies.form" 
+					extends="portlet.ext.novacert.prodKalliergies.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.prodKalliergies.changeForm" 
+					extends="portlet.ext.novacert.prodKalliergies.changeForm">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.prodKalliergies.lookup" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/ProdKalliergiesLookup.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.prodKalliergies.multySelectKalliergiesLookup" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/MultySelectKalliergiesLookup.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.prodKalliergies.multiProducersLookup" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodKalliergies/multiProducersSelector/MultiProducersProdKalliergiesLookup.jsp" />
+	</definition>
+	
+	<!-- Prod Kalliergies -->
+ 	<definition name="portlet.ext.novacert.prodEquipment.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodEquipment/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.prodEquipment.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodEquipment/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.prodEquipment.list" 
+			extends="portlet.ext.novacert.prodEquipment.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.prodEquipment.form" 
+			extends="portlet.ext.novacert.prodEquipment.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	<!-- Prod Inspection -->
+ 	<definition name="portlet.ext.novacert.prodInspection.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodInspection/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.prodInspection.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/prodInspection/form.jsp" />
+	</definition>
+	<!--  Redefinition -->	
+ 	<definition name="portlet.ext.novacert.producers.prodInspection.list" 
+ 		extends="portlet.ext.novacert.prodInspection.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.producers.prodInspection.form" 
+ 		extends="portlet.ext.novacert.prodInspection.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	
+	
+	<!--  Tasks : Kalliergia Cares -->
+	<definition name="portlet.ext.novacert.taskKalliergiesCares.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/kalliergiesCares/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskKalliergiesCares.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/kalliergiesCares/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskKalliergiesCares.list" 
+		extends="portlet.ext.novacert.taskKalliergiesCares.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskKalliergiesCares.form" 
+		extends="portlet.ext.novacert.taskKalliergiesCares.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	
+	<!--  Tasks : Kalliergia Cares -->
+	<definition name="portlet.ext.novacert.taskHarvest.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/harvest/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskHarvest.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/harvest/form.jsp" />
+	</definition>
+	<!--  -->
+	<definition name="portlet.ext.novacert.producers.taskHarvest.list" 
+		extends="portlet.ext.novacert.taskHarvest.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskHarvest.form" 
+		extends="portlet.ext.novacert.taskHarvest.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	
+	<!--  Tasks : FPP -->
+	<definition name="portlet.ext.novacert.taskFpp.lookupKalliergiaSkevasmata" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/KalliergiaSkevasmataLookup.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.lookupEnemies" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/EnemiesLookup.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.novacert.taskFpp.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.addFppForm" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/AddFppForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.viewFppForm" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/ViewFppForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.addSkevasmataView" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/AddSkevasmataView.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.skevasmaEnemiesToBeRemovedView" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/SkevasmaRelEnemiesToBeRemovedView.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskFpp.addEnemiesView" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/fpp/AddEnemiesView.jsp" />
+	</definition>
+	
+	
+	<!--  Redefining tiles  -->
+	<definition name="portlet.ext.novacert.producers.taskFpp.list" 
+		extends="portlet.ext.novacert.taskFpp.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskFpp.addFppForm" 
+		extends="portlet.ext.novacert.taskFpp.addFppForm">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskFpp.viewFppForm" 
+		extends="portlet.ext.novacert.taskFpp.viewFppForm">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskFpp.addSkevasmataView" 
+		extends="portlet.ext.novacert.taskFpp.addSkevasmataView">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskFpp.skevasmaEnemiesToBeRemovedView" 
+		extends="portlet.ext.novacert.taskFpp.skevasmaEnemiesToBeRemovedView">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskFpp.addEnemiesView" 
+		extends="portlet.ext.novacert.taskFpp.addEnemiesView">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.taskLipansi.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/lipansi/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskLipansi.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/lipansi/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.taskLipansiThermo.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/tasks/lipansi/thermoForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskLipansi.list" 
+		extends="portlet.ext.novacert.taskLipansi.list">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+		<put name="backUrlAction" value="/ext/novacert/producers/load" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskLipansi.form" 
+		extends="portlet.ext.novacert.taskLipansi.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	<definition name="portlet.ext.novacert.producers.taskLipansiThermo.form" 
+		extends="portlet.ext.novacert.taskLipansiThermo.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/producers" />
+	</definition>
+	
+	<!-- Weather Conditions -->
+	<definition name="portlet.ext.novacert.weatherConditions.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/weatherConditions/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.weatherConditions.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/weatherConditions/form.jsp" />
+	</definition>
+	
+	<!-- Equipment -->
+	<definition name="portlet.ext.novacert.equipment.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/equipment/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.equipment.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/equipment/form.jsp" />
+	</definition>
+	
+	<!-- Foreas Pistipoiisis -->
+	<definition name="portlet.ext.novacert.certificateForeas.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certificateForeas/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.certificateForeas.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certificateForeas/form.jsp" />
+	</definition>
+	
+	<!-- Exthroi -->
+	<definition name="portlet.ext.novacert.enemies.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/enemies/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.enemies.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/enemies/form.jsp" />
+	</definition>
+	
+	<!-- Skevasma -->
+	<definition name="portlet.ext.novacert.skevasmata.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/skevasmata/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.skevasmata.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/skevasmata/form.jsp" />
+	</definition>
+	
+	<!-- Skevasma Substance -->
+	<definition name="portlet.ext.novacert.skevasmata.substances.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/skevasmata/substances/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.substances.lookupSubstance" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/skevasmata/lookupSubstance.jsp" />
+	</definition>
+	
+	<!-- Drastic Substances -->
+	<definition name="portlet.ext.novacert.drasticSubstance.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/drasticSubstance/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.drasticSubstance.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/drasticSubstance/form.jsp" />
+	</definition>
+	
+	<!-- Typos Pistipoiisis -->
+	<definition name="portlet.ext.novacert.certificateType.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certificateType/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.certificateType.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certificateType/form.jsp" />
+	</definition>
+	
+	<!-- Certified Producers Search -->
+	<definition name="portlet.ext.novacert.certifiedProdSearch.load" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certifiedProdSearch/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.certifiedProdSearch.producerProfile" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certifiedProdSearch/ProducerProfileView.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.certifiedProdSearch.synetairismosProfile" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/certifiedProdSearch/SynetairismosProfileView.jsp" />
+	</definition>
+	
+	<!--  Directives -->
+	<definition name="portlet.ext.novacert.directives.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.directives.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.directives.kalliergiesList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/KalliergiesList.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.synet.directives.kalliergiesList" 
+		extends="portlet.ext.novacert.directives.kalliergiesList">
+		<put name="portletUrlPrefix" value="/ext/novacert/synetDirectives" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.directives.synetairismoiList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/SynetairismoiList.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.synet.directives.synetairismoiList" 
+		extends="portlet.ext.novacert.directives.synetairismoiList">
+		<put name="portletUrlPrefix" value="/ext/novacert/synetDirectives" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.novacert.directives.synetDirectivesList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/SynetDirectivesList.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.directives.producersForNotificationList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/directives/ProducersForNotificationList.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.synet.directives.producersForNotificationList" 
+		extends="portlet.ext.novacert.directives.producersForNotificationList">
+		<put name="portletUrlPrefix" value="/ext/novacert/synetDirectives" />
+		<put name="backUrlAction" value="/ext/novacert/synetDirectives/loadDirective" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.synet.directives.form" 
+		extends="portlet.ext.novacert.directives.form">
+		<put name="portletUrlPrefix" value="/ext/novacert/synetDirectives" />
+		<put name="backUrlAction" value="/ext/novacert/synetDirectives/listDirectives" />
+	</definition>
+	
+	<!--  Reports -->
+	<definition name="portlet.ext.novacert.reports.reportsList" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/reports/ReportsMenuPage.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.reports.listProducersOfKalliergies" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/reports/ProducersOfKalliergiesListView.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.reports.listAllowedHarvests" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/reports/AllowedHarvestsList.jsp" />
+	</definition>
+	<!--  -->
+		<definition name="portlet.ext.novacert.import.importsuccess" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/imports/success.jsp" />
+	</definition>
+		<definition name="portlet.ext.novacert.import.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/imports/list.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.novacert.reports.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/reports/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.reports.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/reports/form.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.novacert.analysisLabs.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/analysisLabs/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.analysisLabs.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/analysisLabs/form.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.novacert.fppAnalysis.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/fppAnalysis/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.fppAnalysis.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/fppAnalysis/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.fppAnalysis.lookup" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/fppAnalysis/lookupProducersAndKalliergies.jsp" />
+	</definition>
+	
+	
+	
+	
+	<!-- Saleman -->
+ 	<definition name="portlet.ext.novacert.salesman.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/salesman/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.salesman.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/salesman/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.salesman.deleteSummaryForm" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/salesman/summaryForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.novacert.salesman.lookupSalesman" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/salesman/ProducersLookup.jsp" />
+	</definition>
+	
+	
+	
+	
+	<!-- Producer Salesman -->
+	<definition name="portlet.ext.novacert.producers.salesman.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/salesman/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.producers.salesman.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/salesman/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.novacert.producers.salesman.lookupProducerSalesman" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/salesman/salesmanLookup.jsp" />
+	</definition>
+
+
+
+	<!-- Producer Skevasmata -->
+ 	<definition name="portlet.ext.novacert.producers.skevasma.list" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/skevasma/list.jsp" />
+	</definition>
+ 	<definition name="portlet.ext.novacert.producers.skevasma.form" extends="portlet.ext.novacert">
+		<put name="portlet_content" value="/portlet/ext/novacert/producers/skevasma/form.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

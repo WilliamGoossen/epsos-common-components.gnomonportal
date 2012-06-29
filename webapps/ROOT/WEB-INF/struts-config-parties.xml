@@ -1,0 +1,2153 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+
+<form-bean name="PartyRoleTypeForm" type="com.ext.portlet.parties.admin.PartyRoleTypeForm"/>
+<form-bean name="RoleFeatureTypeForm" type="com.ext.portlet.parties.admin.features.FeatureTypeForm"/>
+<form-bean name="RoleFeaturePossibleValueForm" type="com.ext.portlet.parties.admin.features.FeaturePossibleValueForm"/>
+<form-bean name="PartyRelationshipTypeForm" type="com.ext.portlet.parties.admin.PartyRelationshipTypeForm"/>
+<form-bean name="OrganizationTypeForm" type="com.ext.portlet.parties.admin.OrganizationTypeForm"/>
+<form-bean name="CountryForm" type="com.ext.portlet.parties.admin.CountryForm"/>
+<form-bean name="RolesAndRelsForm" type="com.ext.portlet.parties.manager.RolesAndRelsForm"/>
+<form-bean name="PersonForm" type="com.ext.portlet.parties.manager.PersonForm"/>
+<form-bean name="PersonAddForm" type="com.ext.portlet.parties.manager.PersonAddForm"/>
+<form-bean name="PersonNameForm" type="com.ext.portlet.parties.manager.PersonNameForm"/>
+<form-bean name="OrganizationForm" type="com.ext.portlet.parties.manager.OrganizationForm"/>
+<form-bean name="OrganizationAddForm" type="com.ext.portlet.parties.manager.OrganizationAddForm"/>
+<form-bean name="OrganizationNameForm" type="com.ext.portlet.parties.manager.OrganizationNameForm"/>
+<form-bean name="PartyIdentifierForm" type="com.ext.portlet.parties.manager.identifier.PartyIdentifierForm"/>
+<form-bean name="EmailAddressForm" type="com.ext.portlet.parties.manager.EmailAddressForm"/>
+<form-bean name="WebpageAddressForm" type="com.ext.portlet.parties.manager.WebpageAddressForm"/>
+<form-bean name="TelecomAddressForm" type="com.ext.portlet.parties.manager.TelecomAddressForm"/>
+<form-bean name="GeographicAddressForm" type="com.ext.portlet.parties.manager.GeographicAddressForm"/>
+
+
+
+<form-bean name="PartiesSearchForm" type="com.ext.portlet.parties.browser.PartiesSearchForm" />
+<form-bean name="PersonSummaryForm" type="com.ext.portlet.parties.browser.persons.PersonSummaryForm" />
+<form-bean name="OrganizationSummaryForm" type="com.ext.portlet.parties.browser.organizations.OrganizationSummaryForm" />
+<form-bean name="OrgPersonSummaryForm" type="com.ext.portlet.parties.browser.organizationChart.OrgPersonSummaryForm" />
+<form-bean name="DepartmentSummaryForm" type="com.ext.portlet.parties.browser.organizationChart.DepartmentSummaryForm" />
+<form-bean name="PrjGeographicAddressForm" type="com.ext.portlet.parties.browser.addresses.PrjGeographicAddressForm" />
+<form-bean name="PrjTelecomAddressForm" type="com.ext.portlet.parties.browser.addresses.PrjTelecomAddressForm" />
+<form-bean name="PrjEmailAddressForm" type="com.ext.portlet.parties.browser.addresses.PrjEmailAddressForm" />
+<form-bean name="PrjWebpageAddressForm" type="com.ext.portlet.parties.browser.addresses.PrjWebpageAddressForm" />
+<form-bean name="PrjPartyIdentifierForm" type="com.ext.portlet.parties.browser.identifiers.PrjPartyIdentifierForm" />
+
+<form-bean name="NewOrganizationWizardForm" type="com.ext.portlet.parties.browser.organizations.NewOrganizationWizardForm" />
+<form-bean name="NewPersonWizardForm" type="com.ext.portlet.parties.browser.persons.NewPersonWizardForm" />
+
+
+<form-bean name="PaPartyGroupForm" type="com.ext.portlet.parties.contacts.groups.PaPartyGroupForm" />
+<form-bean name="ContactSearchForm" type="com.ext.portlet.parties.contacts.ContactSearchForm" />
+<form-bean name="ContactForm" type="com.ext.portlet.parties.contacts.ContactForm" />
+<form-bean name="AddLiferayUserForm" type="com.ext.portlet.parties.contacts.AddLiferayUserForm" />
+<form-bean name="EmailContactsForm" type="com.ext.portlet.parties.contacts.EmailContactsForm" />
+
+<form-bean name="PaPartyLookupForm" type="com.ext.portlet.parties.browser.partyLookupStrutsField.PartyLookupForm" />
+
+
+</form-beans>
+
+<action-mappings>
+
+	<!-- ### PARTIES MANAGER ### -->
+	<action path="/ext/parties/manager/viewParties"
+		type="com.ext.portlet.parties.manager.ListPartiesAction" scope="request">
+		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.view"/>
+		<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+
+    <!-- ### PARTIES MANAGER:Person ### -->
+    <action path="/ext/parties/manager/loadPerson" 
+    		type="com.ext.portlet.parties.manager.LoadPersonAction" 
+    		name="PersonForm" 
+			scope="request" 
+			validate="false" 
+			input="portlet.ext.parties.manager.person.add">
+			<forward name="portlet.ext.parties.manager.person.add" path="portlet.ext.parties.manager.person.add" />
+			<forward name="portlet.ext.parties.manager.person.update" path="portlet.ext.parties.manager.person.update" />
+			<forward name="portlet.ext.parties.manager.person.delete" path="portlet.ext.parties.manager.person.delete" />
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/loadPersonSummary" 
+    		type="com.ext.portlet.parties.manager.LoadPersonSummaryAction" 
+    		name="PersonForm" 
+			scope="request" 
+			validate="false">
+			<forward name="portlet.ext.parties.manager.person.success" path="portlet.ext.parties.manager.person.summary" />
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/updatePerson" 
+    		type="com.ext.portlet.parties.manager.UpdatePersonAction" 
+    		name="PersonForm" 
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.manager.person.update">
+			<forward name="/ext/parties/manager/viewParties" path="/ext/parties/manager/viewParties" redirect="true" />
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/addPerson" 
+    		type="com.ext.portlet.parties.manager.AddPersonAction" 
+    		name="PersonAddForm" 
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.manager.person.add">
+			<forward name="portlet.ext.parties.manager.person.add" path="portlet.ext.parties.manager.person.add" />
+			<forward name="/ext/parties/manager/viewParties" path="/ext/parties/manager/viewParties" redirect="true" />
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+    </action>
+
+    <action path="/ext/parties/manager/loadNewPerson" 
+    		type="com.ext.portlet.parties.manager.LoadNewPersonAction" 
+    		name="PersonAddForm" 
+			scope="request" 
+			validate="false" 
+			input="portlet.ext.parties.manager.person.add" >
+			<forward name="portlet.ext.parties.manager.person.add" path="portlet.ext.parties.manager.person.add"/>
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+     </action>
+            
+    <action path="/ext/parties/manager/listPersonNames"
+			type="com.ext.portlet.parties.manager.ListPersonNamesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.person.name.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadPersonName" 
+				type="com.ext.portlet.parties.manager.LoadPersonNameAction" 
+				name="PersonNameForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.manager.person.name.add">
+		<forward name="portlet.ext.parties.manager.person.name.add" path="portlet.ext.parties.manager.person.name.add" />
+		<forward name="portlet.ext.parties.manager.person.name.update" path="portlet.ext.parties.manager.person.name.update" />
+		<forward name="portlet.ext.parties.manager.person.name.delete" path="portlet.ext.parties.manager.person.name.delete" />
+		<forward name="portlet.ext.parties.manager.person.name.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addPersonName"
+			type="com.ext.portlet.parties.manager.AddPersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.person.name.add">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.manager.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="portlet.ext.parties.manager.person.name.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deletePersonName"
+			type="com.ext.portlet.parties.manager.DeletePersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.person.name.delete">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.manager.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.validity" path="portlet.ext.parties.manager.person.name.validity" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updatePersonName"
+			type="com.ext.portlet.parties.manager.UpdatePersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.person.name.update">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.manager.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.validity" path="portlet.ext.parties.manager.person.name.validity" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="portlet.ext.parties.manager.person.name.update" />
+	</action>
+	
+	<!-- ### PARTIES MANAGER:Organization ### -->
+	
+    <action path="/ext/parties/manager/loadOrganization"
+    		type="com.ext.portlet.parties.manager.LoadOrganizationAction"
+    		name="OrganizationForm"
+			scope="request"
+			validate="false" 
+			input="portlet.ext.parties.manager.org.add">
+			<forward name="portlet.ext.parties.manager.org.add" path="portlet.ext.parties.manager.org.add" />
+			<forward name="portlet.ext.parties.manager.org.update" path="portlet.ext.parties.manager.org.update" />
+			<forward name="portlet.ext.parties.manager.org.delete" path="portlet.ext.parties.manager.org.delete" />
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+    </action>
+
+	<action path="/ext/parties/manager/loadOrganizationSummary" 
+    		type="com.ext.portlet.parties.manager.LoadOrganizationSummaryAction" 
+    		name="OrganizationForm" 
+			scope="request" 
+			validate="false">
+			<forward name="portlet.ext.parties.manager.org.success" path="portlet.ext.parties.manager.org.summary" />
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/updateOrganization"
+    		type="com.ext.portlet.parties.manager.UpdateOrganizationAction"
+    		name="OrganizationForm"
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.manager.org.update">
+			<forward name="/ext/parties/manager/viewParties" path="/ext/parties/manager/viewParties" redirect="true" />
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/addOrganization"
+    		type="com.ext.portlet.parties.manager.AddOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.manager.org.add">
+			<forward name="/ext/parties/manager/viewParties" path="/ext/parties/manager/viewParties" redirect="true" />
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+    </action>
+
+    <action path="/ext/parties/manager/loadNewOrganization"
+    		type="com.ext.portlet.parties.manager.LoadNewOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="false" 
+			input="portlet.ext.parties.manager.org.add" >
+			<forward name="portlet.ext.parties.manager.org.add" path="portlet.ext.parties.manager.org.add"/>
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+     </action>
+            
+    <action path="/ext/parties/manager/listOrganizationNames"
+			type="com.ext.portlet.parties.manager.ListOrganizationNamesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.org.name.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadOrganizationName"
+				type="com.ext.portlet.parties.manager.LoadOrganizationNameAction"
+				name="OrganizationNameForm"
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.manager.org.name.add">
+		<forward name="portlet.ext.parties.manager.org.name.add" path="portlet.ext.parties.manager.org.name.add" />
+		<forward name="portlet.ext.parties.manager.org.name.update" path="portlet.ext.parties.manager.org.name.update" />
+		<forward name="portlet.ext.parties.manager.org.name.delete" path="portlet.ext.parties.manager.org.name.delete" />
+		<forward name="portlet.ext.parties.manager.org.name.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addOrganizationName"
+			type="com.ext.portlet.parties.manager.AddOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.org.name.add">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.manager.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="portlet.ext.parties.manager.org.name.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deleteOrganizationName"
+			type="com.ext.portlet.parties.manager.DeleteOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.org.name.delete">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.manager.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.validity" path="portlet.ext.parties.manager.org.name.validity" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updateOrganizationName"
+			type="com.ext.portlet.parties.manager.UpdateOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.org.name.update">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.manager.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.validity" path="portlet.ext.parties.manager.org.name.validity" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="portlet.ext.parties.manager.org.name.update" />
+	</action>
+	
+	<!-- ### PARITES MANAGER: Parties Registered Identifiers ### -->
+	
+	<action path="/ext/parties/manager/listPartyIdentifiers"
+			type="com.ext.portlet.parties.manager.identifier.ListPartyIdentifiersAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.identifier.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadPartyIdentifier" 
+				type="com.ext.portlet.parties.manager.identifier.LoadPartyIdentifierAction" 
+				name="PartyIdentifierForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.identifier.add" path="portlet.ext.parties.manager.identifier.add" />
+		<forward name="portlet.ext.parties.manager.identifier.update" path="portlet.ext.parties.manager.identifier.update" />
+		<forward name="portlet.ext.parties.manager.identifier.delete" path="portlet.ext.parties.manager.identifier.delete" />
+		<forward name="portlet.ext.parties.manager.identifier.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addPartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.AddPartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.identifier.add">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.manager.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="portlet.ext.parties.manager.identifier.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deletePartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.DeletePartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.identifier.delete">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.manager.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updatePartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.UpdatePartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.identifier.update">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.manager.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="portlet.ext.parties.manager.identifier.update" />
+	</action>
+	
+    <!-- ### PARTIES MANAGER: Parties Roles/Relationships ### -->
+    <action path="/ext/parties/manager/deleteParty"
+    		type="com.ext.portlet.parties.manager.DeletePartyAction"
+    		scope="request">
+    		<forward name="/ext/parties/manager/viewParties" path="/ext/parties/manager/viewParties" redirect="true" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/listPartyRoles" 
+    		type="com.ext.portlet.parties.manager.ListPartyRolesAction" 
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.roles.view"/>
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/listPartyRels" 
+    		type="com.ext.portlet.parties.manager.ListPartyRelsAction" 
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.rels.view"/>
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/listPartyRelParties" 
+    		type="com.ext.portlet.parties.manager.ListPartyRelPartiesAction" 
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.view"/>
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/listPartyRoleTypes"
+			type="com.ext.portlet.parties.admin.ListRoleTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.role.success" path="portlet.ext.parties.manager.roletypes.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/addPartyRole"
+    		type="com.ext.portlet.parties.manager.AddPartyRoleAction"
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.roles.view"/>
+    		<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/loadPartyRoleFeatures"
+    		type="com.ext.portlet.parties.manager.features.LoadPartyRoleFeaturesAction"
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.features.success" path="portlet.ext.parties.manager.roles.update"/>
+    		<forward name="portlet.ext.parties.manager.features.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/updatePartyRoleFeatures"
+    		type="com.ext.portlet.parties.manager.features.UpdatePartyRoleFeaturesAction"
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.features.success" path="portlet.ext.parties.manager.roles.view"/>
+			<forward name="portlet.ext.parties.manager.features.validation" path="portlet.ext.parties.manager.roles.update"/>
+    		<forward name="portlet.ext.parties.manager.features.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/deletePartyRole"
+    		type="com.ext.portlet.parties.manager.DeletePartyRoleAction"
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.roles.view"/>
+    		<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/listRolesAndRels"
+			type="com.ext.portlet.parties.manager.ListRolesAndRelsAction" 
+			name="RolesAndRelsForm" 
+			validate="false"
+			scope="request">
+			<forward name="portlet.ext.parties.manager.roles.choose" path="portlet.ext.parties.manager.roles.choose" />
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.rels.add" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+    <action path="/ext/parties/manager/addPartyRel"
+    		type="com.ext.portlet.parties.manager.AddPartyRelAction"
+    		name="RolesAndRelsForm" 
+			validate="true"
+    		scope="request"
+    		input="portlet.ext.parties.manager.rels.add">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.rels.view"/>
+    		<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/manager/deletePartyRel"
+    		type="com.ext.portlet.parties.manager.DeletePartyRelAction"
+    		scope="request">
+    		<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.rels.view"/>
+    		<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+    </action>
+    
+	
+	<!-- ### PARTIES MANAGER: Addresses ### -->
+	
+	<action path="/ext/parties/manager/listEmailAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/loadEmailAddress" 
+				type="com.ext.portlet.parties.manager.LoadEmailAddressAction" 
+				name="EmailAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.email.add" path="portlet.ext.parties.manager.addresses.email.add" />
+		<forward name="portlet.ext.parties.manager.addresses.email.update" path="portlet.ext.parties.manager.addresses.email.update" />
+		<forward name="portlet.ext.parties.manager.addresses.email.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addEmailAddress"
+			type="com.ext.portlet.parties.manager.AddEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.email.add">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.manager.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="portlet.ext.parties.manager.addresses.email.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deleteEmailAddress"
+			type="com.ext.portlet.parties.manager.DeleteEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.addresses.email.delete">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.manager.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updateEmailAddress"
+			type="com.ext.portlet.parties.manager.UpdateEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.email.update">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.manager.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="portlet.ext.parties.manager.addresses.email.update" />
+	</action>
+	
+	<action path="/ext/parties/manager/listWebpageAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadWebpageAddress" 
+				type="com.ext.portlet.parties.manager.LoadWebpageAddressAction" 
+				name="WebpageAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.webpage.add" path="portlet.ext.parties.manager.addresses.webpage.add" />
+		<forward name="portlet.ext.parties.manager.addresses.webpage.update" path="portlet.ext.parties.manager.addresses.webpage.update" />
+		<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addWebpageAddress"
+			type="com.ext.portlet.parties.manager.AddWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.webpage.add">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.manager.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="portlet.ext.parties.manager.addresses.webpage.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deleteWebpageAddress"
+			type="com.ext.portlet.parties.manager.DeleteWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.addresses.webpage.delete">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.manager.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updateWebpageAddress"
+			type="com.ext.portlet.parties.manager.UpdateWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.webpage.update">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.manager.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="portlet.ext.parties.manager.addresses.webpage.update" />
+	</action>
+	
+	<action path="/ext/parties/manager/listGeographicAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadGeographicAddress" 
+				type="com.ext.portlet.parties.manager.LoadGeographicAddressAction" 
+				name="GeographicAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.geographic.add" path="portlet.ext.parties.manager.addresses.geographic.add" />
+		<forward name="portlet.ext.parties.manager.addresses.geographic.update" path="portlet.ext.parties.manager.addresses.geographic.update" />
+		<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/addGeographicAddress"
+			type="com.ext.portlet.parties.manager.AddGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.geographic.add">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.manager.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="portlet.ext.parties.manager.addresses.geographic.add" />
+	</action>
+		
+ 	<action path="/ext/parties/manager/listRelatedTelecomAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.telecom.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/listNotRelatedTelecomAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.telecom.notrelatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/relateToGeographicAddress"
+ 			type="com.ext.portlet.parties.manager.RelateAddressAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.telecom.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/deleteGeographicAddress"
+			type="com.ext.portlet.parties.manager.DeleteGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.addresses.geographic.delete">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.manager.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updateGeographicAddress"
+			type="com.ext.portlet.parties.manager.UpdateGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.geographic.update">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.manager.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="portlet.ext.parties.manager.addresses.geographic.update" />
+	</action>
+	
+	<action path="/ext/parties/manager/listTelecomAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/loadTelecomAddress" 
+				type="com.ext.portlet.parties.manager.LoadTelecomAddressAction" 
+				name="TelecomAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.telecom.add" path="portlet.ext.parties.manager.addresses.telecom.add" />
+		<forward name="portlet.ext.parties.manager.addresses.telecom.update" path="portlet.ext.parties.manager.addresses.telecom.update" />
+		<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/manager/listRelatedGeographicAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.geographic.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/listNotRelatedGeographicAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.geographic.notrelatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/relateToTelecomAddress"
+ 			type="com.ext.portlet.parties.manager.RelateAddressAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.manager.addresses.geographic.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/addTelecomAddress"
+			type="com.ext.portlet.parties.manager.AddTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.telecom.add">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.manager.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="portlet.ext.parties.manager.addresses.telecom.add" />
+	</action>
+		
+	<action path="/ext/parties/manager/deleteTelecomAddress"
+			type="com.ext.portlet.parties.manager.DeleteTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.manager.addresses.telecom.delete">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.manager.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/manager/updateTelecomAddress"
+			type="com.ext.portlet.parties.manager.UpdateTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.manager.addresses.telecom.update">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.manager.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="portlet.ext.parties.manager.addresses.telecom.update" />
+	</action>
+    
+    <!-- ### PARTIES MANAGER: Events ### -->	
+    
+    <action path="/ext/parties/manager/listEvents" forward="portlet.ext.parties.events.viewlist"/>
+	<action path="/ext/parties/manager/viewEvent" forward="portlet.ext.parties.events.viewform"/>
+    
+	<!-- ### PARTIES ADMIN ### -->		
+
+	<action path="/ext/parties/admin/viewTypes" 
+			type="com.ext.portlet.parties.admin.ListAction" scope="request">
+			<forward name="portlet.ext.parties.admin.success" path="portlet.ext.parties.admin.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+
+	<!-- ### PARTIES ADMIN:PartyRoleType ### -->
+	<action path="/ext/parties/admin/viewRoleTypes" 
+			type="com.ext.portlet.parties.admin.ListRoleTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.role.success" path="portlet.ext.parties.admin.role.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+		
+	<action path="/ext/parties/admin/loadRoleType" 
+				type="com.ext.portlet.parties.admin.LoadRoleTypeAction" 
+				name="PartyRoleTypeForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.admin.role.add">
+		<forward name="portlet.ext.parties.admin.role.add" path="portlet.ext.parties.admin.role.add" />
+		<forward name="portlet.ext.parties.admin.role.update" path="portlet.ext.parties.admin.role.update" />
+		<forward name="portlet.ext.parties.admin.role.delete" path="portlet.ext.parties.admin.role.delete" />
+		<forward name="portlet.ext.parties.admin.role.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addRoleType"
+			type="com.ext.portlet.parties.admin.AddRoleTypeAction"
+			name="PartyRoleTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.role.add">
+			<forward name="/ext/parties/admin/viewRoleTypes" path="/ext/parties/admin/viewRoleTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.role.failure" path="portlet.ext.parties.admin.role.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteRoleType"
+			type="com.ext.portlet.parties.admin.DeleteRoleTypeAction"
+			name="PartyRoleTypeForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.admin.role.delete">
+			<forward name="/ext/parties/admin/viewRoleTypes" path="/ext/parties/admin/viewRoleTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.role.validation" path="portlet.ext.parties.admin.role.delete" />
+			<forward name="portlet.ext.parties.admin.role.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateRoleType"
+			type="com.ext.portlet.parties.admin.UpdateRoleTypeAction"
+			name="PartyRoleTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.role.update">
+			<forward name="/ext/parties/admin/viewRoleTypes" path="/ext/parties/admin/viewRoleTypes" redirect="true"/>
+			<forward name="portlet.ext.parties.admin.role.failure" path="portlet.ext.parties.admin.role.update" />
+	</action>
+
+	<!-- ### PARTIES ADMIN:FeatureType ### -->
+	
+	<action path="/ext/parties/admin/viewFeatureTypes" 
+			type="com.ext.portlet.parties.admin.features.ListFeatureTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.featuretype.success" path="portlet.ext.parties.admin.featuretype.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+		
+	<action path="/ext/parties/admin/loadFeatureType" 
+				type="com.ext.portlet.parties.admin.features.LoadFeatureTypeAction" 
+				name="RoleFeatureTypeForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.admin.featuretype.add">
+		<forward name="portlet.ext.parties.admin.featuretype.add" path="portlet.ext.parties.admin.featuretype.add" />
+		<forward name="portlet.ext.parties.admin.featuretype.update" path="portlet.ext.parties.admin.featuretype.update" />
+		<forward name="portlet.ext.parties.admin.featuretype.delete" path="portlet.ext.parties.admin.featuretype.delete" />
+		<forward name="portlet.ext.parties.admin.featuretype.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addFeatureType"
+			type="com.ext.portlet.parties.admin.features.AddFeatureTypeAction"
+			name="RoleFeatureTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.featuretype.add">
+			<forward name="portlet.ext.parties.admin.featuretype.success" path="portlet.ext.parties.admin.featuretype.view" />
+			<forward name="portlet.ext.parties.admin.featuretype.failure" path="portlet.ext.parties.admin.featuretype.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteFeatureType"
+			type="com.ext.portlet.parties.admin.features.DeleteFeatureTypeAction"
+			name="RoleFeatureTypeForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.admin.featuretype.delete">
+			<forward name="portlet.ext.parties.admin.featuretype.success" path="portlet.ext.parties.admin.featuretype.view" />
+			<forward name="portlet.ext.parties.admin.featuretype.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateFeatureType"
+			type="com.ext.portlet.parties.admin.features.UpdateFeatureTypeAction"
+			name="RoleFeatureTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.featuretype.update">
+			<forward name="portlet.ext.parties.admin.featuretype.success" path="portlet.ext.parties.admin.featuretype.view" />
+			<forward name="portlet.ext.parties.admin.featuretype.failure" path="portlet.ext.parties.admin.featuretype.update" />
+	</action>
+	
+	<action path="/ext/parties/admin/listFeaturePossibleValues"
+			type="com.ext.portlet.parties.admin.features.ListFeaturePossibleValueAction" scope="request">
+			<forward name="portlet.ext.parties.admin.success" path="portlet.ext.parties.admin.feature.possiblevalue.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/loadFeaturePossibleValue" 
+				type="com.ext.portlet.parties.admin.features.LoadFeaturePossibleValueAction" 
+				name="RoleFeaturePossibleValueForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.admin.feature.possiblevalue.add" path="portlet.ext.parties.admin.feature.possiblevalue.add" />
+		<forward name="portlet.ext.parties.admin.feature.possiblevalue.update" path="portlet.ext.parties.admin.feature.possiblevalue.update" />
+		<forward name="portlet.ext.parties.admin.feature.possiblevalue.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addFeaturePossibleValue"
+			type="com.ext.portlet.parties.admin.features.AddFeaturePossibleValueAction"
+			name="RoleFeaturePossibleValueForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.feature.possiblevalue.add">
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.success" path="portlet.ext.parties.admin.feature.possiblevalue.view" />
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.failure" path="portlet.ext.parties.admin.feature.possiblevalue.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteFeaturePossibleValue"
+			type="com.ext.portlet.parties.admin.features.DeleteFeaturePossibleValueAction"
+			name="RoleFeaturePossibleValueForm" 
+			validate="false"
+			scope="request">
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.success" path="portlet.ext.parties.admin.feature.possiblevalue.view" />
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateFeaturePossibleValue"
+			type="com.ext.portlet.parties.admin.features.UpdateFeaturePossibleValueAction"
+			name="RoleFeaturePossibleValueForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.feature.possiblevalue.update">
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.success" path="portlet.ext.parties.admin.feature.possiblevalue.view" />
+			<forward name="portlet.ext.parties.admin.feature.possiblevalue.failure" path="portlet.ext.parties.admin.feature.possiblevalue.update" />
+	</action>
+	
+<!-- ### PARTIES ADMIN:PartyRelationshipType ### -->
+	<action path="/ext/parties/admin/viewRelTypes" 
+			type="com.ext.portlet.parties.admin.ListRelTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.rel.success" path="portlet.ext.parties.admin.rel.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+		
+	<action path="/ext/parties/admin/loadRelType" 
+				type="com.ext.portlet.parties.admin.LoadRelTypeAction" 
+				name="PartyRelationshipTypeForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.admin.rel.add">
+		<forward name="portlet.ext.parties.admin.rel.add" path="portlet.ext.parties.admin.rel.add" />
+		<forward name="portlet.ext.parties.admin.rel.update" path="portlet.ext.parties.admin.rel.update" />
+		<forward name="portlet.ext.parties.admin.rel.delete" path="portlet.ext.parties.admin.rel.delete" />
+		<forward name="portlet.ext.parties.admin.rel.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addRelType"
+			type="com.ext.portlet.parties.admin.AddRelTypeAction"
+			name="PartyRelationshipTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.rel.add">
+			<forward name="/ext/parties/admin/viewRelTypes" path="/ext/parties/admin/viewRelTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.rel.failure" path="portlet.ext.parties.admin.rel.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteRelType"
+			type="com.ext.portlet.parties.admin.DeleteRelTypeAction"
+			name="PartyRelationshipTypeForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.admin.rel.delete">
+			<forward name="/ext/parties/admin/viewRelTypes" path="/ext/parties/admin/viewRelTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.rel.validation" path="portlet.ext.parties.admin.rel.delete" />
+			<forward name="portlet.ext.parties.admin.rel.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateRelType"
+			type="com.ext.portlet.parties.admin.UpdateRelTypeAction"
+			name="PartyRelationshipTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.rel.update">
+			<forward name="/ext/parties/admin/viewRelTypes" path="/ext/parties/admin/viewRelTypes" redirect="true"/>
+			<forward name="portlet.ext.parties.admin.rel.failure" path="portlet.ext.parties.admin.rel.update" />
+	</action>
+	
+<!-- ### PARTIES ADMIN:OrganizationType ### -->	
+	<action path="/ext/parties/admin/viewOrgTypes" 
+			type="com.ext.portlet.parties.admin.ListOrgTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.org.success" path="portlet.ext.parties.admin.org.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/loadOrgType" 
+				type="com.ext.portlet.parties.admin.LoadOrgTypeAction" 
+				name="OrganizationTypeForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.admin.org.add">
+		<forward name="portlet.ext.parties.admin.org.add" path="portlet.ext.parties.admin.org.add" />
+		<forward name="portlet.ext.parties.admin.org.update" path="portlet.ext.parties.admin.org.update" />
+		<forward name="portlet.ext.parties.admin.org.delete" path="portlet.ext.parties.admin.org.delete" />
+		<forward name="portlet.ext.parties.admin.org.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addOrgType"
+			type="com.ext.portlet.parties.admin.AddOrgTypeAction"
+			name="OrganizationTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.org.add">
+			<forward name="/ext/parties/admin/viewOrgTypes" path="/ext/parties/admin/viewOrgTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.org.failure" path="portlet.ext.parties.admin.org.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteOrgType"
+			type="com.ext.portlet.parties.admin.DeleteOrgTypeAction"
+			name="OrganizationTypeForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.admin.org.delete">
+			<forward name="/ext/parties/admin/viewOrgTypes" path="/ext/parties/admin/viewOrgTypes" redirect="true" />
+			<forward name="portlet.ext.parties.admin.org.validation" path="portlet.ext.parties.admin.org.delete" />
+			<forward name="portlet.ext.parties.admin.org.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateOrgType"
+			type="com.ext.portlet.parties.admin.UpdateOrgTypeAction"
+			name="OrganizationTypeForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.org.update">
+			<forward name="/ext/parties/admin/viewOrgTypes" path="/ext/parties/admin/viewOrgTypes" redirect="true"/>
+			<forward name="portlet.ext.parties.admin.org.failure" path="portlet.ext.parties.admin.org.update" />
+	</action>
+	
+<!-- ### PARTIES ADMIN:Country ### -->	
+	<action path="/ext/parties/admin/viewCountries" 
+			type="com.ext.portlet.parties.admin.ListCountryAction" scope="request">
+			<forward name="portlet.ext.parties.admin.country.success" path="portlet.ext.parties.admin.country.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/loadCountry" 
+				type="com.ext.portlet.parties.admin.LoadCountryAction" 
+				name="CountryForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.admin.country.add">
+		<forward name="portlet.ext.parties.admin.country.add" path="portlet.ext.parties.admin.country.add" />
+		<forward name="portlet.ext.parties.admin.country.update" path="portlet.ext.parties.admin.country.update" />
+		<forward name="portlet.ext.parties.admin.country.delete" path="portlet.ext.parties.admin.country.delete" />
+		<forward name="portlet.ext.parties.admin.country.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/admin/addCountry"
+			type="com.ext.portlet.parties.admin.AddCountryAction"
+			name="CountryForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.country.add">
+			<forward name="/ext/parties/admin/viewCountries" path="/ext/parties/admin/viewCountries" redirect="true" />
+			<forward name="portlet.ext.parties.admin.country.failure" path="portlet.ext.parties.admin.country.add" />
+	</action>
+		
+	<action path="/ext/parties/admin/deleteCountry"
+			type="com.ext.portlet.parties.admin.DeleteCountryAction"
+			name="CountryForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.admin.country.delete">
+			<forward name="/ext/parties/admin/viewCountries" path="/ext/parties/admin/viewCountries" redirect="true" />
+			<forward name="portlet.ext.parties.admin.country.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updateCountry"
+			type="com.ext.portlet.parties.admin.UpdateCountryAction"
+			name="CountryForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.admin.country.update">
+			<forward name="/ext/parties/admin/viewCountries" path="/ext/parties/admin/viewCountries" redirect="true"/>
+			<forward name="portlet.ext.parties.admin.country.failure" path="portlet.ext.parties.admin.country.update" />
+	</action>
+	
+	<!-- ### PARTIES ADMIN:Portlets ### -->	
+	<action path="/ext/parties/admin/viewPortlets" 
+			type="com.ext.portlet.parties.admin.ListPortletsAction" scope="request">
+			<forward name="portlet.ext.parties.admin.portlet.success" path="portlet.ext.parties.admin.portlet.view" />
+			<forward name="portlet.ext.parties.admin.portlet.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/loadPortletRolesAndActions" 
+			type="com.ext.portlet.parties.admin.LoadPortletRolesAndActionsAction" scope="request">
+			<forward name="portlet.ext.parties.admin.portlet.success" path="portlet.ext.parties.admin.portlet.update" />
+			<forward name="portlet.ext.parties.admin.portlet.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/admin/updatePortletRolesAndActions" 
+			type="com.ext.portlet.parties.admin.UpdatePortletRolesAndActionsAction" scope="request">
+			<forward name="/ext/parties/admin/viewPortlets" path="/ext/parties/admin/viewPortlets" redirect="true" />
+			<forward name="portlet.ext.parties.admin.portlet.failure" path="/common/error.jsp" />
+	</action>
+	
+	<!-- ### ORGANIZATION CHART ### -->
+	<action path="/ext/parties/orgchart/viewCharts"
+			type="com.ext.portlet.parties.orgchart.ListChartsAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.list" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadChart"
+			type="com.ext.portlet.parties.orgchart.LoadChartAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listRootOrganizations"
+    		type="com.ext.portlet.parties.orgchart.department.ListRootOrganizationsAction"
+			scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.organization.list"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+     </action>
+     
+    <action path="/ext/parties/orgchart/loadNewRootOrganization"
+    		type="com.ext.portlet.parties.manager.LoadNewOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="false">
+			<forward name="portlet.ext.parties.manager.org.add" path="portlet.ext.parties.orgchart.organization.add"/>
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+     </action>
+	
+	<action path="/ext/parties/orgchart/chooseRootOrganization"
+			type="com.ext.portlet.parties.orgchart.department.ChooseRootOrganizationAction" scope="request">
+			<forward name="/ext/parties/orgchart/viewCharts" path="/ext/parties/orgchart/viewCharts" redirect="true" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/addRootOrganization"
+    		type="com.ext.portlet.parties.orgchart.department.AddRootOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.orgchart.organization.add">
+			<forward name="/ext/parties/orgchart/viewCharts" path="/ext/parties/orgchart/viewCharts" redirect="true" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/orgchart/listOrganizations"
+    		type="com.ext.portlet.parties.orgchart.department.ListOrganizationsAction"
+			scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.department.list"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+     </action>
+     
+    <action path="/ext/parties/orgchart/loadNewOrganization"
+    		type="com.ext.portlet.parties.manager.LoadNewOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="false">
+			<forward name="portlet.ext.parties.manager.org.add" path="portlet.ext.parties.orgchart.department.add"/>
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+     </action>
+	
+	<action path="/ext/parties/orgchart/chooseOrganization"
+			type="com.ext.portlet.parties.orgchart.department.ChooseOrganizationAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/addOrganization"
+    		type="com.ext.portlet.parties.orgchart.department.AddOrganizationAction"
+    		name="OrganizationAddForm"
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.orgchart.department.add">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/orgchart/removeOrganization"
+			type="com.ext.portlet.parties.orgchart.department.DeleteOrganizationAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listPersons"
+    		type="com.ext.portlet.parties.orgchart.employee.ListPersonsAction"
+			scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.person.list"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+     </action>
+     
+     <action path="/ext/parties/orgchart/listRoles"
+    		type="com.ext.portlet.parties.orgchart.employee.ListRolesAction"
+			scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.roles.list"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+     </action>
+     
+    <action path="/ext/parties/orgchart/loadNewPerson"
+    		type="com.ext.portlet.parties.manager.LoadNewPersonAction"
+    		name="PersonAddForm"
+			scope="request" 
+			validate="false">
+			<forward name="portlet.ext.parties.manager.person.add" path="portlet.ext.parties.orgchart.person.add"/>
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+     </action>
+	
+	<action path="/ext/parties/orgchart/chooseRole"
+			type="com.ext.portlet.parties.orgchart.employee.ChooseRoleAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/addPerson"
+    		type="com.ext.portlet.parties.orgchart.employee.AddPersonAction"
+    		name="PersonAddForm"
+			scope="request" 
+			validate="false" 
+			input="portlet.ext.parties.orgchart.person.add">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.person.list" />
+			<forward name="portlet.ext.parties.orgchart.validation" path="portlet.ext.parties.orgchart.person.add" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+    </action>
+    
+	<action path="/ext/parties/orgchart/removeEmployee"
+			type="com.ext.portlet.parties.orgchart.employee.DeletePersonAction" scope="request">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.view" />
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+	</action>
+	
+    <!-- ################## Copies of Manager Actions using same code but different jsps -->
+    
+    <action path="/ext/parties/orgchart/loadPerson" 
+    		type="com.ext.portlet.parties.manager.LoadPersonAction" 
+    		name="PersonForm" 
+			scope="request"
+			validate="false">
+			<forward name="portlet.ext.parties.manager.person.update" path="portlet.ext.parties.orgchart.person.update" />
+			<forward name="portlet.ext.parties.manager.person.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/orgchart/updatePerson" 
+    		type="com.ext.portlet.parties.orgchart.employee.UpdatePersonAction" 
+    		name="PersonForm" 
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.orgchart.person.update">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.person.update"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+    </action>
+    
+    <action path="/ext/parties/orgchart/listPartyIdentifiers"
+			type="com.ext.portlet.parties.manager.identifier.ListPartyIdentifiersAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.identifier.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadPartyIdentifier" 
+				type="com.ext.portlet.parties.manager.identifier.LoadPartyIdentifierAction" 
+				name="PartyIdentifierForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.identifier.add" path="portlet.ext.parties.orgchart.identifier.add" />
+		<forward name="portlet.ext.parties.manager.identifier.update" path="portlet.ext.parties.orgchart.identifier.update" />
+		<forward name="portlet.ext.parties.manager.identifier.delete" path="portlet.ext.parties.orgchart.identifier.delete" />
+		<forward name="portlet.ext.parties.manager.identifier.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addPartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.AddPartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.identifier.add">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.orgchart.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="portlet.ext.parties.orgchart.identifier.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deletePartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.DeletePartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.identifier.delete">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.orgchart.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updatePartyIdentifier"
+			type="com.ext.portlet.parties.manager.identifier.UpdatePartyIdentifierAction"
+			name="PartyIdentifierForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.identifier.update">
+			<forward name="portlet.ext.parties.manager.identifier.success" path="portlet.ext.parties.orgchart.identifier.view" />
+			<forward name="portlet.ext.parties.manager.identifier.failure" path="portlet.ext.parties.orgchart.identifier.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listPersonNames"
+			type="com.ext.portlet.parties.manager.ListPersonNamesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.person.name.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadPersonName" 
+				type="com.ext.portlet.parties.manager.LoadPersonNameAction" 
+				name="PersonNameForm" 
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.orgchart.person.name.add">
+		<forward name="portlet.ext.parties.manager.person.name.add" path="portlet.ext.parties.orgchart.person.name.add" />
+		<forward name="portlet.ext.parties.manager.person.name.update" path="portlet.ext.parties.orgchart.person.name.update" />
+		<forward name="portlet.ext.parties.manager.person.name.delete" path="portlet.ext.parties.orgchart.person.name.delete" />
+		<forward name="portlet.ext.parties.manager.person.name.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addPersonName"
+			type="com.ext.portlet.parties.manager.AddPersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.person.name.add">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.orgchart.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="portlet.ext.parties.orgchart.person.name.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deletePersonName"
+			type="com.ext.portlet.parties.manager.DeletePersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.person.name.delete">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.orgchart.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.validity" path="portlet.ext.parties.orgchart.person.name.validity" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updatePersonName"
+			type="com.ext.portlet.parties.manager.UpdatePersonNameAction"
+			name="PersonNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.person.name.update">
+			<forward name="portlet.ext.parties.manager.person.name.success" path="portlet.ext.parties.orgchart.person.name.view" />
+			<forward name="portlet.ext.parties.manager.person.name.validity" path="portlet.ext.parties.orgchart.person.name.validity" />
+			<forward name="portlet.ext.parties.manager.person.name.failure" path="portlet.ext.parties.orgchart.person.name.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listEmailAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/loadEmailAddress" 
+				type="com.ext.portlet.parties.manager.LoadEmailAddressAction" 
+				name="EmailAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.email.add" path="portlet.ext.parties.orgchart.addresses.email.add" />
+		<forward name="portlet.ext.parties.manager.addresses.email.update" path="portlet.ext.parties.orgchart.addresses.email.update" />
+		<forward name="portlet.ext.parties.manager.addresses.email.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addEmailAddress"
+			type="com.ext.portlet.parties.manager.AddEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.email.add">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.orgchart.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="portlet.ext.parties.orgchart.addresses.email.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deleteEmailAddress"
+			type="com.ext.portlet.parties.manager.DeleteEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.addresses.email.delete">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.orgchart.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updateEmailAddress"
+			type="com.ext.portlet.parties.manager.UpdateEmailAddressAction"
+			name="EmailAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.email.update">
+			<forward name="portlet.ext.parties.manager.addresses.email.success" path="portlet.ext.parties.orgchart.addresses.email.view" />
+			<forward name="portlet.ext.parties.manager.addresses.email.failure" path="portlet.ext.parties.orgchart.addresses.email.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listWebpageAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadWebpageAddress" 
+				type="com.ext.portlet.parties.manager.LoadWebpageAddressAction" 
+				name="WebpageAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.webpage.add" path="portlet.ext.parties.orgchart.addresses.webpage.add" />
+		<forward name="portlet.ext.parties.manager.addresses.webpage.update" path="portlet.ext.parties.orgchart.addresses.webpage.update" />
+		<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addWebpageAddress"
+			type="com.ext.portlet.parties.manager.AddWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.webpage.add">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.orgchart.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="portlet.ext.parties.orgchart.addresses.webpage.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deleteWebpageAddress"
+			type="com.ext.portlet.parties.manager.DeleteWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.addresses.webpage.delete">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.orgchart.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updateWebpageAddress"
+			type="com.ext.portlet.parties.manager.UpdateWebpageAddressAction"
+			name="WebpageAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.webpage.update">
+			<forward name="portlet.ext.parties.manager.addresses.webpage.success" path="portlet.ext.parties.orgchart.addresses.webpage.view" />
+			<forward name="portlet.ext.parties.manager.addresses.webpage.failure" path="portlet.ext.parties.orgchart.addresses.webpage.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listGeographicAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadGeographicAddress" 
+				type="com.ext.portlet.parties.manager.LoadGeographicAddressAction" 
+				name="GeographicAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.geographic.add" path="portlet.ext.parties.orgchart.addresses.geographic.add" />
+		<forward name="portlet.ext.parties.manager.addresses.geographic.update" path="portlet.ext.parties.orgchart.addresses.geographic.update" />
+		<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addGeographicAddress"
+			type="com.ext.portlet.parties.manager.AddGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.geographic.add">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.orgchart.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="portlet.ext.parties.orgchart.addresses.geographic.add" />
+	</action>
+		
+ 	<action path="/ext/parties/orgchart/listRelatedTelecomAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.telecom.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listNotRelatedTelecomAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.telecom.notrelatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/relateToGeographicAddress"
+ 			type="com.ext.portlet.parties.manager.RelateAddressAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.telecom.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/deleteGeographicAddress"
+			type="com.ext.portlet.parties.manager.DeleteGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.addresses.geographic.delete">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.orgchart.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updateGeographicAddress"
+			type="com.ext.portlet.parties.manager.UpdateGeographicAddressAction"
+			name="GeographicAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.geographic.update">
+			<forward name="portlet.ext.parties.manager.addresses.geographic.success" path="portlet.ext.parties.orgchart.addresses.geographic.view" />
+			<forward name="portlet.ext.parties.manager.addresses.geographic.failure" path="portlet.ext.parties.orgchart.addresses.geographic.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listTelecomAddresses"
+			type="com.ext.portlet.parties.manager.ListPartyAddressesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadTelecomAddress" 
+				type="com.ext.portlet.parties.manager.LoadTelecomAddressAction" 
+				name="TelecomAddressForm" 
+				scope="request" 
+				validate="false">
+		<forward name="portlet.ext.parties.manager.addresses.telecom.add" path="portlet.ext.parties.orgchart.addresses.telecom.add" />
+		<forward name="portlet.ext.parties.manager.addresses.telecom.update" path="portlet.ext.parties.orgchart.addresses.telecom.update" />
+		<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/listRelatedGeographicAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.geographic.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/listNotRelatedGeographicAddresses"
+ 			type="com.ext.portlet.parties.manager.ListRelatedAddressesAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.geographic.notrelatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/relateToTelecomAddress"
+ 			type="com.ext.portlet.parties.manager.RelateAddressAction"
+ 			scope="request">
+ 			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.addresses.geographic.relatedview" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/addTelecomAddress"
+			type="com.ext.portlet.parties.manager.AddTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.telecom.add">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.orgchart.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="portlet.ext.parties.orgchart.addresses.telecom.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deleteTelecomAddress"
+			type="com.ext.portlet.parties.manager.DeleteTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.addresses.telecom.delete">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.orgchart.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updateTelecomAddress"
+			type="com.ext.portlet.parties.manager.UpdateTelecomAddressAction"
+			name="TelecomAddressForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.addresses.telecom.update">
+			<forward name="portlet.ext.parties.manager.addresses.telecom.success" path="portlet.ext.parties.orgchart.addresses.telecom.view" />
+			<forward name="portlet.ext.parties.manager.addresses.telecom.failure" path="portlet.ext.parties.orgchart.addresses.telecom.update" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadOrganization"
+    		type="com.ext.portlet.parties.manager.LoadOrganizationAction"
+    		name="OrganizationForm"
+			scope="request"
+			validate="false" 
+			input="portlet.ext.parties.orgchart.org.add">
+			<forward name="portlet.ext.parties.manager.org.update" path="portlet.ext.parties.orgchart.org.update" />
+			<forward name="portlet.ext.parties.manager.org.failure" path="/common/error.jsp" />
+    </action>
+	
+	<action path="/ext/parties/orgchart/updateOrganization"
+    		type="com.ext.portlet.parties.orgchart.department.UpdateOrganizationAction"
+    		name="OrganizationForm"
+			scope="request" 
+			validate="true" 
+			input="portlet.ext.parties.orgchart.org.update">
+			<forward name="portlet.ext.parties.orgchart.success" path="portlet.ext.parties.orgchart.org.update"/>
+			<forward name="portlet.ext.parties.orgchart.failure" path="/common/error.jsp" />
+    </action>
+	
+	<action path="/ext/parties/orgchart/listOrganizationNames"
+			type="com.ext.portlet.parties.manager.ListOrganizationNamesAction" scope="request">
+			<forward name="portlet.ext.parties.manager.success" path="portlet.ext.parties.orgchart.org.name.view" />
+			<forward name="portlet.ext.parties.manager.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/loadOrganizationName"
+				type="com.ext.portlet.parties.manager.LoadOrganizationNameAction"
+				name="OrganizationNameForm"
+				scope="request" 
+				validate="false" 
+			    input="portlet.ext.parties.orgchart.org.name.add">
+		<forward name="portlet.ext.parties.manager.org.name.add" path="portlet.ext.parties.orgchart.org.name.add" />
+		<forward name="portlet.ext.parties.manager.org.name.update" path="portlet.ext.parties.orgchart.org.name.update" />
+		<forward name="portlet.ext.parties.manager.org.name.delete" path="portlet.ext.parties.orgchart.org.name.delete" />
+		<forward name="portlet.ext.parties.manager.org.name.failure" path="/common/error.jsp" />
+	</action>
+
+	<action path="/ext/parties/orgchart/addOrganizationName"
+			type="com.ext.portlet.parties.manager.AddOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.org.name.add">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.orgchart.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="portlet.ext.parties.orgchart.org.name.add" />
+	</action>
+		
+	<action path="/ext/parties/orgchart/deleteOrganizationName"
+			type="com.ext.portlet.parties.manager.DeleteOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="false"
+			input="portlet.ext.parties.orgchart.org.name.delete">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.orgchart.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.validity" path="portlet.ext.parties.orgchart.org.name.validity" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/parties/orgchart/updateOrganizationName"
+			type="com.ext.portlet.parties.manager.UpdateOrganizationNameAction"
+			name="OrganizationNameForm"
+			scope="request"
+			validate="true"
+			input="portlet.ext.parties.orgchart.org.name.update">
+			<forward name="portlet.ext.parties.manager.org.name.success" path="portlet.ext.parties.orgchart.org.name.view" />
+			<forward name="portlet.ext.parties.manager.org.name.validity" path="portlet.ext.parties.orgchart.org.name.validity" />
+			<forward name="portlet.ext.parties.manager.org.name.failure" path="portlet.ext.parties.orgchart.org.name.update" />
+	</action>
+	
+	
+	<!--  ### BROWSER #### -->
+	<action path="/ext/parties/browser/parties_list" 
+			type="com.ext.portlet.parties.browser.ListPartiesAction" 
+			name="PartiesSearchForm"
+			scope="request"
+			validate="false">
+			<forward name="action.success" path="portlet.ext.parties.browser.listView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/person_load" 
+			type="com.ext.portlet.parties.browser.persons.LoadPersonAction" 
+			name="PersonSummaryForm"
+			scope="request"
+			validate="false">
+			<forward name="action.summaryView" path="portlet.ext.parties.browser.personSummaryFormView" />
+			<forward name="action.formView" path="portlet.ext.parties.browser.personFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		<action path="/ext/parties/browser/person_execute" 
+			type="com.ext.portlet.parties.browser.persons.ExecutePersonAction" 
+			name="PersonSummaryForm"
+			scope="request"
+			validate="false">
+			
+			<forward name="action.formView" path="portlet.ext.parties.browser.personFormView" />
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.personFormView" />
+			<forward name="/ext/parties/browser/person_load" path="/ext/parties/browser/person_load" redirect="true"/>
+			
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/organization_load" 
+			type="com.ext.portlet.parties.browser.organizations.LoadOrganizationAction" 
+			name="OrganizationSummaryForm"
+			scope="request"
+			validate="false">
+			<forward name="action.summaryView" path="portlet.ext.parties.browser.organizationSummaryFormView" />
+			<forward name="action.formView" path="portlet.ext.parties.browser.organizationFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/organization_execute" 
+			type="com.ext.portlet.parties.browser.organizations.ExecuteOrganizationAction" 
+			name="OrganizationSummaryForm"
+			scope="request"
+			validate="false">
+			
+			<forward name="action.formView" path="portlet.ext.parties.browser.organizationFormView" />
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.organizationFormView" />
+			<forward name="/ext/parties/browser/organization_load" path="/ext/parties/browser/organization_load" redirect="true"/>
+			
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		<action path="/ext/parties/browser/party_proposalProjectContracts_list" 
+			type="com.ext.portlet.parties.browser.ListProjectsOfPartyAction" >
+
+			<forward name="action.success" path="portlet.ext.parties.browser.proposalsProjectsContractsListView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		
+		<action path="/ext/parties/browser/party_addresses_list" 
+			type="com.ext.portlet.parties.browser.addresses.ListPartyAddressesAction" >
+
+			<forward name="action.success" path="portlet.ext.parties.browser.addressesListView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_addresses_geographic_load" 
+			type="com.ext.portlet.parties.browser.addresses.LoadGeographicAddressAction" 
+			name="PrjGeographicAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.geographicAddressFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/parties/browser/party_addresses_geographic_execute" 
+			type="com.ext.portlet.parties.browser.addresses.ExecuteGeographicAddressAction" 
+			name="PrjGeographicAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.geographicAddressFormView" />
+			<forward name="/ext/parties/browser/party_addresses_list" path="/ext/parties/browser/party_addresses_list" redirect="true" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_addresses_telecom_load" 
+			type="com.ext.portlet.parties.browser.addresses.LoadTelecomAddressAction" 
+			name="PrjTelecomAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.telecomAddressFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+
+		<action path="/ext/parties/browser/party_addresses_telecom_execute" 
+			type="com.ext.portlet.parties.browser.addresses.ExecuteTelecomAddressAction" 
+			name="PrjTelecomAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.telecomAddressFormView" />
+			<forward name="/ext/parties/browser/party_addresses_list" path="/ext/parties/browser/party_addresses_list" redirect="true" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_addresses_email_load" 
+			type="com.ext.portlet.parties.browser.addresses.LoadEmailAddressAction" 
+			name="PrjEmailAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.emailAddressFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_addresses_email_execute" 
+			type="com.ext.portlet.parties.browser.addresses.ExecuteEmailAddressAction" 
+			name="PrjEmailAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.emailAddressFormView" />
+			<forward name="/ext/parties/browser/party_addresses_list" path="/ext/parties/browser/party_addresses_list" redirect="true" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_addresses_webpage_load" 
+			type="com.ext.portlet.parties.browser.addresses.LoadWebpageAddressAction" 
+			name="PrjWebpageAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.webpageAddressFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_addresses_webpage_execute" 
+			type="com.ext.portlet.parties.browser.addresses.ExecuteWebpageAddressAction" 
+			name="PrjWebpageAddressForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.webpageAddressFormView" />
+			<forward name="/ext/parties/browser/party_addresses_list" path="/ext/parties/browser/party_addresses_list" redirect="true" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_newOrganization_load" 
+			type="com.ext.portlet.parties.browser.organizations.LoadNewOrganizationAction" 
+			name="NewOrganizationWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.organization.newOrganizationWizardFormView" />
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.organization.newOrganizationWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_newOrganization_execute" 
+			type="com.ext.portlet.parties.browser.organizations.ExecuteNewOrganizationAction" 
+			name="NewOrganizationWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="/ext/parties/browser/organization_load" path="/ext/parties/browser/organization_load" redirect="true"/>
+			<forward name="action.redirect.lookup" path="/ext/parties/browser/partiesLookupPortletAction" redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.organization.newOrganizationWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_newPerson_load" 
+			type="com.ext.portlet.parties.browser.persons.LoadNewPersonAction" 
+			name="NewPersonWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_newSystemUser_load" 
+			type="com.ext.portlet.parties.browser.persons.LoadNewSystemUserAction" 
+			name="NewPersonWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_newPerson_execute" 
+			type="com.ext.portlet.parties.browser.persons.ExecuteNewPersonAction" 
+			name="NewPersonWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="/ext/parties/browser/person_load" path="/ext/parties/browser/person_load" redirect="true"/>
+			<forward name="action.redirect.lookup" path="/ext/parties/browser/partiesLookupPortletAction" redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/departmentLookupAction"
+			type="com.ext.portlet.parties.orgchart.DepartmentLookupAction"
+			scope="request">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.orgChart.departmentLookupView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_newSystemUser_execute" 
+			type="com.ext.portlet.parties.browser.persons.ExecuteNewSystemUserAction" 
+			name="NewPersonWizardForm"
+			scope="request"
+			validate="false">
+
+			<forward name="/ext/parties/browser/person_load" path="/ext/parties/browser/person_load" redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.person.newPersonWizardFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>		
+		
+		<action path="/ext/parties/browser/partyRoles_list" 
+			type="com.ext.portlet.parties.browser.persons.ListPartyRolesAction" 
+			scope="request"
+			validate="false">
+			<forward name="action.success" path="portlet.ext.parties.browser.partyRolesListView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+
+
+		<action path="/ext/parties/browser/partyIdentifiers_list" 
+			type="com.ext.portlet.parties.browser.identifiers.ListPartyIdentifiersAction" 
+			scope="request"
+			validate="false">
+			<forward name="action.success" path="portlet.ext.parties.browser.partyIdentifiersListView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/party_identifiers_load" 
+			type="com.ext.portlet.parties.browser.identifiers.LoadPartyIdentifierAction" 
+			name="PrjPartyIdentifierForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.identifierFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/party_identifiers_execute" 
+			type="com.ext.portlet.parties.browser.identifiers.ExecutePartyIdentifierAction" 
+			name="PrjPartyIdentifierForm"
+			scope="request"
+			validate="false">
+
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.identifierFormView" />
+			<forward name="/ext/parties/browser/partyIdentifiers_list" path="/ext/parties/browser/partyIdentifiers_list" redirect="true" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/organizationChartTabView_load" 
+			type="com.ext.portlet.parties.browser.organizationChart.LoadOrganizationChartAction" 
+			scope="request"
+			validate="false">
+			<forward name="action.orgchart.success" path="portlet.ext.parties.browser.orgChartTabView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/organizationAdvancedTabView_load" 
+			type="com.ext.portlet.parties.browser.organizations.advanced.LoadOrgAdvancedTabViewAction" 
+			name="AdvancedTabForm" scope="request"
+			validate="false">
+			<forward name="action.advanced.success" path="portlet.ext.parties.browser.org.advancedView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		<action path="/ext/parties/browser/organizationAdvancedTabView_execute" 
+			type="com.ext.portlet.parties.browser.organizations.advanced.ExecuteOrgAdvancedTabViewAction" 
+			scope="request" name="AdvancedTabForm"
+			validate="false">
+
+			<forward name="/ext/parties/browser/organizationAdvancedTabView_load" path="/ext/parties/browser/organizationAdvancedTabView_load" redirect="true"/>
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+			
+		
+		<action path="/ext/parties/browser/orgChart_person_load" 
+			type="com.ext.portlet.parties.browser.organizationChart.LoadOrgChartPersonAction" 
+			scope="request" name="OrgPersonSummaryForm"
+			validate="false">
+			<forward name="action.orgchart.success" path="portlet.ext.parties.browser.orgChartPersonView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/orgChart_department_load" 
+			type="com.ext.portlet.parties.browser.organizationChart.LoadOrgChartDepartmentAction" 
+			scope="request" name="DepartmentSummaryForm"
+			validate="false">
+			
+			<forward name="action.orgchart.success" path="portlet.ext.parties.browser.orgChartDepartmentView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/browser/orgChart_department_execute" 
+			type="com.ext.portlet.parties.browser.organizationChart.ExecuteOrgChartDepartmentAction" 
+			scope="request" name="DepartmentSummaryForm"
+			validate="false">
+
+			<forward name="/ext/parties/browser/organizationChartTabView_load" path="/ext/parties/browser/organizationChartTabView_load" redirect="true"/>
+			<forward name="action.orgchart.validationErrors" path="portlet.ext.parties.browser.orgChartDepartmentView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/orgChart_load_addEmployee" 
+			type="com.ext.portlet.parties.browser.organizationChart.addEmployee.LoadAddEmployeeToOrgAction" 
+			scope="request" name="OrgEmployeeForm"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.addEmployeeToDepartmentView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/browser/orgChart_execute_addEmployee" 
+			type="com.ext.portlet.parties.browser.organizationChart.addEmployee.ExecuteAddEmployeeToOrgAction" 
+			scope="request" 
+			name="OrgEmployeeForm"
+			validate="false">
+
+			<forward name="/ext/parties/browser/orgChart_department_load" path="/ext/parties/browser/orgChart_department_load" redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.parties.browser.addEmployeeToDepartmentView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		
+		<action path="/ext/parties/browser/load_systemUserForPerson" 
+			type="com.ext.portlet.parties.browser.persons.SystemUserForPersonAction" 
+			scope="request" name="NewPersonWizardForm"
+			validate="false">
+
+			<forward name="action.success" path="portlet.ext.parties.browser.systemUserForPerson" />
+			<forward name="action.showPersonCard" path="portlet.ext.parties.browser.personSummaryFormView" />
+			<forward name="action.generalFailure" path="/common/error.jsp" />
+		</action>	
+		
+		<!--  Party lookup -->
+		<action path="/ext/parties/browser/partiesLookupPortletAction"
+			type="com.ext.portlet.parties.browser.partyLookupStrutsField.PartyLookupPortletAction"
+			name="PaPartyLookupForm"
+			scope="request"
+			validate="false">
+
+			<forward name="lookup.success" path="portlet.ext.parties.browse.partiesLookupPage" />
+			<forward name="lookup.generalFailure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  PA_CONTACTS -->	
+		
+		<action path="/ext/parties/contacts/search" type="com.ext.portlet.parties.contacts.SearchContactsAction"
+				scope="request" name="ContactSearchForm" validate="false">
+			<forward name="portlet.ext.parties.contacts.success" path="portlet.ext.parties.contacts.search" />
+			<forward name="portlet.ext.parties.contacts.orgchart" path="portlet.ext.parties.contacts.orgchart.view" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/load" type="com.ext.portlet.parties.contacts.LoadContactFormAction"
+				scope="request" name="ContactForm" validate="false">
+			<forward name="portlet.ext.parties.contacts.success" path="portlet.ext.parties.contacts.form" />
+			<forward name="portlet.ext.parties.contacts.view" path="portlet.ext.parties.contacts.view" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+	
+		<action path="/ext/parties/contacts/add" type="com.ext.portlet.parties.contacts.AddContactAction"
+				scope="request" name="ContactForm" validate="false">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="portlet.ext.parties.contacts.validation" path="portlet.ext.parties.contacts.form" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/update" type="com.ext.portlet.parties.contacts.UpdateContactAction"
+				scope="request" name="ContactForm" validate="false">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="portlet.ext.parties.contacts.validation" path="portlet.ext.parties.contacts.form" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/delete" type="com.ext.portlet.parties.contacts.DeleteContactAction"
+				scope="request" name="ContactForm" validate="false">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="portlet.ext.parties.contacts.validation" path="portlet.ext.parties.contacts.form" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/parties/contacts/loadAddLiferayUser" type="com.ext.portlet.parties.contacts.LoadAddLiferayUserAction"
+				scope="request" name="AddLiferayUserForm" validate="false">
+			<forward name="portlet.ext.parties.contacts.success" path="portlet.ext.parties.contacts.liferayUserForm" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+	
+		<action path="/ext/parties/contacts/addLiferayUser" type="com.ext.portlet.parties.contacts.AddLiferayUserAction"
+				scope="request" name="AddLiferayUserForm" validate="false">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="portlet.ext.parties.contacts.validation" path="portlet.ext.parties.contacts.liferayUserForm" />
+			<forward name="portlet.ext.parties.contacts.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  Party roles under contacts -->
+	    <action path="/ext/parties/contacts/listPartyRoles" 
+	    		type="com.ext.portlet.parties.contacts.roles.ListPartyRolesAction" 
+	    		scope="request">
+	    		<forward name="common.success" path="portlet.ext.parties.contacts.roles.view"/>
+				<forward name="common.failure" path="/common/error.jsp" />
+	    </action>
+	    <action path="/ext/parties/contacts/listPartyRoleTypes"
+			type="com.ext.portlet.parties.admin.ListRoleTypeAction" scope="request">
+			<forward name="portlet.ext.parties.admin.role.success" path="portlet.ext.parties.contacts.roletypes.view" />
+			<forward name="portlet.ext.parties.admin.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/parties/contacts/addPartyRole"
+    		type="com.ext.portlet.parties.contacts.roles.AddPartyRoleAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+	    </action>
+		<action path="/ext/parties/contacts/deletePartyRole"
+    		type="com.ext.portlet.parties.contacts.roles.DeletePartyRoleAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+    	</action>
+    	
+    	 <action path="/ext/parties/contacts/listLiferayUserGroups"
+			type="com.ext.portlet.parties.contacts.roles.ListLiferayUserGroupsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.usergroups.view" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/parties/contacts/addLiferayUserGroup"
+    		type="com.ext.portlet.parties.contacts.roles.AddLiferayUserGroupAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+	    </action>
+		<action path="/ext/parties/contacts/deleteLiferayUserGroup"
+    		type="com.ext.portlet.parties.contacts.roles.DeleteLiferayUserGroupAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+    	</action>
+    	
+    	 <action path="/ext/parties/contacts/listHighRoles"
+			type="com.ext.portlet.parties.contacts.roles.ListHighRolesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.highroles.view" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/parties/contacts/addHighRole"
+    		type="com.ext.portlet.parties.contacts.roles.AddHighRoleAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+	    </action>
+		<action path="/ext/parties/contacts/deleteHighRole"
+    		type="com.ext.portlet.parties.contacts.roles.DeleteHighRoleAction"
+    		scope="request">
+    		<forward name="/ext/parties/contacts/listPartyRoles" path="/ext/parties/contacts/listPartyRoles" redirect="true"/>
+    		<forward name="common.failure" path="/common/error.jsp" />
+    	</action>
+    	
+    	
+    	<!--  Party Groups -->
+    	
+    	<action path="/ext/parties/contacts/listGroups" type="com.ext.portlet.parties.contacts.groups.ListPartyGroupsAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.groups.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/loadGroup" type="com.ext.portlet.parties.contacts.groups.LoadPartyGroupAction"
+				scope="request" name="PaPartyGroupForm" validate="false">
+			<forward name="common.view" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.add" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.edit" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.delete" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+	
+		<action path="/ext/parties/contacts/addGroup" type="com.ext.portlet.parties.contacts.groups.AddPartyGroupAction"
+				scope="request" name="PaPartyGroupForm" validate="false">
+			<forward name="/ext/parties/contacts/listGroups" path="/ext/parties/contacts/listGroups" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/updateGroup" type="com.ext.portlet.parties.contacts.groups.UpdatePartyGroupAction"
+				scope="request" name="PaPartyGroupForm" validate="false">
+			<forward name="/ext/parties/contacts/listGroups" path="/ext/parties/contacts/listGroups" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/deleteGroup" type="com.ext.portlet.parties.contacts.groups.DeletePartyGroupAction"
+				scope="request" name="PaPartyGroupForm" validate="false">
+			<forward name="/ext/parties/contacts/listGroups" path="/ext/parties/contacts/listGroups" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.groups.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+    	
+    	<action path="/ext/parties/contacts/listGroupMembers" type="com.ext.portlet.parties.contacts.groups.members.ListGroupMembersAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.groups.members.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+    	
+    	<action path="/ext/parties/contacts/listAvailableContacts" type="com.ext.portlet.parties.contacts.groups.members.ListAvailableContactsAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.groups.available.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/addGroupMembers" type="com.ext.portlet.parties.contacts.groups.members.AddGroupMembersAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/listGroupMembers" path="/ext/parties/contacts/listGroupMembers" redirect="true"/>
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/deleteGroupMembers" type="com.ext.portlet.parties.contacts.groups.members.DeleteGroupMembersAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/listGroupMembers" path="/ext/parties/contacts/listGroupMembers" redirect="true"/>
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/loadMassContacts" type="com.ext.portlet.parties.contacts.LoadMassContactsAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/loadEmailContacts" path="/ext/parties/contacts/loadEmailContacts" redirect="true"/>	
+			<forward name="common.success" path="portlet.ext.parties.contacts.mass.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/executeMassContacts" type="com.ext.portlet.parties.contacts.ExecuteMassContactsAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.mass.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/listAssignments" type="com.ext.portlet.parties.contacts.assignments.ListAssignmentsAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.assignments.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/saveAssignments" type="com.ext.portlet.parties.contacts.assignments.SaveAssignmentsAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.assignments.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/loadEmailContacts" 
+			    type="com.ext.portlet.parties.contacts.LoadEmailContactsAction"
+			    name="EmailContactsForm" validate="false"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.email.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/emailContacts" 
+			    type="com.ext.portlet.parties.contacts.EmailContactsAction"
+			    name="EmailContactsForm" validate="false"
+				scope="request">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.email.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  CONTACTS ORGANIZATION CHARTS -->
+		<action path="/ext/parties/contacts/orgchartDelete" type="com.ext.portlet.parties.contacts.orgchart.DeleteFromOrgChartAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/orgchartSearchToAdd" type="com.ext.portlet.parties.contacts.orgchart.SearchToAddAction"
+				name="ContactSearchForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.orgchart.search" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/orgchartAddExisting" type="com.ext.portlet.parties.contacts.orgchart.AddExistingAction"
+				scope="request">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/orgchartLoadNewToAdd" type="com.ext.portlet.parties.contacts.orgchart.LoadNewOrgChartContactAction"
+				name="ContactForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.orgchart.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/parties/contacts/orgchartAddNew" type="com.ext.portlet.parties.contacts.orgchart.AddNewOrgChartContactAction"
+				name="ContactForm" validate="false" scope="request">
+			<forward name="/ext/parties/contacts/search" path="/ext/parties/contacts/search" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.parties.contacts.orgchart.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!--  #### PA_CONTACTS_TOPICS_LIST #### -->
+		<action path="/ext/parties/contactTopicsList/view" type="com.ext.portlet.parties.contacts.topics.list.ListPartyTopicsAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.topics.list.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+	
+		<!--  #### PA_CONTACTS_BROWSE_BY_TOPIC #### -->
+		
+		<action path="/ext/parties/contactTopicsNav/view" type="com.ext.portlet.parties.contacts.topics.nav.ListPartiesByTopicAction"
+				scope="request">
+			<forward name="common.success" path="portlet.ext.parties.contacts.topics.nav.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+</action-mappings>
+
+</struts-config>

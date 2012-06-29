@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+     	<form-bean name="SearchInvoicesForm" type="com.ext.portlet.kleemann.forms.SearchInvoicesForm"/>
+     	<form-bean name="SearchCrmForm" type="com.ext.portlet.kleemann.forms.SearchCrmForm"/>
+    	<form-bean name="OrdersXMLActionForm" type="com.ext.portlet.kleemann.OrdersXMLActionForm"/>
+    	
+    	
+    	<form-bean name="KlContactDetailForm" type="com.ext.portlet.kleemann.contact.details.KlContactDetailForm"/>
+    </form-beans>
+
+	<action-mappings>
+
+	<action path="/ext/kleemann/crm/view" name="SearchCrmForm" validate="false"
+		type="com.ext.portlet.kleemann.CrmIssuesAction">
+		<forward name="portlet.ext.kleemann.crm.issues.success" path="portlet.ext.kleemann.crm.issues.success"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>
+	
+	<action path="/ext/kleemann/crm/viewIssue"
+		type="com.ext.portlet.kleemann.ViewIssueAction">
+		<forward name="common.success" path="portlet.ext.kleemann.crm.issues.viewIssue"/>
+		<forward name="common.failure" path="portlet.ext.kleemann.error"/>
+	</action>	
+	
+	<action path="/ext/kleemann/crm/add"
+		type="com.ext.portlet.kleemann.CreateIssueAction">
+		<forward name="portlet.ext.kleemann.crm.issues.success" path="portlet.ext.kleemann.crm.issues.success"/>
+		<forward name="/ext/kleemann/crm/view" path="/ext/kleemann/crm/view" redirect="true"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>
+
+	<action path="/ext/kleemann/financial/view"
+		type="com.ext.portlet.kleemann.FinancialCardAction">
+		<forward name="portlet.ext.kleemann.financial.success" path="portlet.ext.kleemann.financial.success"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>
+		
+	<action path="/ext/kleemann/financial/viewInvoices" name="SearchInvoicesForm" validate="false"
+		type="com.ext.portlet.kleemann.FinancialInvoicesAction">
+		<forward name="portlet.ext.kleemann.financial.invoices.success" path="portlet.ext.kleemann.financial.invoices.success"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>		
+		
+	<action path="/ext/kleemann/financial/getInvoicesXML"
+		type="com.ext.portlet.kleemann.InvoicesXMLAction">
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>		
+
+	<action path="/ext/kleemann/orders/getOrdersXML"
+		type="com.ext.portlet.kleemann.OrdersXMLAction" name="OrdersXMLActionForm" validate="false">
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>
+
+	<action path="/ext/kleemann/crm/getIssuesXML" name="SearchCrmForm"
+		type="com.ext.portlet.kleemann.IssuesXMLAction">
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>
+		
+
+	<action path="/ext/kleemann/customercard/view"
+		type="com.ext.portlet.kleemann.CustomerCardAction">
+		<forward name="portlet.ext.kleemann.customercard.success" path="portlet.ext.kleemann.customercard.success"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>			
+		
+	<action path="/ext/kleemann/orders/viewOrders"
+		type="com.ext.portlet.kleemann.FinancialOrdersAction" name="OrdersXMLActionForm" validate="false">
+		<forward name="portlet.ext.kleemann.financial.orders.success" path="portlet.ext.kleemann.financial.orders.success"/>
+		<forward name="portlet.ext.kleemann.financial.offers.success" path="portlet.ext.kleemann.financial.offers.success"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>			
+
+	<action path="/ext/kleemann/orders/viewOrder"
+		type="com.ext.portlet.kleemann.ViewOrderAction">
+		<forward name="portlet.ext.kleemann.financial.orders.viewOrder" path="portlet.ext.kleemann.financial.orders.viewOrder"/>
+		<forward name="portlet.ext.kleemann.financial.offers.viewOffer" path="portlet.ext.kleemann.financial.offers.viewOffer"/>
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>	
+	
+	<action path="/ext/kleemann/orders/getdocument"
+		type="com.ext.portlet.kleemann.GetDocumentAction">
+		<forward name="portlet.ext.kleemann.error" path="portlet.ext.kleemann.error"/>
+	</action>		
+
+	<!--  KLEEMANN_ONLINE_OFFERS -->
+	<action path="/ext/kleemann/onlineOffers/loadFirstStep" type="com.ext.portlet.kleemann.onlineOffers.LoadFirstStepAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.step.1"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>			
+	 
+	<action path="/ext/kleemann/onlineOffers/saveFirstStep" type="com.ext.portlet.kleemann.onlineOffers.SaveFirstStepAction">
+		<forward name="common.validation" path="portlet.ext.kleemann.onlineOffers.step.1"/>
+	 	<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.step.2"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+    </action>
+    		
+	<action path="/ext/kleemann/onlineOffers/completeWizard" type="com.ext.portlet.kleemann.onlineOffers.CompleteWizardAction">
+		<forward name="common.validation" path="portlet.ext.kleemann.onlineOffers.step.2"/>
+		<forward name="/ext/kleemann/onlineOffers/loadOrderFeatures" path="/ext/kleemann/onlineOffers/loadOrderFeatures" redirect="true"/>
+	 	<forward name="/ext/kleemann/onlineOffers/loadOrderSummary" path="/ext/kleemann/onlineOffers/loadOrderSummary" redirect="true"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+    </action>
+        		
+	<action path="/ext/kleemann/onlineOffers/loadOrderCustomers" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderCustomersAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.customers"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+	
+	 <action path="/ext/kleemann/onlineOffers/loadOrderFloors" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderFloorsAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.floors"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+	
+	<action path="/ext/kleemann/onlineOffers/loadOrderFeatures" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderFeaturesAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.features"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+	
+	<action path="/ext/kleemann/onlineOffers/loadOrderFeatureValueImages" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderFeatureValueImagesAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.features.value.images"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+	
+	<action path="/ext/kleemann/onlineOffers/loadOrderCalculate" forward="portlet.ext.kleemann.onlineOffers.calculate"/>
+	
+	<action path="/ext/kleemann/onlineOffers/saveOrderFloors" type="com.ext.portlet.kleemann.onlineOffers.SaveOrderFloorsAction">
+		<forward name="common.validation" path="portlet.ext.kleemann.onlineOffers.floors"/>
+	 	<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.floors"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+    </action>
+    
+	<action path="/ext/kleemann/onlineOffers/saveOrderFeatures" type="com.ext.portlet.kleemann.onlineOffers.SaveOrderFeaturesAction">
+		<forward name="common.validation" path="portlet.ext.kleemann.onlineOffers.features"/>
+	 	<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.features"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+    </action>
+	
+	<action path="/ext/kleemann/onlineOffers/loadOrderSummary" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderSummaryAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.summary"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+		
+    <action path="/ext/kleemann/onlineOffers/loadOrderPrintSummary" type="com.ext.portlet.kleemann.onlineOffers.LoadOrderPrintSummaryAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.print.summary"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>
+			
+    <action path="/ext/kleemann/onlineOffers/printOffer" type="com.ext.portlet.kleemann.onlineOffers.PrintOfferAction">
+		<forward name="common.success" path="portlet.ext.kleemann.onlineOffers.print.success"/>
+		<forward name="common.failure" path="/common/error.jsp"/>
+	</action>		
+		
+		
+    <!--  KLEEMANN CONTACT DETAILS -->		
+    
+    <action path="/ext/kleemann/contactDetails/view" type="com.ext.portlet.kleemann.contact.details.ListKlContactDetailsAction">
+    	<forward name="common.success" path="portlet.ext.kleemann.contact.details.view"/>
+    	<forward name="common.failure" path="/common/error.jsp"/>
+    </action>
+    
+    <action path="/ext/kleemann/contactDetails/loadContactDetail"
+			name="KlContactDetailForm" validate="false" type="com.ext.portlet.kleemann.contact.details.LoadKlContactDetailAction" scope="request">
+		<forward name="common.view" path="portlet.ext.kleemann.contact.details.form" />
+		<forward name="common.add" path="portlet.ext.kleemann.contact.details.form" />
+		<forward name="common.edit" path="portlet.ext.kleemann.contact.details.form" />
+		<forward name="common.delete" path="portlet.ext.kleemann.contact.details.form" />
+		<forward name="common.failure" path="/common/error.jsp" />
+	</action>
+	
+	<action path="/ext/kleemann/contactDetails/addContactDetail" type="com.ext.portlet.kleemann.contact.details.AddKlContactDetailAction"
+	    name="KlContactDetailForm" validate="false" scope="request">
+		<forward name="/ext/kleemann/contactDetails/view" path="/ext/kleemann/contactDetails/view"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.kleemann.contact.details.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+
+
+	<action path="/ext/kleemann/contactDetails/updateContactDetail" type="com.ext.portlet.kleemann.contact.details.UpdateKlContactDetailAction"
+	    name="KlContactDetailForm" validate="false" scope="request">
+		<forward name="/ext/kleemann/contactDetails/view" path="/ext/kleemann/contactDetails/view"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.kleemann.contact.details.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+
+	<action path="/ext/kleemann/contactDetails/deleteContactDetail" type="com.ext.portlet.kleemann.contact.details.DeleteKlContactDetailAction"
+	    name="KlContactDetailForm" validate="false" scope="request">
+		<forward name="/ext/kleemann/contactDetails/view" path="/ext/kleemann/contactDetails/view"  redirect="true"/>
+		<forward name="common.validation" path="portlet.ext.kleemann.contact.details.form"  />
+		<forward name="common.failure" path="portlet.error"  />
+	</action>
+	
+	
+	<!--  KLEEMANN CONTACT -->
+    <action path="/ext/kleemann/contact/view" forward="portlet.ext.kleemann.contact.view"/>
+    
+    <action path="/ext/kleemann/contact/send" type="com.ext.portlet.kleemann.contact.SendContactAction">
+    	<forward name="common.success" path="portlet.ext.kleemann.contact.view"/>
+    	<forward name="common.failure" path="portlet.error"  />
+    </action>
+    
+    <!--  KLEEMANN CUSTOMER DASHBOARD -->
+    <action path="/ext/kleemann/dashboard/view" type="com.ext.portlet.kleemann.dashboard.ViewCustomerDashboardAction">
+    	<forward name="common.success" path="portlet.ext.kleemann.dashboard.view"/>
+    	<forward name="common.failure" path="portlet.error"  />
+    </action>
+    
+    
+    <!--  KLEEMANN PARTY DETAILS -->
+    <action path="/ext/kleemann/partyDetails/view" type="com.ext.portlet.kleemann.partyDetails.ViewPartyDetailsAction"
+         name="ContactForm" validate="false">
+    	<forward name="common.success" path="portlet.ext.kleemann.partyDetails.view"/>
+    	<forward name="common.failure" path="portlet.error"  />
+    </action>
+    
+    
+    <!--  KLEEMANN SHOPPING CART -->
+    <action path="/ext/kleemann/eshop/view" type="com.ext.portlet.kleemann.eshop.CreateShoppingCartAction">
+        <forward name="view" path="portlet.ext.kleemann.eshop.view"/>
+        <forward name="common.failure" path="portlet.error"  />
+    </action>
+	</action-mappings>
+</struts-config>

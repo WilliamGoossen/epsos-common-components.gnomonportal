@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+    	<form-bean name="BsMListForm" type="com.ext.portlet.base.mlists.BsMListForm"/>
+    	<form-bean name="BsMListPostForm" type="com.ext.portlet.base.mlists.posts.BsMListPostForm"/>
+    	<form-bean name="BsMListPostSendForm" type="com.ext.portlet.base.mlists.posts.BsMListPostSendForm"/>
+    	<form-bean name="BsMListPostFileForm" type="com.ext.portlet.base.mlists.files.BsMListPostFileForm"/>
+    	<form-bean name="BsMListSubscriptionForm" type="com.ext.portlet.base.mlists_display.BsMListSubscriptionForm"/>
+    	<form-bean name="BsMListSubscriberForm" type="com.ext.portlet.base.mlists.subscribers.BsMListSubscriberForm"/>
+    	
+    	<form-bean name="BsSmsListForm" type="com.ext.portlet.base.smslists.BsSmsListForm"/>
+    	<form-bean name="BsSmsListPostForm" type="com.ext.portlet.base.smslists.posts.BsSmsListPostForm"/>
+    	<form-bean name="BsSmsListPostSendForm" type="com.ext.portlet.base.smslists.posts.BsSmsListPostSendForm"/>
+    	<form-bean name="BsSmsListSubscriptionForm" type="com.ext.portlet.base.smslists_display.BsSmsListSubscriptionForm"/>
+    	<form-bean name="BsSmsListSubscriberForm" type="com.ext.portlet.base.smslists.subscribers.BsSmsListSubscriberForm"/>
+    	
+    	<form-bean name="BsNewForm" type="com.ext.portlet.base.news.BsNewForm"/>
+    	<form-bean name="BsAddsForm" type="com.ext.portlet.base.adds.BsAddsForm"/>
+    	<form-bean name="BsYellowPageForm" type="com.ext.portlet.base.yellowpages.BsYellowPageForm"/>
+    	<form-bean name="BsBannerForm" type="com.ext.portlet.base.banners.BsBannerForm"/>
+    	<form-bean name="BsBookmarkForm" type="com.ext.portlet.base.bookmarks.BsBookmarkForm"/>
+    	<form-bean name="BsDocumentForm" type="com.ext.portlet.base.documents.BsDocumentForm"/>
+    	<form-bean name="BsFaqForm" type="com.ext.portlet.base.faq.BsFaqForm"/>
+    	<form-bean name="BsFaqContactForm" type="com.ext.portlet.base.faq.contact.BsFaqContactForm"/>
+    	<form-bean name="BsFaqContactReplyForm" type="com.ext.portlet.base.faq.contact.BsFaqContactReplyForm"/>
+    	<form-bean name="BsFaqContactPersonForm" type="com.ext.portlet.base.faq.contactPerson.BsFaqContactPersonForm"/>
+    	<form-bean name="BsCommentForm" type="com.ext.portlet.base.guestbook.BsCommentForm"/>
+    	<form-bean name="BsEventForm" type="com.ext.portlet.base.events.BsEventForm"/>
+    	<form-bean name="BsEventFileForm" type="com.ext.portlet.base.events.files.BsEventFileForm"/>
+    	<form-bean name="BsEventYellowPageForm" type="com.ext.portlet.base.events.related.BsEventYellowPageForm"/>
+    	<form-bean name="BsLookupYellowPageForm" type="com.ext.portlet.base.events.related.BsLookupYellowPageForm"/>
+    	<form-bean name="BsEventPartyForm" type="com.ext.portlet.base.events.parties.BsEventPartyForm"/>
+    	<form-bean name="BsLookupPartyForm" type="com.ext.portlet.base.events.parties.BsLookupPartyForm"/>
+		
+		<form-bean name="YellowPageSearchForm" type="com.ext.portlet.base.yellowpages.browser.YellowPageSearchForm" />
+    	
+    	<form-bean name="BsCivItemForm" type="com.ext.portlet.base.civitems.BsCivItemForm"/>
+    	<form-bean name="BsCivItemFileForm" type="com.ext.portlet.base.civitems.files.BsCivItemFileForm"/>
+    	
+    	<form-bean name="BsCourseForm" type="com.ext.portlet.base.courses.BsCourseForm"/>
+    	<form-bean name="BsCoursePartyForm" type="com.ext.portlet.base.courses.parties.BsCoursePartyForm"/>
+    	
+    	<form-bean name="BsAuditingSearchForm" type="com.ext.portlet.base.auditing.BsAuditingSearchForm"/>
+    	
+    	<form-bean name="EvBuildingForm" type="com.ext.portlet.base.events.locations.EvBuildingForm"/>
+    	<form-bean name="EvRoomForm" type="com.ext.portlet.base.events.locations.rooms.EvRoomForm"/>
+    	<form-bean name="EvZoneForm" type="com.ext.portlet.base.events.locations.rooms.zones.EvZoneForm"/>
+    	<form-bean name="EvTicketTypeForm" type="com.ext.portlet.base.events.tickettypes.EvTicketTypeForm"/>
+    	<form-bean name="EvEventTypeForm" type="com.ext.portlet.base.events.eventtypes.EvEventTypeForm"/>
+    	<form-bean name="BsEventSearchForm" type="com.ext.portlet.base.events.browser.SearchEventsForm"/>
+    	<form-bean name="BsEventRegistrationForm" type="com.ext.portlet.base.events.BsEventRegistrationForm"/>
+    	<form-bean name="BsOnlineEventRegistrationForm" type="com.ext.portlet.base.events.onlineevents.BsOnlineEventRegistrationForm"/>
+    	
+    	<form-bean name="BsYellowPageUAForm" type="com.ext.portlet.base.yellowpages.ua.BsYellowPageUserAssignmentForm"/>
+    </form-beans>
+	<action-mappings>
+
+		<!-- journal -->
+		<action path="/ext/journal/list" type="com.ext.portlet.base.journal.ListPagesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.journal.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+
+		<!-- recent content -->
+		<action path="/ext/content/list" type="com.ext.portlet.base.content.ViewItemsAction" scope="request">
+			<forward name="gnomon.hibernate.model.gn.GnContent.list" path="portlet.ext.content.content.list" />
+			<forward name="gnomon.hibernate.model.base.banners.BsBanner.list" path="portlet.ext.content.banners.list" />
+			<forward name="gnomon.hibernate.model.base.bookmarks.BsBookmark.list" path="portlet.ext.content.bookmarks.list" />
+			<forward name="gnomon.hibernate.model.base.documents.BsDocument.list" path="portlet.ext.content.documents.list" />
+			<forward name="gnomon.hibernate.model.base.events.BsEvent.list" path="portlet.ext.content.events.list" />
+			<forward name="gnomon.hibernate.model.base.civitems.BsCivItem.list" path="portlet.ext.content.civitems.list" />
+			<forward name="gnomon.hibernate.model.base.faq.BsFaq.list" path="portlet.ext.content.faq.list" />
+			<forward name="gnomon.hibernate.model.base.news.BsNew.list" path="portlet.ext.content.news.list" />
+			<forward name="gnomon.hibernate.model.base.mlists.BsMlist.list" path="portlet.ext.content.newsletters.list" />
+			<forward name="gnomon.hibernate.model.base.mlists.BsMlistPost.list" path="portlet.ext.content.newsletters.posts.list" />
+			<forward name="com.ext.portlet.dms.util.AlfrescoRow.list" path="portlet.ext.content.alfresco.list" />
+			<forward name="com.liferay.portlet.messageboards.model.MBMessage.list" path="portlet.ext.content.mbmessage.list" />
+			<forward name="common.failure" path="portlet.ext.content.error" />
+		</action>
+
+		<action path="/ext/content/edit_configuration" type="com.ext.portlet.base.content.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.content.edit_configuration" />
+		</action>
+
+		<!-- bs_gnContentRss -->
+		<action path="/ext/gnContentRss/view" type="com.ext.portlet.base.contentRss.ViewAction" scope="request">
+			<forward name="action.success" path="portlet.ext.gnContentRss.view"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+
+		<action path="/ext/gnContentRss/rss" type="com.ext.portlet.base.contentRss.RSSAction" />
+		
+		
+		
+		<!-- bs_auditing -->
+		<action path="/ext/bsAuditing/list" 
+			type="com.ext.portlet.base.auditing.ListAuditingAction" 
+			name="BsAuditingSearchForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.auditing.list"  />
+			<forward name="common.failure" path="/common/error.jsp"  />
+		</action>
+		
+		
+		
+		<!-- banners display -->
+		<action path="/ext/banners_display/view" type="com.ext.portlet.base.banners_display.ViewBannersAction" scope="request">
+			<forward name="view.vertical" path="portlet.ext.banners_display.vertical"  />
+			<forward name="view.horizontal" path="portlet.ext.banners_display.horizontal"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/banners_display/edit_configuration" type="com.ext.portlet.base.banners_display.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.banners_display.edit_configuration" />
+		</action>
+
+		<action path="/ext/banners_display/goto" type="com.ext.portlet.base.banners_display.ClickBannerAction">
+			<forward name="/ext/banners_display/view" path="/ext/banners_display/view"  redirect="true"/>
+		</action>
+
+		<!-- banners -->
+		<action path="/ext/banners/list" type="com.ext.portlet.base.banners.ListBannersAction" scope="request">
+			<forward name="common.success" path="portlet.ext.banners.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/banners/load" type="com.ext.portlet.base.banners.LoadBannerAction"
+		    name="BsBannerForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.banners.view_banner"  />
+			<forward name="common.add" path="portlet.ext.banners.form"  />
+			<forward name="common.edit" path="portlet.ext.banners.form"  />
+			<forward name="common.delete" path="portlet.ext.banners.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/banners/add" type="com.ext.portlet.base.banners.AddBannerAction"
+		    name="BsBannerForm" validate="false" scope="request">
+			<forward name="/ext/banners/list" path="/ext/banners/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.banners.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/banners/update" type="com.ext.portlet.base.banners.UpdateBannerAction"
+		    name="BsBannerForm" validate="false" scope="request">
+			<forward name="/ext/banners/list" path="/ext/banners/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.banners.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/banners/delete" type="com.ext.portlet.base.banners.DeleteBannerAction"
+		    name="BsBannerForm" validate="false" scope="request">
+			<forward name="/ext/banners/list" path="/ext/banners/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.banners.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/banners/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/banners/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+		<!-- bookmarks -->
+		<action path="/ext/bookmarks/goto" type="com.ext.portlet.base.bookmarks.ClickBookmarkAction"/>
+
+		<action path="/ext/bookmarks/list" type="com.ext.portlet.base.bookmarks.ListBookmarksAction" scope="request">
+			<forward name="common.success" path="portlet.ext.bookmarks.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/bookmarks/load" type="com.ext.portlet.base.bookmarks.LoadBookmarkAction"
+		    name="BsBookmarkForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.bookmarks.view"  />
+			<forward name="common.add" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.edit" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.delete" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/bookmarks/add" type="com.ext.portlet.base.bookmarks.AddBookmarkAction"
+		    name="BsBookmarkForm" validate="false" scope="request">
+			<forward name="/ext/bookmarks/list" path="/ext/bookmarks/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/bookmarks/update" type="com.ext.portlet.base.bookmarks.UpdateBookmarkAction"
+		    name="BsBookmarkForm" validate="false" scope="request">
+			<forward name="/ext/bookmarks/list" path="/ext/bookmarks/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/bookmarks/delete" type="com.ext.portlet.base.bookmarks.DeleteBookmarkAction"
+		    name="BsBookmarkForm" validate="false" scope="request">
+			<forward name="/ext/bookmarks/list" path="/ext/bookmarks/list" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.bookmarks.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/bookmarks/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/bookmarks/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<!-- documents -->
+		<action path="/ext/documents/get_file" type="com.ext.portlet.base.documents.GetFileAction" />
+
+		<action path="/ext/documents/list" type="com.ext.portlet.base.documents.ListDocumentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.documents.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/documents/load" type="com.ext.portlet.base.documents.LoadDocumentAction"
+		    name="BsDocumentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.documents.view_document"  />
+			<forward name="common.add" path="portlet.ext.documents.form"  />
+			<forward name="common.edit" path="portlet.ext.documents.form"  />
+			<forward name="common.delete" path="portlet.ext.documents.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/documents/add" type="com.ext.portlet.base.documents.AddDocumentAction"
+		    name="BsDocumentForm" validate="false" scope="request">
+			<forward name="/ext/documents/list" path="/ext/documents/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.documents.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/documents/update" type="com.ext.portlet.base.documents.UpdateDocumentAction"
+		    name="BsDocumentForm" validate="false" scope="request">
+			<forward name="/ext/documents/list" path="/ext/documents/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.documents.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/documents/delete" type="com.ext.portlet.base.documents.DeleteDocumentAction"
+		    name="BsDocumentForm" validate="false" scope="request">
+			<forward name="/ext/documents/list" path="/ext/documents/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.documents.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/documents/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/documents/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+		<!-- events -->
+		<action path="/ext/events/export" type="com.ext.portlet.base.events.servlet.ExportEventsAction" />
+		
+		<action path="/ext/events/list" type="com.ext.portlet.base.events.ListEventsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.events.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/load" type="com.ext.portlet.base.events.LoadEventAction"
+		    name="BsEventForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.view_event"  />
+			<forward name="common.add" path="portlet.ext.events.form"  />
+			<forward name="common.edit" path="portlet.ext.events.form"  />
+			<forward name="common.delete" path="portlet.ext.events.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/createDerivedEvent" type="com.ext.portlet.base.events.CreateDerivedEventAction"
+		    scope="request">
+		    <forward name="/ext/events/load" path="/ext/events/load" redirect="true" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/add" type="com.ext.portlet.base.events.AddEventAction"
+		    name="BsEventForm" validate="false" scope="request">
+			<forward name="/ext/events/list" path="/ext/events/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/update" type="com.ext.portlet.base.events.UpdateEventAction"
+		    name="BsEventForm" validate="false" scope="request">
+			<forward name="/ext/events/list" path="/ext/events/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/delete" type="com.ext.portlet.base.events.DeleteEventAction"
+		    name="BsEventForm" validate="false" scope="request">
+			<forward name="/ext/events/list" path="/ext/events/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/loadRegistration" type="com.ext.portlet.base.events.LoadEventRegistrationAction"
+		    name="BsEventRegistrationForm" validate="false" scope="request">
+		    <forward name="common.success" path="portlet.ext.events.registration.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/saveRegistration" type="com.ext.portlet.base.events.SaveEventRegistrationAction"
+		    name="BsEventRegistrationForm" validate="false" scope="request">
+		    <forward name="/ext/events/load" path="/ext/events/load" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.events.registration.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+	
+		<action path="/ext/events/loadOnlineRegistration" type="com.ext.portlet.base.events.onlineevents.LoadOnlineEventRegistrationAction"
+		    name="BsOnlineEventRegistrationForm" validate="false" scope="request">
+		    <forward name="common.add" path="portlet.ext.events.onlineevents.registration.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/saveOnlineRegistration" type="com.ext.portlet.base.events.onlineevents.SaveOnlineEventRegistrationAction"
+		    name="BsOnlineEventRegistrationForm" validate="false" scope="request">
+		    <forward name="/ext/events/load" path="/ext/events/load" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.events.onlineevents.registration.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/getFile" type="com.ext.portlet.base.events.files.GetFileAction" />
+
+		<action path="/ext/events/loadFile" type="com.ext.portlet.base.events.files.LoadFileAction"
+		    name="BsEventFileForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.files.view"  />
+			<forward name="common.add" path="portlet.ext.events.files.form"  />
+			<forward name="common.edit" path="portlet.ext.events.files.form"  />
+			<forward name="common.delete" path="portlet.ext.events.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/addFile" type="com.ext.portlet.base.events.files.AddFileAction"
+		    name="BsEventFileForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/updateFile" type="com.ext.portlet.base.events.files.UpdateFileAction"
+		    name="BsEventFileForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/deleteFile" type="com.ext.portlet.base.events.files.DeleteFileAction"
+		    name="BsEventFileForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/loadEventYellowPage" type="com.ext.portlet.base.events.related.LoadEventYellowPageAction"
+		    name="BsEventYellowPageForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.related.form"  />
+			<forward name="common.add" path="portlet.ext.events.related.form"  />
+			<forward name="common.edit" path="portlet.ext.events.related.form"  />
+			<forward name="common.delete" path="portlet.ext.events.related.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/addEventYellowPage" type="com.ext.portlet.base.events.related.AddEventYellowPageAction"
+		    name="BsEventYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.related.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/updateEventYellowPage" type="com.ext.portlet.base.events.related.UpdateEventYellowPageAction"
+		    name="BsEventYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.related.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/deleteEventYellowPage" type="portlet.ext.base.yellowpages.browser.DeleteEventYellowPageAction"
+		    name="BsEventYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.related.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/lookupYellowPage" type="com.ext.portlet.base.events.related.LookupYellowPageAction"
+		    name="BsLookupYellowPageForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.events.related.lookup.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/base/yellowpages/browser/view" forward="portlet.ext.base.yellowpages.browser.view" />
+		
+		<action path="/ext/base/yellowpages/browser/search" type="com.ext.portlet.base.yellowpages.browser.SearchYellowPagesAction"
+				scope="request" name="YellowPageSearchForm" validate="false">
+			<forward name="portlet.ext.base.yellowpages.browser.success" path="portlet.ext.base.yellowpages.browser.search" />
+			<forward name="portlet.ext.base.yellowpages.browser.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/base/yellowpages/browserGoogle/search" type="com.ext.portlet.base.yellowpages.browser.GoogleSearchYellowPagesAction"
+				scope="request" name="YellowPageSearchForm" validate="false">
+			<forward name="portlet.ext.base.yellowpages.browser.success" path="portlet.ext.base.yellowpages.browser.googlesearch" />
+			<forward name="portlet.ext.base.yellowpages.browser.failure" path="/common/error.jsp" />
+		</action>			
+	
+		<action path="/ext/events/loadEventParty" type="com.ext.portlet.base.events.parties.LoadEventPartyAction"
+		    name="BsEventPartyForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.parties.form"  />
+			<forward name="common.add" path="portlet.ext.events.parties.form"  />
+			<forward name="common.edit" path="portlet.ext.events.parties.form"  />
+			<forward name="common.delete" path="portlet.ext.events.parties.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/addEventParty" type="com.ext.portlet.base.events.parties.AddEventPartyAction"
+		    name="BsEventPartyForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.parties.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/updateEventParty" type="com.ext.portlet.base.events.parties.UpdateEventPartyAction"
+		    name="BsEventPartyForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.parties.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/events/deleteEventParty" type="com.ext.portlet.base.events.parties.DeleteEventPartyAction"
+		    name="BsEventPartyForm" validate="false" scope="request">
+			<forward name="/ext/events/load" path="/ext/events/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.parties.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/lookupParty" type="com.ext.portlet.base.events.parties.LookupPartyAction"
+		    name="BsLookupPartyForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.events.parties.lookup.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!-- civitems -->
+		<action path="/ext/civitems/list" type="com.ext.portlet.base.civitems.ListCivItemsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.civitems.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/load" type="com.ext.portlet.base.civitems.LoadCivItemAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.civitems.view_civitem"  />
+			<forward name="common.add" path="portlet.ext.civitems.form"  />
+			<forward name="common.edit" path="portlet.ext.civitems.form"  />
+			<forward name="common.delete" path="portlet.ext.civitems.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/add" type="com.ext.portlet.base.civitems.AddCivItemAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+			<forward name="/ext/civitems/list" path="/ext/civitems/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/import" type="com.ext.portlet.base.civitems.ImportBsCivItemsAction"
+		    scope="request">
+			<forward name="/ext/civitems/list" path="/ext/civitems/list"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<action path="/ext/civitems/update" type="com.ext.portlet.base.civitems.UpdateCivItemAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+			<forward name="/ext/civitems/list" path="/ext/civitems/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/delete" type="com.ext.portlet.base.civitems.DeleteCivItemAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+			<forward name="/ext/civitems/list" path="/ext/civitems/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/civitems/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/civitems/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+		<action path="/ext/civitems/getFile" type="com.ext.portlet.base.civitems.files.GetFileAction" />
+
+		<action path="/ext/civitems/loadFile" type="com.ext.portlet.base.civitems.files.LoadFileAction"
+		    name="BsCivItemFileForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.civitems.files.view"  />
+			<forward name="common.add" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.edit" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.delete" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/addFile" type="com.ext.portlet.base.civitems.files.AddFileAction"
+		    name="BsCivItemFileForm" validate="false" scope="request">
+			<forward name="/ext/civitems/load" path="/ext/civitems/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/updateFile" type="com.ext.portlet.base.civitems.files.UpdateFileAction"
+		    name="BsCivItemFileForm" validate="false" scope="request">
+			<forward name="/ext/civitems/load" path="/ext/civitems/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/civitems/deleteFile" type="com.ext.portlet.base.civitems.files.DeleteFileAction"
+		    name="BsCivItemFileForm" validate="false" scope="request">
+			<forward name="/ext/civitems/load" path="/ext/civitems/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.civitems.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  bs_civitems_browsing -->
+		<action path="/ext/civitemsbrowser/list" type="com.ext.portlet.base.civitems.browser.ListBsCivItemsAction" 
+			 validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.civitems.browser.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/civitemsbrowser/load" type="com.ext.portlet.base.civitems.browser.LoadCourseProfileAction"
+	     name="BsCivItemForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.civitems.browser.ByTopic_view_course_profile"  />
+		</action>
+		
+		<action path="/ext/civitemsbrowser/listCoursesOfAuthor" type="com.ext.portlet.base.civitems.browser.ListCoursesOfAuthorAction">
+			<forward name="common.success" path="portlet.ext.civitems.browser.listCoursesOfAuthor" />
+		</action>
+
+		<!-- courses -->
+		<action path="/ext/courses/list" type="com.ext.portlet.base.courses.ListCoursesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.courses.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/courses/load" type="com.ext.portlet.base.courses.LoadCourseAction"
+		    name="BsCourseForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.courses.view_course"  />
+			<forward name="common.add" path="portlet.ext.courses.form"  />
+			<forward name="common.edit" path="portlet.ext.courses.form"  />
+			<forward name="common.delete" path="portlet.ext.courses.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/courses/add" type="com.ext.portlet.base.courses.AddCourseAction"
+		    name="BsCourseForm" validate="false" scope="request">
+			<forward name="/ext/courses/list" path="/ext/courses/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.courses.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/courses/update" type="com.ext.portlet.base.courses.UpdateCourseAction"
+		    name="BsCourseForm" validate="false" scope="request">
+			<forward name="/ext/courses/list" path="/ext/courses/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.courses.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/courses/delete" type="com.ext.portlet.base.courses.DeleteCourseAction"
+		    name="BsCourseForm" validate="false" scope="request">
+			<forward name="/ext/courses/list" path="/ext/courses/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.courses.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/courses/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+
+		<action path="/ext/courses/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<action path="/ext/courses/listAvailableParties" type="com.ext.portlet.base.courses.ListAvailablePartiesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.courses.parties.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/courses/addParties" type="com.ext.portlet.base.courses.AddPartiesAction"
+		    scope="request">
+			<forward name="/ext/courses/load" path="/ext/courses/load"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/courses/deleteParties" type="com.ext.portlet.base.courses.DeletePartiesAction"
+		    scope="request">
+			<forward name="/ext/courses/load" path="/ext/courses/load"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!-- mlists_display -->
+		<action path="/ext/mlists_display/load" type="com.ext.portlet.base.mlists_display.LoadSubscriberDummyAction"
+		    name="BsMListSubscriptionForm" validate="false" scope="request">
+			<forward name="common.add" path="portlet.ext.mlists_display.form"  />
+			<forward name="common.validation" path="portlet.ext.mlists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists_display/subscribe" type="com.ext.portlet.base.mlists_display.AddSubscriberAction"
+			name="BsMListSubscriptionForm" validate="false" scope="request">
+			<forward name="/ext/mlists_display/load" path="/ext/mlists_display/load" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.mlists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<!-- mlists -->
+		<action path="/ext/mlists/edit_configuration" type="com.ext.portlet.base.mlists.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.mlists.edit_configuration" />
+		</action>
+
+		<action path="/ext/mlists/list" type="com.ext.portlet.base.mlists.ListMListsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.mlists.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/load" type="com.ext.portlet.base.mlists.LoadMListAction"
+		    name="BsMListForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.mlists.view_mlist"  />
+			<forward name="common.add" path="portlet.ext.mlists.form"  />
+			<forward name="common.edit" path="portlet.ext.mlists.form"  />
+			<forward name="common.delete" path="portlet.ext.mlists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/add" type="com.ext.portlet.base.mlists.AddMListAction"
+		    name="BsMListForm" validate="false" scope="request">
+			<forward name="/ext/mlists/list" path="/ext/mlists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/update" type="com.ext.portlet.base.mlists.UpdateMListAction"
+		    name="BsMListForm" validate="false" scope="request">
+			<forward name="/ext/mlists/list" path="/ext/mlists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/mlists/delete" type="com.ext.portlet.base.mlists.DeleteMListAction"
+		    name="BsMListForm" validate="false" scope="request">
+			<forward name="/ext/mlists/list" path="/ext/mlists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/loadSubscriber" type="com.ext.portlet.base.mlists.subscribers.LoadSubscriberAction"
+		    name="BsMListSubscriberForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.mlists.subscribers.view"  />
+			<forward name="common.add" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.edit" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.delete" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/addSubscriber" type="com.ext.portlet.base.mlists.subscribers.AddSubscriberAction"
+		    name="BsMListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/mlists/load" path="/ext/mlists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/updateSubscriber" type="com.ext.portlet.base.mlists.subscribers.UpdateSubscriberAction"
+		    name="BsMListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/mlists/load" path="/ext/mlists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/deleteSubscriber" type="com.ext.portlet.base.mlists.subscribers.DeleteSubscriberAction"
+		    name="BsMListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/mlists/load" path="/ext/mlists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/loadPost" type="com.ext.portlet.base.mlists.posts.LoadPostAction"
+		    name="BsMListPostForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.mlists.posts.view"  />
+			<forward name="common.add" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.edit" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.delete" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/addPost" type="com.ext.portlet.base.mlists.posts.AddPostAction"
+		    name="BsMListPostForm" validate="false" scope="request">
+			<forward name="/ext/mlists/load" path="/ext/mlists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/updatePost" type="com.ext.portlet.base.mlists.posts.UpdatePostAction"
+		    name="BsMListPostForm" validate="false" scope="request">
+		    <forward name="/ext/mlists/load" path="/ext/mlists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/deletePost" type="com.ext.portlet.base.mlists.posts.DeletePostAction"
+		    name="BsMListPostForm" validate="false" scope="request">
+			<forward name="/ext/mlists/load" path="/ext/mlists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/loadPostSend" type="com.ext.portlet.base.mlists.posts.LoadPostAction"
+		    name="BsMListPostSendForm" validate="false" scope="request">
+		    <forward name="common.edit" path="portlet.ext.mlists.posts.send-form"  />
+			<forward name="common.validation" path="portlet.ext.mlists.posts.send-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/sendPost" type="com.ext.portlet.base.mlists.posts.SendPostAction"
+		    name="BsMListPostSendForm" validate="false" scope="request">
+		    <forward name="/ext/mlists/load" path="/ext/mlists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.posts.send-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/getPostFile" type="com.ext.portlet.base.mlists.files.GetFileAction" />
+
+		<action path="/ext/mlists/loadPostFile" type="com.ext.portlet.base.mlists.files.LoadFileAction"
+		    name="BsMListPostFileForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.mlists.files.view"  />
+			<forward name="common.add" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.edit" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.delete" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/addPostFile" type="com.ext.portlet.base.mlists.files.AddFileAction"
+		    name="BsMListPostFileForm" validate="false" scope="request">
+			<forward name="/ext/mlists/loadPost" path="/ext/mlists/loadPost" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/updatePostFile" type="com.ext.portlet.base.mlists.files.UpdateFileAction"
+		    name="BsMListPostFileForm" validate="false" scope="request">
+			<forward name="/ext/mlists/loadPost" path="/ext/mlists/loadPost" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/mlists/deletePostFile" type="com.ext.portlet.base.mlists.files.DeleteFileAction"
+		    name="BsMListPostFileForm" validate="false" scope="request">
+			<forward name="/ext/mlists/loadPost" path="/ext/mlists/loadPost" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.mlists.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+
+		<!-- smslists_display -->
+		<!--
+		<action path="/ext/smslists_display/load" type="com.ext.portlet.base.smslists_display.LoadSubscriberDummyAction"
+		    name="BsSmsListSubscriptionForm" validate="false" scope="request">
+			<forward name="common.add" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.validation" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		-->
+		<action path="/ext/smslists_display/load" type="com.ext.portlet.base.smslists_display.LoadSubscriptionFormAction"
+		    name="BsSmsListSubscriptionForm" validate="false" scope="request">
+			<forward name="common.add" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.validation" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/smslists_display/subscribe" 
+			type="com.ext.portlet.base.smslists_display.SubscribeAction"
+			name="BsSmsListSubscriptionForm" validate="false" scope="request">
+			<forward name="/ext/smslists_display/load" path="/ext/smslists_display/load" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/smslists_display/unsubscribe" 
+			type="com.ext.portlet.base.smslists_display.UnsubscribeAction"
+			name="BsSmsListSubscriptionForm" validate="false" scope="request">
+			<forward name="/ext/smslists_display/load" path="/ext/smslists_display/load" redirect="true" />
+			<forward name="common.validation" path="portlet.ext.smslists_display.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		
+		<!-- SMS Lists -->
+		<action path="/ext/smslists/edit_configuration" type="com.ext.portlet.base.smslists.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.smslists.edit_configuration" />
+		</action>
+
+		<action path="/ext/smslists/list" type="com.ext.portlet.base.smslists.ListSmsListsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.smslists.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/load" type="com.ext.portlet.base.smslists.LoadSmsListAction"
+		    name="BsSmsListForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.smslists.view_smslist"  />
+			<forward name="common.add" path="portlet.ext.smslists.form"  />
+			<forward name="common.edit" path="portlet.ext.smslists.form"  />
+			<forward name="common.delete" path="portlet.ext.smslists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/add" type="com.ext.portlet.base.smslists.AddSmsListAction"
+		    name="BsSmsListForm" validate="false" scope="request">
+			<forward name="/ext/smslists/list" path="/ext/smslists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/update" type="com.ext.portlet.base.smslists.UpdateSmsListAction"
+		    name="BsSmsListForm" validate="false" scope="request">
+			<forward name="/ext/smslists/list" path="/ext/smslists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/delete" type="com.ext.portlet.base.smslists.DeleteSmsListAction"
+		    name="BsSmsListForm" validate="false" scope="request">
+			<forward name="/ext/smslists/list" path="/ext/smslists/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/loadSubscriber" type="com.ext.portlet.base.smslists.subscribers.LoadSubscriberAction"
+		    name="BsSmsListSubscriberForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.smslists.subscribers.view"  />
+			<forward name="common.add" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.edit" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.delete" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/addSubscriber" type="com.ext.portlet.base.smslists.subscribers.AddSubscriberAction"
+		    name="BsSmsListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/smslists/load" path="/ext/smslists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/updateSubscriber" type="com.ext.portlet.base.smslists.subscribers.UpdateSubscriberAction"
+		    name="BsSmsListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/smslists/load" path="/ext/smslists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/deleteSubscriber" type="com.ext.portlet.base.smslists.subscribers.DeleteSubscriberAction"
+		    name="BsSmsListSubscriberForm" validate="false" scope="request">
+			<forward name="/ext/smslists/load" path="/ext/smslists/load"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.subscribers.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/loadPost" type="com.ext.portlet.base.smslists.posts.LoadPostAction"
+		    name="BsSmsListPostForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.smslists.posts.view"  />
+			<forward name="common.add" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.edit" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.delete" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/addPost" type="com.ext.portlet.base.smslists.posts.AddPostAction"
+		    name="BsSmsListPostForm" validate="false" scope="request">
+			<forward name="/ext/smslists/load" path="/ext/smslists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/updatePost" type="com.ext.portlet.base.smslists.posts.UpdatePostAction"
+		    name="BsSmsListPostForm" validate="false" scope="request">
+		    <forward name="/ext/smslists/load" path="/ext/smslists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/deletePost" type="com.ext.portlet.base.smslists.posts.DeletePostAction"
+		    name="BsSmsListPostForm" validate="false" scope="request">
+			<forward name="/ext/smslists/load" path="/ext/smslists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.posts.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/loadPostSend" type="com.ext.portlet.base.smslists.posts.LoadPostAction"
+		    name="BsSmsListPostSendForm" validate="false" scope="request">
+		    <forward name="common.edit" path="portlet.ext.smslists.posts.send-form"  />
+			<forward name="common.validation" path="portlet.ext.smslists.posts.send-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/smslists/sendPost" type="com.ext.portlet.base.smslists.posts.SendSmsMessageAction"
+		    name="BsSmsListPostSendForm" validate="false" scope="request">
+		    <forward name="/ext/smslists/load" path="/ext/smslists/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.smslists.posts.send-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+
+
+		<!-- news -->
+		<action path="/ext/news/list" type="com.ext.portlet.base.news.ListNewsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.news.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/news/load" type="com.ext.portlet.base.news.LoadNewAction"
+		    name="BsNewForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.news.view_new"  />
+			<forward name="common.add" path="portlet.ext.news.form"  />
+			<forward name="common.edit" path="portlet.ext.news.form"  />
+			<forward name="common.delete" path="portlet.ext.news.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/news/add" type="com.ext.portlet.base.news.AddNewAction"
+		    name="BsNewForm" validate="false" scope="request">
+			<forward name="/ext/news/list" path="/ext/news/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.news.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/news/update" type="com.ext.portlet.base.news.UpdateNewAction"
+		    name="BsNewForm" validate="false" scope="request">
+			<forward name="/ext/news/list" path="/ext/news/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.news.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/news/delete" type="com.ext.portlet.base.news.DeleteNewAction"
+		    name="BsNewForm" validate="false" scope="request">
+			<forward name="/ext/news/list" path="/ext/news/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.news.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/news/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/news/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<!-- adds -->
+		<action path="/ext/adds/list" type="com.ext.portlet.base.adds.ListAddsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.adds.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/adds/load" type="com.ext.portlet.base.adds.LoadAddsAction"
+		    name="BsAddsForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.adds.view_new"  />
+			<forward name="common.add" path="portlet.ext.adds.form"  />
+			<forward name="common.edit" path="portlet.ext.adds.form"  />
+			<forward name="common.delete" path="portlet.ext.adds.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/adds/add" type="com.ext.portlet.base.adds.AddAddsAction"
+		    name="BsAddsForm" validate="false" scope="request">
+			<forward name="/ext/adds/list" path="/ext/adds/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.adds.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/adds/update" type="com.ext.portlet.base.adds.UpdateAddsAction"
+		    name="BsAddsForm" validate="false" scope="request">
+			<forward name="/ext/adds/list" path="/ext/adds/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.adds.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/adds/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/adds/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+		<action path="/ext/adds/delete" type="com.ext.portlet.base.adds.DeleteAddsAction"
+		    name="BsAddsForm" validate="false" scope="request">
+			<forward name="/ext/adds/list" path="/ext/adds/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.adds.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<!-- yellowpages -->
+		<action path="/ext/yellowpages/list" type="com.ext.portlet.base.yellowpages.ListYellowPagesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.yellowpages.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/yellowpages/load" type="com.ext.portlet.base.yellowpages.LoadYellowPageAction"
+		    name="BsYellowPageForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.yellowpages.view"  />
+			<forward name="common.add" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.edit" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.delete" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/yellowpages/add" type="com.ext.portlet.base.yellowpages.AddYellowPageAction"
+		    name="BsYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/yellowpages/list" path="/ext/yellowpages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/yellowpages/update" type="com.ext.portlet.base.yellowpages.UpdateYellowPageAction"
+		    name="BsYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/yellowpages/list" path="/ext/yellowpages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/yellowpages/delete" type="com.ext.portlet.base.yellowpages.DeleteYellowPageAction"
+		    name="BsYellowPageForm" validate="false" scope="request">
+			<forward name="/ext/yellowpages/list" path="/ext/yellowpages/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.yellowpages.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/yellowpages/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/yellowpages/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+
+        <action path="/ext/yellowpages/editUA" type="com.ext.portlet.base.yellowpages.ua.EditUserAssignmentAction"
+            name="BsYellowPageUAForm" validate="false" scope="request">
+            <forward name="portlet.ext.yellowpages.ua.form" path="portlet.ext.yellowpages.ua.form"  />
+            <forward name="common.failure" path="portlet.error"  />
+        </action>
+		        
+        <action path="/ext/yellowpages/loadUA" type="com.ext.portlet.base.yellowpages.ua.LoadUserAssignmentAction"
+            name="BsYellowPageUAForm" validate="false" scope="request">
+            <forward name="portlet.ext.yellowpages.ua.form" path="portlet.ext.yellowpages.ua.form"  />
+            <forward name="common.failure" path="portlet.error"  />
+        </action>
+        
+        <action path="/ext/yellowpages/updateUA" type="com.ext.portlet.base.yellowpages.ua.UpdateUserAssignmentAction"
+            name="BsYellowPageUAForm" validate="false" scope="request">
+            <forward name="common.validation" path="portlet.ext.yellowpages.ua.form"  />
+            <forward name="common.failure" path="portlet.error"  />
+        </action>
+        
+		<!-- faq -->
+		<action path="/ext/faq/edit_configuration" type="com.ext.portlet.base.faq.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.faq.edit_configuration" />
+		</action>
+
+		<action path="/ext/faq/dummyBroker" type="com.ext.portlet.base.faq.DummyBrokerAction" scope="request">
+			<forward name="/ext/faq/list" path="/ext/faq/list"  redirect="true"/>
+			<forward name="/ext/faq/listContacts" path="/ext/faq/listContacts"  redirect="true"/>
+		</action>
+
+		<action path="/ext/faq/list" type="com.ext.portlet.base.faq.ListFaqsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.faq.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/load" type="com.ext.portlet.base.faq.LoadFaqAction"
+		    name="BsFaqForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.faq.view_faq"  />
+			<forward name="common.add" path="portlet.ext.faq.form"  />
+			<forward name="common.edit" path="portlet.ext.faq.form"  />
+			<forward name="common.delete" path="portlet.ext.faq.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/add" type="com.ext.portlet.base.faq.AddFaqAction"
+		    name="BsFaqForm" validate="false" scope="request">
+			<forward name="/ext/faq/list" path="/ext/faq/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/update" type="com.ext.portlet.base.faq.UpdateFaqAction"
+		    name="BsFaqForm" validate="false" scope="request">
+			<forward name="/ext/faq/list" path="/ext/faq/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/delete" type="com.ext.portlet.base.faq.DeleteFaqAction"
+		    name="BsFaqForm" validate="false" scope="request">
+			<forward name="/ext/faq/list" path="/ext/faq/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/faq/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<action path="/ext/faq/listContacts" type="com.ext.portlet.base.faq.contact.ListContactsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.faq.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/loadContact" type="com.ext.portlet.base.faq.contact.LoadContactAction"
+		    name="BsFaqContactForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.faq.contact.view_contact"  />
+		    <forward name="common.form" path="portlet.ext.faq.contact.form"  />
+			<forward name="common.add" path="portlet.ext.faq.contact.add-form"  />
+			<forward name="common.edit" path="portlet.ext.faq.contact.edit-form"  />
+			<forward name="common.delete" path="portlet.ext.faq.contact.edit-form"  />
+			<forward name="common.validation" path="portlet.ext.faq.contact.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/addContact" type="com.ext.portlet.base.faq.contact.AddContactAction"
+			name="BsFaqContactForm" validate="false" scope="request">
+			<forward name="/ext/faq/list" path="/ext/faq/list" redirect="true" />
+			<forward name="/ext/faq/contact/thankyou" path="portlet.ext.faq.contact.thankyou"/>
+			<forward name="common.validation" path="portlet.ext.faq.contact.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/updateContact" type="com.ext.portlet.base.faq.contact.UpdateContactAction"
+		    name="BsFaqContactForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContacts" path="/ext/faq/listContacts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contact.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/deleteContact" type="com.ext.portlet.base.faq.contact.DeleteContactAction"
+		    name="BsFaqContactForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContacts" path="/ext/faq/listContacts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contact.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/loadContactReply" type="com.ext.portlet.base.faq.contact.LoadContactAction"
+		    name="BsFaqContactReplyForm" validate="false" scope="request">
+		    <forward name="common.form" path="portlet.ext.faq.contact.reply-form"  />
+			<forward name="common.validation" path="portlet.ext.faq.contact.reply-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/faq/replyContact" type="com.ext.portlet.base.faq.contact.ReplyContactAction"
+		    name="BsFaqContactReplyForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContacts" path="/ext/faq/listContacts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contact.reply-form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/faq/listContactPersons" type="com.ext.portlet.base.faq.contactPerson.ListContactPersonsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.faq.contactPerson.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/faq/loadContactPerson" type="com.ext.portlet.base.faq.contactPerson.LoadContactPersonAction"
+		    name="BsFaqContactPersonForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.faq.contactPerson.form"  />
+		    <forward name="common.form" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.add" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.edit" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.delete" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.validation" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/faq/addContactPerson" type="com.ext.portlet.base.faq.contactPerson.AddContactPersonAction"
+		    name="BsFaqContactPersonForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContactPersons" path="/ext/faq/listContactPersons"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/faq/updateContactPerson" type="com.ext.portlet.base.faq.contactPerson.UpdateContactPersonAction"
+		    name="BsFaqContactPersonForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContactPersons" path="/ext/faq/listContactPersons"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/faq/deleteContactPerson" type="com.ext.portlet.base.faq.contactPerson.DeleteContactPersonAction"
+		    name="BsFaqContactPersonForm" validate="false" scope="request">
+			<forward name="/ext/faq/listContactPersons" path="/ext/faq/listContactPersons"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.faq.contactPerson.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<!--  -->
+		
+		<!-- guestbook -->
+		<action path="/ext/guestbook/edit_configuration" type="com.ext.portlet.base.guestbook.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.guestbook.edit_configuration" />
+		</action>
+
+		<action path="/ext/guestbook/dummyBroker" type="com.ext.portlet.base.guestbook.DummyBrokerAction" scope="request">
+			<forward name="/ext/guestbook/list" path="/ext/guestbook/list"  redirect="true"/>
+			<forward name="/ext/guestbook/listPending" path="/ext/guestbook/listPending"  redirect="true"/>
+		</action>
+
+		<action path="/ext/guestbook/list" type="com.ext.portlet.base.guestbook.ListCommentsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.guestbook.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/guestbook/load" type="com.ext.portlet.base.guestbook.LoadCommentAction"
+		    name="BsCommentForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.guestbook.view_guestbook"  />
+			<forward name="common.add" path="portlet.ext.guestbook.form"  />
+			<forward name="common.edit" path="portlet.ext.guestbook.form"  />
+			<forward name="common.delete" path="portlet.ext.guestbook.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/guestbook/add" type="com.ext.portlet.base.guestbook.AddCommentAction"
+		    name="BsCommentForm" validate="false" scope="request">
+			<forward name="/ext/guestbook/list" path="/ext/guestbook/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.guestbook.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/guestbook/update" type="com.ext.portlet.base.guestbook.UpdateCommentAction"
+		    name="BsCommentForm" validate="false" scope="request">
+			<forward name="/ext/guestbook/list" path="/ext/guestbook/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.guestbook.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/guestbook/delete" type="com.ext.portlet.base.guestbook.DeleteCommentAction"
+		    name="BsCommentForm" validate="false" scope="request">
+			<forward name="/ext/guestbook/list" path="/ext/guestbook/list"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.guestbook.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/guestbook/listPending" type="com.ext.portlet.base.guestbook.pending.ListPendingAction" scope="request">
+			<forward name="common.success" path="portlet.ext.guestbook.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/guestbook/captcha" type="com.liferay.portal.captcha.CaptchaAction" />
+		
+		
+		<action path="/ext/guestbook/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/guestbook/edit_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<!--  related content -->
+		<action path="/ext/contentrel/search" type="com.ext.portlet.base.contentrel.SearchForRelatedItemsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.contentrel.list" />
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		<action path="/ext/contentrel/addRelatedItems" type="com.ext.portlet.base.contentrel.AddRelatedItemsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.contentrel.success" />
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		<action path="/ext/contentrel/deleteRelatedItems" type="com.ext.portlet.base.contentrel.DeleteRelatedItemsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.contentrel.success" />
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		
+		
+		<!--  bs_event_locations -->
+		<!--  LOCATIONS -->
+		<action path="/ext/eventlocations/listLocations" type="com.ext.portlet.base.events.locations.ListEvBuildingsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.events.locations.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/loadLocation" type="com.ext.portlet.base.events.locations.LoadEvBuildingAction"
+		    name="EvBuildingForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.locations.view_location"  />
+			<forward name="common.add" path="portlet.ext.events.locations.form"  />
+			<forward name="common.edit" path="portlet.ext.events.locations.form"  />
+			<forward name="common.delete" path="portlet.ext.events.locations.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/addLocation" type="com.ext.portlet.base.events.locations.AddEvBuildingAction"
+		    name="EvBuildingForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/listLocations" path="/ext/eventlocations/listLocations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/updateLocation" type="com.ext.portlet.base.events.locations.UpdateEvBuildingAction"
+		    name="EvBuildingForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/listLocations" path="/ext/eventlocations/listLocations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/deleteLocation" type="com.ext.portlet.base.events.locations.DeleteEvBuildingAction"
+		    name="EvBuildingForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/listLocations" path="/ext/eventlocations/listLocations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<!--  ROOMS -->
+		<action path="/ext/eventlocations/loadRoom" type="com.ext.portlet.base.events.locations.rooms.LoadEvRoomAction"
+		    name="EvRoomForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.locations.rooms.view_room"  />
+			<forward name="common.add" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.edit" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.delete" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/addRoom" type="com.ext.portlet.base.events.locations.rooms.AddEvRoomAction"
+		    name="EvRoomForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadLocation" path="/ext/eventlocations/loadLocation"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/updateRoom" type="com.ext.portlet.base.events.locations.rooms.UpdateEvRoomAction"
+		    name="EvRoomForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadLocation" path="/ext/eventlocations/loadLocation"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/deleteRoom" type="com.ext.portlet.base.events.locations.rooms.DeleteEvRoomAction"
+		    name="EvRoomForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadLocation" path="/ext/eventlocations/loadLocation"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  ZONES -->
+		<action path="/ext/eventlocations/loadZone" type="com.ext.portlet.base.events.locations.rooms.zones.LoadEvZoneAction"
+		    name="EvZoneForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.locations.rooms.zones.view_zone"  />
+			<forward name="common.add" path="portlet.ext.events.locations.rooms.zones.form"  />
+			<forward name="common.edit" path="portlet.ext.events.locations.rooms.zones.form"  />
+			<forward name="common.delete" path="portlet.ext.events.locations.rooms.zones.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/addZone" type="com.ext.portlet.base.events.locations.rooms.zones.AddEvZoneAction"
+		    name="EvZoneForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadRoom" path="/ext/eventlocations/loadRoom"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.zones.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/updateZone" type="com.ext.portlet.base.events.locations.rooms.zones.UpdateEvZoneAction"
+		    name="EvZoneForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadRoom" path="/ext/eventlocations/loadRoom"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.zones.zones.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventlocations/deleteZone" type="com.ext.portlet.base.events.locations.rooms.zones.DeleteEvZoneAction"
+		    name="EvZoneForm" validate="false" scope="request">
+			<forward name="/ext/eventlocations/loadRoom" path="/ext/eventlocations/loadRoom"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.locations.rooms.zones.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  TICKET TYPES -->
+		<action path="/ext/eventtickettypes/listTicketTypes" type="com.ext.portlet.base.events.tickettypes.ListEvTicketTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.events.tickettypes.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtickettypes/loadTicketType" type="com.ext.portlet.base.events.tickettypes.LoadEvTicketTypeAction"
+		    name="EvTicketTypeForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.tickettypes.view_location"  />
+			<forward name="common.add" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.edit" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.delete" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtickettypes/addTicketType" type="com.ext.portlet.base.events.tickettypes.AddEvTicketTypeAction"
+		    name="EvTicketTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtickettypes/listTicketTypes" path="/ext/eventtickettypes/listTicketTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtickettypes/updateTicketType" type="com.ext.portlet.base.events.tickettypes.UpdateEvTicketTypeAction"
+		    name="EvTicketTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtickettypes/listTicketTypes" path="/ext/eventtickettypes/listTicketTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtickettypes/deleteTicketType" type="com.ext.portlet.base.events.tickettypes.DeleteEvTicketTypeAction"
+		    name="EvTicketTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtickettypes/listTicketTypes" path="/ext/eventtickettypes/listTicketTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.tickettypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<!--  EVENT TYPES -->
+		<action path="/ext/eventtypes/listEventTypes" type="com.ext.portlet.base.events.eventtypes.ListEvEventTypesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.events.eventtypes.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtypes/loadEventType" type="com.ext.portlet.base.events.eventtypes.LoadEvEventTypeAction"
+		    name="EvEventTypeForm" validate="false" scope="request">
+			<forward name="common.add" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.edit" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.delete" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtypes/addEventType" type="com.ext.portlet.base.events.eventtypes.AddEvEventTypeAction"
+		    name="EvEventTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtypes/listEventTypes" path="/ext/eventtypes/listEventTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtypes/updateEventType" type="com.ext.portlet.base.events.eventtypes.UpdateEvEventTypeAction"
+		    name="EvEventTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtypes/listEventTypes" path="/ext/eventtypes/listEventTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventtypes/deleteEventType" type="com.ext.portlet.base.events.eventtypes.DeleteEvEventTypeAction"
+		    name="EvEventTypeForm" validate="false" scope="request">
+			<forward name="/ext/eventtypes/listEventTypes" path="/ext/eventtypes/listEventTypes"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.events.eventtypes.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  Events Online reservations wizard -->
+		<action path="/ext/events/loadWizard" type="com.ext.portlet.base.events.wizard.LoadWizardAction"
+		    scope="request">
+			<forward name="common.success.1" path="portlet.ext.events.wizard.form.1" />
+			<forward name="common.success.2" path="portlet.ext.events.wizard.form.2" />
+			<forward name="common.success.3" path="portlet.ext.events.wizard.form.3" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/saveWizard" type="com.ext.portlet.base.events.wizard.SaveWizardAction"
+		    scope="request">
+			<forward name="/ext/events/loadWizard" path="/ext/events/loadWizard" redirect="true" />
+			<forward name="common.success.1" path="portlet.ext.events.wizard.form.1" />
+			<forward name="common.success.2" path="portlet.ext.events.wizard.form.2" />
+			<forward name="common.success.3" path="portlet.ext.events.wizard.form.3" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/deleteWizardLine" type="com.ext.portlet.base.events.wizard.DeleteWizardLineAction"
+		    scope="request">
+			<forward name="common.success.2" path="portlet.ext.events.wizard.form.2" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/restoreWizardLines" type="com.ext.portlet.base.events.wizard.RestoreWizardLinesAction"
+		    scope="request">
+			<forward name="common.success.2" path="portlet.ext.events.wizard.form.2" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/events/backWizard" type="com.ext.portlet.base.events.wizard.BackWizardAction"
+		    scope="request">
+			<forward name="/ext/events/loadWizard" path="/ext/events/loadWizard" redirect="true" />
+			<forward name="common.success.1" path="portlet.ext.events.wizard.form.1" />
+			<forward name="common.success.2" path="portlet.ext.events.wizard.form.2" />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  bs_events_browsing -->
+		<action path="/ext/events/rate_event" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/eventsbrowser/rate_event" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		<action path="/ext/events/edit_event_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		<action path="/ext/eventsbrowser/edit_event_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.error" />
+		</action>
+		
+		<action path="/ext/eventsbrowser/search" type="com.ext.portlet.base.events.browser.ListBsEventsAction" 
+			name="BsEventSearchForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.events.browser.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/eventsbrowser/list" type="com.ext.portlet.base.events.browser.ListBsEventsAction" 
+			name="BsEventSearchForm" validate="false" scope="request">
+			<forward name="common.success" path="portlet.ext.events.browser.list"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/eventsbrowser/load" type="com.ext.portlet.base.events.browser.LoadBsEventAction" scope="request">
+		    <forward name="common.view" path="portlet.ext.events.browser.view_event"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/eventsbrowser/loadSchedule" type="com.ext.portlet.base.events.browser.LoadBsEventScheduleAction" scope="request">
+		    <forward name="common.success" path="portlet.ext.events.browser.view_schedule"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/eventtopicnav/view" type="com.ext.portlet.base.events.topicnav.ViewAction" 
+			scope="request">
+			<forward name="common.success" path="portlet.ext.events.topicnav.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/eventlocationnav/view" type="com.ext.portlet.base.events.locationnav.ViewAction" 
+			scope="request">
+			<forward name="common.success" path="portlet.ext.events.locationnav.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/eventtypenav/view" type="com.ext.portlet.base.events.typenav.ViewAction" 
+			scope="request">
+			<forward name="common.success" path="portlet.ext.events.typenav.view"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	</action-mappings>
+
+</struts-config>

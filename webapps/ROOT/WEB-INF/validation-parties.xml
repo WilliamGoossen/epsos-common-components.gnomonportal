@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+   <formset>
+   		<constant>
+			<constant-name>lettersMask</constant-name>
+			<constant-value><![CDATA[
+			^[\w\p{InGreek}&&(^0-9)]+$
+			]]></constant-value>
+		</constant>
+   		<form name="CountryForm">
+        	<field property="name" depends="required">
+        		<arg0 key="parties.admin.country.name"/>
+        	</field>
+        	<field property="officialName" depends="required">
+        		<arg0 key="parties.admin.country.officialname"/>
+        	</field>
+        	<field property="alphabeticCode" depends="required,mask">
+        		<arg0 key="parties.admin.country.alphabeticcode"/>
+				 <msg name="mask" key="parties.admin.country.alphabeticmaskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[A-Z]+$</var-value>
+				 </var>
+        	</field>
+        	<field property="numericCode" depends="required,mask">
+        		<arg0 key="parties.admin.country.numericcode"/>
+				 <msg name="mask" key="parties.admin.country.numericmaskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[0-9]+$</var-value>
+				 </var>
+        	</field>
+        </form>
+           
+        <form name="PartyRoleTypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="parties.admin.partyroletype.name"/>
+        	</field> 
+        </form>
+        
+        <form name="RoleFeatureTypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="parties.admin.featuretype.name"/>
+        	</field> 
+        	<field property="fieldcode"
+         	   depends="required">
+				 <arg0 key="parties.admin.featuretype.fieldcode"/>
+        	</field> 
+        </form>
+        
+        <form name="RoleFeaturePossibleValueForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="parties.admin.featurepossiblevalue.name"/>
+        	</field> 
+        </form>
+        
+        <form name="OrganizationTypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="parties.admin.organizationtype.name"/>
+        	</field> 
+        </form>
+        
+        <form name="PartyRelationshipTypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="parties.admin.partyrelationshiptype.name"/>
+        	</field>
+        	<field property="clientRoleName"
+         	   depends="required">
+				 <arg0 key="parties.admin.partyrelationshiptype.clientrolename"/>
+        	</field>
+        	<field property="supplierRoleName"
+         	   depends="required">
+				 <arg0 key="parties.admin.partyrelationshiptype.supplierrolename"/>
+        	</field> 
+        </form>
+        
+        <form name="RolesAndRelsForm">
+        	<field property="partyRoleId"
+         	   depends="required">
+				 <arg0 key="parties.manager.RolesAndRelsForm.partyRoleId"/>
+        	</field> 
+          	<field property="relationshipTypeId"
+         	   depends="required">
+				 <arg0 key="parties.manager.RolesAndRelsForm.relationshipTypeId"/>
+        	</field>
+        </form>
+        
+        <form name="GeographicAddressForm">
+        	<field property="region"
+         	   depends="required">
+				 <arg0 key="parties.addresses.geographic.region"/>
+        	</field> 
+          	<field property="zipOrPostCode"
+         	   depends="required">
+				 <arg0 key="parties.addresses.geographic.ziporpostcode"/>
+        	</field>
+        	<field property="addressLine"
+         	   depends="required">
+				 <arg0 key="parties.addresses.geographic.addressline"/>
+        	</field>
+        </form>
+        
+        <form name="EmailAddressForm">
+        	<field property="emailAddress"
+         	   depends="required,email">
+				 <arg0 key="parties.addresses.email"/>
+        	</field> 
+        </form>
+        
+        <form name="WebpageAddressForm">
+        	<field property="url"
+         	   depends="required,mask">
+         	     <msg name="mask" key="parties.addresses.webpage.maskmsg"/>
+				 <arg0 key="parties.addresses.webpage.url"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^http://|ftp://[\w./]+$</var-value>
+				 </var>
+        	</field> 
+        </form>
+        
+        <form name="TelecomAddressForm">
+        
+        	<field property="physicalType"
+         	   depends="required">
+				 <arg0 key="parties.addresses.telecom.physicaltype"/>
+        	</field> 
+        	<field property="countryCode"
+         	   depends="mask">
+         	     <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.countrycode"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>20</var-value>
+	                     </var>
+        	</field> 
+          	<field property="areaCode"
+         	   depends="mask">
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>20</var-value>
+	                     </var>
+        	</field>
+        	<field property="number"
+         	   depends="mask">
+				 <arg0 key="parties.addresses.telecom.number"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.number"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>20</var-value>
+	                     </var>
+        	</field>
+        	<field property="phoneNumber"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>50</var-value>
+	                     </var>
+        	</field>
+        </form>
+        
+        <form name="PersonForm">
+        	<field property="prefix"
+         	   depends="mask">
+				 <arg0 key="parties.manager.person.prefix"/>
+				 <msg name="mask" key="parties.manager.person.maskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>${lettersMask}</var-value>
+				 </var>
+        	</field> 
+        	<field property="firstName" depends="required">
+        		<arg0 key="parties.manager.person.firstname"/>
+        	</field>
+        	<field property="familyName" depends="required">
+        		<arg0 key="parties.manager.person.familyname"/>
+        	</field>
+        </form>
+        
+        <form name="PersonAddForm">
+        	<field property="prefix"
+         	   depends="mask">
+				 <arg0 key="parties.manager.person.prefix"/>
+				 <msg name="mask" key="parties.manager.person.maskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>${lettersMask}</var-value>
+				 </var>
+        	</field> 
+        	<field property="firstName" depends="required">
+        		<arg0 key="parties.manager.person.firstname"/>
+        	</field>
+        	<field property="familyName" depends="required">
+        		<arg0 key="parties.manager.person.familyname"/>
+        	</field>
+        </form>
+        
+        <form name="PersonNameForm">
+        	<field property="prefix"
+         	   depends="mask">
+				 <arg0 key="parties.manager.person.prefix"/>
+				 <msg name="mask" key="parties.manager.person.maskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>${lettersMask}</var-value>
+				 </var>
+        	</field> 
+        	<field property="firstName" depends="required">
+        		<arg0 key="parties.manager.person.firstname"/>
+        	</field>
+        	<field property="familyName" depends="required">
+        		<arg0 key="parties.manager.person.familyname"/>
+        	</field>
+        	<field property="validFrom" depends="required">
+        		<arg0 key="parties.manager.person.validfrom"/>
+        	</field>
+        	<field property="validTo" depends="required">
+        		<arg0 key="parties.manager.person.validto"/>
+        	</field>
+        </form>
+        
+        <form name="PartyIdentifierForm">
+        	<field property="identifier" depends="required">
+        		<arg0 key="parties.manager.identifier.identifier"/>
+        	</field>
+        	<field property="registrationAuthority" depends="required">
+        		<arg0 key="parties.manager.identifier.registrationauthority"/>
+        	</field>
+        </form>
+        
+        <form name="OrganizationForm">
+        	<field property="name" depends="required">
+        		<arg0 key="parties.manager.organization.name"/>
+        	</field>
+        </form>
+        
+        <form name="OrganizationAddForm">
+        	<field property="name" depends="required">
+        		<arg0 key="parties.manager.organization.name"/>
+        	</field>
+        	<field property="validFrom" depends="required">
+        		<arg0 key="parties.manager.organization.validfrom"/>
+        	</field>
+        	<field property="validTo" depends="required">
+        		<arg0 key="parties.manager.organization.validto"/>
+        	</field>
+        </form>
+        
+        <form name="OrganizationNameForm">
+        	<field property="name" depends="required">
+        		<arg0 key="parties.manager.organization.name"/>
+        	</field>
+        	<field property="validFrom" depends="required">
+        		<arg0 key="parties.manager.organization.validfrom"/>
+        	</field>
+        	<field property="validTo" depends="required">
+        		<arg0 key="parties.manager.organization.validto"/>
+        	</field>
+        </form>
+        
+        
+         <form name="PrjGeographicAddressForm">
+        	<!-- In the form implementation we check for the countryid to be required -->
+        	<field property="addressLine"
+         	   depends="required">
+				 <arg0 key="parties.addresses.geographic.addressline"/>
+        	</field>
+        </form>
+        
+    <form name="PrjTelecomAddressForm">
+		    <field property="physicalType"
+         	   depends="required">
+				 <arg0 key="parties.addresses.telecom.physicaltype"/>
+        	</field>
+        	<field property="countryCode"
+         	   depends="mask">
+         	     <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.countrycode"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+        	</field> 
+          	<field property="areaCode"
+         	   depends="mask">
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+        	</field>
+        	<field property="number"
+         	   depends="required,mask">
+				 <arg0 key="parties.addresses.telecom.number"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.number"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 <!--  var-value>^\d+(\-.\d+(\-.\d+(\-.\d+){0,1}){0,1}){0,1}$</var-value -->
+				 </var>
+        	</field>
+          	<field property="extension"
+         	   depends="mask">
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.areacode"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+        	</field>
+        </form>
+        
+        <form name="PrjEmailAddressForm">
+        	<field property="emailAddress"
+         	   depends="required,email">
+				 <arg0 key="parties.addresses.email"/>
+        	</field> 
+        </form>
+        
+        <form name="PrjWebpageAddressForm">
+        	<field property="url"
+         	   depends="required">
+				 <arg0 key="parties.addresses.webpage.url"/>
+        	</field> 
+        </form>
+        
+        <form name="NewOrganizationWizardForm">
+		    <field property="organizationName"
+	         	   depends="required">
+					 <arg0 key="parties.manager.organization.name"/>
+	         </field>
+	    </form>
+	    
+	    
+	    <form name="NewPersonWizardForm">
+	         <field property="familyName"
+	         	   depends="required">
+					 <arg0 key="parties.manager.person.familyname"/>
+	         </field>
+	         <field property="firstName"
+	         	   depends="required">
+					 <arg0 key="parties.manager.person.firstname"/>
+	         </field>
+	    </form>
+	    
+	    <form name="OrganizationSummaryForm">
+		    <field property="orgName"
+	         	   depends="required">
+					 <arg0 key="parties.manager.organization.name"/>
+	         </field>
+	    </form>
+	    
+	    
+	    
+	    <form name="PersonSummaryForm">
+        	<!--  field property="prefix"
+         	   depends="required,mask">
+				 <arg0 key="parties.manager.person.prefix"/>
+				 <msg name="mask" key="parties.manager.person.maskmsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>${lettersMask}</var-value>
+				 </var>
+        	</field --> 
+        	<field property="firstName" depends="required">
+        		<arg0 key="parties.manager.person.firstname"/>
+        	</field>
+        	<field property="familyName" depends="required">
+        		<arg0 key="parties.manager.person.familyname"/>
+        	</field>
+        </form>
+	    
+	    <form name="PrjPartyIdentifierForm">
+        	<field property="identifier" depends="required">
+        		<arg0 key="parties.manager.identifier.identifier"/>
+        	</field>
+        	<field property="registrationAuthority" depends="required">
+        		<arg0 key="parties.manager.identifier.registrationauthority"/>
+        	</field>
+        </form>
+        
+        <form name="ContactForm">
+            <field property="firstName"
+         	   depends="maxlength">
+				 <arg0 key="parties.manager.person.firstname"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field>
+        	<field property="familyName"
+         	   depends="maxlength">
+				 <arg0 key="parties.manager.person.familyname"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field>
+        	<field property="organizationName"
+         	   depends="maxlength">
+				 <arg0 key="parties.manager.organization.name"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field>
+        	<field property="email1"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="email2"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="email3"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="email4"
+         	   depends="email,maxlength">
+				 <arg0 key="parties.addresses.email"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>100</var-value>
+	                     </var>
+        	</field> 
+        	<field property="telephone1"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        	<field property="telephone2"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        	<field property="telephone3"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        	<field property="telephone4"
+         	   depends="maxlength,mask">
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <msg name="mask" key="parties.addresses.telecom.maskmsg"/>
+				 <arg0 key="parties.addresses.telecom.phonenumber"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d+$</var-value>
+				 </var>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>15</var-value>
+	                     </var>
+        	</field>
+        </form>
+        
+        <form name="PaPartyGroupForm">
+            <field property="name"
+         	   depends="required,maxlength">
+				 <arg0 key="contacts.group.name"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>250</var-value>
+	                     </var>
+        	</field>
+        </form>
+        
+         <form name="EmailContactsForm">
+            <field property="subject"
+         	   depends="required">
+				 <arg0 key="contacts.email.subject"/>
+        	</field>
+        </form>
+      </formset>
+</form-validation>

@@ -1,0 +1,287 @@
+<%@ page import="com.ext.portlet.parties.contacts.ContactForm" %>
+<%@ page import="com.ext.portlet.ecommerce.order.service.OrderService" %>
+<%@ page import="gnomon.hibernate.model.ecommerce.EcPartyprofile" %>
+<%@ page import="gnomon.hibernate.model.views.ViewResult" %>
+<%@ page import="gnomon.hibernate.GnPersistenceService" %>
+<%@ page import="gnomon.hibernate.model.ecommerce.EcPaymenttype" %>
+<%@ page import="gnomon.hibernate.model.ecommerce.EcShipping" %>
+<%@ page import="gnomon.business.GeneralUtils" %>
+<%@ page import="com.liferay.portal.util.PortalUtil" %>
+<%@ page import="gnomon.hibernate.model.payment.PmtService" %>
+<%@ page import="com.ext.portlet.paycenter.service.PaymentService" %>
+
+
+<bean:define id="accountContactFormBean" name="ContactForm"/>
+<% 
+
+ContactForm contactFormBean = (ContactForm) accountContactFormBean; 
+if (contactFormBean != null) {
+	EcPartyprofile profile = OrderService.getInstance().getEcPartyProfileForPartyId(contactFormBean.getMainid());
+	GnPersistenceService serv = GnPersistenceService.getInstance(null);
+	String lang = GeneralUtils.getLocale(request);
+	Long companyId = PortalUtil.getCompanyId(request);
+	PaymentService paymentSrv = PaymentService.getInstance();
+	PmtService pmtService = paymentSrv.getOrCreateSystemPmtService(PortalUtil.getCompanyId(request), CommonDefs.PMT_SERVICE_ECOMMERCE);
+	List<ViewResult> payments = paymentSrv.listAvailablePaymentTypes(pmtService, lang);
+	List<ViewResult> shippings = serv.listObjectsWithLanguage(companyId, EcShipping.class, lang, new String[]{"langs.name"}, null, "langs.name");
+	String companyName = profile != null && profile.getCompanyName() != null ? profile.getCompanyName() : "";
+	String billFirstName = profile != null && profile.getBillFirstName() != null ? profile.getBillFirstName() : "";
+	String billLastName = profile != null && profile.getBillLastName() != null ? profile.getBillLastName() : "";
+	String shipFirstName = profile != null && profile.getShipFirstName() != null ? profile.getShipFirstName() : "";
+	String shipLastName = profile != null && profile.getShipLastName() != null ? profile.getShipLastName() : "";
+	String shipCompanyName = profile != null && profile.getShipCompanyName() != null ? profile.getShipCompanyName() : "";
+	%>
+<div class="uni-form">
+
+<div class="inline-labels">
+<div class="ctrl-holder">
+	<label for="<portlet:namespace />emailid">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.email") %>
+	</label>
+
+	<select name="<portlet:namespace />emailid" >
+		<option value=""></option>
+		<% if (Validator.isNotNull(contactFormBean.getEmail1())) { %>
+			<option value="<%= contactFormBean.getEmailId1().toString() %>" <% if (profile!=null && profile.getEmail()!=null && profile.getEmail().getMainid().equals(contactFormBean.getEmailId1())) { out.print("selected");} %> ><%= contactFormBean.getEmail1() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getEmail2())) { %>
+			<option value="<%= contactFormBean.getEmailId2().toString() %>" <% if (profile!=null && profile.getEmail()!=null && profile.getEmail().getMainid().equals(contactFormBean.getEmailId2())) { out.print("selected");} %> ><%= contactFormBean.getEmail2() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getEmail3())) { %>
+			<option value="<%= contactFormBean.getEmailId3().toString() %>" <% if (profile!=null && profile.getEmail()!=null && profile.getEmail().getMainid().equals(contactFormBean.getEmailId3())) { out.print("selected");} %> ><%= contactFormBean.getEmail3() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getEmail4())) { %>
+			<option value="<%= contactFormBean.getEmailId4().toString() %>" <% if (profile!=null && profile.getEmail()!=null && profile.getEmail().getMainid().equals(contactFormBean.getEmailId4())) { out.print("selected");} %> ><%= contactFormBean.getEmail4() %></option>
+		<% } %>
+		</select>
+</div>
+</div>
+
+
+<fieldset class="inline-labels">
+<legend><%= LanguageUtil.get(pageContext, "ec.admin.order.billing-group") %></legend>
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>paymentid">
+		<%= LanguageUtil.get(pageContext, "payment-method") %>
+	</label>
+	<select name="<portlet:namespace />paymentid">
+		<option value=""></option>
+		<% if (payments != null) { %>
+		<% for (ViewResult pmt: payments) { %>
+			<option value="<%= pmt.getMainid().toString() %>" <% if (profile!=null && profile.getEcPaymenttype()!=null && profile.getEcPaymenttype().getMainid().equals(pmt.getMainid())) { out.print("selected");} %>><%= pmt.getField2().toString() %></option>
+		<% } %>
+		<% } %>
+		</select>
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>billFirstName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.FirstName") %>
+	</label>
+		<input name="<portlet:namespace />billFirstName" size="30" type="text" value="<%= billFirstName %>" />
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>billLastName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.LastName") %>
+	</label>
+		<input name="<portlet:namespace />billLastName" size="30" type="text" value="<%= billLastName %>" />
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>companyName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.CompanyName") %>
+	</label>
+		<input name="<portlet:namespace />companyName" size="30" type="text" value="<%= companyName %>" />
+</div>
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>billAddressid">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.BillingAddress") %>
+	</label>
+	<select name="<portlet:namespace />billAddressid" >
+		<option value=""></option>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine1())) { %>
+			<option value="<%= contactFormBean.getAddressId1().toString() %>" <% if (profile!=null && profile.getBillAddress()!=null && profile.getBillAddress().getMainid().equals(contactFormBean.getAddressId1())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine1()+" "+ 
+				(contactFormBean.getRegion1() != null? contactFormBean.getRegion1() : "") + " "+
+				(contactFormBean.getZipOrPostCode1() != null ? contactFormBean.getZipOrPostCode1():"") + " " +
+				(contactFormBean.getCountryId1() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId1()) :"")  %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine2())) { %>
+			<option value="<%= contactFormBean.getAddressId2().toString() %>" <% if (profile!=null && profile.getBillAddress()!=null && profile.getBillAddress().getMainid().equals(contactFormBean.getAddressId2())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine2()+" "+ 
+				(contactFormBean.getRegion2() != null? contactFormBean.getRegion2() : "") + " "+
+				(contactFormBean.getZipOrPostCode2() != null ? contactFormBean.getZipOrPostCode2():"") + " " +
+				(contactFormBean.getCountryId2() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId2()) :"")  %></option>
+		<% } %>	
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine3())) { %>
+			<option value="<%= contactFormBean.getAddressId3().toString() %>" <% if (profile!=null && profile.getBillAddress()!=null && profile.getBillAddress().getMainid().equals(contactFormBean.getAddressId3())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine3()+" "+ 
+				(contactFormBean.getRegion3() != null? contactFormBean.getRegion3() : "") + " "+
+				(contactFormBean.getZipOrPostCode3() != null ? contactFormBean.getZipOrPostCode3():"") + " " +
+				(contactFormBean.getCountryId3() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId3()) :"")  %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine4())) { %>
+			<option value="<%= contactFormBean.getAddressId4().toString() %>" <% if (profile!=null && profile.getBillAddress()!=null && profile.getBillAddress().getMainid().equals(contactFormBean.getAddressId4())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine4()+" "+ 
+				(contactFormBean.getRegion4() != null? contactFormBean.getRegion4() : "") + " "+
+				(contactFormBean.getZipOrPostCode4() != null ? contactFormBean.getZipOrPostCode4():"") + " " +
+				(contactFormBean.getCountryId4() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId4()) :"")  %></option>
+		<% } %>
+		</select>
+	
+	</div>
+	
+	<div class="ctrl-holder">
+	<label for="<portlet:namespace/>billPhoneid">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.Phone") %>
+	</label>
+	
+		<select name="<portlet:namespace />billPhoneid" >
+		<option value=""></option>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone1())) { %>
+			<option value="<%= contactFormBean.getTelephoneId1().toString() %>" <% if (profile!=null && profile.getBillPhone()!=null && profile.getBillPhone().getMainid().equals(contactFormBean.getTelephoneId1())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone1() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone2())) { %>
+			<option value="<%= contactFormBean.getTelephoneId2().toString() %>" <% if (profile!=null && profile.getBillPhone()!=null && profile.getBillPhone().getMainid().equals(contactFormBean.getTelephoneId2())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone2() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone3())) { %>
+			<option value="<%= contactFormBean.getTelephoneId3().toString() %>" <% if (profile!=null && profile.getBillPhone()!=null && profile.getBillPhone().getMainid().equals(contactFormBean.getTelephoneId3())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone3() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone4())) { %>
+			<option value="<%= contactFormBean.getTelephoneId4().toString() %>" <% if (profile!=null && profile.getBillPhone()!=null && profile.getBillPhone().getMainid().equals(contactFormBean.getTelephoneId4())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone4() %></option>
+		<% } %>
+		</select>
+	
+	</div>
+
+</fieldset>
+
+
+<fieldset class="inline-labels">
+<legend><%= LanguageUtil.get(pageContext, "ec.admin.order.shipping-group") %></legend>
+	<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shippingid">
+		<%= LanguageUtil.get(pageContext, "shipping-method") %>
+	</label>
+	
+	<select name="<portlet:namespace />shippingid" >
+		<option value=""></option>
+		<% for (ViewResult spg: shippings) { %>
+			<option value="<%= spg.getMainid().toString() %>" <% if (profile!=null && profile.getEcShipping()!=null && profile.getEcShipping().getMainid().equals(spg.getMainid())) { out.print("selected");} %>><%= spg.getField1().toString() %></option>
+		<% } %>
+	</select>
+	
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shipFirstName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.FirstName") %>
+	</label>
+	
+		<input name="<portlet:namespace />shipFirstName" size="30" type="text" value="<%= shipFirstName %>" />
+	
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shipLastName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.LastName") %>
+	</label>
+	
+		<input name="<portlet:namespace />shipLastName" size="30" type="text" value="<%= shipLastName %>" />
+	
+</div>	
+
+<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shipCompanyName">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.CompanyName") %>
+	</label>
+	
+		<input name="<portlet:namespace />shipCompanyName" size="30" type="text" value="<%= shipCompanyName %>" />
+	
+</div>
+
+	<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shipAddressid">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.ShippingAddress") %>
+	</label>
+	
+		<select name="<portlet:namespace />shipAddressid" >
+		<option value=""></option>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine1())) { %>
+			<option value="<%= contactFormBean.getAddressId1().toString() %>" <% if (profile!=null && profile.getShipAddress()!=null && profile.getShipAddress().getMainid().equals(contactFormBean.getAddressId1())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine1()+" "+ 
+				(contactFormBean.getRegion1() != null? contactFormBean.getRegion1() : "") + " "+
+				(contactFormBean.getZipOrPostCode1() != null ? contactFormBean.getZipOrPostCode1():"") + " " +
+				(contactFormBean.getCountryId1() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId1()) :"")  %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine2())) { %>
+			<option value="<%= contactFormBean.getAddressId2().toString() %>" <% if (profile!=null && profile.getShipAddress()!=null && profile.getShipAddress().getMainid().equals(contactFormBean.getAddressId2())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine2()+" "+ 
+				(contactFormBean.getRegion2() != null? contactFormBean.getRegion2() : "") + " "+
+				(contactFormBean.getZipOrPostCode2() != null ? contactFormBean.getZipOrPostCode2():"") + " " +
+				(contactFormBean.getCountryId2() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId2()) :"")  %></option>
+		<% } %>	
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine3())) { %>
+			<option value="<%= contactFormBean.getAddressId3().toString() %>" <% if (profile!=null && profile.getShipAddress()!=null && profile.getShipAddress().getMainid().equals(contactFormBean.getAddressId3())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine3()+" "+ 
+				(contactFormBean.getRegion3() != null? contactFormBean.getRegion3() : "") + " "+
+				(contactFormBean.getZipOrPostCode3() != null ? contactFormBean.getZipOrPostCode3():"") + " " +
+				(contactFormBean.getCountryId3() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId3()) :"")  %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getAddressLine4())) { %>
+			<option value="<%= contactFormBean.getAddressId4().toString() %>" <% if (profile!=null && profile.getShipAddress()!=null && profile.getShipAddress().getMainid().equals(contactFormBean.getAddressId4())) { out.print("selected");} %>>
+			<%= contactFormBean.getAddressLine4()+" "+ 
+				(contactFormBean.getRegion4() != null? contactFormBean.getRegion4() : "") + " "+
+				(contactFormBean.getZipOrPostCode4() != null ? contactFormBean.getZipOrPostCode4():"") + " " +
+				(contactFormBean.getCountryId4() != null ? contactFormBean.getCountryNameForCountryId(contactFormBean.getCountryId4()) :"")  %></option>
+		<% } %>
+		</select>
+	
+	</div>
+	
+	<div class="ctrl-holder">
+	<label for="<portlet:namespace/>shipPhoneid">
+		<%= LanguageUtil.get(pageContext, "ec.admin.order.Phone") %>
+	</label>
+	
+		<select name="<portlet:namespace />shipPhoneid" >
+		<option value=""></option>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone1())) { %>
+			<option value="<%= contactFormBean.getTelephoneId1().toString() %>" <% if (profile!=null && profile.getShipPhone()!=null && profile.getShipPhone().getMainid().equals(contactFormBean.getTelephoneId1())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone1() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone2())) { %>
+			<option value="<%= contactFormBean.getTelephoneId2().toString() %>" <% if (profile!=null && profile.getShipPhone()!=null && profile.getShipPhone().getMainid().equals(contactFormBean.getTelephoneId2())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone2() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone3())) { %>
+			<option value="<%= contactFormBean.getTelephoneId3().toString() %>" <% if (profile!=null && profile.getShipPhone()!=null && profile.getShipPhone().getMainid().equals(contactFormBean.getTelephoneId3())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone3() %></option>
+		<% } %>
+		<% if (Validator.isNotNull(contactFormBean.getTelephone4())) { %>
+			<option value="<%= contactFormBean.getTelephoneId4().toString() %>" <% if (profile!=null && profile.getShipPhone()!=null && profile.getShipPhone().getMainid().equals(contactFormBean.getTelephoneId4())) { out.print("selected");} %>>
+			<%= contactFormBean.getTelephone4() %></option>
+		<% } %>
+		</select>
+	
+	</div>
+
+</fieldset>
+
+</div>
+
+<br />
+
+<input type="button" value="<liferay-ui:message key="save" />" onClick="<portlet:namespace />saveUser('ec_profile');" />
+
+<br /><br />
+	<%
+}
+%>

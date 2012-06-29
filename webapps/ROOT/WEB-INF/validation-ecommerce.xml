@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+<formset>
+		<form name="PrProductAdminForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="name"/>
+        	</field>
+        	<field property="orderindex"
+         	   depends="integer">
+				 <arg0 key="ecommerce.product.orderindex"/>
+        	</field>
+        </form>
+        
+        <form name="PrManufacturerForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.manufacturer.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.manufacturer.systemCode"/>
+        	</field>
+        </form>
+        
+        <form name="PrSupplierForm">
+        	<field property="supplierName"
+         	   depends="required">
+				 <arg0 key="ec.admin.supplier.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.supplier.systemCode"/>
+        	</field>
+        </form>
+        
+        <form name="PrCombinationForm">
+        	<field property="productcode"
+         	   depends="required">
+				 <arg0 key="ecommerce.product.productcode"/>
+        	</field>
+        </form>
+        
+        <form name="PrProducttypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.producttype.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.producttype.systemCode"/>
+        	</field>
+        </form>
+        
+        <form name="PrCatalogForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.catalog.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.catalog.systemCode"/>
+        	</field>
+        </form>
+        
+        
+        <form name="PrMetricForm">
+        	<field property="metricname"
+         	   depends="required">
+				 <arg0 key="ec.admin.metric.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.metric.systemCode"/>
+        	</field>
+        </form>
+        
+        <form name="PrFeatureForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.feature.name"/>
+        	</field>
+        	<field property="code"
+         	   depends="required">
+				 <arg0 key="ec.admin.feature.code"/>
+        	</field>
+        </form>
+        
+        <form name="PrFeaturesetForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.featureset.name"/>
+        	</field>
+        </form>
+        
+         <form name="PrVisibilityForm">
+         	<field property="dateFrom"
+         	   depends="required">
+				 <arg0 key="ec.admin.product.visibility.from"/>
+        	</field>
+        	<field property="dateTo"
+         	   depends="required">
+				 <arg0 key="ec.admin.product.visibility.to"/>
+        	</field>
+        	<field property="orderindex"
+         	   depends="integer">
+				 <arg0 key="ec.admin.product.visibility.orderindex"/>
+        	</field>
+        </form>
+        
+        <form name="PrDiscountForm">
+         	<field property="dateFrom"
+         	   depends="required">
+				 <arg0 key="ec.admin.product.discount.from"/>
+        	</field>
+        	<field property="dateTo"
+         	   depends="required">
+				 <arg0 key="ec.admin.product.discount.to"/>
+        	</field>
+        </form>
+        
+        <form name="EcTaxForm">
+        	<field property="taxrate"
+         	   depends="required">
+				 <arg0 key="ec.admin.tax.taxrate"/>
+        	</field>
+        </form>
+        
+        <form name="EcPaymenttypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.paymenttype.name"/>
+        	</field>
+        </form>
+        
+        <form name="EcShippingForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.shipping.name"/>
+        	</field>
+        </form>
+        
+        <form name="EcOrderstateForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="ec.admin.orderstate.name"/>
+        	</field>
+        	<field property="systemCode"
+         	   depends="required">
+				 <arg0 key="ec.admin.orderstate.systemcode"/>
+        	</field>
+        </form>
+        
+        <form name="EcOrderForm">
+        	<field property="email"
+         	   depends="required,email">
+				 <arg0 key="ec.admin.order.email"/>
+        	</field>
+        </form>
+        
+</formset>        
+	
+</form-validation>

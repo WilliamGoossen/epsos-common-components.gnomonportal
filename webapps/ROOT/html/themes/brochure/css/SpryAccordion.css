@@ -1,0 +1,79 @@
+
+.Accordion {
+	border: solid 1px #CCCCCC;
+	overflow: hidden;
+	outline:none;
+}
+
+.AccordionPanel {
+	margin: 0px;
+	padding: 0px;
+	border-left:1px solid #00465d;
+	border-right:1px solid #00465d;
+	border-bottom:1px solid #00465d;
+
+}
+
+.AccordionPanelTab {
+	margin: 0px;
+	padding: 2px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	height:25px;
+	color:#FFFFFF;
+	font-size:1.2em;
+	background:#678fb9 url(../images/navigation/spry_tab_bg.gif) no-repeat left center ;
+	padding-left:15px;
+}
+
+.AccordionPanelContent {
+	overflow: auto;
+	margin: 0px;
+	padding: 10px;
+/*	height: 250px;*/
+	background:#FFFFFF url(../images/custom/accordion_bg1.gif) repeat-x 0 0;
+
+	
+}
+
+.AccordionPanelOpen .AccordionPanelTab {
+/*	background-color: #4a729a;*/
+	color:#FFFFFF;
+	font-size:1.2em;
+	background:#678fb9 url(../images/navigation/spry_tab_bg_down.gif) no-repeat left center ;
+	padding-left:15px;
+	
+}
+
+.AccordionPanelTabHover {
+	color: #2c6195;
+	color:#FFFFFF;
+	font-size:1.2em;
+		outline:none;
+}
+.AccordionPanelOpen .AccordionPanelTabHover {
+	color:#FFFFFF;
+	font-size:1.2em;
+	outline:none;
+}
+
+.AccordionFocused .AccordionPanelTab {
+	/*background-color: #3399FF;*/
+	outline:none;
+}
+
+.AccordionFocused .AccordionPanelOpen .AccordionPanelTab {
+	/*background-color: #33CCFF;*/
+	outline:none;
+}
+
+
+
+.AccordionPanelContent ul { padding-left:20px; padding-top:20px; list-style:none; list-style-image:none;}
+.AccordionPanelContent ul li { }
+.AccordionPanelContent ul li a { font-size:1.0em; color:#003366; list-style:circle; list-style-image:none; outline:none;}
+
+
+
+

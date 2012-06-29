@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="gnomon.hibernate.model.parties.PaParty" 
+    table="PA_Party"
+>
+
+    <id
+        name="mainid"
+        type="java.lang.Integer"
+        column="mainid"
+        unsaved-value="0"
+    >
+        <generator class="identity" />
+    </id>
+
+	<property
+        name="active"
+        type="java.lang.Boolean"
+        column="active"
+    />
+    
+    <property
+        name="privateContact"
+        type="boolean"
+        column="privateContact"
+        not-null="true"
+    />
+    <property
+        name="creationDate"
+        type="java.sql.Timestamp"
+        column="creationDate"
+        length="23"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Timestamp"
+        column="modifiedDate"
+        length="23"
+    />
+    <property
+        name="companyId"
+        type="java.lang.Long"
+        column="companyId"
+    />
+
+	<property
+        name="relatedImage"
+        type="java.lang.String"
+        column="relatedImage"
+    />
+    
+    <property
+        name="relatedFile"
+        type="java.lang.String"
+        column="relatedFile"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PaGeographicAddress -->
+    <many-to-one
+        name="ownerParty"
+        class="gnomon.hibernate.model.parties.PaParty"
+        not-null="true"
+    >
+        <column name="ownerid" />
+    </many-to-one>
+    <set
+        name="ownedParties"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="ownerid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaParty"
+        />
+    </set>
+    <set
+        name="paGeographicAddresses"
+        lazy="true"
+        inverse="true"
+        order-by="mainid asc"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaGeographicAddress"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaPartyLanguage -->
+    <set
+        name="paPartyLanguages"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaPartyLanguage"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaTelecomAddress -->
+    <set
+        name="paTelecomAddresses"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaTelecomAddress"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PsPartyRole -->
+    <set
+        name="psPartyRoles"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PsPartyRole"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaEmailAddress -->
+    <set
+        name="paEmailAddresses"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaEmailAddress"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PaWebpageAddress -->
+    <set
+        name="paWebpageAddresses"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaWebpageAddress"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PaEvent -->
+    <set
+        name="paEvents"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="partyid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaEvent"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaRegisteredIdentifier -->
+    <set
+        name="paRegisteredIdentifiers"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="partyid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaRegisteredIdentifier"
+        />
+    </set>
+    
+    
+    <!-- bi-directional one-to-many association to PaGroupMember -->
+    <set
+        name="paGroupMemberships"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="partyid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaGroupMember"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PaPartyTopic -->
+    <set
+        name="paPartyTopics"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="partyId" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaPartyTopic"
+        />
+    </set>    
+    
+    <set
+        name="paPartyHighRoles"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="partyid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaPartyHighRole"
+        />
+    </set> 
+    
+     <set
+        name="paPartyHighRolesByOtherParty"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="otherpartyid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaPartyHighRole"
+        />
+    </set> 
+<joined-subclass 
+    name="gnomon.hibernate.model.parties.PaPerson" 
+    table="PA_Person"
+>
+
+    <key column="mainid"/>
+
+    <property
+        name="gender"
+        type="java.lang.String"
+        column="Gender"
+        not-null="true"
+        length="50"
+    />
+    <property
+		name="currentNameId"
+		type="java.lang.Integer"
+		column="currentNameId"
+	/>
+    <property
+        name="userId"
+        type="java.lang.Long"
+        column="userId"
+    />
+    <property
+        name="screenName"
+        type="java.lang.String"
+        column="screenName"
+    />
+    <property
+        name="userType"
+        type="java.lang.String"
+        column="userType"
+        length="100"
+    />
+    <property
+        name="idNumber"
+        type="java.lang.String"
+        column="idNumber"
+        length="100"
+    />
+    <property
+        name="backOfficeId"
+        type="java.lang.String"
+        column="backOfficeId"
+        length="100"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PaPersonName -->
+    <set
+        name="paPersonNames"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaPersonName"
+        />
+    </set>
+
+</joined-subclass>
+
+<joined-subclass 
+    name="gnomon.hibernate.model.parties.PaOrganization" 
+    table="PA_Organization"
+>
+
+    <key column="mainid" />
+	
+	<property
+		name="currentNameId"
+		type="java.lang.Integer"
+		column="currentNameId"
+	/>
+
+    <property
+		name="portalCompanyId"
+		type="java.lang.Long"
+		column="portalCompanyId"
+	/>
+	
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PaOrganizationType -->
+    <many-to-one
+        name="paOrganizationType"
+        class="gnomon.hibernate.model.parties.PaOrganizationType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="PA__mainid" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PaOrganizationName -->
+    <set
+        name="paOrganizationNames"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PA__mainid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaOrganizationName"
+        />
+    </set>
+
+</joined-subclass>
+
+
+<joined-subclass 
+    name="gnomon.hibernate.model.parties.PaGroup" 
+    table="PA_Group"
+>
+
+    <key column="mainid"/>
+    
+    <!-- bi-directional one-to-many association to PaGroupLanguage -->
+    <set
+        name="paGroupLanguages"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="groupid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaGroupLanguage"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaGroupMember -->
+    <set
+        name="paGroupMembers"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="groupid" />
+        </key>
+        <one-to-many 
+            class="gnomon.hibernate.model.parties.PaGroupMember"
+        />
+    </set>
+</joined-subclass>
+</class>
+</hibernate-mapping>

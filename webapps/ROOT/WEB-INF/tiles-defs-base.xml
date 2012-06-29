@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!-- CMS Portlets -->
+
+	<definition name="portlet_cms" path="/common/themes/portlet_cms.jsp">
+		<put name="portlet_sub_nav" value="" />
+		<put name="portlet_cms_nav" value="" />
+		<put name="portlet_content" value="" />
+		<put name="portlet_decorate" value="true" />
+		<put name="portlet_padding" value="true" />
+	</definition>
+
+	<definition name="portlet2" path="/common/themes/portlet2.jsp">
+		<put name="portlet_sub_nav" value="" />
+		<put name="portlet_content" value="" />
+		<put name="portlet_decorate" value="true" />
+		<put name="portlet_padding" value="true" />
+	</definition>
+
+	<definition name="portlet.error" extends="portlet">
+		<put name="portlet_content" value="/portlet/error.jsp" />
+	</definition>
+
+	<!-- ### recent content ### -->
+	<definition name="portlet.ext.content" extends="portlet" >
+		<put name="portlet_content" value="/portlet/ext/base/content/portlet.jsp" />
+		<put name="portlet_main" value="" />
+		<put name="portlet_calendar" value="/portlet/ext/base/content/calendar.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.error" extends="portlet.ext.content">
+		<put name="portlet_content" value="/portlet/ext/base/content/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/content/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.content.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/content_list.jsp" />
+	</definition>
+
+		
+	<!--  bs_gnContentRss -->
+	<definition name="portlet.ext.gnContentRss.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/gnContentRss/view.jsp" />
+	</definition>
+	
+	
+	<!--  bs_auditing -->
+	<definition name="portlet.ext.auditing.list" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/auditing/view.jsp" />
+	</definition>
+	
+
+	<definition name="portlet.ext.content.banners.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/banners_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.bookmarks.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/bookmarks_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.documents.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/documents_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.events.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/events_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.civitems.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/civitems_list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.content.faq.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/faq_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.news.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/news_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.newsletters.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/newsletters_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.newsletters.posts.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/newsletter_posts_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.alfresco.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/alfresco_list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.content.mbmessage.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/content/mbmessages_list.jsp" />
+	</definition>
+
+	<!-- ### banners_display ### -->
+	<definition name="portlet.ext.banners_display" extends="portlet" />
+
+	<definition name="portlet.ext.banners_display.vertical" extends="portlet.ext.banners_display">
+		<put name="portlet_content" value="/portlet/ext/base/banners_display/vertical.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.banners_display.horizontal" extends="portlet.ext.banners_display">
+		<put name="portlet_content" value="/portlet/ext/base/banners_display/horizontal.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.banners_display.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/banners_display/edit_configuration.jsp" />
+	</definition>
+
+	<!-- ### banners ### -->
+	<definition name="portlet.ext.banners" extends="portlet_cms" />
+
+	<definition name="portlet.ext.banners.list" extends="portlet.ext.banners">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/banners/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/banners/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.banners.view_banner" extends="portlet.ext.banners">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/banners/menu/view_banner_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/banners/view_banner.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.banners.form" extends="portlet.ext.banners">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/banners/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/banners/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.banners.error" extends="portlet.ext.banners">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/banners/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/banners/error.jsp" />
+	</definition>
+
+	<!-- ### bookmarks ### -->
+	<definition name="portlet.ext.bookmarks" extends="portlet_cms" />
+
+	<definition name="portlet.ext.bookmarks.list" extends="portlet.ext.bookmarks">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/bookmarks/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/bookmarks/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.bookmarks.view" extends="portlet.ext.bookmarks">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/bookmarks/menu/view_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/bookmarks/view_bookmark.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.bookmarks.form" extends="portlet.ext.bookmarks">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/bookmarks/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/bookmarks/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.bookmarks.error" extends="portlet.ext.bookmarks">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/bookmarks/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/bookmarks/error.jsp" />
+	</definition>
+
+	<!-- ### documents ### -->
+	<definition name="portlet.ext.documents" extends="portlet_cms" />
+
+	<definition name="portlet.ext.documents.list" extends="portlet.ext.documents">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/documents/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/documents/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.documents.view_document" extends="portlet.ext.documents">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/documents/menu/view_document_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/documents/view_document.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.documents.form" extends="portlet.ext.documents">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/documents/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/documents/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.documents.error" extends="portlet.ext.documents">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/documents/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/documents/error.jsp" />
+	</definition>
+
+	<!-- ### events ### -->
+	<definition name="portlet.ext.events" extends="portlet_cms" />
+
+	<definition name="portlet.ext.events.list" extends="portlet.ext.events">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/events/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/events/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.view_event" extends="portlet.ext.events">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/events/menu/view_event_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/events/view_event.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.registration.form" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/registrationForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.onlineevents.registration.form" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/onlineevents/onlineRegistrationForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.form" extends="portlet.ext.events">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/events/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/events/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.error" extends="portlet.ext.events">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/events/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/events/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.files.form" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/files/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.files.view" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/files/view_file.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.related.form" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/related/eventYellowPageform.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.base.yellowpages.browser.view" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/browser/index.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.base.yellowpages.browser.search" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/browser/search.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.base.yellowpages.browser.googlesearch" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/browser/googlesearch.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.related.lookup.list" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/related/lookupYellowPages.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.parties.form" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/parties/eventPartyform.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.events.parties.lookup.list" extends="portlet.ext.events">
+		<put name="portlet_content" value="/portlet/ext/base/events/parties/lookupParties.jsp" />
+	</definition>
+	
+	<!-- ### civitems ### -->
+	<definition name="portlet.ext.civitems" extends="portlet_cms" />
+
+	<definition name="portlet.ext.civitems.list" extends="portlet.ext.civitems">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/civitems/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/civitems/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.civitems.view_civitem" extends="portlet.ext.civitems">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/civitems/menu/view_civitem_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/civitems/view_civitem.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.civitems.form" extends="portlet.ext.civitems">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/civitems/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/civitems/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.civitems.error" extends="portlet.ext.civitems">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/civitems/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/civitems/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.civitems.files.form" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/files/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.civitems.files.view" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/files/view_file.jsp" />
+	</definition>
+	
+	<!-- ### civitems browsing ### -->
+	
+	<definition name="portlet.ext.civitems.browser.list" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/browser/listCivitems.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.civitems.browser.view_civitem" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/browser/viewCivitem.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.civitems.browser.ByTopic_view_course_profile" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/browser/view_course_profile.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.civitems.browser.listCoursesOfAuthor" extends="portlet.ext.civitems">
+		<put name="portlet_content" value="/portlet/ext/base/civitems/browser/listCoursesOfAuthor.jsp" />
+	</definition>
+
+	<!-- ### courses ### -->
+	<definition name="portlet.ext.courses" extends="portlet_cms" />
+
+	<definition name="portlet.ext.courses.list" extends="portlet.ext.courses">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/courses/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/courses/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.courses.view_course" extends="portlet.ext.courses">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/courses/menu/view_course_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/courses/view_course.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.courses.form" extends="portlet.ext.courses">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/courses/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/courses/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.courses.parties.list" extends="portlet.ext.courses">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/courses/menu/view_course_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/courses/partiesList.jsp" />
+	</definition>
+	
+	<!-- ### faq ### -->
+	<definition name="portlet.ext.faq.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/faq/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq" extends="portlet" />
+
+	<definition name="portlet.ext.faq.view" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.list" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.view_faq" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/view_faq_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/view_faq.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.error" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.list" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.view_contact" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/view_contact_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/view_contact.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.add-form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/addForm_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/addForm.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.edit-form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/editForm_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/editForm.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.reply-form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/replyForm_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/replyForm.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contact.thankyou" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/contact/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contact/thankyou.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.faq.contactPerson.view" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/view_faq_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contactPerson/view.jsp" />
+	</definition>
+	<definition name="portlet.ext.faq.contactPerson.form" extends="portlet.ext.faq">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/faq/menu/view_faq_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/faq/contactPerson/form.jsp" />
+	</definition>
+
+	<!-- ### mlists_display ### -->
+	<definition name="portlet.ext.mlists_display" extends="portlet" />
+
+	<definition name="portlet.ext.mlists_display.form" extends="portlet.ext.mlists_display">
+		<put name="portlet_content" value="/portlet/ext/base/mlists_display/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists_display.subscribe" extends="portlet.ext.mlists_display">
+		<put name="portlet_content" value="/portlet/ext/base/mlists_display/subscribe.jsp" />
+	</definition>
+
+
+<!-- ### guestbook ### -->
+	<definition name="portlet.ext.guestbook.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/guestbook/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.guestbook" extends="portlet" />
+
+	<definition name="portlet.ext.guestbook.view" extends="portlet.ext.guestbook">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/guestbook/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/guestbook/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.guestbook.list" extends="portlet.ext.guestbook">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/guestbook/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/guestbook/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.guestbook.view_guestbook" extends="portlet.ext.guestbook">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/guestbook/menu/view_guestbook_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/guestbook/view_guestbook.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.guestbook.form" extends="portlet.ext.guestbook">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/guestbook/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/guestbook/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.guestbook.error" extends="portlet.ext.guestbook">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/guestbook/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/guestbook/error.jsp" />
+	</definition>
+
+
+	<!-- ### mlists ### -->
+	<!-- <definition name="portlet.ext.mlists" path="/themes/portlet/gnomon_theme/gnomon.jsp" /> -->
+	<definition name="portlet.ext.mlists" extends="portlet_cms" />
+
+	<definition name="portlet.ext.mlists.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/mlists/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.list" extends="portlet.ext.mlists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/mlists/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/mlists/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.view_mlist" extends="portlet.ext.mlists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/mlists/menu/view_mlist_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/mlists/view_mlist.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.form" extends="portlet.ext.mlists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/mlists/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/mlists/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.error" extends="portlet.ext.mlists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/mlists/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/mlists/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.subscribers.view" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/subscribers/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.subscribers.form" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/subscribers/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.view_posts" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/view_posts.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.posts.form" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/posts/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.posts.view" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/posts/view_post.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.posts.send" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/posts/send.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.posts.send-form" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/posts/sendForm.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.files.form" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/files/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.mlists.files.view" extends="portlet.ext.mlists">
+		<put name="portlet_content" value="/portlet/ext/base/mlists/posts/view_file.jsp" />
+	</definition>
+
+	<!-- ### mlists_display ### -->
+	<definition name="portlet.ext.smslists_display" extends="portlet" />
+
+	<definition name="portlet.ext.smslists_display.form" extends="portlet.ext.smslists_display">
+		<put name="portlet_content" value="/portlet/ext/base/smslists_display/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists_display.subscribe" extends="portlet.ext.smslists_display">
+		<put name="portlet_content" value="/portlet/ext/base/smslists_display/subscribe.jsp" />
+	</definition>
+
+	<!-- ### smslists ### -->
+	<!-- <definition name="portlet.ext.smslists" path="/themes/portlet/gnomon_theme/gnomon.jsp" /> -->
+	<definition name="portlet.ext.smslists" extends="portlet_cms" />
+
+	<definition name="portlet.ext.smslists.edit_configuration" extends="portlet.portlet_configuration.edit_configuration">
+		<put name="portlet_configuration_content" value="/portlet/ext/base/smslists/edit_configuration.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.list" extends="portlet.ext.smslists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/smslists/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/smslists/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.view_smslist" extends="portlet.ext.smslists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/smslists/menu/view_smslist_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/smslists/view_smslist.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.form" extends="portlet.ext.smslists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/smslists/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/smslists/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.error" extends="portlet.ext.smslists">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/smslists/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/smslists/error.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.subscribers.view" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/subscribers/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.subscribers.form" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/subscribers/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.view_posts" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/view_posts.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.posts.form" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/posts/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.posts.view" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/posts/view_post.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.posts.send" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/posts/send.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.smslists.posts.send-form" extends="portlet.ext.smslists">
+		<put name="portlet_content" value="/portlet/ext/base/smslists/posts/sendForm.jsp" />
+	</definition>
+
+
+
+	<!-- ### news ### -->
+	<definition name="portlet.ext.news" extends="portlet_cms" />
+
+	<definition name="portlet.ext.news.list" extends="portlet.ext.news">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/news/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/news/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.news.view_new" extends="portlet.ext.news">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/news/menu/view_new_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/news/view_new.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.news.form" extends="portlet.ext.news">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/news/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/news/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.news.error" extends="portlet.ext.news">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/news/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/news/error.jsp" />
+	</definition>
+	
+	<!-- ### adds ### -->
+	<definition name="portlet.ext.adds" extends="portlet_cms" />
+
+	<definition name="portlet.ext.adds.list" extends="portlet.ext.adds">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/adds/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/adds/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.adds.view_new" extends="portlet.ext.adds">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/adds/menu/view_adds_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/adds/view_adds.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.adds.form" extends="portlet.ext.adds">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/adds/menu/form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/adds/form.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.adds.error" extends="portlet.ext.adds">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/adds/menu/error_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/adds/error.jsp" />
+	</definition>
+	
+	<!-- ### yellowpages ### -->
+	<definition name="portlet.ext.yellowpages" extends="portlet_cms" />
+
+	<definition name="portlet.ext.yellowpages.list" extends="portlet.ext.yellowpages">
+		<put name="portlet_cms_nav" value="/portlet/ext/base/yellowpages/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.yellowpages.view" extends="portlet.ext.yellowpages">
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/view_yellowpage.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.yellowpages.form" extends="portlet.ext.yellowpages">
+		<put name="portlet_content" value="/portlet/ext/base/yellowpages/form.jsp" />
+	</definition>
+
+    <definition name="portlet.ext.yellowpages.ua.form" extends="portlet.ext.yellowpages">
+        <put name="portlet_content" value="/portlet/ext/base/yellowpages/ua/form.jsp" />
+    </definition>
+
+	<!--  related content -->
+	<definition name="portlet.ext.contentrel.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/contentrel/relatedList.jsp" />
+	</definition>
+	<definition name="portlet.ext.contentrel.success" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/contentrel/success.jsp" />
+	</definition>
+	
+	<!--  event locations -->
+	<definition name="portlet.ext.events.locations.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/listLocations.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.locations.form" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/locationForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.locations.view_location" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/view_location.jsp" />
+	</definition>
+	<!--  rooms -->
+	<definition name="portlet.ext.events.locations.rooms.form" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/rooms/roomForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.locations.rooms.view_room" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/rooms/view_room.jsp" />
+	</definition>
+	<!-- zones -->
+	<definition name="portlet.ext.events.locations.rooms.zones.form" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/rooms/zones/zoneForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.locations.rooms.zones.view_zone" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/locations/rooms/zones/view_zone.jsp" />
+	</definition>
+	
+	<!--  event tickets -->
+	<definition name="portlet.ext.events.tickettypes.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/tickettypes/listTicketTypes.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.tickettypes.form" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/tickettypes/ticketTypeForm.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.tickettypes.view_location" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/tickettypes/view_ticketType.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.eventtypes.list" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/eventtypes/listEventTypes.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.eventtypes.form" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/eventtypes/eventTypeForm.jsp" />
+	</definition>
+	
+	<!--  events online reservations wizard -->
+	<definition name="portlet.ext.events.wizard.form.1" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/wizard/step1.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.wizard.form.2" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/wizard/step2.jsp" />
+	</definition>
+	<definition name="portlet.ext.events.wizard.form.3" extends="portlet.ext.content">
+		<put name="portlet_main" value="/portlet/ext/base/events/wizard/step3.jsp" />
+	</definition>
+	
+	<!--  bs_events_browser -->
+	<definition name="portlet.ext.events.browser.list" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/browser/listEvents.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.browser.view_event" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/browser/viewEvent.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.events.browser.view_schedule" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/browser/viewSchedule.jsp" />
+	</definition>
+	
+	<!--  bs_events_topicnav -->
+	<definition name="portlet.ext.events.topicnav.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/topicnav/view.jsp" />
+	</definition>
+	<!--  bs_events_locationnav -->
+	<definition name="portlet.ext.events.locationnav.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/locationnav/view.jsp" />
+	</definition>
+	<!--  bs_events_typenav -->
+	<definition name="portlet.ext.events.typenav.view" extends="portlet">
+		<put name="portlet_content" value="/portlet/ext/base/events/typenav/view.jsp" />
+	</definition>
+</tiles-definitions>

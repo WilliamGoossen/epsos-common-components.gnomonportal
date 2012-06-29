@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<!-- ### PARTIES ### -->
+	<definition name="portlet.ext.egov" extends="portlet" />
+
+	<definition name="portlet.ext.egov.requiredlink" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/requiredlink.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.requiredlogin" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/requiredlogin.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.debtor.myDebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/debtor/myDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.debtor.singular.DebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/debtor/singularDebtsListView.jsp" />
+	</definition>
+
+
+	<definition name="portlet.ext.egov.debts.myDebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/debts/myDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.debtor_na.myDebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/debtor_na/myDebtsListView.jsp" />
+	</definition>
+
+
+	<definition name="portlet.ext.egov.tax.myDebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/myDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tax.singular.DebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/singularDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tax.ots.DebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/otsDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tap.ots.DebtsListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tap/otsDebtsListView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tax.submitDebitFormView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/submitDebtFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tax.payDebitFormView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/payDebitFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.tax.declarePayForm" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/declarePayFormView.jsp" />
+	</definition>
+
+	<!-- KOK -->
+	<definition name="portlet.ext.egov.tax.viewPaidTax" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/tax/PaidDebtRecordFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.kok.listKokForm" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/listKokFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.egov.kok.singular.listKokForm" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/singularlistKokFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.kok.ots.listKokForm" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/otslistKokFormView.jsp" />
+	</definition>
+
+
+	<definition name="portlet.ext.egov.kok.searchFormView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/searchKokFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.kok.kokRecordFormView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/kokRecordFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.kok.notFoundView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/kokRecordNotFoundFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.kok.declarePayForm" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/kok/declarePayFormView.jsp" />
+	</definition>
+
+
+	<!-- Certificates -->
+	<definition name="portlet.ext.egov.certificates.listView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/certificates/certificatesListView.jsp" />
+	</definition>
+	<definition name="portlet.ext.egov.certificates.formView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/certificates/certificatesFormView.jsp" />
+	</definition>
+	<definition name="portlet.ext.egov.certificates.protocolNumber" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/certificates/certificateProtocolNumberFormView.jsp" />
+	</definition>
+	<definition name="portlet.ext.egov.certificates.admin.protocolNumber" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/certificates/adminCertificateProtocolNumberFormView.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.certificates.adminListView" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/certificates/certificatesAdminListView.jsp" />
+	</definition>
+
+	<!--  PayCenter -->
+
+	<definition name="portlet.ext.egov.paycenter.success" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/paycenter/success.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.paycenter.failure" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/paycenter/failure.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.paycenter.paykok" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/paycenter/paykok.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.paycenter.paytax" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/paycenter/paytax.jsp" />
+	</definition>
+
+	<!--  Council Meetings -->
+	<definition name="portlet.ext.egov.council.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/listCouncilMeetings.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.search" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/searchCouncilMeetings.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.summary" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/councilMeetingSummary.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.add" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/addCouncilMeeting.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.edit" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/editCouncilMeeting.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.delete" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/deleteCouncilMeeting.jsp" />
+	</definition>
+
+	<!-- Council Meeting Members  -->
+
+	<definition name="portlet.ext.egov.council.members.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/members/listMeetingMembers.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.members.add" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/members/addMeetingMember.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.members.edit" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/members/editMeetingMember.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.members.delete" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/members/deleteMeetingMember.jsp" />
+	</definition>
+
+	<!-- Council Meeting Files  -->
+
+	<definition name="portlet.ext.egov.council.files.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/files/listMeetingFiles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.files.add" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/files/addMeetingFile.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.files.edit" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/files/editMeetingFile.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.files.delete" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/files/deleteMeetingFile.jsp" />
+	</definition>
+
+	<!-- Council Meeting Subjects  -->
+
+	<definition name="portlet.ext.egov.council.subjects.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/subjects/listMeetingSubjects.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.subjects.add" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/subjects/addMeetingSubject.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.subjects.edit" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/subjects/editMeetingSubject.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.subjects.delete" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/subjects/deleteMeetingSubject.jsp" />
+	</definition>
+
+	<!--  Council Lookups  -->
+	<definition name="portlet.ext.egov.council.lookup.roles" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/lookup/lookupEgovRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.lookup.parties" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/lookup/lookupParties.jsp" />
+	</definition>
+
+	<!--  Roles -->
+	<definition name="portlet.ext.egov.council.roles.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/roles/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.council.roles.form" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/council/roles/form.jsp" />
+	</definition>
+
+
+<!--  EGOV DEPARTMENTS -->
+	<definition name="portlet.ext.egov.departments.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/departments/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.departments.form" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/departments/form.jsp" />
+	</definition>
+
+
+<!--  EGOV APPLICATIONS -->
+	<definition name="portlet.ext.egov.applications.list" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/list.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.egov.applications.form" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/form.jsp" />
+	</definition>
+
+<definition name="portlet.ext.egov.applications.view" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/viewform.jsp" />
+	</definition>
+<definition name="portlet.ext.egov.applications.listdepts" extends="portlet.ext.egov">
+		<put name="portlet_content" value="/portlet/ext/egov/applications/list_depts.jsp" />
+	</definition>
+
+
+
+</tiles-definitions>

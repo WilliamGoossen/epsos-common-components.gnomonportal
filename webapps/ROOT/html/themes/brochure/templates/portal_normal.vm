@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+#parse ($init)
+
+<html dir="#language ("lang.dir")">
+
+<head>
+
+<style type="text/css">
+/* ---------- IE6 PNG image fix ---------- */
+.ie6 img, .ie6 .png{
+    azimuth: expression(
+        this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+        this.src = "$images_folder/spacer.png"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+        this.runtimeStyle.backgroundImage = "none")),this.pngSet=true
+    );
+}
+</style>
+
+	<title>$company_name - $the_title</title>
+
+	$theme.include($top_head_include)
+
+	#css ($css_main_file)
+	#js ($js_main_file)
+
+	#if ($company_logo != "")
+		<style type="text/css">
+			#banner .logo {
+				background: url($company_logo) no-repeat;
+				height: ${company_logo_height}px;
+				width: ${company_logo_width}px;
+			}
+		</style>
+	#end
+	
+
+</head>
+
+<body class="$css_class">
+
+$theme.include($top_messages_include)
+
+<div id="wrapper">
+	<div id="banner">
+		<div id="banner-inner">
+			<h1 class="logo">
+				<a href="$company_url">$company_name</a>
+			</h1>
+
+			<div id="page-search">
+				$theme.include("/html/portlet/ext/cms/search/view.jsp")
+			</div>
+
+			#parse ("$full_templates_path/dock.vm")
+
+			#if ($has_navigation)
+				#parse ("$full_templates_path/navigation.vm")
+			#end
+		</div>
+	</div>
+
+	#if ($selectable)
+		$theme.include($content_include)
+	#else
+		<div id="content-wrapper" class="login">
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		</div>
+	#end
+
+	<div id="footer">
+		<p class="language">$theme.language()</p>
+
+	</div>
+
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    <td align="center" valign="top">
+    <a href="http://www.gi9.gr" target="_blank"><img src="/html/themes/brochure/images/custom/poweredby.gif" alt="gi9" border="0"></a>
+    </td>
+    </tr>
+    </table>  
+                
+                
+
+</div>
+
+$theme.include($bottom_ext_include)
+$theme.include($session_timeout_include)
+$theme.include($sound_alerts_include)
+
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<%
+//Get all topics that we are allowed to get
+
+String managetopicids= com.ext.portlet.topics.service.permission.GnTopicPermission.getAllResources(PortalUtil.getCompanyId(request), "gnomon.hibernate.model.gn.GnTopic",permissionChecker,"MANAGECONTENT");
+
+
+LayoutLister layoutLister = new LayoutLister();
+
+String rootNodeName = StringPool.BLANK;
+LayoutView layoutView = layoutLister.getLayoutView(layout.getGroupId(), layout.isPrivateLayout(), rootNodeName, locale);
+
+List layoutList = layoutView.getList();
+
+String portletTopicIds = "";
+%>
+<fieldset class="inline-labels"><legend><%= LanguageUtil.get(pageContext, "bs.configuration.base") %></legend>
+	
+	<div class="ctrl-holder">
+	<label><%= LanguageUtil.get(pageContext, "use-topic-nav") %></label>
+	
+			<select name="<portlet:namespace />use-topic-nav">
+				<option <%= (instanceUseTopicNav.equals("no")) ? "selected" : "" %> value="no"><%= LanguageUtil.get(pageContext, "no") %></option>
+				<option <%= (instanceUseTopicNav.equals("yes")) ? "selected" : "" %> value="yes"><%= LanguageUtil.get(pageContext, "yes") %></option>
+				
+			</select>
+	
+	</div>
+		
+     	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "portlet-search") %></label>
+			<select name="<portlet:namespace />portletSearch">
+				<option <%= (instancePortletSearch.equals("")) ? "selected" : "" %> value=""><%= LanguageUtil.get(pageContext, "none") %></option>
+				<option <%= (instancePortletSearch.equals("month-year")) ? "selected" : "" %> value="month-year"><%= LanguageUtil.get(pageContext, "month-year") %></option>
+				<option <%= (instancePortletSearch.equals("calendar")) ? "selected" : "" %> value="calendar"><%= LanguageUtil.get(pageContext, "calendar") %></option>
+			</select>
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "display-style") %>
+		</label>
+			<select name="<portlet:namespace />listStyle">
+				<option <%= (instancePortletListStyle.equals("1")) ? "selected" : "" %> value="1">1</option>
+				<option <%= (instancePortletListStyle.equals("2")) ? "selected" : "" %> value="2">2</option>
+				<option <%= (instancePortletListStyle.equals("3")) ? "selected" : "" %> value="3">3</option>
+				<option <%= (instancePortletListStyle.equals("4")) ? "selected" : "" %> value="4">4</option>
+			</select>
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "embed-related-audio-video-img") %>
+		</label>
+			<select name="<portlet:namespace />embed_media">
+				<option <%= (instanceEmbedMedia.equals("no")) ? "selected" : "" %> value="no"><%= LanguageUtil.get(pageContext, "no") %></option>
+				<option <%= (instanceEmbedMedia.equals("yes")) ? "selected" : "" %> value="yes"><%= LanguageUtil.get(pageContext, "yes") %></option>
+				
+			</select>
+	</div>
+	
+	
+	<div class="ctrl-holder">
+	<label>
+		<%= LanguageUtil.get(pageContext, "enable-ratings") %></label>
+		<liferay-ui:input-checkbox param="enableRatings" defaultValue="<%= enableRatings%>" />
+	</div>
+	
+	<div class="ctrl-holder">
+	<label>
+		<%= LanguageUtil.get(pageContext, "enable-comments") %></label>
+		<liferay-ui:input-checkbox param="enableComments" defaultValue="<%= enableComments%>" />
+	</div>
+	
+	<div class="ctrl-holder">
+	<label>
+		<%= LanguageUtil.get(pageContext, "show-only-mine") %>
+	</label>
+		<liferay-ui:input-checkbox param="showOnlyMine" defaultValue="<%= showOnlyMine %>" />
+	</div>
+	
+	<div class="ctrl-holder">
+	<label>	<%= LanguageUtil.get(pageContext, "notify-publisher") %></label>
+		<liferay-ui:input-checkbox param="notifyPublisher" defaultValue="<%= notifyPublisher %>" />
+	</div>		
+		
+	<div class="ctrl-holder">
+		<label><%= LanguageUtil.get(pageContext, "browse-type") %></label>
+			<select name="<portlet:namespace />browse-type">
+				<option <%= (instancePortletBrowseType.equals("topics")) ? "selected" : "" %> value="topics"><%= LanguageUtil.get(pageContext, "topics") %></option>
+				<option <%= (instancePortletBrowseType.equals("metadata")) ? "selected" : "" %> value="metadata"><%= LanguageUtil.get(pageContext, "metadata") %></option>
+				<option <%= (instancePortletBrowseType.equals("years")) ? "selected" : "" %> value="years"><%= LanguageUtil.get(pageContext, "years") %></option>
+				<option <%= (instancePortletBrowseType.equals("none")) ? "selected" : "" %> value="none"><%= LanguageUtil.get(pageContext, "none") %></option>
+			</select>
+		
+	</div>
+	
+	<fieldset class="inline-labels"><legend>
+	<%=LanguageUtil.get(pageContext, "browse-type") +" : " +  LanguageUtil.get(pageContext, "topics") %></legend>	
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "topic-browse-style") %></label>
+			<select name="<portlet:namespace />topicStyle">
+				<option <%= (instancePortletTopicStyle.equals("1")) ? "selected" : "" %> value="1">1</option>
+				<option <%= (instancePortletTopicStyle.equals("2")) ? "selected" : "" %> value="2">2</option>
+				<option <%= (instancePortletTopicStyle.equals("3")) ? "selected" : "" %> value="3">3</option>
+				<option <%= (instancePortletTopicStyle.equals("4")) ? "selected" : "" %> value="4">4</option>
+			</select>
+	</div>
+		
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "topics-on-off") %></label>
+				<liferay-ui:input-checkbox param="topicsOnOff" defaultValue="<%= topicsOnOff %>" />
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "topicFieldSetkey") %></label>
+		<input type="text" size="30" name="<portlet:namespace />topicFieldSetkey" value="<%= topicFieldSetkey %>">
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "topic") %>
+		</label>			
+		<input type="hidden" name="<portlet:namespace />topicId" value="<%=instanceTopicId%>">
+			<%
+			String topicName = "";
+			GnPersistenceService serv = GnPersistenceService.getInstance(null);
+     	 	String[] topicNameField = {"langs.name"};
+     	 	String lang = gnomon.business.GeneralUtils.getLocale(request);
+     	 	if (instanceTopicId>0) {
+     	 		ViewResult topicView = (ViewResult)serv.getObjectWithLanguage(GnTopic.class, new Integer(instanceTopicId), lang, topicNameField);
+     	 		topicName = ((topicView==null || topicView.getField1()==null)? "<INVALID>" : (String)topicView.getField1());
+     	 		//topicName = (String)topicView.getField1();
+     	 	}
+     	 	//PortletRequest portletRequest = (PortletRequest)request.getAttribute(WebKeys.JAVAX_PORTLET_REQUEST);
+			String portletId = null;
+			if (Validator.isNotNull(portletResource)) {
+				portletId = portletResource;
+			} else {
+				if (portletRequest instanceof RenderRequest)
+				{
+					RenderRequestImpl req = (RenderRequestImpl)portletRequest;
+					portletId = req.getPortletName();
+				}
+				else
+				{
+					ActionRequestImpl req = (ActionRequestImpl)portletRequest;
+					portletId = req.getPortletName();
+				}
+			}
+   	   	    
+   	   		List<ViewResult> portletTopics = PermissionsService.getInstance().listPortletTopics(PortalUtil.getCompanyId(request),portletId, lang);
+   	   		for (int t=0; t<portletTopics.size(); t++)
+   	   		{
+   	   			portletTopicIds += ((ViewResult)portletTopics.get(t)).getField1();
+   	   			if (t<portletTopics.size()-1)
+   	   				portletTopicIds += ",";
+   	   		}
+			%>
+			<input type="text" readonly="true" name="<portlet:namespace />topicId_Names" value="<%= topicName %>"> &nbsp;
+			<a href="#" class="beta1" onClick="openDialog('/html/portlet/ext/struts_includes/topics/browseTopics.jsp?managetopics=<%=managetopicids%>&multiSelection=false&openerFormName=<portlet:namespace />fm&openerFormFieldName=<portlet:namespace />topicId&rootTopicIds=<%=portletTopicIds%>', 400,350);"><%= LanguageUtil.get(pageContext,"gn.button.choose") %></a>
+    			&nbsp;<a href="#" class="beta1" onClick="document.<portlet:namespace />fm.elements['<portlet:namespace />topicId'].value='';document.<portlet:namespace />fm.elements['<portlet:namespace />topicId_Names'].value='';"><%= LanguageUtil.get(pageContext,"gn.button.clear") %></a>
+	</div>
+	
+	<%--
+	<fieldset class="inline-labels">
+		<legend><%= LanguageUtil.get(pageContext, "bs.configuration.crosspublishing") %></legend>
+		
+		<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "bs.configuration.crosspublishing.enabled") %>
+		</label>
+			<liferay-ui:input-checkbox param="crossPublishingEnabled" defaultValue="<%= crossPublishingEnabled %>" />
+		</div>
+		
+		<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "bs.configuration.crosspublishing.auto-update") %>
+		</label>
+			<liferay-ui:input-checkbox param="crossPublishingAuto" defaultValue="<%= crossPublishingAuto %>" />
+		</div>
+		
+		<div class="ctrl-holder">
+		<label>
+			<%= LanguageUtil.get(pageContext, "bs.configuration.crosspublishing.topics") %>
+		</label>
+			<input type="hidden" name="<portlet:namespace />crossPublishingTopics" value="<%= crossPublishingTopics %>">
+			<%
+			String topicName2 = "";
+     	 	if (Validator.isNotNull(crossPublishingTopics)) {
+     	 		List<ViewResult> topicViews = serv.listObjectsWithLanguage(null, GnTopic.class, lang, topicNameField, "table1.mainid in ("+crossPublishingTopics+")" );
+     	 		if (topicViews != null) {
+     	 			for (ViewResult topicView: topicViews)
+     	 			{
+     	 				topicName2 += ((topicView==null || topicView.getField1()==null)? "<INVALID>" : (String)topicView.getField1()) + ", ";		
+     	 			}
+     	 			if (topicName2 != null && topicName2.endsWith(", "))
+     	 				topicName2 = topicName2.substring(0, topicName2.length()-2);
+     	 		}
+     	 	}
+			%>
+			<textarea readonly="true" name="<portlet:namespace />crossPublishingTopics_Names"><%= topicName2 %></textarea> &nbsp;
+			
+			<a href="#" onClick="openDialog('/html/portlet/ext/struts_includes/topics/browseTopics.jsp?managetopics=<%=managetopicids%>&multiSelection=true&openerFormName=<portlet:namespace />fm&openerFormFieldName=<portlet:namespace/>crossPublishingTopics&rootTopicIds=', 400, 350);"><img src="/html/themes/classic/images/arrows/02_plus.gif" alt="<%= LanguageUtil.get(pageContext,"gn.topics.browser.add") %>"></a>
+	     	&nbsp;<a href="#" onClick="if (document.<portlet:namespace />fm.elements['<portlet:namespace />crossPublishingTopics'].value != null && document.<portlet:namespace />fm.elements['<portlet:namespace />crossPublishingTopics_Names'].value != '') { openDialog('/html/portlet/ext/struts_includes/topics/deleteTopics.jsp?openerFormName=<portlet:namespace />fm&openerFormFieldName=<portlet:namespace/>crossPublishingTopics&topicIds='+document.<portlet:namespace />fm.elements['<portlet:namespace/>crossPublishingTopics'].value, 400, 350); } else { return true; } "><img src="/html/themes/classic/images/arrows/02_minus.gif" alt="<%= LanguageUtil.get(pageContext,"gn.topics.browser.delete") %>"></a>
+	     	
+			
+		</div>
+		</fieldset>
+	--%>
+	</fieldset>
+	
+
+	<fieldset class="inline-labels"><legend>
+	<%=LanguageUtil.get(pageContext, "browse-type") +" : " +  LanguageUtil.get(pageContext, "years") %></legend>
+		
+	<div class="ctrl-holder">
+		<label><%= "<i>"+ LanguageUtil.get(pageContext, "browse-type") +" : " +  LanguageUtil.get(pageContext, "years") + "</i> - " +  LanguageUtil.get(pageContext, "year.bar.start.year") %>
+		</label>
+			<input type="text" size="4" name="<portlet:namespace />years_startYear" value="<%= instanceYearsStartYear %>">
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= "<i>"+ LanguageUtil.get(pageContext, "browse-type") +" : " +  LanguageUtil.get(pageContext, "years") +  "</i> - " + LanguageUtil.get(pageContext, "year.bar.show-future") %>
+		</label>
+			<liferay-ui:input-checkbox param="years_showFuture" defaultValue="<%= instanceYearsShowFuture %>" />
+	</div>
+	
+	<div class="ctrl-holder">
+		<label>
+			<%= "<i>"+ LanguageUtil.get(pageContext, "browse-type") +" : " +  LanguageUtil.get(pageContext, "years") + "</i> - " +  LanguageUtil.get(pageContext, "year.bar.show-empty-years") %>
+		</label>
+			<liferay-ui:input-checkbox param="years_showEmptyYears" defaultValue="<%= instanceYearsShowEmptyYears %>" />
+	</div>
+	</fieldset>
+	
+	
+	
+
+	
+	
+	<fieldset class="inline-labels">
+		<legend>
+			<%= LanguageUtil.get(pageContext, "javax.portlet.title.bs_content_rels") %>
+		</legend>
+		<table width="100%">
+		<tr align="center">
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.classname") %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.show-content") %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.show-description") %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.orderIndex") %></strong></td>
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.langkey") %></strong></td>
+		<td align="center"><strong><%= LanguageUtil.get(pageContext, "bs.related.content.portaltab") %></strong></td>
+		</tr>
+		<%
+		for (int i=0; i<classNames.length; i++) {
+				String pName = portletNames[i];
+				String pClassName = classNames[i];
+			%>
+			<tr align="center">
+				<td align="center"><%= LanguageUtil.get(pageContext, "javax.portlet.title."+pName) %></td>
+				<td align="center"><input type="checkbox" name="<portlet:namespace/>show_rel_content" 
+				           value="<%= pClassName %>" 
+				           <% if (Validator.isNull(instancePortletShowRelContent) || instancePortletShowRelContent.indexOf(pClassName) != -1) { out.print(" checked "); } %>
+				           ></td>
+				<td align="center"><input type="checkbox" name="<portlet:namespace/>show_rel_content_description" 
+				           value="<%= pClassName %>"
+				           <% if (Validator.isNull(instancePortletShowRelContentDescription) || instancePortletShowRelContentDescription.indexOf(pClassName) != -1) { out.print(" checked "); } %>
+				           ></td>
+				<td align="center">
+					<% String orderIndex = prefs.getValue("showRelContentOrderIndex_"+pClassName, StringPool.BLANK); %>
+					<input type="text" name="<portlet:namespace/>show_rel_content_orderIndex_<%= pClassName %>" size="2"
+									value="<%= orderIndex %>">
+				</td>
+				
+				
+					<td align="center">
+					<% String langKey = prefs.getValue("showRelContentLangKey_"+pClassName, StringPool.BLANK); %>
+					<input type="text" name="<portlet:namespace/>show_rel_content_langKey_<%= pClassName %>" size="15"
+									value="<%= langKey %>">
+				</td>
+				
+					<td>
+						
+								<% long rootPlid = GetterUtil.getLong(prefs.getValue("show_rel_content_rootPlid_"+pClassName, StringPool.BLANK));%>
+				<select name="<portlet:namespace />show_rel_content_rootPlid_<%= pClassName %>">
+				<option <%= (rootPlid == -1) ? "selected" : "" %> value="-1">
+					<%= "&nbsp;[&nbsp;" + LanguageUtil.get(pageContext, "root") + "&nbsp;]&nbsp"%>
+				</option>
+
+			<%
+			for (int j = 0; j < layoutList.size(); j++) {
+
+				// id | parentId | ls | obj id | name | img | depth
+
+				String layoutDesc = (String)layoutList.get(j);
+
+				String[] nodeValues = StringUtil.split(layoutDesc, "|");
+
+				long objId = GetterUtil.getLong(nodeValues[3]);
+				String layoutName = nodeValues[4];
+
+				int depth = 0;
+
+				if (j != 0) {
+					depth = GetterUtil.getInteger(nodeValues[6]);
+				}
+
+				for (int k = 0; k < depth; k++) {
+					layoutName = "-&nbsp;" + layoutName;
+				}
+			%>
+
+				<option <%= (rootPlid == objId) ? "selected" : "" %> value="<%= objId %>">
+					<%= objId!=0?layoutName: "&nbsp;[&nbsp" + LanguageUtil.get(pageContext, "current-page") + "&nbsp;]&nbsp"%>
+				</option>
+
+			<%
+			}
+			%>
+
+		</select>
+			
+			
+		</td>
+				
+				
+				
+			</tr>
+			<%
+		   } 
+		%>
+		<tr align="center">
+			<td align="center"><%= LanguageUtil.get(pageContext, "javax.portlet.title."+com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_PORTLET) %></td>
+			<td align="center"><input type="checkbox" name="<portlet:namespace/>show_rel_content" 
+			           value="<%= com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME %>"
+			           <% if (Validator.isNull(instancePortletShowRelContent) || instancePortletShowRelContent.indexOf(com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME) != -1) { out.print(" checked "); } %>
+			           ></td>
+			<td align="center"><input type="checkbox" name="<portlet:namespace/>show_rel_content_description" 
+			           value="<%= com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME %>"
+			           <% if (Validator.isNull(instancePortletShowRelContentDescription) || instancePortletShowRelContentDescription.indexOf(com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME) != -1) { out.print(" checked "); } %>
+			           ></td>
+			<td align="center">
+			<% String articlesOrderIndex = prefs.getValue("showRelContentOrderIndex_"+com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME, StringPool.BLANK); %>
+			<input type="text" name="<portlet:namespace/>show_rel_content_orderIndex_<%= com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME %>" size="2"
+						value="<%= articlesOrderIndex %>"></td>
+						
+							<td align="center">
+					<% String langKey = prefs.getValue("showRelContentLangKey_"+com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME, StringPool.BLANK); %>
+					<input type="text" name="<portlet:namespace/>show_rel_content_langKey_<%= com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME %>" size="15"
+									value="<%= langKey %>">
+				</td>
+				
+						<td>
+						
+								<% 
+								long rootPlid = GetterUtil.getLong(prefs.getValue("show_rel_content_rootPlid_"+com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME, StringPool.BLANK));
+								
+								%>
+				<select name="<portlet:namespace />show_rel_content_rootPlid_<%= com.ext.portlet.base.contentrel.ContentRelUtil.JOURNAL_CLASSNAME %>">
+				<option <%= (rootPlid == -1) ? "selected" : "" %> value="-1">
+					<%= "&nbsp;[&nbsp;" + LanguageUtil.get(pageContext, "root") + "&nbsp;]&nbsp"%>
+				</option>
+
+			<%
+			for (int j = 0; j < layoutList.size(); j++) {
+
+				// id | parentId | ls | obj id | name | img | depth
+
+				String layoutDesc = (String)layoutList.get(j);
+
+				String[] nodeValues = StringUtil.split(layoutDesc, "|");
+
+				long objId = GetterUtil.getLong(nodeValues[3]);
+				String layoutName = nodeValues[4];
+
+				int depth = 0;
+
+				if (j != 0) {
+					depth = GetterUtil.getInteger(nodeValues[6]);
+				}
+
+				for (int k = 0; k < depth; k++) {
+					layoutName = "-&nbsp;" + layoutName;
+				}
+			%>
+
+				<option <%= (rootPlid == objId) ? "selected" : "" %> value="<%= objId %>">
+					<%= objId!=0?layoutName: "&nbsp;[&nbsp" + LanguageUtil.get(pageContext, "current-page") + "&nbsp;]&nbsp"%>
+				</option>
+
+			<%
+			}
+			%>
+
+		
+
+		</select>
+			
+			
+		</td>
+		</tr>
+		
+		<tr><td></td></tr>
+		<tr>
+		<td>
+			<%= LanguageUtil.get(pageContext, "embed-related-audio-video-img") %>
+		</td>
+		<td style="padding-left: 10px;"></td>
+		<td>
+		
+			<select name="<portlet:namespace />embed_rel_media">
+				<option <%= (instanceRelEmbedMedia.equals("no")) ? "selected" : "" %> value="no"><%= LanguageUtil.get(pageContext, "no") %></option>
+				<option <%= (instanceRelEmbedMedia.equals("yes")) ? "selected" : "" %> value="yes"><%= LanguageUtil.get(pageContext, "yes") %></option>
+				
+			</select>
+		</td>
+		
+		</tr>
+		
+		</table>
+		</fieldset>
+
+</fieldset>		

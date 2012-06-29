@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+	<formset>
+		<form name="BsBookmarkForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="bs.bookmarks.title"/>
+        	</field>
+        </form>
+
+        <form name="BsBannerForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        </form>
+
+        <form name="BsDocumentForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        </form>
+
+        <form name="BsEventForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="eventDateStart"
+         	   depends="required">
+				 <arg0 key="bs.events.date-start"/>
+        	</field>
+        	<field property="eventTime"
+         	   depends="mask">
+				 <arg0 key="bs.events.eventStartTime"/>
+				 <msg name="mask" key="bs.events.errors.time-format"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[0-2]\d:[0-5]\d$</var-value>
+				 </var>
+        	</field>
+        	
+        	<field property="eventEndTime"
+         	   depends="mask">
+				 <arg0 key="bs.events.eventEndTime"/>
+				 <msg name="mask" key="bs.events.errors.time-format"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[0-2]\d:[0-5]\d$</var-value>
+				 </var>
+        	</field>
+        </form>
+        
+        
+        <form name="BsEventRegistrationForm">
+        	<field property="firstName"
+         	   depends="required">
+				 <arg0 key="bs.events.registration.firstName"/>
+        	</field>
+        	<field property="lastName"
+         	   depends="required">
+				 <arg0 key="bs.events.registration.lastName"/>
+        	</field>
+        	<field property="email"
+         	   depends="required,email">
+				 <arg0 key="bs.events.registration.email"/>
+        	</field>
+        </form>
+        
+        <form name="EvBuildingForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.events.building.name"/>
+        	</field>
+        </form>
+        
+        <form name="EvRoomForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.events.room.name"/>
+        	</field>
+        	<field property="capacity"
+         	   depends="integer">
+				 <arg0 key="bs.events.room.capacity"/>
+        	</field>
+        </form>
+        
+        <form name="EvZoneForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.events.zone.name"/>
+        	</field>
+        	<field property="capacity"
+         	   depends="integer">
+				 <arg0 key="bs.events.zone.capacity"/>
+        	</field>
+        </form>
+        
+         <form name="EvTicketTypeForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.events.tickettype.name"/>
+        	</field>
+        	<field property="defaultDiscount"
+         	   depends="float">
+				 <arg0 key="bs.events.tickettype.discount"/>
+        	</field>
+        </form>
+        
+        <form name="BsEventYellowPageForm">
+        	<field property="yellowPageName"
+         	   depends="required">
+				 <arg0 key="bs.yellowpages.title"/>
+        	</field> 
+        </form>
+		
+		<form name="BsEventPartyForm">
+        	<field property="partyName"
+         	   depends="required">
+				 <arg0 key="contacts.search.name"/>
+        	</field> 
+        </form>
+        
+		<form name="EvEventTypeForm">
+        	<field property="code"
+         	   depends="required">
+				 <arg0 key="bs.events.eventtype.code"/>
+        	</field> 
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.events.eventtype.name"/>
+        	</field> 
+        </form>
+        
+        
+		<form name="BsCivItemForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        </form>
+        
+        <form name="BsCourseForm">
+        	<field property="code"
+         	   depends="required">
+				 <arg0 key="bs.course.code"/>
+        	</field>
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="bs.course.name"/>
+        	</field>
+        </form>
+        
+        <form name="BsFaqForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="faqCode"
+         	   depends="maxlength">
+				 <arg0 key="bs.faq.faqCode"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        	<field property="description"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+
+        <form name="BsFaqContactForm">
+            <field property="contactEmail"
+         	   depends="required">
+				 <arg0 key="email"/>
+        	</field>
+        	<field property="contactTitle"
+         	   depends="required">
+				 <arg0 key="subject"/>
+        	</field>
+        	<field property="contactDescription"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+
+        <form name="BsFaqContactReplyForm">
+        	<field property="replyFromEmail"
+         	   depends="required">
+				 <arg0 key="email"/>
+        	</field>
+        	<field property="replyTitle"
+         	   depends="required">
+				 <arg0 key="subject"/>
+        	</field>
+        	<field property="replyDescription"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+		<form name="BsFaqContactPersonForm">
+        	<field property="personName"
+         	   depends="required">
+				 <arg0 key="bs.faq.contactPerson.person"/>
+        	</field>
+        </form>
+        <form name="BsNewForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="shortDescription"
+         	   depends="maxlength">
+				 <arg0 key="bs.news.shortDescription"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>500</var-value>
+                     </var>
+        	</field>
+        </form>
+	
+		<form name="BsYellowPageForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="bs.yellowpages.title"/>
+        	</field>
+        	<field property="entryDate"
+         	   depends="required">
+				 <arg0 key="bs.yellowpages.entrydate"/>
+        	</field>
+        	<field property="email"
+         	   depends="email">
+				 <arg0 key="bs.yellowpages.email"/>
+        	</field>
+        	<field property="email2"
+         	   depends="email">
+				 <arg0 key="bs.yellowpages.email2"/>
+        	</field>
+        </form>
+        
+        <form name="BsMListForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="description"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+
+        <form name="BsMListPostForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="description"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+
+        <form name="BsMListSubscriptionForm">
+        	<field property="userEmail"
+         	   depends="required">
+				 <arg0 key="email"/>
+        	</field>
+        </form>
+
+        <form name="BsMListSubscriberForm">
+        	<field property="mlistid"
+         	   depends="required">
+				 <arg0 key="mlistid"/>
+        	</field>
+        	<field property="userEmail"
+         	   depends="required">
+				 <arg0 key="userEmail"/>
+        	</field>
+        </form>
+
+
+        <form name="BsSmsListForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="description"
+         	   depends="required">
+				 <arg0 key="description"/>
+        	</field>
+        </form>
+
+        <form name="BsSmsListPostForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="title"/>
+        	</field>
+        	<field property="description"
+         	   depends="required,maxlength">
+				 <arg0 key="description"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>160</var-value>
+                     </var>
+        	</field>
+        </form>
+
+	    <form name="BsSmsListPostSendForm">
+        	<field property="description"
+         	   depends="required,maxlength">
+				 <arg0 key="description"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>160</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        
+        <form name="BsSmsListSubscriptionForm">
+	        <field property="userFullName"
+	         	   depends="maxlength">
+					 <arg0 key="bs.smslists_display.userFullName"/>
+					 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+	                     <var>
+	                       <var-name>maxlength</var-name>
+	                       <var-value>500</var-value>
+	                     </var>
+	        	</field>
+        </form>
+		
+		 
+        <form name="BsSmsListSubscriberForm">
+        	<field property="smslistid"
+         	   depends="required">
+				 <arg0 key="mlistid"/>
+        	</field>
+        	<field property="userFullName"
+         	   depends="maxlength">
+				 <arg0 key="bs.smslists.subscriber.user-fullName"/>
+				 <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>500</var-value>
+                     </var>
+        	</field>
+        	<!-- 
+        	<field property="userPhoneNumber"
+         	   depends="required,mask">
+				 <arg0 key="bs.smslists.subscriber.user-phonenumber"/>
+				 <msg name="mask" key="bs.smslists.errors.phonenumber-format"/>
+				 
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^\d{12}$</var-value>
+				 </var>
+        	</field>
+			 -->
+        </form>
+
+	</formset>
+</form-validation>

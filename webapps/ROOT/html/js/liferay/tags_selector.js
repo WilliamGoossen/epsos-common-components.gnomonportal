@@ -1,0 +1,400 @@
+Liferay.TagsSelector = new Class({
+
+	/*
+	params.instanceVar: the instance variable for this class
+	params.hiddenInput: the hidden input used to pass in the current tags
+	params.textInput: the text input for users to add tags
+	params.summarySpan: the summary span tos how the current tags
+	params.curTags: comma delimited string of current tags
+	params.focus: true if the text input should be focused
+	*/
+	initialize: function(params) {
+		var instance = this;
+
+		instance._curTags = [];
+
+		instance.params = params;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.attr('name', hiddenInput.attr('id'));
+
+		var textInput = jQuery('#' + params.textInput);
+		
+		textInput.Autocomplete(
+			{
+				source: instance._getTags,
+				delay: 0,
+				fx: {
+					type: 'fade',
+					duration: 400
+				},
+				autofill: true,
+				dataSourceType: 'json',
+				helperClass: 'autocomplete-box',
+				selectClass: 'autocomplete-selected',
+				minchars: 1,
+				onSelect: function(option) {
+					textInput.val('');
+
+					var curTags = instance._curTags;
+					var selTag = option.text;
+
+					if (curTags.indexOf(selTag) == -1) {
+						curTags.push(selTag);
+					}
+
+					curTags = curTags.sort();
+
+					instance._update(instance);
+				},
+				onShow: function() {},
+				onHide: function() {}
+			}
+		);
+
+		if (params.focus) {
+			textInput.focus();
+		}
+
+		if (params.curTags != '') {
+			instance._curTags = params.curTags.split(',');
+
+			instance._update(instance);
+		}
+	},
+
+	deleteTag: function(instance, id) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		jQuery('#' + params.instanceVar + 'CurTags' + id).remove();
+
+		curTags.splice(id, 1);
+
+		instance._update(instance);
+	},
+
+	_getTags: function(data) {
+		return Liferay.Service.Tags.TagsEntry.searchAutocomplete(
+			{
+				companyId: themeDisplay.getCompanyId(),
+				name: "%" + data.value + "%",
+				properties: "",
+				begin: 0,
+				end: 20
+			}
+		);
+	},
+
+	_update: function(instance) {
+		instance._updateHiddenInput(instance);
+		instance._updateSummarySpan(instance);
+	},
+
+	_updateHiddenInput: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.val(curTags.join(','));
+	},
+
+	_updateSummarySpan: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var html = '';
+
+		jQuery(curTags).each(
+			function(i, curTag) {
+				html += '<span id="' + params.instanceVar + 'CurTags' + i + '">';
+				html += curTag + ' ';
+				html += '[<a href="javascript: ' + params.instanceVar + '.deleteTag(' + params.instanceVar + ', ' + i + ');">x</a>]';
+
+				if ((i + 1) < curTags.length) {
+					html += ', ';
+				}
+
+				html += '</span>';
+			}
+		);
+
+		var tagsSummary = jQuery('#' + params.summarySpan);
+
+		tagsSummary.html(html);
+	}
+});
+
+
+
+Liferay.GN_KMS_MetaTagsSelector = new Class({
+
+	/*
+	params.instanceVar: the instance variable for this class
+	params.hiddenInput: the hidden input used to pass in the current tags
+	params.textInput: the text input for users to add tags
+	params.summarySpan: the summary span tos how the current tags
+	params.curTags: comma delimited string of current tags
+	params.focus: true if the text input should be focused
+	*/
+	initialize: function(params) {
+		
+		var instance = this;
+		
+		instance._curTags = [];
+
+		instance.params = params;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.attr('name', hiddenInput.attr('id'));
+
+		var textInput = jQuery('#' + params.textInput);
+		
+		textInput.Autocomplete(
+			{
+				source: instance._getTags,
+				delay: 0,
+				fx: {
+					type: 'fade',
+					duration: 400
+				},
+				autofill: true,
+				dataSourceType: 'json',
+				helperClass: 'autocomplete-box',
+				selectClass: 'autocomplete-selected',
+				minchars: 1,
+				onSelect: function(option) {
+					textInput.val('');
+
+					var curTags = instance._curTags;
+					var selTag = option.text;
+
+					if (curTags.indexOf(selTag) == -1) {
+						curTags.push(selTag);
+					}
+
+					curTags = curTags.sort();
+
+					instance._update(instance);
+				},
+				onShow: function() {},
+				onHide: function() {}
+			}
+		);
+
+		if (params.focus) {
+			textInput.focus();
+		}
+
+		if (params.curTags != '') {
+			instance._curTags = params.curTags.split(',');
+
+			instance._update(instance);
+		}
+	},
+
+	deleteTag: function(instance, id) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		jQuery('#' + params.instanceVar + 'CurTags' + id).remove();
+
+		curTags.splice(id, 1);
+
+		instance._update(instance);
+	},
+
+	_getTags: function(data) {
+	    if (data) {
+		return Liferay.Service.Tags.GN_KMS_MetaTagsEntry.searchAutocomplete(
+			{
+				companyId: themeDisplay.getCompanyId(),
+				name: encodeURI(data.value),
+				tagGroup: eval("GN_KMS_MetaTagsSelector_"+data.field+"_tagGroup"),
+				begin: 0,
+				end: 20
+			}
+			)
+		};
+	},
+
+	_update: function(instance) {
+		instance._updateHiddenInput(instance);
+		instance._updateSummarySpan(instance);
+	},
+
+	_updateHiddenInput: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.val(curTags.join(','));
+	},
+
+	_updateSummarySpan: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var html = '';
+
+		jQuery(curTags).each(
+			function(i, curTag) {
+				html += '<span id="' + params.instanceVar + 'CurTags' + i + '">';
+				html += curTag + ' ';
+				html += '[<a href="javascript: ' + params.instanceVar + '.deleteTag(' + params.instanceVar + ', ' + i + ');">x</a>]';
+
+				if ((i + 1) < curTags.length) {
+					html += ', ';
+				}
+
+				html += '</span>';
+			}
+		);
+
+		var tagsSummary = jQuery('#' + params.summarySpan);
+
+		tagsSummary.html(html);
+	}
+});
+
+
+
+Liferay.GN_KMS_MetaTagsLookupSelector = new Class({
+
+	/*
+	params.instanceVar: the instance variable for this class
+	params.hiddenInput: the hidden input used to pass in the current tags
+	params.textInput: the text input for users to add tags
+	params.summarySpan: the summary span tos how the current tags
+	params.curTags: comma delimited string of current tags
+	params.focus: true if the text input should be focused
+	*/
+	initialize: function(params) {
+		
+		var instance = this;
+		
+		instance._curTags = [];
+
+		instance.params = params;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.attr('name', hiddenInput.attr('id'));
+
+		var textInput = jQuery('#' + params.textInput);
+		
+		textInput.Autocomplete(
+			{
+				source: instance._getTags,
+				delay: 0,
+				fx: {
+					type: 'fade',
+					duration: 400
+				},
+				autofill: true,
+				dataSourceType: 'json',
+				helperClass: 'autocomplete-box',
+				selectClass: 'autocomplete-selected',
+				minchars: 1,
+				onSelect: function(option) {
+					textInput.val('');
+
+					var curTags = instance._curTags;
+					var selTag = option.text;
+
+					if (curTags.indexOf(selTag) == -1) {
+						curTags.pop();
+						curTags.push(selTag);
+					}
+
+					curTags = curTags.sort();
+
+					instance._update(instance);
+				},
+				onShow: function() {},
+				onHide: function() {}
+			}
+		);
+
+		if (params.focus) {
+			textInput.focus();
+		}
+
+		if (params.curTags != '') {
+			instance._curTags = params.curTags.split(',');
+
+			instance._update(instance);
+		}
+	},
+
+	deleteTag: function(instance, id) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		jQuery('#' + params.instanceVar + 'CurTags' + id).remove();
+
+		curTags.splice(id, 1);
+
+		instance._update(instance);
+	},
+
+	_getTags: function(data) {
+	    if (data) {
+		return Liferay.Service.Tags.GN_KMS_MetaTagsEntry.lookupAutocomplete(
+			{
+				companyId: themeDisplay.getCompanyId(),
+				name: encodeURI(data.value),
+				tagGroup: eval("GN_KMS_MetaTagsLookupSelector_"+data.field+"_table"),
+				begin: 0,
+				end: 20
+			}
+			)
+		};
+	},
+
+	_update: function(instance) {
+		instance._updateHiddenInput(instance);
+		instance._updateSummarySpan(instance);
+	},
+
+	_updateHiddenInput: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var hiddenInput = jQuery('#' + params.hiddenInput);
+
+		hiddenInput.val(curTags.join(','));
+	},
+
+	_updateSummarySpan: function(instance) {
+		var params = instance.params;
+		var curTags = instance._curTags;
+
+		var html = '';
+
+		jQuery(curTags).each(
+			function(i, curTag) {
+				html += '<span id="' + params.instanceVar + 'CurTags' + i + '">';
+				html += curTag + ' ';
+				html += '[<a href="javascript: ' + params.instanceVar + '.deleteTag(' + params.instanceVar + ', ' + i + ');">x</a>]';
+
+				if ((i + 1) < curTags.length) {
+					html += ', ';
+				}
+
+				html += '</span>';
+			}
+		);
+
+		var tagsSummary = jQuery('#' + params.summarySpan);
+
+		tagsSummary.html(html);
+
+		var input = jQuery('#' + params.textInput);
+		input.toggle();
+	}
+});

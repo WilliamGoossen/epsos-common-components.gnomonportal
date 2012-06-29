@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<!-- ### PARTIES ### -->
+	<definition name="portlet.ext.parties" extends="portlet" />
+
+
+	<!-- ### PARTIES MANAGER ### -->
+	<definition name="portlet.ext.parties.manager.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addPerson.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updatePerson.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.summary" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/personSummary.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/deletePerson.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.summary" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/organizationSummary.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/deleteOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.roles.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewPartyRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.roles.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updatePartyRole.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.roles.choose" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/choosePartyRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.roletypes.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewPartyRoleTypes.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.name.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewPersonNames.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.name.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addPersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.name.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updatePersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.name.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/deletePersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.person.name.validity" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/nameValidityError.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.name.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewOrganizationNames.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.name.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.name.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.name.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/deleteOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.org.name.validity" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/nameValidityError.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.email.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewEmailAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.email.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addEmailAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.email.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateEmailAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.webpage.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewWebpageAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.webpage.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addWebpageAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.webpage.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateWebpageAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.geographic.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.geographic.relatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewRelatedGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.geographic.notrelatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewNotRelatedGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.geographic.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addGeographicAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.geographic.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateGeographicAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.telecom.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.telecom.relatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewRelatedTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.telecom.notrelatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewNotRelatedTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.telecom.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/addTelecomAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.addresses.telecom.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/updateTelecomAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.rels.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewRolesAndRels.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.rels.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/viewPartyRels.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.identifier.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/identifier/viewPartyIdentifiers.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.identifier.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/identifier/addPartyIdentifier.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.identifier.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/identifier/updatePartyIdentifier.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.manager.identifier.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/manager/identifier/deletePartyIdentifier.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN ### -->
+	<definition name="portlet.ext.parties.admin.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/view.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:PartyRoleType ### -->
+	<definition name="portlet.ext.parties.admin.role.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/viewRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.role.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/addRole.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.role.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/updateRole.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.role.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/deleteRole.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:FeatureType ### -->
+	<definition name="portlet.ext.parties.admin.featuretype.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/viewFeatureTypes.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.featuretype.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/addFeatureType.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.featuretype.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/updateFeatureType.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.featuretype.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/deleteFeatureType.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.feature.possiblevalue.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/viewFeaturePossibleValues.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.feature.possiblevalue.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/addFeaturePossibleValue.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.feature.possiblevalue.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/features/updateFeaturePossibleValue.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:PartyRelationshipType ### -->
+	<definition name="portlet.ext.parties.admin.rel.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/viewRels.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.rel.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/addRel.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.rel.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/updateRel.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.rel.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/deleteRel.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:OrganizationType ### -->
+	<definition name="portlet.ext.parties.admin.org.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/viewOrgs.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.org.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/addOrg.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.org.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/updateOrg.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.org.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/deleteOrg.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:Country ### -->
+	<definition name="portlet.ext.parties.admin.country.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/viewCountries.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.country.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/addCountry.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.country.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/updateCountry.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.country.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/deleteCountry.jsp" />
+	</definition>
+
+	<!-- ### PARTIES ADMIN:Portlet ### -->
+	<definition name="portlet.ext.parties.admin.portlet.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/viewPortlets.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.admin.portlet.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/admin/updatePortlet.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.events" path="/themes/portlet/gnomon_theme/gnomon_empty.jsp" />
+
+	<definition name="portlet.ext.parties.events.viewlist" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/events/listEvents.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.events.viewform" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/events/viewEvent.jsp" />
+	</definition>
+
+	<!-- ### ORGANIZATION CHART ### -->
+	<definition name="portlet.ext.parties.orgchart.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/listCharts.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/viewChart.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.organization.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/listRootOrganizations.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.organization.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/addRootOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.department.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/listOrganizations.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.department.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/addOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/listPersons.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/addPerson.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.roles.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/listRoles.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/editPerson.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/editOrganization.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.name.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/viewPersonNames.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.name.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/addPersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.name.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/updatePersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.name.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/employee/deletePersonName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.person.name.validity" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/nameValidityError.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.name.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/viewOrganizationNames.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.name.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/addOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.name.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/updateOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.name.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/department/deleteOrganizationName.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.org.name.validity" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/nameValidityError.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.email.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewEmailAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.email.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/addEmailAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.email.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/updateEmailAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.webpage.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewWebpageAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.webpage.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/addWebpageAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.webpage.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/updateWebpageAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.geographic.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.geographic.relatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewRelatedGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.geographic.notrelatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewNotRelatedGeographicAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.geographic.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/addGeographicAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.geographic.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/updateGeographicAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.telecom.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.telecom.relatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewRelatedTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.telecom.notrelatedview" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewNotRelatedTelecomAddresses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.telecom.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/addTelecomAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.addresses.telecom.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/updateTelecomAddress.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.identifier.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/viewPartyIdentifiers.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.identifier.add" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/addPartyIdentifier.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.identifier.update" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/updatePartyIdentifier.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.parties.orgchart.identifier.delete" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/party/deletePartyIdentifier.jsp" />
+	</definition>
+	
+	
+	<!--  ### BROWSER ### -->
+	
+	<definition name="portlet.ext.parties.browser.listView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/PartiesListView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.personSummaryFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/persons/PersonSummaryFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.organizationSummaryFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizations/OrganizationSummaryFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.personFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/persons/PersonFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.organizationFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizations/OrganizationFormView.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.parties.browser.proposalsProjectsContractsListView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/ProposalsProjectsContractsListView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.addressesListView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/addresses/AddressesListView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.geographicAddressFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/addresses/GeographicAddressFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.telecomAddressFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/addresses/TelecomAddressFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.emailAddressFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/addresses/EmailAddressFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.webpageAddressFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/addresses/WebpageAddressFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.organization.newOrganizationWizardFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizations/NewOrganizationWizardFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.person.newPersonWizardFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/persons/NewPersonWizardFormView.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.parties.browser.systemUserForPerson" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/persons/SystemUserForPersonFormView.jsp" />
+	</definition>
+		
+	<definition name="portlet.ext.parties.browser.partyRolesListView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/persons/PartyRolesListView.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.parties.browser.partyIdentifiersListView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/identifiers/PartyIdentifiersListView.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.parties.browser.identifierFormView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/identifiers/PartyIdentifierFormView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.orgChartTabView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizationCharts/OrganizationChartTabView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.org.advancedView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/OrganizationAdvancedTabView.jsp" />
+	</definition>
+		
+	<definition name="portlet.ext.parties.browser.orgChartPersonView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizationCharts/OrgChartPersonView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.orgChartDepartmentView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizationCharts/OrgChartDepartmentView.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.browser.addEmployeeToDepartmentView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/organizationCharts/AddEmployeeToDepartmentView.jsp" />
+	</definition>
+	
+	
+	<!-- PA_CONTACTS -->
+
+	<definition name="portlet.ext.parties.contacts.search" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/search.jsp" />
+	</definition>
+		
+	<definition name="portlet.ext.parties.contacts.form" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/form.jsp" />
+	</definition>	
+
+	<definition name="portlet.ext.parties.contacts.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/view/view.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.parties.contacts.liferayUserForm" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/liferayUserForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.roles.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/roles/viewPartyRoles.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.roletypes.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="//portlet/ext/parties/contacts/roles/viewPartyRoleTypes.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.usergroups.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/roles/viewLiferayUserGroups.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.highroles.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/roles/viewHighRoles.jsp" />
+	</definition>
+	
+	<!--  Department lookup -->	
+	<definition name="portlet.ext.parties.browser.orgChart.departmentLookupView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/DepartmentLookupView.jsp" />
+	</definition>	
+	<definition name="portlet.ext.projectMgmt.departmentLookup.lookUpTreeView" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/orgchart/DepartmentLookupTreeView.jsp" />
+	</definition>
+	
+	<!--  Parties lookup -->	
+	<definition name="portlet.ext.parties.browse.partiesLookupPage" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/browser/partyLookup/PartyLookupListView.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.parties.contacts.groups.form" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/groups/form.jsp" />
+	</definition>	
+	<definition name="portlet.ext.parties.contacts.groups.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/groups/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.parties.contacts.groups.members.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/groups/members/memberList.jsp" />
+	</definition>
+	<definition name="portlet.ext.parties.contacts.groups.available.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/groups/members/availableList.jsp" />
+	</definition>
+	<definition name="portlet.ext.parties.contacts.mass.form" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/massActionsForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.assignments.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/assignmentsList.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.email.form" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/emailForm.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.orgchart.view" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/orgchart/view.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.orgchart.search" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/orgchart/searchToAdd.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.orgchart.form" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/orgchart/newContactForm.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="portlet.ext.parties.contacts.topics.list.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/topics/list/list.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.parties.contacts.topics.nav.list" extends="portlet.ext.parties">
+		<put name="portlet_content" value="/portlet/ext/parties/contacts/topics/nav/list.jsp" />
+	</definition>
+</tiles-definitions>
+
+

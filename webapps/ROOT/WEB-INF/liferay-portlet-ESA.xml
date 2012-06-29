@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 4.3.1//EN" "http://www.liferay.com/dtd/liferay-portlet-app_4_3_1.dtd">
+
+<liferay-portlet-app>
+
+	<!-- Custom Portlets -->
+	<portlet>
+		<portlet-name>ESA_COMPONENT_BROWSING</portlet-name>
+		<struts-path>ext/esa/componentBrowsing</struts-path>
+		<configuration-action-class>com.ext.portlet.esa.componentBrowsing.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>false</preferences-unique-per-layout>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+		
+	<portlet>
+		<portlet-name>ESA_ERROR_MODEL_BROWSING</portlet-name>
+		<struts-path>ext/esa/errorModelBrowsing</struts-path>
+		<configuration-action-class>com.ext.portlet.esa.componentBrowsing.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>false</preferences-unique-per-layout>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+		
+	<!--  -->
+	
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+
+</liferay-portlet-app>

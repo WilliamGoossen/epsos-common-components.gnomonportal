@@ -1,0 +1,44 @@
+<%
+SearchContainer searchContainer = new SearchContainer();
+
+List headerNames = new ArrayList();
+
+headerNames.add("name");
+//headerNames.add("type");
+headerNames.add(StringPool.BLANK);
+
+searchContainer.setHeaderNames(headerNames);
+
+List results = UserGroupLocalServiceUtil.getUserUserGroups(user2.getUserId());
+List resultRows = searchContainer.getResultRows();
+
+for (int i = 0; i < results.size(); i++) {
+	UserGroup userGroup = (UserGroup)results.get(i);
+
+	ResultRow row = new ResultRow(new Object[]{user2, userGroup, currentURL + sectionRedirectParams}, userGroup.getUserGroupId(), i);
+
+	// Name
+
+	row.addText(userGroup.getName());
+
+	// Type
+
+	//row.addText(LanguageUtil.get(pageContext, "regular"));
+
+	// Action
+
+	if (editable) {
+		row.addJSP("right", SearchEntry.DEFAULT_VALIGN, "/html/portlet/enterprise_admin/user_user_group_action.jsp");
+	}
+
+	// Add result row
+
+	resultRows.add(row);
+}
+%>
+
+<liferay-ui:search-iterator searchContainer="<%= searchContainer %>" />
+
+<c:if test="<%= results.size() > 0 %>">
+	<br />
+</c:if>

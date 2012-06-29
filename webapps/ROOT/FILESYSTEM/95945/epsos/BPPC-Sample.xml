@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/> <!-- extension = OID for HL7 Registered models -->
+    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/> <!-- Medical Documents Specification -->
+    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.7"/> <!-- Patient Privacy Consent Acknowledgment Document Specification with no Scanned Document Part -->
+    <id root="8aa3e6e4-9a99-4356-beda-46d268579e41"/> <!-- generated UID -->
+    <code code="57016-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Privacy Policy Acknowledgement Document"/> <!-- Document TypeCode -->
+    <title>Consent to Share Information</title>
+    <effectiveTime value="20100813105852+0000"/> <!-- Creation Time of Document -->
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Connect-a-thon confidentialityCodes" displayName="Normal"/> <!-- Document ConfidentialityCode -->
+    <languageCode code="en-US"/> <!-- spoken language -->
+    <recordTarget> <!-- Patient data - if you have no information you have to set nullflavor -->
+        <patientRole>
+            <id extension="MAU.12816971164611" root="TianiSpiritGO.spiritEhrWs-1.XDS-DOM"/>
+            <addr>
+                <country>AT</country>
+                <state>AT-9</state>
+                <city>Wien</city>
+                <postalCode>1120</postalCode>
+                <streetAddressLine>Twinstreet 8</streetAddressLine>
+            </addr>
+            <telecom use="HP" value="s.schminzl@gmx.de"/>
+            <telecom use="WP"/>
+            <telecom use="HP" value="08347349"/>
+            <telecom use="WP"/>
+            <patient>
+                <name>
+                    <given>Sophie</given>
+                    <family>Schminzl</family>
+                    <suffix nullFlavor="NI"/>
+                    <prefix nullFlavor="NI"/>
+                </name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGender" displayName="Female"/>
+                <birthTime value="19780705"/>
+                <maritalStatusCode nullFlavor="NI"/>
+                <religiousAffiliationCode nullFlavor="NI"/>
+                <raceCode nullFlavor="NI"/>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <author> <!-- data of the user which has created the CDA -->
+        <time value="20100813105852+0000"/> <!-- Creation Time of Document -->
+        <assignedAuthor>
+            <id extension="admin"/>
+            <addr>
+                <state nullFlavor="NI"/>
+                <city nullFlavor="NI"/>
+                <postalCode>A-1110</postalCode>
+                <streetAddressLine nullFlavor="NI"/>
+            </addr>
+            <telecom value="00431"/>
+            <assignedPerson>
+                <name>
+                    <given>Spirit</given>
+                    <family>Admin</family>
+                    <prefix nullFlavor="NI"/>
+                </name>
+            </assignedPerson>
+            <representedOrganization> <!-- organization of the user -->
+                <id nullFlavor="NI"/>
+                <name>spirit</name>
+                <telecom nullFlavor="NI"/>
+                <addr>
+                    <state nullFlavor="NI"/>
+                    <city nullFlavor="NI"/>
+                    <postalCode nullFlavor="NI"/>
+                    <streetAddressLine nullFlavor="NI"/>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian> <!-- data of the custodian -->
+        <assignedCustodian>
+            <representedCustodianOrganization>
+                <id nullFlavor="NI"/>
+                <name>General Medicine</name>
+                <telecom value="087636233"/>
+                <addr>
+                    <streetName>Hedgehogstreet</streetName>
+                    <houseNumber>261</houseNumber>
+                    <postalCode>83623</postalCode>
+                    <city>Vienna</city>
+                    <country>Vienna</country>
+                    <state>Austria</state>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <legalAuthenticator> <!-- data of the user/author -->
+        <time value="20100813105852+0000"/> <!-- Creation Time of Document -->
+        <signatureCode code="S"/> <!-- hardcoded -->
+        <assignedEntity>
+            <id extension="admin"/>
+            <addr>
+                <state nullFlavor="NI"/>
+                <city nullFlavor="NI"/>
+                <postalCode>A-1110</postalCode>
+                <streetAddressLine nullFlavor="NI"/>
+            </addr>
+            <telecom value="00431"/>
+            <assignedPerson>
+                <name>
+                    <given>Spirit</given>
+                    <family>Admin</family>
+                    <prefix nullFlavor="NI"/>
+                </name>
+            </assignedPerson>
+            <representedOrganization> <!-- organization of the user -->
+                <id nullFlavor="NI"/>
+                <name>spirit</name>
+                <telecom nullFlavor="NI"/>
+                <addr>
+                    <state nullFlavor="NI"/>
+                    <city nullFlavor="NI"/>
+                    <postalCode nullFlavor="NI"/>
+                    <streetAddressLine nullFlavor="NI"/>
+                </addr>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+    <documentationOf typeCode="DOC"> <!-- policy section, check consent service event spezifiation -->
+        <serviceEvent classCode="ACT" moodCode="EVN">
+            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.6"/> <!-- consent service event -->
+            <id root="2f4fae9e-d8f2-44c8-b831-ac3998cf8227"/> <!-- generated UID -->
+            <code code="pol_doctor_PCP-physicianRole_permit" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.2.4.1" codeSystemName="PolicySet List" displayName="Policy that permits everything for doctor 'PCP-physicianRole'"/> <!-- policy itself: code is policysetID, codeSystem is specified in epsos -->
+            <effectiveTime>
+                <low value="20100813"/> <!-- effective time start; has to be set -->
+                <high nullFlavor="NI"/> <!-- effective time stop; if null, there is no end time -->
+            </effectiveTime>
+        </serviceEvent>
+    </documentationOf>
+    <documentationOf typeCode="DOC"> <!-- policy section, check consent service event spezifiation -->
+        <serviceEvent classCode="ACT" moodCode="EVN">
+            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.6"/> <!-- consent service event -->
+            <id root="18ab481f-105a-4123-b200-d1aa95b04dea"/> <!-- generated UID -->
+            <code code="pol_visit_summary_deny" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.2.4.1" codeSystemName="PolicySet List" displayName="Policy that denies only Visit Summary documents"/> <!-- policy itself: code is policysetID, codeSystem is specified in epsos -->
+            <effectiveTime>
+                <low value="20100813"/> <!-- effective time start; has to be set -->
+                <high nullFlavor="NI"/> <!-- effective time stop; if null, there is no end time -->
+            </effectiveTime>
+        </serviceEvent>
+    </documentationOf>
+    <component>
+        <structuredBody> <!-- part which will be displayed, you also can create a table with the whole policy data or something else for displaying the stuff -->
+            <component>
+                <section>
+                    <title>BPPC Description</title>
+                    <text>
+                        <br/>
+                        <content>pol_doctor_PCP-physicianRole_permit, Policy that permits everything for doctor 'PCP-physicianRole'</content>
+                        <br/>
+                        <content>pol_visit_summary_deny, Policy that denies only Visit Summary documents</content>
+                    </text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

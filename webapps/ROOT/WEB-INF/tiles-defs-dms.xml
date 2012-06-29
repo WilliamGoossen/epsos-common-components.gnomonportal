@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!-- Permissions -->
+
+	<definition name="portlet.ext.dms" extends="portlet" />
+
+	<!-- Alfresco Content -->
+
+	<definition name="portlet.ext.dms.portletnotsetup" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/portletnotsetup.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.browse.folders" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/browseFolders.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.view" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.browse" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/browse.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.addVersion" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/addVersion.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.viewVersions" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/viewVersions.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.editFolder" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/editFolder.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.filedetails" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/viewDetails.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.viewPermissions" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/viewPermissions.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.viewFolderPermissions" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/viewFolderPermissions.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.dms.setPermissions" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/dms/setPermissions.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.googlemaps.view" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/googlemaps/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.wf.view" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/wf/view.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.wf.listprocesses" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/wf/listprocesses.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.wf.startprocess" extends="portlet.ext.dms">
+		<put name="portlet_content" value="/portlet/ext/wf/startprocess.jsp" />
+	</definition>
+
+</tiles-definitions>
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube6" measuresCaption="%{measures}">
+    <Cube name="cube6">
+        <Table name="mondian_Table6"/>
+        <Dimension name="mondian_Table6.etos" caption="%{year}">
+            <Hierarchy name="mondian_Table6.etos" hasAll="true" allMemberName="All mondian_Table6.etos" allMemberCaption="%{all_years}">
+                <Table name="mondian_Table6"/>
+                <Level name="mondian_Table6.etos" table="mondian_Table6" column="etos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table6.nomos" caption="%{nomos}">
+            <Hierarchy name="mondian_Table6.nomos" hasAll="true" allMemberName="All mondian_Table6.nomos" allMemberCaption="%{all_nomoi}">
+                <Table name="mondian_Table6"/>
+                <Level name="mondian_Table6.nomos" table="mondian_Table6" column="nomos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table6.eidos">
+            <Hierarchy name="mondian_Table6.eidos" hasAll="true" allMemberName="All mondian_Table6.eidos">
+                <Table name="mondian_Table6"/>
+                <Level name="mondian_Table6.eidos" table="mondian_Table6" column="eidos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table6.deiktis" caption="%{deiktis}">
+            <Hierarchy name="mondian_Table6.deiktis" hasAll="true" allMemberName="All mondian_Table6.deiktis" allMemberCaption="%{all_deiktes}">
+                <Table name="mondian_Table6"/>
+                <Level name="mondian_Table6.deiktis" table="mondian_Table6" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table6.timi" column="timi" aggregator="avg" datatype="Numeric" formatString="###,###" caption="%{timi}"/>
+    </Cube>
+</Schema>

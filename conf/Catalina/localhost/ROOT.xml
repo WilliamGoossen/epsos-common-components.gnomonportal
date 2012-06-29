@@ -1,0 +1,58 @@
+<Context path="" crossContext="true">
+
+
+		<Resource
+		name="jdbc/LiferayPool"
+		auth="Container"
+		type="com.mchange.v2.c3p0.ComboPooledDataSource"
+		factory="org.apache.naming.factory.BeanFactory"
+		driverClass="com.mysql.jdbc.Driver"
+		jdbcUrl="jdbc:mysql://194.219.31.173/epsosportal_db?useUnicode=yes&amp;characterEncoding=UTF-8"
+		maxPoolSize="100" minPoolSize="10" acquireIncrement="5"
+		user="root"
+		password="olimpos"
+		acquireRetryAttempts="30"
+		idleConnectionTestPeriod="300"
+		initialPoolSize="5"
+		maxIdleTime="300"
+		maxStatements="50"
+
+	/>
+	
+	<!-- Mail -->
+
+	<Resource
+		name="mail/MailSession"
+		auth="Container"
+		type="javax.mail.Session"
+		mail.imap.host="mail.epsos.eu"
+		mail.pop3.host="mail.epsos.eu"
+		mail.smtp.host="mail.epsos.eu"
+		mail.store.protocol="imap"
+		mail.transport.protocol="smtp"
+	/>
+
+	<!-- JAAS -->
+
+	<Realm
+		className="org.apache.catalina.realm.JAASRealm"
+		appName="PortalRealm"
+		userClassNames="com.liferay.portal.security.jaas.PortalPrincipal"
+		roleClassNames="com.liferay.portal.security.jaas.PortalRole"
+		debug="99"
+		useContextClassLoader="false"
+	/>
+
+	<!--
+	Uncomment the following to disable persistent sessions across reboots.
+	-->
+
+	<!--<Manager pathname="" />-->
+
+	<!--
+	Uncomment the following to not use sessions. See the property
+	"session.disabled" in portal.properties.
+	-->
+
+	<!--<Manager className="com.liferay.support.tomcat.session.SessionLessManagerBase" />-->
+</Context>

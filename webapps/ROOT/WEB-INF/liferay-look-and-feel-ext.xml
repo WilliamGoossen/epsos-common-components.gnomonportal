@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 4.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_4_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>4.3.1</version>
+	</compatibility>
+	<company-limit>
+		<company-includes />
+		<company-excludes />
+	</company-limit>
+	<theme id="alios" name="ΑΛΙΟΣ ΑΕ">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="technopolis" name="ΤΕΧΝΟΠΟΛΙΣ">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="novacerttheme" name="novacert">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="ecsa" name="ecsa">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>	
+	<theme id="vellum" name="Vellum">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>	
+	<theme id="gnomonsupport" name="Gnomon Suuport System">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>	
+	<theme id="qtraining" name="Q-Training">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>	
+	<theme id="sykiesweb" name="Δημος Συκεών">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>	
+	<theme id="gi9eshop1" name="gi9 eShop">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+		<theme id="coldstone" name="Coldstone">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+		<theme id="scveria" name="Βέροια - Έξυπνος Οικισμός">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="scveria_elearning" name="Βέροια - Τηλεεκπαίδευση">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="smartcity" name="Βέροια - Registration">
+		<root-path>/html/themes/${theme-id}</root-path>
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+		</settings>
+	</theme>
+	<theme id="cosmostrade" name="Cosmos Trade B2B">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="easyfound" name="EasyFound Portal">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="portespalace" name="Portes Palace Hotel">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="portesbeach" name="Portes Beach Hotel">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="scalahotel" name="Scala Hotel">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="kleemann" name="Kleemann Portal">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="elixis" name="Elixis SA">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="skdeco" name="SK Deco">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+	<theme id="gi9eshopminimal" name="gi9 minimal">
+		<root-path>/html/themes/${theme-id}</root-path>
+	</theme>
+</look-and-feel>

@@ -1,0 +1,275 @@
+<%
+/**
+ * Copyright (c) 2000-2007 Liferay, Inc. All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+%>
+
+<%@ include file="/html/portlet/enterprise_admin/init.jsp" %>
+
+<%
+String tabs2 = ParamUtil.getString(request, "tabs2", "display");
+String tabs3 = ParamUtil.getString(request, "tabs3", "email-addresses");
+String tabs4 = ParamUtil.getString(request, "tabs4", "phone-numbers");
+
+String redirect = ParamUtil.getString(request, "redirect");
+
+User user2 = PortalUtil.getSelectedUser(request);
+
+boolean editable = false;
+
+if (portletName.equals(PortletKeys.ENTERPRISE_ADMIN) || portletName.equals(PortletKeys.LOCATION_ADMIN) || portletName.equals(PortletKeys.ORGANIZATION_ADMIN) || portletName.equals(PortletKeys.MY_ACCOUNT)) {
+	if ((user2 == null) || user2.isActive()) {
+		editable = true;
+
+		if ((user2 != null) && !UserPermissionUtil.contains(permissionChecker, user2.getUserId(), user2.getOrganization().getOrganizationId(), user2.getLocation().getOrganizationId(), ActionKeys.UPDATE)) {
+			editable = false;
+		}
+	}
+}
+
+Contact contact2 = null;
+
+if (user2 != null) {
+	contact2 = user2.getContact();
+}
+
+PasswordPolicy passwordPolicy = null;
+
+if (user2 == null) {
+	passwordPolicy = PasswordPolicyLocalServiceUtil.getDefaultPasswordPolicy(company.getCompanyId());
+}
+else {
+	passwordPolicy = user2.getPasswordPolicy();
+}
+
+String emailAddress = BeanParamUtil.getString(user2, request, "emailAddress");
+%>
+
+<script src="<%=themeDisplay.getPathJavaScript() %>/SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+<link href="<%=themeDisplay.getPathThemeRoot() %>/css/SpryAccordion.css" rel="stylesheet" type="text/css" />
+
+<div id="<portlet:namespace/>myAccount" class="Accordion" tabindex="0">
+  <div class="AccordionPanel">
+    <div class="AccordionPanelTab"><%=LanguageUtil.get(pageContext, "account-information") %></div>
+    <div class="AccordionPanelContent">
+    
+     	<%@ include file="/html/portlet/enterprise_admin/gi9_user_profile.jspf" %>
+
+	</div>
+  </div>
+  <div class="AccordionPanel">
+    <div class="AccordionPanelTab"><%=LanguageUtil.get(pageContext, "change-password") %></div>
+    <div class="AccordionPanelContent">
+    
+    	<%@ include file="/html/portlet/enterprise_admin/gi9_user_password.jspf" %>
+    
+    </div>
+  </div>
+  
+  <div class="AccordionPanel">
+    <div class="AccordionPanelTab"><%=LanguageUtil.get(pageContext, "contact-details") %></div>
+    <div class="AccordionPanelContent">
+    
+    
+    
+    </div>
+  </div>
+  
+  <div class="AccordionPanel">
+    <div class="AccordionPanelTab"><%=LanguageUtil.get(pageContext, "portal-preferences") %></div>
+    <div class="AccordionPanelContent">
+    
+    	<%@ include file="/html/portlet/enterprise_admin/edit_user_display.jspf" %>
+    
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+<!--
+var Accordion1 = new Spry.Widget.Accordion("<portlet:namespace/>myAccount");
+//-->
+</script>
+
+
+<script type="text/javascript">
+	function <portlet:namespace />saveUser(cmd) {
+		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = cmd;
+		document.<portlet:namespace />fm.<portlet:namespace />redirect.value = "<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>"><portlet:param name="struts_action" value="/enterprise_admin/edit_user" /></portlet:renderURL>&<portlet:namespace />tabs2=" + document.<portlet:namespace />fm.<portlet:namespace />tabs2.value + "&<portlet:namespace />tabs3=" + document.<portlet:namespace />fm.<portlet:namespace />tabs3.value + "&<portlet:namespace />tabs4=" + document.<portlet:namespace />fm.<portlet:namespace />tabs4.value + "&<portlet:namespace />redirect=<%= HttpUtil.encodeURL(redirect) %>&<portlet:namespace />p_u_i_d=";
+		submitForm(document.<portlet:namespace />fm, "<portlet:actionURL windowState="<%= WindowState.MAXIMIZED.toString() %>"><portlet:param name="struts_action" value="/enterprise_admin/edit_user" /></portlet:actionURL>");
+	}
+</script>
+
+<form method="post" name="<portlet:namespace />fm">
+<input name="<portlet:namespace /><%= Constants.CMD %>" type="hidden" value="" />
+<input name="<portlet:namespace />tabs2" type="hidden" value="<%= tabs2 %>" />
+<input name="<portlet:namespace />tabs3" type="hidden" value="<%= tabs3 %>" />
+<input name="<portlet:namespace />tabs4" type="hidden" value="<%= tabs4 %>" />
+<input name="<portlet:namespace />redirect" type="hidden" value="" />
+<input name="<portlet:namespace />p_u_i_d" type="hidden" value='<%= (user2 != null) ? user2.getUserId() : 0 %>' />
+
+
+<liferay-util:include page="/html/portlet/my_account/tabs1.jsp">
+	<liferay-util:param name="tabs1" value="profile" />
+</liferay-util:include>
+
+<%//@ include file="/html/portlet/enterprise_admin/edit_user_profile.jspf" %>
+
+<c:if test="<%= user2 != null %>">
+	<c:if test="<%= user2.getLockout() %>">
+		<liferay-ui:tabs names="lockout" />
+
+		<%@ include file="/html/portlet/enterprise_admin/edit_user_lockout.jspf" %>
+	</c:if>
+
+	<c:if test="<%= editable %>">
+
+		<%
+		String tabs2Names = "display,password,roles,user-groups";
+
+		if ((passwordPolicy != null) && !passwordPolicy.isChangeable()) {
+			tabs2Names = "display,roles,user-groups";
+		}
+		%>
+<%--
+		<liferay-ui:tabs
+			names="<%= tabs2Names %>"
+			formName="fm"
+			param="tabs2"
+			refresh="<%= false %>"
+		>
+			<liferay-ui:section>
+				<%@ include file="/html/portlet/enterprise_admin/edit_user_display.jspf" %>
+			</liferay-ui:section>
+
+			<c:if test="<%= (passwordPolicy == null) || passwordPolicy.isChangeable() %>">
+				<liferay-ui:section>
+					<%@ include file="/html/portlet/enterprise_admin/edit_user_password.jspf" %>
+				</liferay-ui:section>
+			</c:if>
+
+			<liferay-ui:section>
+				<%@ include file="/html/portlet/enterprise_admin/user_role_iterator.jspf" %>
+			</liferay-ui:section>
+
+			<liferay-ui:section>
+				<%@ include file="/html/portlet/enterprise_admin/user_user_group_iterator.jspf" %>
+			</liferay-ui:section>
+		</liferay-ui:tabs>
+		--%>
+	</c:if>
+
+<% 
+String personName = null;
+Integer personId = null;
+try {
+	gnomon.hibernate.model.parties.PaPerson person = 
+		gnomon.hibernate.PartiesService.getInstance(null).getPaPerson(user2.getUserId());
+	personId = person.getMainid();
+	gnomon.hibernate.model.views.ViewResult personView = 
+		gnomon.hibernate.GnPersistenceService.getInstance(null)
+		.getObjectWithLanguage(gnomon.hibernate.model.parties.PaParty.class, 
+				person.getMainid(), gnomon.business.GeneralUtils.getLocale(request),
+				new String[]{"langs.description"});
+	personName = (String)personView.getField1();
+	
+} catch (Exception e) {}
+if (personName != null && personId != null) { %>
+<br>
+<a href="<liferay-portlet:actionURL portletName="PA_PARTIES_BROWSER" windowState="maximized">
+<liferay-portlet:param name="struts_action" value="/ext/parties/browser/person_load"/>
+<liferay-portlet:param name="selectedMainId" value="<%= personId.toString() %>"/>
+<liferay-portlet:param name="loadaction" value="VIEW"/>
+<liferay-portlet:param name="redirect" value="<%=currentURL %>"/>
+</liferay-portlet:actionURL>">
+<%= LanguageUtil.get(pageContext, "parties.button.admin-go") +" "+personName%>
+</a>
+<br>
+<% } else { %>
+<%--
+	<liferay-ui:tabs
+		names="email-addresses,addresses,websites"
+		formName="fm"
+		param="tabs3"
+		refresh="<%= false %>"
+	>
+		<liferay-ui:section>
+			<liferay-util:include page="/html/portlet/enterprise_admin/email_address_iterator.jsp">
+				<liferay-util:param name="editable" value="<%= String.valueOf(editable) %>" />
+				<liferay-util:param name="redirect" value="<%= currentURL + sectionRedirectParams %>" />
+				<liferay-util:param name="className" value="<%= Contact.class.getName() %>" />
+				<liferay-util:param name="classPK" value="<%= String.valueOf(contact2.getContactId()) %>" />
+			</liferay-util:include>
+		</liferay-ui:section>
+		<liferay-ui:section>
+			<liferay-util:include page="/html/portlet/enterprise_admin/address_iterator.jsp">
+				<liferay-util:param name="editable" value="<%= String.valueOf(editable) %>" />
+				<liferay-util:param name="redirect" value="<%= currentURL + sectionRedirectParams %>" />
+				<liferay-util:param name="className" value="<%= Contact.class.getName() %>" />
+				<liferay-util:param name="classPK" value="<%= String.valueOf(contact2.getContactId()) %>" />
+				<liferay-util:param name="organizationId" value="<%= String.valueOf(organizationId) %>" />
+				<liferay-util:param name="locationId" value="<%= String.valueOf(locationId) %>" />
+			</liferay-util:include>
+		</liferay-ui:section>
+		<liferay-ui:section>
+			<liferay-util:include page="/html/portlet/enterprise_admin/website_iterator.jsp">
+				<liferay-util:param name="editable" value="<%= String.valueOf(editable) %>" />
+				<liferay-util:param name="redirect" value="<%= currentURL + sectionRedirectParams %>" />
+				<liferay-util:param name="className" value="<%= Contact.class.getName() %>" />
+				<liferay-util:param name="classPK" value="<%= String.valueOf(contact2.getContactId()) %>" />
+			</liferay-util:include>
+		</liferay-ui:section>
+	</liferay-ui:tabs>
+
+	<liferay-ui:tabs
+		names="phone-numbers,sms-messenger-id,instant-messenger-ids"
+		formName="fm"
+		param="tabs4"
+		refresh="<%= false %>"
+	>
+		<liferay-ui:section>
+			<liferay-util:include page="/html/portlet/enterprise_admin/phone_iterator.jsp">
+				<liferay-util:param name="editable" value="<%= String.valueOf(editable) %>" />
+				<liferay-util:param name="redirect" value="<%= currentURL + sectionRedirectParams %>" />
+				<liferay-util:param name="className" value="<%= Contact.class.getName() %>" />
+				<liferay-util:param name="classPK" value="<%= String.valueOf(contact2.getContactId()) %>" />
+				<liferay-util:param name="organizationId" value="<%= String.valueOf(organizationId) %>" />
+				<liferay-util:param name="locationId" value="<%= String.valueOf(locationId) %>" />
+			</liferay-util:include>
+		</liferay-ui:section>
+		<liferay-ui:section>
+			<%@ include file="/html/portlet/enterprise_admin/edit_user_sms.jspf" %>
+		</liferay-ui:section>
+		<liferay-ui:section>
+			<%@ include file="/html/portlet/enterprise_admin/edit_user_im.jspf" %>
+		</liferay-ui:section>
+	</liferay-ui:tabs>
+	
+	<%@ include file="/html/portlet/enterprise_admin/edit_user_comments.jspf" %>
+	--%>
+<% } %>
+	
+	<%
+	PortalUtil.setPageSubtitle(user2.getFullName(), request);
+	%>
+
+</c:if>
+
+</form>

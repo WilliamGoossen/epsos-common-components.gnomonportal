@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name="portlet.ext.srv" extends="portlet" />
+
+	<!--  Services -->
+	<definition name="portlet.ext.srv.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.srv.form" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/form.jsp" />
+	</definition>
+	
+	
+	
+	<!--  Services Registrations -->
+	<definition name="portlet.ext.srv.registrations.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/registrations/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.srv.registrations.form" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/registrations/form.jsp" />
+	</definition>
+	
+	
+	
+	<!-- Admin Services Registrations -->
+	<definition name="portlet.ext.srv.srv_adminregistrations.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/registrations/admin/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.srv.srv_adminregistrations.form" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/registrations/admin/form.jsp" />
+	</definition>
+	
+	
+	<!--  Services Reports -->
+	<definition name="portlet.ext.srv.reports.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/reports/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.srv.reports.form" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/reports/form.jsp" />
+	</definition>
+	
+	<!--  User Reports -->
+	<definition name="portlet.ext.srv.reports.user.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/reports/user/list.jsp" />
+	</definition>
+	
+	
+	
+	
+	<!--  Service Actions -->
+	<definition name="portlet.ext.srv.actions.list" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/actions/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.srv.actions.form" extends="portlet.ext.srv">
+		<put name="portlet_content" value="/portlet/ext/srv/actions/form.jsp" />
+	</definition>
+	
+</tiles-definitions>

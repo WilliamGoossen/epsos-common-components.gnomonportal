@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="obsind">
+    <Cube name="obsind">
+        <Table name="mondrian"/>
+        <Dimension name="mondrian.etos">
+            <Hierarchy name="mondrian.etos" hasAll="true" allMemberName="All mondrian.etos">
+                <Table name="mondrian"/>
+                <Level name="mondrian.etos" table="mondrian" column="etos" uniqueMembers="false"/>
+                <Level name="mondrian.nomos" table="mondrian" column="nomos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondrian.deiktis">
+            <Hierarchy name="mondrian.deiktis" hasAll="true" allMemberName="All mondrian.deiktis">
+                <Table name="mondrian"/>
+                <Level name="mondrian.deiktis" table="mondrian" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondrian.value" column="value" aggregator="sum" datatype="Integer" formatString="#.##0"/>
+    </Cube>
+</Schema>

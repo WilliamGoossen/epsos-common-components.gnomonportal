@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<high-roles-definitions>
+
+<high-role>
+	<valid-for-companies><!-- list of company ids for which this definition holds, as an example this one is for a non-existent company 92 -->
+		<company>95945</company>
+	</valid-for-companies>
+	
+	<id>pharmacist</id><!--  a unique id for this high role -->
+	
+	<language-key>contacts.highrole.PHARMACIST</language-key><!--  a language key for a user-friendly translation of the high role name in the UI -->
+	
+	<party-roles><!--  a list of party role system codes needed by this definition -->
+		<party-role>pharmacist</party-role>
+	</party-roles>
+	
+	<liferay-user-groups><!--  a list of liferay user group names (and their corresponding companies) needed by this definition -->
+		<liferay-user-group companyId="95945">pharmacist</liferay-user-group>
+	</liferay-user-groups>
+	
+	<party-relationship><!--  the main relationship behind this definition -->
+		<party-relationship-type>REL_HAS_EMPLOYEE</party-relationship-type><!--  the party relationship type system code -->
+		<party-relationship-position>CLIENT</party-relationship-position><!--  the position of this party in the relationship, either CLIENT or SUPPLIER -->
+		<party-relationship-client-role>pharmacist</party-relationship-client-role>
+		<party-relationship-supplier-role>ROLE_DEPARTMENT</party-relationship-supplier-role><!--  the role to use on the supplier side of the relationship, this can be either a role system code or a choice tag  -->
+		<party-relationship-to><!--  the other party to relate to, this can be either a straight party mainid or a choice tag -->
+			<choice partyType="organization" roleType="ROLE_DEPARTMENT" organizationChartFilter="false"/><!--  a choice can be open (all possible parties to choose from) or limited to a comma separated list of roles, using the roleType attribute, and a certain partyType (person or organization) holding those roles -->
+			<!--  if the organizationChartFilter attribute is set to true, then only departments of the current user's organization chart will be shown in the choice of parties to relate to -->
+		</party-relationship-to>
+	</party-relationship>
+</high-role>
+
+<high-role>
+	<valid-for-companies><!-- list of company ids for which this definition holds, as an example this one is for a non-existent company 92 -->
+		<company>95945</company>
+	</valid-for-companies>
+	
+	<id>physician</id><!--  a unique id for this high role -->
+	
+	<language-key>contacts.highrole.physician</language-key><!--  a language key for a user-friendly translation of the high role name in the UI -->
+	
+	<party-roles><!--  a list of party role system codes needed by this definition -->
+		<party-role>physician</party-role>
+	</party-roles>
+	
+	<liferay-user-groups><!--  a list of liferay user group names (and their corresponding companies) needed by this definition -->
+		<liferay-user-group companyId="95945">physician</liferay-user-group>
+	</liferay-user-groups>
+	
+	<party-relationship><!--  the main relationship behind this definition -->
+		<party-relationship-type>REL_HAS_EMPLOYEE</party-relationship-type><!--  the party relationship type system code -->
+		<party-relationship-position>CLIENT</party-relationship-position><!--  the position of this party in the relationship, either CLIENT or SUPPLIER -->
+		<party-relationship-client-role>physician</party-relationship-client-role>
+		<party-relationship-supplier-role>ROLE_DEPARTMENT</party-relationship-supplier-role><!--  the role to use on the supplier side of the relationship, this can be either a role system code or a choice tag  -->
+		<party-relationship-to><!--  the other party to relate to, this can be either a straight party mainid or a choice tag -->
+			<choice partyType="organization" roleType="ROLE_DEPARTMENT" organizationChartFilter="false"/><!--  a choice can be open (all possible parties to choose from) or limited to a comma separated list of roles, using the roleType attribute, and a certain partyType (person or organization) holding those roles -->
+			<!--  if the organizationChartFilter attribute is set to true, then only departments of the current user's organization chart will be shown in the choice of parties to relate to -->
+		</party-relationship-to>
+	</party-relationship>
+</high-role>
+
+<high-role>
+	<valid-for-companies><!-- list of company ids for which this definition holds, as an example this one is for a non-existent company 92 -->
+		<company>95945</company>
+	</valid-for-companies>
+	
+	<id>nurse</id><!--  a unique id for this high role -->
+	
+	<language-key>contacts.highrole.nurse</language-key><!--  a language key for a user-friendly translation of the high role name in the UI -->
+	
+	<party-roles><!--  a list of party role system codes needed by this definition -->
+		<party-role>nurse</party-role>
+	</party-roles>
+	
+	<liferay-user-groups><!--  a list of liferay user group names (and their corresponding companies) needed by this definition -->
+		<liferay-user-group companyId="95945">nurse</liferay-user-group>
+	</liferay-user-groups>
+	
+	<party-relationship><!--  the main relationship behind this definition -->
+		<party-relationship-type>REL_HAS_EMPLOYEE</party-relationship-type><!--  the party relationship type system code -->
+		<party-relationship-position>CLIENT</party-relationship-position><!--  the position of this party in the relationship, either CLIENT or SUPPLIER -->
+		<party-relationship-client-role>nurse</party-relationship-client-role>
+		<party-relationship-supplier-role>ROLE_DEPARTMENT</party-relationship-supplier-role><!--  the role to use on the supplier side of the relationship, this can be either a role system code or a choice tag  -->
+		<party-relationship-to><!--  the other party to relate to, this can be either a straight party mainid or a choice tag -->
+			<choice partyType="organization" roleType="ROLE_DEPARTMENT" organizationChartFilter="false"/><!--  a choice can be open (all possible parties to choose from) or limited to a comma separated list of roles, using the roleType attribute, and a certain partyType (person or organization) holding those roles -->
+			<!--  if the organizationChartFilter attribute is set to true, then only departments of the current user's organization chart will be shown in the choice of parties to relate to -->
+		</party-relationship-to>
+	</party-relationship>
+</high-role>
+
+<high-role>
+	<valid-for-companies><!-- list of company ids for which this definition holds, as an example this one is for a non-existent company 92 -->
+		<company>95945</company>
+	</valid-for-companies>
+	
+	<id>administrator</id><!--  a unique id for this high role -->
+	
+	<language-key>contacts.highrole.administrator</language-key><!--  a language key for a user-friendly translation of the high role name in the UI -->
+	
+	<party-roles><!--  a list of party role system codes needed by this definition -->
+		<party-role>administrator</party-role>
+	</party-roles>
+	
+	<liferay-user-groups><!--  a list of liferay user group names (and their corresponding companies) needed by this definition -->
+		<liferay-user-group companyId="95945">administrator</liferay-user-group>
+	</liferay-user-groups>
+	
+	<party-relationship><!--  the main relationship behind this definition -->
+		<party-relationship-type>REL_HAS_EMPLOYEE</party-relationship-type><!--  the party relationship type system code -->
+		<party-relationship-position>CLIENT</party-relationship-position><!--  the position of this party in the relationship, either CLIENT or SUPPLIER -->
+		<party-relationship-client-role>nurse</party-relationship-client-role>
+		<party-relationship-supplier-role>ROLE_DEPARTMENT</party-relationship-supplier-role><!--  the role to use on the supplier side of the relationship, this can be either a role system code or a choice tag  -->
+		<party-relationship-to><!--  the other party to relate to, this can be either a straight party mainid or a choice tag -->
+			<choice partyType="organization" roleType="ROLE_DEPARTMENT" organizationChartFilter="false"/><!--  a choice can be open (all possible parties to choose from) or limited to a comma separated list of roles, using the roleType attribute, and a certain partyType (person or organization) holding those roles -->
+			<!--  if the organizationChartFilter attribute is set to true, then only departments of the current user's organization chart will be shown in the choice of parties to relate to -->
+		</party-relationship-to>
+	</party-relationship>
+</high-role>
+
+</high-roles-definitions>

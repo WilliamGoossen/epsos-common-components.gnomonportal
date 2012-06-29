@@ -1,0 +1,427 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+body {
+	/*font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','Tahoma',Arial,Verdana,sans-serif;*/
+	font-family:Arial, Helvetica, sans-serif;
+	/*) behavior:url("../images/iepngfix.htc"); */
+	 background: transparent url(../images/custom/back_body.png) top no-repeat;;
+}
+
+#wrapper {
+	width: 1100px;
+}
+
+#content-wrapper {
+	background: #fff url(../images/custom/content_wrapper_back.png) top repeat-x;
+	border-left: 1px solid #D7D7D7;
+	border-right: 1px solid #D7D7D7;
+	font-size: 1.2em;
+	line-height: 1.35;
+	margin: 0px;
+	margin-left:2px;
+	margin-top: -8px;
+	padding: 30px 0px 0px;
+}
+
+#content-wrapper.login {
+	padding-top: 10px;
+}
+
+font {
+	font-size: 1em !important;
+}
+
+#column-1 {
+	
+	border-right: 0px solid #D7D7D7;
+}
+
+
+#layout-grid .lfr-column {
+}
+
+
+.columns-2 #column-1 { width:180px;}
+/* ---------- Banner ---------- */
+
+#banner {
+	/*background: transparent url(../images/common/banner_bg.png) no-repeat 100% 100%;*/
+	height: auto;
+	margin-bottom: 0;
+	padding-right: 5px;
+	position: relative;
+	margin-top:40px;
+}
+
+#banner-inner {
+	/*background: transparent url(../images/common/banner_bg.png) no-repeat 0 100%;*/
+	min-height: 7em;
+	padding: 1em 0.6em 0.5em;
+}
+
+#banner .logo {
+	background: none;
+	display: block;
+	float: none;
+	font-size: 0;
+	margin-bottom: 20px;
+	margin-left: 0.5em;
+	padding: 0;
+	text-indent: -9999em;
+}
+
+#banner .logo a {
+	text-decoration: none;
+}
+
+.js.ie #banner {
+	z-index: 1;
+}
+
+.ie6 #banner .logo {
+	zoom: 1;
+}
+
+/* ---------- Portlet ---------- */
+
+.portlet {
+	background: transparent;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.portlet .portlet-topper {
+	background: #F0F0F0;
+	border-bottom: 2px solid #dfdfdf;
+	color: #12558E;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet .portlet-title, .portlet .portlet-icons {
+	background: none;
+}
+
+.portlet .portlet-title {
+	color: #818181;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 5px 3px 2px;
+	border-bottom:#FFFFFF 1px solid;
+}
+.columns-2 #column-1 .portlet .portlet-title {
+	width:97%;
+}
+.columns-2 #column-1 .portlet .portlet-topper {
+	width:97%;
+}
+
+.portlet .portlet-content {
+	background: none;
+	border: none;
+	padding: 10px;
+}
+.portlet .portlet-content .journal-content-article img{
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+}
+
+
+.portlet-icons {
+	margin: 1px;
+	position: absolute;
+	right: 3px;
+	text-align: right;
+	top: 0;
+}
+
+.ie6 .portlet .portlet-topper {
+	position: static;
+	z-index: 0;
+}
+
+.ie6 .portlet .portlet-title {
+	/*float: left;*/
+
+}
+
+.ie6 .portlet .portlet-icons {
+	float: right;
+	margin-top: 1px;
+	position: static;
+}
+
+/* ---------- Page search ---------- */
+
+#page-search {
+	position: absolute;
+	right: 18px;
+	top: 70px;
+}
+#page-search  input[type="text"] {
+	background:#FFFFFF url(../images/custom/search.png) no-repeat scroll 0 0;
+	color: #CCCCCC;
+}
+#page-search input[type="image"] {
+	padding:0px;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+	border-bottom: 1px solid #2B5A79;
+}
+
+.tabs li {
+	background: url(../images/common/tabs_bg.png) no-repeat 0 -100px;
+	display: inline;
+	float: left;
+	line-height: 2.25;
+	margin-right: 0.2em;
+
+	padding: 0;
+	position: relative;
+	text-decoration: none;
+}
+
+.tabs li a, .tabs li span {
+	background: url(../images/common/tabs_bg.png) no-repeat 100% -300px;
+	color: #fff;
+	display: block;
+	float: left;
+	padding: 0.35em 1em 0;
+	text-decoration: none;
+}
+
+.tabs li.current {
+	background: url(../images/common/tabs_bg.png) no-repeat 0 0;
+	border-right: 1px solid #5E90BB;
+	font-weight: bold;
+	top: 0.05em;
+}
+
+.tabs li.current a, .tabs li.current span {
+	background: url(../images/custom/tab_marker.gif) no-repeat 50% bottom;
+	border-right: 1px solid #C3E3FF;
+	color: #fff;
+	margin-top: 1px;
+	padding: 0.15em 1em;
+}
+
+.tabs li a:hover {
+	color: #c9c5a2;
+}
+
+.ie .tabs li {
+	line-height: 2.2;
+}
+
+.ie .tabs li.current a, .ie .tabs li.current span {
+	padding: 0.05em 1em;
+}
+
+.safari .tabs li {
+	line-height: 2.35;
+}
+
+.safari .tabs li a, .safari .tabs li span {
+	padding: 0.25em 1em 0;
+}
+
+/* ---------- Dock with Javascript ---------- */
+.js .lfr-dock.interactive-mode {
+	margin-top:-50px;
+}
+
+.js .lfr-dock.interactive-mode h2 {
+	background-position: 100% -23px;
+	font-size: 1.1em;
+}
+
+.js .lfr-dock.interactive-mode h2 span {
+	color: #333333;
+	font-size: 1.1em;
+	padding: 0.4em 0.5em 0.35em 2.5em;
+	text-align: left;
+}
+
+.ie.js .lfr-dock.interactive-mode h2 {
+	height: 25px;
+}
+
+/* ---------- Footer ---------- */
+
+#footer {
+	background: transparent url(../images/custom/footer_back.jpg) no-repeat;
+	margin-left:2px;
+	margin-top:1px;
+}
+
+#footer .language {
+	background: transparent url(../images/custom/powered.png) no-repeat 5px 3px;
+	padding: 0.3em 0.3em 0.25em;
+	text-align: right;
+	height:90px;
+	color:#FFFFFF;
+
+}
+
+#footer .language a {
+	padding-top:15px;
+	margin-right: 5px;
+	color:#FFFFFF;
+}
+
+
+
+
+
+h1 { font-size: 1.2em;
+}
+h3 { font-size: 1.1em;
+}
+
+
+/* css gia Latest News kai Events */ 
+#latestcontent{
+	width:100%;
+	padding: 0 0 0 0;
+}
+* html #latestcontent{ /*IE 6 only */
+width: 100%; /*Box model bug: 180px minus all left and right paddings for #blueblock */
+}
+#latestcontent ul{
+	list-style-image: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-bottom:1px solid #707176;
+	border-top:1px solid #707176;
+}
+
+#latestcontent li{
+	margin: 0;
+	background:#eae9df;
+	padding:0px 8px 0px 8px;
+	border-bottom:1px solid #dfdfdf;
+}
+#latestcontent ul li a{
+	display:block;
+	padding:3px 0 3px 10px;
+	padding-top:-10px;
+	text-decoration:none;
+	color:#333333;
+	margin-bottom: 4px;
+	font-size:1.1em;
+	font-weight:bold;
+	letter-spacing:0.06em;
+	border-bottom: #EAE9DF 1px solid;
+}
+html>body #latestcontent li a{ /*Non IE6 width*/
+width: auto;
+}
+#latestcontent ul li a:hover{
+	display:block;
+	background:#eeeee9;
+	border-bottom: #CCCCCC 1px solid;
+}
+/* END css gia Latest News kai Events */ 
+
+
+/*mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+.portal-popup { background:url(../images/custom/white_bg_tile.gif) repeat; }
+.portal-popup h1 { font-size:14px;  }
+/* END mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+
+
+
+
+/* gia to menu malakia pou bgainei sta actions sto display tags*/
+.moreActionsMenu { position: absolute;  border:1px solid #000; background-color:#CCCCCC; z-index:4; float:none;}
+.moreActionsMenu a {  }
+
+
+
+
+#latestcontent ul li a:hover{
+ display:block;
+}
+/* END css gia Latest News kai Events */
+
+/*mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+.portal-popup { background:url(../images/custom/white_bg_tile.gif) repeat; }
+.portal-popup h1 { font-size:14px;  }
+/* END mono gia ta pop up windows , na mhn pernoun to basiko bg apo to body */
+
+
+/*display tags pagbanner kai links*/
+.pagebanner { display:block; font-size:11px;  padding-left: 3px; padding-right: 3px; padding-bottom:1px; padding-top:5px; margin-bottom:0px; margin-top:10px;  }
+
+.pagelinks { display:block; font-size:11px;  padding-left: 3px; padding-right: 3px; padding-bottom:5px; padding-top:5px; margin-bottom:10px;}
+
+.pagelinks a { margin-left:5px; display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#F0F1F1; text-decoration:none; border:1px solid #DDE4E4;}
+.pagelinks a:hover { display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#D1E3E3; }
+.pagelinks_selected { margin-left:5px; display:inline-block; padding-left: 3px; padding-right: 3px; background-color:#D1E3E3; border:1px solid #000;}
+/*END display tags pagbanner kai links*/
+
+
+.moreActionsMenu { position: absolute;  border:1px solid #000; background-color:#CCCCCC; z-index:4; float:none;}
+.moreActionsMenu a {  }
+
+
+
+/* Mono gia ti Lista ton ekdiloseon me display tag etsi oste na min peirazei kai ta alla icons sto display tag */
+#p_p_id_bs_events_browser_ .portlet-section-body td img, #p_p_id_bs_event_locations_ .portlet-section-body td img {
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+	background-color:#FFF;
+}
+#p_p_id_bs_events_browser_ .portlet-section-alternate td img, 
+#p_p_id_bs_event_locations_ .portlet-section-alternate td img,
+#p_p_id_bs_event_locations_ .journal-content-article img
+{
+	padding:4px;
+	margin:2px 5px 0 0px;
+	border:1px solid #9CC3E8;
+	background-color:#FFF;
+}
+/* Mono gia ti Lista ton ekdiloseon me display tag etsi oste na min peirazei kai ta alla icons sto display tag */
+
+
+/*bglines gia to title data*/
+.bglines { background-color:#e0e1e1; border:1px solid #d2d2d2; margin-bottom:10px; }
+.bglines td { padding:5px; }
+.bglines .title_left { font-weight:bold; width:200px; text-align:right;}
+.bglines .title_right { font-weight:normal; width:auto; text-align:left;}
+
+
+.info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('/html/themes/portlet/gnomon_theme/img/info.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('success.png');
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('img/warning.png');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('error.png');
+}

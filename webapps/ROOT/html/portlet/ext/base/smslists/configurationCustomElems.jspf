@@ -1,0 +1,27 @@
+<tr>
+	<td>
+		<%= LanguageUtil.get(pageContext, "bs.smslists.posts.send-from-name") %>
+	</td>
+	<td style="padding-left: 10px;"></td>
+	<td>
+		<input class="form-text" name="<portlet:namespace />fromName" style="width: 150px;" type="text" value="<%= fromName %>">
+	</td>
+</tr>
+<tr>
+	<td>
+		<%= LanguageUtil.get(pageContext, "bs.smslists.posts.send-from-address") %>
+	</td>
+	<td style="padding-left: 10px;"></td>
+	<td>
+		<input class="form-text" name="<portlet:namespace />fromAddress" style="width: 150px;" type="text" value="<%= fromAddress %>">
+	</td>
+</tr>
+<tr>
+	<td>
+		<%= LanguageUtil.get(pageContext, "bs.smslists.posts.reply-to-address") %>
+	</td>
+	<td style="padding-left: 10px;"></td>
+	<td>
+		<input class="form-text" name="<portlet:namespace />replyToAddress" style="width: 150px;" type="text" value="<%= replyToAddress %>">
+	</td>
+</tr>

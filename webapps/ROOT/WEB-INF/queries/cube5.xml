@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube5" >
+    <Cube name="cube5">
+        <Table name="mondian_Table5"/>
+        <Dimension name="mondian_Table5.etos">
+            <Hierarchy name="mondian_Table5.etos" hasAll="true" allMemberName="All mondian_table5.etos" >
+                <Table name="mondian_Table5"/>
+                <Level name="mondian_Table5.etos" table="mondian_Table5" column="etos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table5.nomos" caption="%{nomos}">
+            <Hierarchy name="mondian_Table5.nomos" hasAll="true" allMemberName="All mondian_table5.nomos" >
+                <Table name="mondian_Table5"/>
+                <Level name="mondian_Table5.nomos" table="mondian_Table5" column="nomos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table5.eidos">
+            <Hierarchy name="mondian_Table5.eidos" hasAll="true" allMemberName="All mondian_table5.eidos">
+                <Table name="mondian_Table5"/>
+                <Level name="mondian_Table5.eidos" table="mondian_Table5" column="eidos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table5.deiktis" >
+            <Hierarchy name="mondian_Table5.deiktis" hasAll="true" allMemberName="All mondian_table5.deiktis">
+                <Table name="mondian_Table5"/>
+                <Level name="mondian_Table5.deiktis" table="mondian_Table5" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table5.group_deiktis" caption="%{klados}">
+            <Hierarchy name="mondian_Table5.group_deiktis" hasAll="true" allMemberName="All mondian_table5.group_deiktis" >
+                <Table name="mondian_Table5"/>
+                <Level name="mondian_Table5.group_deiktis" table="mondian_Table5" column="group_deiktis" uniqueMembers="false"/>
+		<Level name="mondian_Table5.deiktis" table="mondian_Table5" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table5.timi" column="timi" aggregator="sum" datatype="Numeric" formatString="###,###" caption="%{timi}"/>
+    </Cube>
+</Schema>

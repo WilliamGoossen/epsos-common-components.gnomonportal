@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.kleemann" extends="portlet" />
+
+	<definition name="portlet.ext.kleemann.crm.issues.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/crm/viewIssues.jsp" />
+	</definition>	
+
+	<definition name="portlet.ext.kleemann.crm.issues.viewIssue" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/crm/viewIssue.jsp" />
+	</definition>	
+
+
+	<definition name="portlet.ext.kleemann.financial.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/financial/view.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.financial.invoices.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/financial/viewInvoices.jsp" />
+	</definition>	
+
+	<definition name="portlet.ext.kleemann.customercard.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/customercard/view.jsp" />
+	</definition>	
+		
+	<definition name="portlet.ext.kleemann.financial.orders.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/order/viewOrders.jsp" />
+	</definition>	
+		
+	<definition name="portlet.ext.kleemann.financial.offers.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/order/viewOffers.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.kleemann.financial.orders.viewOrder" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/order/viewOrder.jsp" />
+	</definition>
+
+		
+	<definition name="portlet.ext.kleemann.financial.offers.viewOffer" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/order/viewOffer.jsp" />
+	</definition>
+		
+	<definition name="portlet.ext.kleemann.error" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/error.jsp" />
+	</definition>	
+
+		
+		
+   <!--  KLEEMANN_ONLINE_OFFERS -->
+   <definition name="portlet.ext.kleemann.onlineOffers.step.1" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/step1.jsp" />
+	</definition>			
+		
+    <definition name="portlet.ext.kleemann.onlineOffers.step.2" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/step2.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.features" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/orderFeatures.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.features.value.images" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/util/orderFeatureValueImages.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.floors" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/orderFloors.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.customers" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/orderCustomers.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.calculate" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/orderCalculate.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.kleemann.onlineOffers.summary" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/orderSummary.jsp" />
+	</definition>	
+				
+	<definition name="portlet.ext.kleemann.onlineOffers.print.summary" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/printSummary.jsp" />
+	</definition>
+					
+	<definition name="portlet.ext.kleemann.onlineOffers.print.success" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/onlineOffers/printSuccess.jsp" />
+	</definition>		
+	
+	
+	<!--  KLEEMANN CONTACT DETAILS -->		
+    <definition name="portlet.ext.kleemann.contact.details.view" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/contact/details/view.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.kleemann.contact.details.form" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/contact/details/form.jsp" />
+	</definition>
+	
+    <!--  KLEEMANN CONTACT -->
+    <definition name="portlet.ext.kleemann.contact.view" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/contact/view.jsp" />
+	</definition>	
+	
+	<!-- KLEEMANN CUSTOMER DASHBOARD -->
+	<definition name="portlet.ext.kleemann.dashboard.view" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/dashboard/view.jsp" />
+	</definition>	
+    			
+	<!-- KLEEMANN PARTY DETAILS -->
+	<definition name="portlet.ext.kleemann.partyDetails.view" extends="portlet.ext.kleemann">
+		<put name="portlet_content" value="/portlet/ext/kleemann/partyDetails/view.jsp" />
+	</definition>    			
+	
+	<!--  KLEEMANN SHOPPING CART -->
+    <definition name="portlet.ext.kleemann.eshop.view" extends="portlet.ext.kleemann">
+        <put name="portlet_content" value="/portlet/ext/kleemann/eshop/view.jsp" />
+    </definition>  
+</tiles-definitions>

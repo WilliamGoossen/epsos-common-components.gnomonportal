@@ -1,0 +1,365 @@
+﻿## EPSOS  ##
+
+category.epsos=EpSOS
+
+javax.portlet.title.EPSOS_DEMO=EpSOS DEMO
+javax.portlet.title.EPSOS_INFO=EpSOS INFO
+javax.portlet.title.EPSOS_CONSENT=EpSOS GESTIÓN DE CONSENTIMIENTO
+
+
+epsos.user.displayname=Nombre
+epsos.user.organizationname=Agencia
+epsos.user.loginrole=Rol
+
+epsos.demo.search.givenName=Nombre
+epsos.demo.search.familyName=Apellido
+epsos.demo.search.birthdate=Fecha de Nacimiento
+epsos.demo.search.sex=Sexo
+epsos.demo.search.sex.M=Arsénico
+epsos.demo.search.sex.F=Hombre
+epsos.demo.search.streetAddress=La calle
+epsos.demo.search.zip=Código postal
+epsos.demo.search.city=Ciudad
+epsos.demo.search.country=País
+epsos.demo.search.country.UK=REINO UNIDO
+epsos.demo.search.country.GR=GRECIA
+epsos.demo.search.country.IT=ITALIA
+epsos.demo.search.country.DE=ALEMANIA
+epsos.demo.search.country.AT=AUSTRIA
+epsos.demo.search.pid=Paciente de identidad
+epsos.demo.search.ssnNumber=Seguridad Número de Referencia
+epsos.demo.search.driversLicense=Número de licencia
+epsos.demo.search.accountNumber=Número de cuenta
+
+epsos.demo.search.namePrefix=Título
+epsos.demo.search.middleName=Nombre del padre
+epsos.demo.search.state=Región
+epsos.demo.search.homePhone=Teléfono de la casa
+epsos.demo.search.businessPhone=Teléfono de trabajo
+epsos.demo.search.emailHome=Inicio Email
+epsos.demo.search.emailBusiness=Correo electrónico del trabajo
+epsos.demo.search.birthPlace=Lugar de nacimiento
+epsos.demo.search.citizenship=Ciudadanía
+epsos.demo.search.nationality=Nacionalidad
+epsos.demo.search.accountData=Información de la cuenta
+epsos.demo.search.drivingLicense=Número de licencia
+epsos.demo.search.dateOfDeath=Fecha de muerte
+epsos.demo.search.lastUpdate=Ultima actualización de la
+
+epsos.demo.pid.id=Número
+epsos.demo.pid.type=Tipo de identificación
+epsos.demo.pid.domain=Dominio
+epsos.demo.pid.domainType=Tipo de dominio
+epsos.demo.pid.namespace=Espacio de nombres
+epsos.demo.pid.ehrType=HME Tipo
+
+epsos.demo.search.patientCard=Ficha del Paciente
+epsos.demo.search.patiendIds=Identificación del Paciente
+
+epsos.demo.document.list=Resumen de registros de pacientes
+epsos.demo.document.details=Archivo de Datos
+epsos.demo.document.name=Título
+epsos.demo.document.description=Descripción
+epsos.demo.document.formatCode=Código de formato
+epsos.demo.document.language=Idioma
+epsos.demo.document.creationTime=Fecha de creación
+epsos.demo.document.documentClass=Clásico Archivo
+epsos.demo.document.status=Condición Jurídica y Social
+epsos.demo.document.documentType=Tipo de Archivo
+epsos.demo.document.healthcareFacilityCode=Consejo de Salud
+epsos.demo.document.practiceSetting=Especialidad
+epsos.demo.document.confidentiality=Gradación
+epsos.demo.document.authorPerson=Autor
+epsos.demo.document.size=Tamaño
+epsos.demo.document.mimeType=tipo MIME
+epsos.demo.document.submission.details=Envío de datos
+epsos.demo.document.submission.title=Título
+epsos.demo.document.submission.description=Descripción
+epsos.demo.document.submission.date=Fecha de presentación
+epsos.demo.document.submission.authorInstitution=Organización de Autor
+epsos.demo.document.submission.authorDepartment=Facultad de Autor
+epsos.demo.document.submission.contentType=Tipo de contenido
+epsos.demo.document.folder.details=Datos del archivo
+epsos.demo.document.folder.title=Título
+epsos.demo.document.folder.description=Descripción
+epsos.demo.document.folder.code=Archivo Código
+
+epsos.demo.prescription.list=Lista de las prescripciones del paciente
+epsos.demo.dispensation.list=Lista de las prescripciones del paciente
+epsos.demo.prescription.lines.list=Lista parcial de los Medicamentos
+
+epsos.demo.prescription.id=Número de receta
+epsos.demo.prescription.performer=Receta Manager
+epsos.demo.prescription.facility=Cuerpo
+epsos.demo.prescription.profession=Condición Jurídica y Social
+epsos.demo.prescription.address=Dirección
+epsos.demo.prescription.prescriber=Prescrita por
+epsos.demo.prescription.name=Nombre
+epsos.demo.prescription.ingredient=Ingrediente activo
+epsos.demo.prescription.strength=Cantidad de preparación
+epsos.demo.prescription.package=Embalaje
+epsos.demo.prescription.dosage=Dosis
+epsos.demo.prescription.frequency=Frecuencia de recepción
+epsos.demo.prescription.route=Método
+epsos.demo.prescription.start=Cuidados en el hogar
+epsos.demo.prescription.end=Fin del tratamiento
+epsos.demo.prescription.nrOfPacks=Número de envases
+epsos.demo.prescription.instruction.patient=Nota para los pacientes
+epsos.demo.prescription.instruction.filler=Nota al farmacéutico
+
+epsos.demo.dispensation=Recetas
+epsos.demo.dispensation.id=Número de la prescripción Corp.
+epsos.demo.dispensation.name=Tema recetados de
+epsos.demo.dispensation.strength=Cantidad de preparación
+epsos.demo.dispensation.packaging=Embalaje
+epsos.demo.dispensation.packaging-form=Forma
+epsos.demo.dispensation.packaging-pack=Embalaje
+epsos.demo.dispensation.packaging-quantity=Cantidad
+epsos.demo.dispensation.substitute=Sustitución
+epsos.demo.dispensation.substitute-not-permitted=Era y sustitución
+epsos.demo.dispensation.nrOfPacks=Número de envases
+
+epsos.demo.confirmation.title=Debe introducir la confirmación de Acceso de Pacientes en los datos de su organización.
+epsos.demo.confirmation.error=Ha habido un problema y la confirmación de que el paciente podría ser registrado.
+epsos.demo.confirmation.button=Confirmación de registro
+
+epsos.demo.consent.title=Debe introducir el consentimiento del paciente para el acceso a sus datos.
+epsos.demo.consent.error=Ha habido un problema y el consentimiento del paciente no pueden ser registrados.
+epsos.demo.consent.form=Formulario de Consentimiento del Paciente
+epsos.demo.consent.button=Consentimiento Registro
+epsos.demo.consent.info=Por favor, seleccione una de las siguientes situaciones
+epsos.demo.consent.choice.1=el paciente ya ha dado su consentimiento para el acceso a los datos epSOS
+epsos.demo.consent.choice.2=caso de emergencia
+epsos.demo.consent.choice.3=El paciente ahora quiere firmar el consentimiento para el acceso de datos epSOS
+epsos.demo.consent.date=El consentimiento es válido hasta
+
+epsos.demo.consent.create.button=Crear un nuevo consentimiento
+epsos.demo.consent.continue.button=Uso de los Consentimiento
+
+epsos.consent.patients=Lista de pacientes
+epsos.consent.list=Lista de Consentimiento del Paciente
+epsos.consent.view=Consentimiento del Paciente Revisión
+epsos.consent.add=Añadir el consentimiento del paciente
+epsos.consent.edit=Editar el consentimiento del paciente
+epsos.consent.delete=El consentimiento del paciente Eliminar
+epsos.consent.country=País de Atención
+epsos.consent.creationDate=Fecha de Publicación consentimiento
+epsos.consent.validFrom=Válido desde
+epsos.consent.validTo=Válido hasta el
+epsos.consent.doctor.name=Nombre del médico
+epsos.consent.doctor.address=Médico Dirección
+
+epsos.identifier.username=Cuenta de usuario epSOS
+epsos.identifier.password=Contraseña epSOS
+
+epsos.xsl.view=Revisión del archivo
+epsos.patient.card.view=Resumen de información del paciente
+epsos.patient.doc.view=Revisión del archivo de información
+
+epsos.demo.confirmation.purposeofuse=El propósito de utilizar este servicio
+epsos.demo.confirmation.treatment=Fondo de Salud (TRATAMIENTO)
+epsos.demo.confirmation.emergency=Departamento de Emergencias (DE EMERGENCIA)
+
+# properties translations
+
+epsos.search.countries.supported=Países que reciben apoyo
+epsos.always.show.consent.denied=Ver ¶ denegación de consentimiento
+epsos.always.show.confirmation.denied=Ver ¶ denegación Confirmación
+epsos.webservice.password=Predeterminado Tiani web de contraseñas
+epsos.webservice.url=Predeterminado Tiani servicio web URL
+epsos.webservice.username=Predeterminado Tiani servicio web nombre de usuario
+epsos.patient.identifier.main.type=Principal tipo de identificación del paciente
+
+epsos.consent.workflow.check.GR=Consentimiento Check - Grecia
+epsos.consent.workflow.check.AT=Consentimiento Check - Austria
+epsos.consent.workflow.check.FR=Consentimiento Check - Francia
+epsos.consent.workflow.check.DE=Consentimiento Check - Alemania
+epsos.consent.workflow.check.default=Compruebe consentimiento
+
+epsos.search.demographics.GR=Uso de la búsqueda demográficos del paciente - Grecia
+epsos.search.demographics.AT=Uso de la búsqueda demográficos del paciente - Austria
+epsos.search.demographics.FR=Uso de la búsqueda paciente de Demografía - Francia
+epsos.search.demographics.DE=Uso de la búsqueda demográficos del paciente - Alemania
+epsos.search.demographics.default=Uso de la búsqueda demográficos del paciente
+
+epsos.search.metadata.ids.GR=Buscar en la incrementales ID - Grecia
+epsos.search.metadata.ids.AT=Buscar en la incrementales ID - Austria
+epsos.search.metadata.ids.FR=Buscar en la incrementales ID - Francia
+epsos.search.metadata.ids.DE=Buscar en la incrementales ID - Alemania
+epsos.search.metadata.ids.default=Buscar los identificadores adicionales
+
+epsos.search.patient.ids.GR=Busque en nuestro identificación de pacientes - Grecia
+epsos.search.patient.ids.AT=Busque en nuestro identificación de pacientes - Austria
+epsos.search.patient.ids.FR=Busque en nuestro identificación de pacientes - Francia
+epsos.search.patient.ids.DE=Busque en nuestro identificación de pacientes - Alemania
+epsos.search.patient.ids.default=Busque en nuestro identificación de pacientes
+
+
+epsos.search.patient.confirmation.duration.GR=Duración confirmar paciente (minutos) - Grecia
+epsos.search.patient.confirmation.duration.AT=Duración confirmar paciente (minutos) - Austria
+epsos.search.patient.confirmation.duration.FR=Duración confirmar paciente (minutos) - Francia
+epsos.search.patient.confirmation.duration.DE=Duración confirmar paciente (minutos) - Alemania
+epsos.search.patient.confirmation.duration.default=Duración confirmar paciente (minutos)
+
+epsos.search.requires.patient.confirmation.GR=En primer lugar, debe confirmar paciente - Grecia
+epsos.search.requires.patient.confirmation.AT=En primer lugar, debe confirmar paciente - Austria
+epsos.search.requires.patient.confirmation.FR=En primer lugar, debe confirmar el paciente Francia
+epsos.search.requires.patient.confirmation.DE=En primer lugar, debe confirmar paciente - Alemania
+epsos.search.requires.patient.confirmation.default=En primer lugar, debe confirmar paciente
+
+epsos.demo.search.pid.TAN=Número de transacción (TAN)
+epsos.demo.search.pid.RRI=RRI
+epsos.demo.search.pid.KVNR=Krankenversicherungsnummer (KVNR)
+
+epsos.demo.search.group.pid=Identificación del Paciente
+epsos.demo.search.group.demographics=Datos demográficos del paciente
+epsos.demo.search.group.metadata=Información para el paciente adicional
+
+epsos.dispensation.error.id.required=Número del artículo prescripción debe ser llenado
+epsos.dispensation.error.nrOfPacks.required=Número de envases que se complete
+epsos.dispensation.error.nrOfPacks.too-large=Número de envases que no puede ser mayor que la prescripción
+epsos.dispensation.error.name.required=El nombre debe ser completado
+epsos.dispensation.error.packaging.required=El paquete debe ser completado
+
+contacts.highrole.PHARMACIST=Químico
+contacts.highrole.physician=Médico
+contacts.highrole.nurse=Enfermera
+contacts.highrole.administrator=Administrador
+
+epsos.demo.ps.nodocs=Era la historia clínica del paciente
+epsos.demo.ep.nodocs=No había recetas para el paciente
+
+
+epsos.demo.search.pid.2.16.724.4.42=Servicio de CITE-Regional
+epsos.demo.search.pid.2.16.724.4.41=CIP-Salud Número de Identificación
+
+
+
+error.1002=Usted no tiene la confirmación necesaria del paciente.
+error.4701=No se han transferido sus derechos a ser visibles a su médico dedeomena
+
+dispensation.submit.ok=The dispensation submitted successfully
+
+
+## Portal related labels ###
+
+gn.myaccount.account-information=User Account Information
+gn.myaccount.change-password=Change Password
+gn.myaccount.contact-details=Contact Details
+gn.myaccount.eshop-preferences=E-Shop Preferences
+gn.myaccount.portal-preferences=Portal Preferences
+
+
+contacts.telecom.teltype=Telephone Type
+contacts.teltype.home=Home Number
+contacts.teltype.work=Work Number
+contacts.teltype.fax=Fax Number
+contacts.teltype.mobile=Mobile Number
+
+contacts.addresstype.home=Home Address
+contacts.addresstype.work=Work Address
+
+contacts.tab.0=Basic Information
+contacts.tab.1=Extra Information
+
+
+parties.addresses.email=Email
+parties.addresses.webpage=Web Page
+parties.addresses.geographic=Geographic
+parties.addresses.telecom=Telecom
+parties.addresses.webpage.url=URL
+parties.addresses.webpage.description=Description
+parties.addresses.geographic.addressline=Street
+parties.addresses.geographic.region=Region
+parties.addresses.geographic.ziporpostcode=Zip/Post Code
+parties.addresses.geographic.country=Country
+parties.addresses.geographic.type=Address Type
+parties.addresses.telecom.countrycode=Country Code
+parties.addresses.telecom.nationaldialingprefix=National Dialing Prefix
+parties.addresses.telecom.areacode=Area Code
+parties.addresses.telecom.number=Number
+parties.addresses.telecom.extension=Ext.
+parties.addresses.telecom.physicaltype=Physical Type
+parties.addresses.telecom.phonenumber=Phone Number
+
+parties.manager.for-telecom-address-description=Telecom Address
+parties.manager.for-geographic-address-description=Geographic Address
+parties.manager.addresses.delete-are-you-sure=Are you sure you want to delete this Address?
+parties.manager.addresses.remove-are-you-sure=Are you sure you want to remove this Address from the list of Related Addresses?
+
+parties.manager.lang=Language
+parties.manager.party.mainid=Party Unique Identifier
+parties.manager.party.description=Party Description
+parties.manager.person.name=Name
+parties.manager.person.firstname=First Name
+parties.manager.person.prefix=Prefix
+parties.manager.person.familyname=Family Name
+parties.manager.person.fathername=Father's Name
+parties.manager.person.gender=Gender
+parties.manager.person.gender.male=Male
+parties.manager.person.gender.female=Female
+parties.manager.person.gender.notspecified=Not Specified
+parties.manager.person.gender.notknown=Not Known
+parties.manager.person.validfrom=Valid From
+parties.manager.person.validto=Valid To
+parties.manager.person.userid=User Id
+parties.manager.person.createuser=Also create a new Portal User
+parties.manager.person.newuserid=Enter User Id
+parties.manager.person.password1=Enter Password
+parties.manager.person.password2=Re-enter Password
+parties.manager.person.emailaddress=Enter email address
+parties.manager.person.maskmsg={0} may only contain letters
+parties.manager.organization.name=Organization Name
+parties.manager.organization.validto=Valid To
+parties.manager.organization.validfrom=Valid From
+parties.manager.organization.typeid=Organization Type
+parties.manager.organization.liferaycompany=Is Liferay Company
+parties.manager.related-to-party-description=Parties Related to
+parties.manager.for-party-description=Party
+parties.manager.for-role-name=For Party Role
+parties.manager.for-rel-name=For Party Relationship
+parties.manager.add-role-to-party=Add Role to Party
+parties.manager.role.delete-are-you-sure=Are you sure you want to delete this Party Role? This will also delete all Relationships where this Role participates! 
+parties.manager.rel.delete-are-you-sure=Are you sure you want to delete this Relationship?
+parties.manager.party.delete-are-you-sure=Are you sure you want to delete this Party? This will also delete all addresses, names, roles and relationships assigned to this Party!
+parties.manager.RolesAndRelsForm.partyRoleId=Related Party Role
+parties.manager.RolesAndRelsForm.relationshipTypeId=Relationship Type
+parties.manager.RolesAndRelsForm.supplier=Role Allocation (Client/Supplier)
+parties.manager.person.name.validity.error=No other currently valid name exists for Person
+parties.manager.person.name.validity.action.update=update
+parties.manager.person.name.validity.action.delete=delete
+parties.manager.org.name.validity.error=No other currently valid name exists for Organization
+parties.manager.org.name.validity.action.update=update
+parties.manager.org.name.validity.action.delete=delete
+parties.manager.partyname.dates.error="Valid From" date must be before "Valid To" date
+parties.manager.relatedparty=Related Party
+parties.manager.relatedparty.role=Related Party Role
+parties.manager.partyrole.features.none=No features were defined for this Party Role Type!
+parties.manager.errors.company-already-assigned-to-organization=Liferay Company is already assigned to Organization {0}. You must first unassign that Organization, and then proceed in a new assignment.
+
+
+contacts.search.comments=Comments
+parties.manager.identifier.identifier=Identifier
+contacts.search.name=Party Name
+contacts.search.email=Email Address
+contacts.search.address=Geographic Address
+contacts.search.region=City/Region
+contacts.search.country=Country
+contacts.search.company=Belongs to company
+contacts.search.phone=Phone Number
+contacts.search.webpage=Web page
+contacts.search.identifier=Identifier
+contacts.search.comments=Comments
+contacts.search.isperson=Person
+contacts.search.modified=Last modified
+contacts.search.created=Created
+contacts.search.private=Private
+contacts.search.public=Public
+contacts.search.all=All
+contacts.search.contacttype=Contact Type
+
+epsos.identifier.poc=Epsos Identifier
+
+error.1002=You have to give confirmation in order to proceed 
+error.4701=You have to give consent in order to proceed
+

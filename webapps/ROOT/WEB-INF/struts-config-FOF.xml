@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+    	
+    	<form-bean name="BsCivItemForm" type="com.ext.portlet.base.civitems.BsCivItemForm"/>
+    	<form-bean name="ProviderProfileForm" type="com.ext.portlet.fof.provider_profile.ProviderProfileForm"/>
+    	<form-bean name="FofLessonForm" type="com.ext.portlet.fof.lessons.FofLessonForm"/>
+    	<form-bean name="FofLessonFileForm" type="com.ext.portlet.fof.lessons.files.FofLessonFileForm"/>
+    	<form-bean name="FofLessonsAdvancedSearchForm" type="com.ext.portlet.fof.lessons.AdvancedSearchForm"/>
+
+
+
+    </form-beans>
+	<action-mappings>
+
+		
+		<!-- List by author -->
+		<action path="/ext/fof/course_list/list_by_author/listAuthors" type="com.ext.portlet.fof.course_list.list_by_author.ListAuthorsOfCoursesAction">
+			<forward name="common.success" path="portlet.ext.course_list.list_by_author.list" />
+		</action>
+		
+		<action path="/ext/fof/course_list/list_by_author/listCoursesOfAuthor" type="com.ext.portlet.fof.course_list.list_by_author.ListCoursesOfAuthorAction">
+			<forward name="common.success" path="portlet.ext.course_list.list_by_author.listCoursesOfAuthor" />
+		</action>
+		
+		<action path="/ext/fof/course_list/list_by_author/loadCourse" type="com.ext.portlet.fof.course_list.list_by_author.LoadCourseProfileAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.course_list.list_by_author.ByAuthor_view_course_profile"  />
+		</action>
+		
+		<!-- List by title -->
+		<action path="/ext/fof/course_list/list_by_title/list" type="com.ext.portlet.fof.course_list.list_by_title.ListCoursesByTitleAction">
+			<forward name="common.success" path="portlet.ext.course_list.list_by_title.list" />
+		</action>
+		
+		<action path="/ext/fof/course_list/list_by_title/loadCourse" type="com.ext.portlet.fof.course_list.list_by_title.LoadCourseProfileAction"
+		    name="BsCivItemForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.course_list.list_by_title.ByTitle_view_course_profile"  />
+		</action>
+		
+		<action path="/ext/fof/course_list/list_by_title/listCoursesOfAuthor" type="com.ext.portlet.fof.course_list.list_by_title.ListCoursesOfAuthorAction">
+			<forward name="common.success" path="portlet.ext.course_list.list_by_title.listCoursesOfAuthor" />
+		</action>
+		
+		<!-- Manage author-provider -->
+		<!-- 
+		This action lists only the current user's  providers
+		Has been replaced with ListAuthorsOfCoursesAction
+		
+		<action path="/ext/fof/provider_profile/list"
+			type="com.ext.portlet.fof.provider_profile.ListProviderProfileAction" scope="request">
+			<forward name="action.success" path="portlet.ext.fof.provider_profile.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		-->
+		<action path="/ext/fof/provider_profile/list" 
+			type="com.ext.portlet.fof.course_list.list_by_author.ListAuthorsOfCoursesAction">
+			<forward name="common.success" path="portlet.ext.course_list.list_by_author.list" />
+		</action>
+		<action path="/ext/fof/provider_profile/load"
+			name="ProviderProfileForm"	
+			type="com.ext.portlet.fof.provider_profile.LoadProviderProfileAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.view" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.edit" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.delete" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/provider_profile/add" 
+			type="com.ext.portlet.fof.provider_profile.AddProviderProfileAction"
+		    name="ProviderProfileForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/provider_profile/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/provider_profile/update" 
+			type="com.ext.portlet.fof.provider_profile.UpdateProviderProfileAction"
+		    name="ProviderProfileForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/provider_profile/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/provider_profile/delete" 
+			type="com.ext.portlet.fof.provider_profile.DeleteProviderProfileAction"
+		    name="ProviderProfileForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/provider_profile/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.provider_profile.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/fof/provider_profile/listProviderLessons"
+			type="com.ext.portlet.fof.provider_profile.ListProviderLessonsAction" 
+			name="ProviderProfileForm" validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.fof.provider_profile.lessonsList" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  FOF Lessons -->
+		<action path="/ext/fof/lessons/import" type="com.ext.portlet.fof.lessons.ImportFofLessonsAction"
+		    scope="request">
+			<forward name="/ext/fof/lessons/list" path="/ext/fof/lessons/list"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/fof/lessons/list"
+			type="com.ext.portlet.fof.lessons.ListFofLessonsAction" scope="request">
+			<forward name="action.success" path="portlet.ext.fof.lessons.list" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		<action path="/ext/fof/lessons/load"
+			name="FofLessonForm"	
+			type="com.ext.portlet.fof.lessons.LoadFofLessonAction" scope="request" validate="false">
+			
+			<forward name="action.add" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.view" path="portlet.ext.fof.lessons.view_form"  />
+			<forward name="action.edit" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.delete" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/lessons/add" 
+			type="com.ext.portlet.fof.lessons.AddFofLessonAction"
+		    name="FofLessonForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/lessons/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/lessons/update" 
+			type="com.ext.portlet.fof.lessons.UpdateFofLessonAction"
+		    name="FofLessonForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/lessons/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		<action path="/ext/fof/lessons/delete" 
+			type="com.ext.portlet.fof.lessons.DeleteFofLessonAction"
+		    name="FofLessonForm" validate="false" scope="request">
+		    
+			<forward name="action.success" path="/ext/fof/lessons/list"  redirect="true"/>
+			<forward name="action.validationErrors" path="portlet.ext.fof.lessons.form"  />
+			<forward name="action.failure" path="/common/error.jsp"  />
+		</action>
+		
+		<action path="/ext/fof/lessons/rate" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		
+		<action path="/ext/fof/lessons/getFile" type="com.ext.portlet.fof.lessons.files.GetFileAction" />
+		<action path="/ext/fof/lessons/loadFile" type="com.ext.portlet.fof.lessons.files.LoadFileAction"
+		    name="FofLessonFileForm" validate="false" scope="request">
+		    <forward name="common.view" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.add" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.edit" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.delete" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/fof/lessons/addFile" type="com.ext.portlet.fof.lessons.files.AddFileAction"
+		    name="FofLessonFileForm" validate="false" scope="request">
+			<forward name="/ext/fof/lessons/load" path="/ext/fof/lessons/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/fof/lessons/updateFile" type="com.ext.portlet.fof.lessons.files.UpdateFileAction"
+		    name="FofLessonFileForm" validate="false" scope="request">
+			<forward name="/ext/fof/lessons/load" path="/ext/fof/lessons/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		<action path="/ext/fof/lessons/deleteFile" type="com.ext.portlet.fof.lessons.files.DeleteFileAction"
+		    name="FofLessonFileForm" validate="false" scope="request">
+			<forward name="/ext/fof/lessons/load" path="/ext/fof/lessons/load" redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.fof.lessons.files.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/fof/lessons/advancedSearch"
+			type="com.ext.portlet.fof.lessons.AdvancedSearchAction" 
+			name="FofLessonsAdvancedSearchForm" validate="false" scope="request">
+			<forward name="action.success" path="portlet.ext.fof.lessons.advancedSearch" />
+			<forward name="action.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+	</action-mappings>
+</struts-config>

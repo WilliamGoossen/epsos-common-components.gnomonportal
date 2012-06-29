@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="a1">
+    <Cube name="a1">
+        <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.CONSULTANT" caption="Σ�?μβουλος">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.CONSULTANT" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.consultant" allMemberCaption="�?λοι οι σ�?μβουλοι">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.CONSULTANT" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="CONSULTANT" uniqueMembers="false"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.PRJ_TITLE" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="PRJ_TITLE" uniqueMembers="false">
+                <Property name="prjStatus" column="prjStatus"/>
+        </Level>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.PRJ_TITLE" caption="Τίτλος έ�?γου">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.PRJ_TITLE" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.prj_title" allMemberCaption="�?λα τα έ�?γα">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.PRJ_TITLE" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="PRJ_TITLE" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.prjStatus" caption="�?ατάσταση">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.prjStatus" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.prjstatus" allMemberCaption="�?λες οι καταστάσεις">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.prjStatus" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="prjStatus" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.REAL_HOURS" caption="ΑΠ�?Λ�?Γ">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.REAL_HOURS" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.real_hours">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.REAL_HOURS" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="REAL_HOURS" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.HOURS_CONV" caption="ΠΡ�?ΥΠ">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.HOURS_CONV" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.hours_conv">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.HOURS_CONV" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="HOURS_CONV" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.companyId" caption="Εται�?ία">
+            <Hierarchy name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.companyId" hasAll="true" allMemberName="All vw_rep_reported_time_by_consultant2.companyid" allMemberCaption="�?λες οι εται�?ίες">
+                <Table name="VW_REP_REPORTED_TIME_BY_CONSULTANT2"/>
+                <Level name="VW_REP_REPORTED_TIME_BY_CONSULTANT2.companyId" table="VW_REP_REPORTED_TIME_BY_CONSULTANT2" column="companyId" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of VW_REP_REPORTED_TIME_BY_CONSULTANT2.prjStatus" column="prjStatus" aggregator="count" datatype="String" formatString="###" caption="�?ατάσταση"/>
+        <Measure name="SUM of VW_REP_REPORTED_TIME_BY_CONSULTANT2.REAL_HOURS" column="REAL_HOURS" aggregator="sum" datatype="Numeric" formatString="###,###" caption="ΑΠ�?Λ�?Γ"/>
+        <Measure name="SUM of VW_REP_REPORTED_TIME_BY_CONSULTANT2.HOURS_CONV" column="HOURS_CONV" aggregator="sum" datatype="Numeric" formatString="###,###" caption="ΠΡ�?ΥΠ"/>
+    </Cube>
+</Schema>

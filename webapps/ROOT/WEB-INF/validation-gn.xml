@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+   <formset>
+
+
+        <form name="GnActionForm">
+        	<field property="actionName"
+         	   depends="required">
+				 <arg0 key="gn.permissions.action.name"/>
+        	</field>
+        </form>
+
+		<form name="GnKmsAspectForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="gn.kms.aspect.name"/>
+        	</field>
+        </form>
+        
+        <form name="GnKmsTagGroupForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="gn.kms.taggroup.name"/>
+        	</field>
+        </form>
+        
+        <form name="GnKmsTagEntryForm">
+        	<field property="tag"
+         	   depends="required">
+				 <arg0 key="gn.kms.tagentry.tag"/>
+        	</field>
+        </form>
+        
+        <form name="GnKmsClassForm">
+        	<field property="className"
+         	   depends="required">
+				 <arg0 key="gn.kms.classaspect.classname"/>
+        	</field>
+        </form>
+        
+        <form name="GnKmsPropertyForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="gn.kms.property.name"/>
+        	</field>
+        	<field property="fieldCode"
+         	   depends="required">
+				 <arg0 key="gn.kms.property.fieldcode"/>
+        	</field>
+        	<field property="size"
+         	   depends="integer">
+				 <arg0 key="gn.kms.property.size"/>
+        	</field>
+        	<field property="multipleSelection"
+         	   depends="integer">
+				 <arg0 key="gn.kms.property.multipleSelection"/>
+        	</field>
+        	<field property="orderIndex"
+         	   depends="integer">
+				 <arg0 key="gn.kms.property.orderindex"/>
+        	</field>
+        </form>
+        
+        <form name="GnKmsOptionForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="gn.kms.option.name"/>
+        	</field>
+        	<field property="valueCode"
+         	   depends="required">
+				 <arg0 key="gn.kms.option.valuecode"/>
+        	</field>
+        	<field property="orderIndex"
+         	   depends="integer">
+				 <arg0 key="gn.kms.option.orderindex"/>
+        	</field>
+        </form>
+        
+		<form name="GnTopicForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="gn.topics.topic.name"/>
+        	</field>
+        </form>
+
+		<form name="GnPortletSettingForm">
+        	<field property="className"
+         	   depends="required">
+				 <arg0 key="gn.permissions.settings.classname"/>
+        	</field>
+        </form>
+      </formset>
+</form-validation>

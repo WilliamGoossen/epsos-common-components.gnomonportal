@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.epsos" extends="portlet" />
+
+	<!--  EPSOS DEMOO -->
+	<definition name="portlet.ext.epsos.demo.view" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/view.jsp" />
+	</definition>	
+
+	<definition name="portlet.ext.epsos.demo.patient.view" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/patientCard.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.demo.document.view" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/documentCard.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.demo.document.xsl" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/documentXSL.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.demo.document.list" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/documentList.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.demo.prescription.list" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/prescriptions.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.epsos.demo.prescription.lines.list" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/prescriptionLines.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.epsos.demo.access.consent" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/consent.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.epsos.demo.access.consentCreated" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/consentCreated.jsp" />
+	</definition>
+	
+	
+	<definition name="portlet.ext.epsos.demo.access.confirmation" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/confirmation.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.epsos.demo.consent.view" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/consent.jsp" />
+	</definition>
+
+	<definition name="portlet.ext.epsos.demo.consent.print" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/demo/consentprint.jsp" />
+	</definition>
+
+
+	<!--  EPSOS INFO -->
+	<definition name="portlet.ext.epsos.info.view" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/info/view.jsp" />
+	</definition>	
+	
+	
+	<!-- EPSOS CONSENT -->
+	<definition name="portlet.ext.epsos.consent.patients" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/consent/patients.jsp" />
+	</definition>	
+
+	<definition name="portlet.ext.epsos.consent.list" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/consent/list.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.consent.form" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/consent/form.jsp" />
+	</definition>	
+	
+	<definition name="portlet.ext.epsos.consent.access.confirmation" extends="portlet.ext.epsos">
+		<put name="portlet_content" value="/portlet/ext/epsos/consent/confirmation.jsp" />
+	</definition>
+</tiles-definitions>

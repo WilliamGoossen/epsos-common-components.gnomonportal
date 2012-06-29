@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 4.0.0//EN" "http://www.liferay.com/dtd/liferay-display_4_0_0.dtd">
+
+<display>
+	<category name="category.google">
+		<portlet id="35" />
+		<portlet id="94" />
+		<portlet id="95" />
+		<portlet id="96" />
+	</category>
+	<category name="category.admin">
+		<portlet id="9" />
+		<portlet id="40" />
+		<portlet id="79" />
+		<portlet id="80" />
+		<portlet id="99" />
+		<portlet id="104" />
+		<portlet id="111" />
+		<!--<portlet id="29" />-->
+		<!--<portlet id="38" />-->
+		<portlet id="GN_PERMISSIONS" />
+	</category>
+	<category name="category.portal">
+		<category name="category.portal.topic-based">
+			<portlet id="topicview" />
+			<portlet id="topicnav" />
+		</category>
+		<portlet id="71" />
+		<portlet id="73" />
+		<portlet id="85" />
+		<portlet id="3" />
+		<portlet id="58" />
+		<portlet id="82" />
+		<portlet id="quickmap" />
+		<portlet id="favorites" />
+	</category>
+	<category name="category.cms">
+		<category name="category.journal">
+			<portlet id="15" />
+			<portlet id="20" />
+			<portlet id="31" />
+			<portlet id="56" />
+			<portlet id="62" />
+			<portlet id="64" />
+			<portlet id="77" />
+			<portlet id="101" />
+			<portlet id="102" />
+			<portlet id="105" />
+			<portlet id="106" />
+			<portlet id="110" />
+			<portlet id="mediashow" />
+		</category>
+		<category name="category.base">
+			<category name="category.base.events">
+				<portlet id="bs_events" />
+				<portlet id="bs_events_browser" />
+				<portlet id="bs_events_locationnav" />
+				<portlet id="bs_events_typenav" />
+				<portlet id="bs_event_locations" />
+				<portlet id="bs_event_eventtypes" />
+				<portlet id="bs_event_tickettypes" />
+			</category>
+			
+			<portlet id="bs_content" />
+			<portlet id="bs_content_rels" />
+			<portlet id="bs_bookmarks" />
+			<portlet id="bs_banners" />
+			<portlet id="bs_banners_display" />
+			<portlet id="bs_documents" />
+			<portlet id="bs_mlists" />
+			<portlet id="bs_mlists_display" />
+			<portlet id="bs_smslists" />
+			<portlet id="bs_smslists_display" />
+			<portlet id="bs_news" />
+			<portlet id="bs_adds" />
+			<portlet id="bs_faq" />
+			<portlet id="bs_guestbook" />
+			<portlet id="bs_events" />
+			<portlet id="bs_events_browser" />
+			<portlet id="bs_events_locationnav" />
+			<portlet id="bs_events_typenav" />
+			<portlet id="bs_event_locations" />
+			<portlet id="bs_event_eventtypes" />
+			<portlet id="bs_event_tickettypes" />
+			<portlet id="bs_civitems" />
+			<portlet id="bs_civitems_browser" />
+			<portlet id="bs_yellowpages" />
+			<portlet id="GN_TOPICS" />
+			<portlet id="gn_dms" />
+			<portlet id="GN_KMS_METADATA" />
+			<portlet id="GN_KMS_TAG_SEARCH" />
+			<portlet id="GN_CMS_SEARCH" />
+			<portlet id="quickmap" />
+			<portlet id="GN_PORTAL_MESSAGES" />
+			<portlet id="yellowpages_browser" />
+			<portlet id="yellowpages_browser_google" />	
+			<portlet id="bs_gnContentRss" />
+			<portlet id="bs_auditing" />
+		</category>
+		<portlet id="71" />
+		<portlet id="73" />
+		<portlet id="85" />
+	</category>
+	<category name="category.collaboration">
+		<portlet id="1" />
+		<portlet id="8" />
+		<portlet id="19" />
+		<portlet id="24" />
+		<portlet id="33" />
+		<portlet id="36" />
+		<portlet id="52" />
+	</category>
+	<category name="category.reports">
+		<portlet id="gn_dynamic_grid" />
+		<portlet id="Jpivot" />
+	</category>
+
+	<category name="category.community">
+		<portlet id="11" />
+		<portlet id="28" />
+		<portlet id="29" />
+		<portlet id="83" />
+		<portlet id="100" />
+		<portlet id="107" />
+		<portlet id="108" />
+	</category>
+	<category name="category.egov">
+	<category name="category.srv.register">
+		<portlet id="SRV_SERVICES" />
+		<portlet id="SRV_USER_SERVICES" />
+		<portlet id="SRV_ADMIN_USER_SERVICES"/>
+		<portlet id="SRV_USER_SERVICE_REPORTS"/>
+		<portlet id="SRV_SERVICE_REPORTS"/>
+		<portlet id="SRV_SERVICE_ACTIONS"/>
+	</category>
+	<category name="category.srv">
+		<portlet id="EGOV_TAX" />
+		<portlet id="EGOV_KOK" />
+		<portlet id="EGOV_DEBTOR" />
+		<portlet id="EGOV_SEARCH_KOK" />
+		<portlet id="EGOV_CERTIFICATES" />
+		<portlet id="EGOV_COUNCIL_MEETINGS" />
+		<portlet id="EGOV_ADMIN_ROLES" />
+		<portlet id="EGOV_VIEW_APPLICATIONS"/>
+	</category>
+		<category name="category.polls">
+			<portlet id="25" />
+			<portlet id="59" />
+		</category>
+
+	</category>
+	<category name="category.crm">
+		<category name="category.parties">
+			<category name="category.parties.legacy">
+				<portlet id="PA_PARTIES_BROWSER" />
+				<portlet id="PA_PARTIES_MANAGER" />
+				<portlet id="PA_ORGANIZATION_CHART" />
+			</category>
+			<portlet id="PA_CONTACTS" />
+			<portlet id="PA_PARTIES_ADMIN" />
+			<portlet id="PA_CONTACTS_TOPICS_LIST" />
+			<portlet id="PA_CONTACTS_BROWSE_BY_TOPIC" />
+		</category>
+		<category name="category.crm.helpdesk">
+			<portlet id="CRM_HELPDESK_CATEGORIES" />
+			<portlet id="CRM_HELPDESK_CHECKTYPES" />
+			<portlet id="CRM_HELPDESK" />
+			<portlet id="CRM_HELPDESK_STATS" />
+			<portlet id="CRM_HELPDESK_REQUESTTYPES" />
+			<portlet id="CRM_HELPDESK_CERTIFICATES" />
+			<portlet id="CRM_ADD_REQUEST" />
+			<portlet id="CRM_ADD_VEVEOSI" />
+		</category>
+		<category name="category.crm.tasks">
+			<portlet id="CRM_MESSAGES" />				
+			<portlet id="CRM_MESSAGE_TYPES" />
+			<portlet id="CRM_TASKS" />
+			<portlet id="CRM_TASK_TYPES" />
+			<portlet id="CRM_MEETINGS" />
+			<portlet id="CRM_DEVICES" />
+			<portlet id="CRM_DEVICE_ALERTS" />
+			<portlet id="CRM_DASHBOARD" />
+		</category>
+	</category>
+
+
+
+	<category name="category.news">
+		<portlet id="4" />
+		<portlet id="5" />
+		<portlet id="39" />
+	</category>
+	<category name="category.polls">
+		<portlet id="25" />
+		<portlet id="59" />
+	</category>
+	<category name="category.test">
+		<portlet id="47" />
+		<portlet id="48" />
+		<portlet id="50" />
+		<portlet id="53" />
+		<portlet id="66" />
+		<portlet id="98" />
+	</category>
+	<category name="category.shopping">
+		<portlet id="34" />
+		<portlet id="67" />
+	</category>
+	<category name="category.tools">
+		<portlet id="2" />
+		<portlet id="3" />
+		<portlet id="17" />
+		<portlet id="18" />
+		<portlet id="23" />
+		<portlet id="26" />
+		<portlet id="27" />
+		<portlet id="30" />
+		<portlet id="48" />
+		<portlet id="58" />
+		<portlet id="66" />
+		<portlet id="65" />
+		<portlet id="70" />
+		<portlet id="81" />
+		<portlet id="82" />
+		<portlet id="97" />
+		<portlet id="109" />
+		<portlet id="112" />
+	</category>
+	<category name="category.wiki">
+		<portlet id="36" />
+		<portlet id="54" />
+	</category>
+	<category name="category.workflow">
+		<portlet id="93" />
+		<portlet id="PRJ_JBPM_TODO_MATRIX" />
+		<portlet id="JBPM_DEFINITIONS" />
+	</category>
+	<category name="category.wsrp">
+		<portlet id="68" />
+	</category>
+	
+	<category name="category.ecommerce">
+		<portlet id="topicview" />
+		<portlet id="topicnav" />
+		<portlet id="EC_PRODUCT_BROWSER" />
+		<portlet id="EC_PRODUCT_MENU_BROWSER" />
+		<portlet id="EC_PROM_PRODUCT_BROWSER" />
+		<portlet id="EC_SHOPPING_CART" />
+		<portlet id="EC_PRODUCT_ADMIN" />
+		<portlet id="EC_ORDER_ADMIN" />
+		<portlet id="EC_ADMIN" />
+		<portlet id="EC_ERP_SYNC"/>
+		<portlet id="PAYCENTER" />
+		<portlet id="EC_USER_ORDERS" />
+		<portlet id="PMT_SERVICE_ADMIN"/>
+		<portlet id="PMT_SERVICE_PAY_FORM"/>
+		<portlet id="PMT_SRV_PMT_TYPE"/>
+		<portlet id="PMT_LIST_BY_RESPONSIBLE"/>
+		<portlet id="PMT_LIST_MY_PAYMENTS"/>
+	</category>
+	
+	<category name="category.novacert">
+		<portlet id="NVC_SYNETAIRISMOI" />
+		<portlet id="NVC_PRODUCERS" />
+		<portlet id="NVC_FPP_ANALYSIS" />
+		<portlet id="NVC_PROD_KALLIERGIES" />
+		<portlet id="NVC_PROD_EQUIPMENT" />
+		<portlet id="NVC_PROD_INSPECTION" />
+		<portlet id="NVC_TASK_KALLIERG_CARES" />
+		<portlet id="NVC_TASK_HARVEST" />
+		<portlet id="NVC_CERT_PROD_SEARCH"></portlet>
+		<portlet id="NVC_TASK_FPP" />
+		<portlet id="NVC_TASK_LIPANSI" />
+		<portlet id="NVC_SYNETAIRISMOS_CERT" />
+		<portlet id="NVC_WEATHER_CONDITIONS" />
+		<portlet id="NVC_MANAGE_KALLIERGIES" />
+		<portlet id="NVC_MANAGE_FOREIS" />
+		<portlet id="NVC_MANAGE_CERT_TYPE" />
+		<portlet id="NVC_DIRECTIVE" />
+		<portlet id="NVC_SYNET_DIRECTIVE" />
+		<portlet id="NVC_MANAGE_EQUIPMENT" />
+		<portlet id="NVC_MANAGE_ENEMIES" />
+		<portlet id="NVC_MANAGE_DRASTIC_SUBSTANCE" />
+		<portlet id="NVC_MANAGE_ANALYSIS_LABS" />
+		<portlet id="NVC_MANAGE_SKEVASMA" />
+		<portlet id="NVC_REPORTS" />
+		<portlet id="NVC_DYNAMIC_REPORTS" />
+		<portlet id="NVC_SALESMAN" />
+	</category>
+	
+	<category name="category.FOF">
+		<portlet id="FOF_COURSE_LIST_BY_AUTHOR" />
+		<portlet id="FOF_COURSE_LIST_BY_TITLE" />
+		<portlet id="FOF_MANAGE_PROVIDER_PROFILE" />
+	</category>
+	
+	<category name="category.esa">
+		<portlet id="ESA_COMPONENT_BROWSING"/>
+		<portlet id="ESA_ERROR_MODEL_BROWSING"/>
+	</category>
+</display>

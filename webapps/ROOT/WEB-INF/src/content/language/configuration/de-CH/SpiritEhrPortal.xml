@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="portal.client">Einstellungen die das EHR Portal verhalten beeinflussen</entry>
+   
+	<entry key="Language">Sprache</entry>
+	<entry key="portal.language">Einstellungen zur Sprache</entry>
+		<entry key="Language">Sprache</entry>
+		<entry key="portal.entry.language">Einstellungen zur Sprache welche verwendet werden soll falls die zuletzt verwendete nicht gespeichert ist.</entry>
+			<entry key="portal.element.language">Standardsprache einstellen</entry>
+			<entry key="DefaultLanguage">Standardsprache</entry>
+         
+   <entry key="Format">Datum und Zeitformat</entry>
+   <entry key="portal.format">Einstellungen für Datum- und Zeitformat</entry>
+   <entry key="portal.entry.format">Einstellungen des Datums- und Zeitformates wie sie im EHR dargestellt werden sollen.</entry>
+   <entry key="portal.element.date.format">Datumsformat</entry>
+   <entry key="Dateformat">Datumsformat</entry>
+   <entry key="portal.element.time.format">Zeitformat</entry>
+   <entry key="Timeformat">Zeitformat</entry>
+   <entry key="portal.element.date.time.format">Datums- und Zeitformat</entry>
+   <entry key="DateTimeformat">Datums- und Zeitformat</entry>
+   
+   <entry key="portal.identity.provider">Einstellungen für Login</entry>
+   <entry key="portal.creation.identity.provider.description">Hier können Sie beliebig viele Identity Provider anlegen. Wenn dieser aktiv ist wird er beim Login als zusätzlicher Link dargestellt.</entry>
+   <entry key="portal.creation.identity.provider.name">Zusätzliche Identity Provider anlegen</entry>
+   <entry key="portal.entry.identity.provider">Einstellung der URL welche als IdentityProvider Login verwendet werden soll. Die URL kann relativ oder absolut angegeben werden.</entry>
+   <entry key="CustomIdentityProviderURL">Zusätzlicher Identity Provider</entry>
+   <entry key="portal.element.identity.provider.active">Aktiviert die URL für die Darstellung auf der Startseite</entry>
+   <entry key="IdentityProvideractive">Identity Provider aktivieren</entry>
+   <entry key="portal.element.identity.provider.alias">Der Anzeigename der auf der Startseite als Link verwendet wird</entry>
+   <entry key="IdentityProvideralias">Identity Provider Anzeigename</entry>
+   <entry key="portal.element.identity.provider">Die URL der Login Seite, relative oder absolut</entry>
+   <entry key="IdentityProviderURL">Identity Provider URL</entry>
+   <entry key="portal.entry.authentication.issuer">Aussteller der in der Authentifizierungsanfrage verwendet werden soll.</entry>   
+   <entry key="portal.element.authentication.issuer">Name des Austellers für die Authentifizierungsanfrage</entry>
+   <entry key="AuthenticationIssuer">Authentifizierungsaussteller</entry>
+   <entry key="portal.element.audience.restriction">Audience Restriction</entry>
+   <entry key="AudienceRestriction">Audience Restriction</entry>
+   <entry key="portal.element.saml.receiver.url">Absolute URL für das Empfängerservice des Token.</entry>
+   <entry key="SAMLReceiverURL">Empfänger URL</entry>
+   
+   	<entry key="CDA">CDA</entry>
+   	<entry key="portal.cda">Einstellungen für CDA</entry>
+		<entry key="ContentCreator">CDA Erstellung</entry>
+		<entry key="portal.entry.content.creator">Einstellung der URL welche für die CDA Erstellung verwendet werden soll. Die URL kann relativ oder absolut angegeben werden. Die FormID gibt das Form an das standardmäßig angezeigt
+      werden soll.</entry>
+			<entry key="ContentCreatoractive">CDA Erstelling aktivieren</entry>
+			<entry key="portal.element.content.creator.active">Aktiviert die URL für die Erstellung eines CDA Dokuments</entry>
+			<entry key="ContentCreatorURL">CDA Erstellung URL</entry>
+			<entry key="portal.element.content.creator">CDA Erstellung URL relative oder absolut</entry>
+			<entry key="FormID">Form ID</entry>
+			<entry key="portal.element.content.creator.form.id">Form ID welche standardmäßig angezeigt werden soll</entry>
+		<entry key="Prescription">Verschreibung</entry>
+		<entry key="portal.entry.prescription">Einstellung der URL welche für die Darstellung der Medikamentenverschreibung. Die URL kann relativ oder absolut angegeben werden.</entry>
+			<entry key="Prescriptionactive">Verschreibung aktivieren</entry>
+			<entry key="portal.element.prescription.active">Aktiviert die URL für die Anzeige vom Medikamentenverschreinung</entry>
+			<entry key="PrescriptionURL">Verschreibung URL</entry>
+			<entry key="portal.element.prescription">Verschreibung URL relative oder absolut</entry>
+			<entry key="FormID">Form ID</entry>
+			<entry key="portal.element.prescription.form.id">Form ID welche standardmäßig angezeigt werden soll</entry>
+			<entry key="FormVersionID">Form Version ID</entry>
+			<entry key="portal.element.prescription.form.version.id">Form Version ID welche standardmäßig verwendet werden soll</entry>
+		<entry key="CDAViewer">CDA Darstellung</entry>
+		<entry key="portal.entry.ehr.cda.viewer">Einstellung der URL welche für die Darstellung eines CDA Dokuments verwendet werden soll. Die URL kann relativ oder absolut angegeben werden.</entry>
+			<entry key="CDAVieweractive">CDA Darstellung aktivieren</entry>
+			<entry key="portal.element.cda.viewer.active">Aktiviert die URL für die Anzeige eines CDA Dokuments</entry>
+			<entry key="CDAViewerURL">CDA Darstellung URL</entry>
+			<entry key="portal.element.ehr.cda.viewer">CDA Darstellung URL relative oder absolut</entry>
+		<entry key="MedicalHistory">Krankengeschichte</entry>
+		<entry key="portal.entry.ehr.mediacal.history">Einstellung der URL welche für die Darstellung der Krankengeschichte verwendet werden soll. Die URL kann relativ oder absolut angegeben werden.</entry>
+			<entry key="MedicalHistoryactive">Krankengeschichte aktivieren</entry>
+			<entry key="portal.element.mediacal.history.active">Aktiviert die URL für die Anzeige der Krankengeschichte</entry>
+			<entry key="MedicalHistoryURL">Krankengeschichte URL</entry>
+			<entry key="portal.element.ehr.medical.history">Krankengeschichte URL relative oder absolut</entry>
+   
+   <entry key="PatientRegistration">Patientenregistrierung</entry>
+   <entry key="portal.patient.registration">Einstellung heikler Informations- und Pflichtfelder</entry>
+      
+   <entry key="SensitiveFields">Heikle Informationsfelder</entry>
+   <entry key="portal.patient.registration.sensitive">Einstellung heikler Informationsfelder</entry>
+   
+   <entry key="portal.entry.patient.registration.sensitive">Einstellung der Felder die heikle Patientendaten beinhalten. Diese werden in der Patientenregistrierung nicht angezeigt.</entry>
+   <entry key="Maritalstatus">Familienstand</entry>
+   <entry key="portal.element.patient.registration.sensitive.marital">Auswählen um den Familienstand nicht anzuzeigen</entry>
+   <entry key="Religion">Religion</entry>
+   <entry key="portal.element.patient.registration.sensitive.religion">Auswählen um die Religion nicht anzuzeigen</entry>
+   
+   <entry key="RequiredFields">Pflichtfelder</entry>   
+   <entry key="portal.patient.registration.required">Einstellung der Pflichtfelder</entry>
+   
+   <entry key="portal.entry.patient.registration.required">Einstellung der Felder die in den Patientendaten unbedingt ausgefüllt werden müssen.</entry>
+   <entry key="portal.element.patient.registration.required.familyname">Auswählen um den Familiennamen als Pflichtfeld festzulegen</entry>
+   <entry key="FamilyName">Familienname</entry>
+   <entry key="portal.element.patient.registration.required.givenname">Auswählen um den Vorname als Pflichtfeld festzulegen</entry>
+   <entry key="GivenName">Vorname</entry>
+   <entry key="portal.element.patient.registration.required.birthdate">Auswählen um den Geburtstag als Pflichtfeld festzulegen</entry>
+   <entry key="Birthdate">Geburtstag</entry>
+   <entry key="portal.element.patient.registration.required.sex">Auswählen um den Geschlecht als Pflichtfeld festzulegen</entry>
+   <entry key="Sex">Geschlecht</entry>
+   
+   	<entry key="PatientID">Patienten ID</entry>
+   	<entry key="portal.patient.registration.id">Einstellung für die ID Generierung</entry>
+      	<entry key="PatientID">Patienten ID</entry>
+      	<entry key="portal.entry.patient.registration.id">Einstellungen für die Patienten ID Generierung.</entry>
+	         <entry key="portal.element.patient.registration.id.editable">Auswählen um die generierte ID ändern zu können</entry>
+	         <entry key="EditableID">Patienten ID änderbar</entry>
+	         <entry key="portal.element.patient.registration.id.domain.editable">Auswählen um die vorselektierte Domain ändern zu können</entry>
+	         <entry key="EditableDomain">Domain änderbar</entry>
+	         <entry key="portal.element.patient.registration.id.multi">Auswählen um mehrere IDs anlegen zu können</entry>
+	         <entry key="MultiIDs">Mehrere Patienten IDs</entry>
+   
+   	<entry key="PatientUpdate">Patientenänderung</entry>
+   	<entry key="portal.patient.update">Einstellungen für die Patientendatenänderung</entry>
+     	<entry key="PrintOptions">Druckeinstellungen</entry>
+      	<entry key="portal.patient.update.print">Einstellungen für Bericht und Label Druck</entry>
+         	<entry key="PrintOptions">Druckeinstellungen</entry>
+         	<entry key="portal.entry.patient.update.print">Einstellungen der Druckfunktionalität.</entry>
+	            <entry key="Reportprint">Bericht druckbar</entry>
+	            <entry key="portal.element.patient.update.print.report">Auswählen um einen Bericht drucken zu können</entry>
+	            <entry key="Labelprint">Label druckbar</entry>
+	            <entry key="portal.element.patient.update.print.label">Auswählen um ein Label drucken zu können</entry>
+            
+   	<entry key="PatientSearch">Patientensuche</entry>
+   	<entry key="portal.patient.search">Einstellung von Internationaler Suche und Behandlungsverhältnis</entry>
+      	<entry key="InternationalSearch">Internationale Suche</entry>
+      	<entry key="portal.patient.search.xcpd">Einstellungen für die Internationale Suche</entry>
+         	<entry key="InternationalSearch">Internationale Suche</entry>
+         	<entry key="portal.entry.patient.search.xcpd">Einstellung ob die Internationale Suche möglich ist. Dafür muß XCPD Cross Community Patient Discovery eingestellt sein.</entry>
+            	<entry key="AllowInternationalSearch">Internationale Suche erlauben</entry>
+            	<entry key="portal.element.patient.search.xcpd">Auswählen um die Internationale Suche zu erlauben</entry>
+         	<entry key="InternationalSearchMask">Internationale Suchmaske</entry>
+         	<entry key="portal.entry.patient.search.xcpd.mask">Einstellung der Suchmaske. Es kann zwischen der Standard und der Länderspezifischen Suchmaske gewählt werden.</entry>
+	            <entry key="StandardSearchMask">Standard Suchmaske</entry>   
+	            <entry key="portal.element.patient.search.xcpd.standard">Standard Suchmaske aktivieren</entry>
+	            <entry key="InternationalSearchMask">Länderspezifische Suchmaske</entry>
+	            <entry key="portal.element.patient.search.xcpd.international">Länderspezifische Suchmaske aktivieren</entry>
+	            <entry key="portal.element.patient.search.xcpd.international.default.country">Standardmäßig eingestelltes Land</entry>
+	            <entry key="DefaultCountry">Standard Land</entry>
+      	<entry key="TreatmentRelationship">Behandlungsverhältnis</entry>
+      	<entry key="portal.patient.search.treatment">Einstellung ob nach dem Behandlungsverhältnis gefragt werden soll</entry>
+         	<entry key="TreatmentRelationship">Behandlungsverhältnis</entry>
+         	<entry key="portal.entry.patient.search.treatment">Einstellung zur Abfrage nach dem Behandlungsverhältnis. Bei jeder Patientenauswahl wird eine Abfrage gestartet und bei Bestätigung eine Sicherheitsmeldung protokolliert.</entry>
+	            <entry key="portal.element.patient.search.treatment.ask">Behandlungsverhältnis Abfrage aktivieren</entry>
+	            <entry key="AskTreatmentRelationship">Behandlungsverhältnis abfragen</entry>
+
+   	<entry key="DocumentSearch">Dokumentensuche</entry>
+   	<entry key="portal.document.search">Einstellung von Such- und Anzeigeoptionen</entry>
+		<entry key="DocumentSearch">Dokumentensuche</entry>
+		<entry key="portal.entry.document.search.mask">Einstellung der verschiedenen Suchfunktionen. Jede aktivierte Suchfunktion erscheint in der linken Navigationsleiste.</entry>
+            <entry key="Standard">Standardsuche</entry>
+            <entry key="portal.element.document.search.standard">Auswählen um die Standardsuche zu aktivieren</entry>
+            <entry key="Prescription">Medikamentverschreibungen</entry>
+            <entry key="portal.element.document.search.standard">Auswählen um die Suche für die Medikamentenverschreibung zu aktivieren</entry>
+            <entry key="Summary">Summary</entry>
+            <entry key="portal.element.document.search.standard">Auswählen um die Suche für Summary zu aktivieren</entry>
+            <entry key="History">Krankengeschichte</entry>
+            <entry key="portal.element.document.search.standard">Auswählen um die Suche für die Krankengeschichte zu aktivieren</entry>
+      	<entry key="SearchOptions">Suchoptionen</entry>
+      	<entry key="portal.document.search.option">Einstellungen zur Suche</entry>
+         	<entry key="AutomaticSearch">Automatische Dokumentensuche</entry>
+         	<entry key="portal.entry.document.search.automatic">Einstellung für die automatische Dokumentensuche nachdem ein Patient ausgewählt wird.</entry>
+            	<entry key="SearchonPatientselect">Automatische Dokumentensuche</entry>
+            	<entry key="portal.element.document.search.automatic">Auswählen um automatisch nach Dokumenten zu suchen</entry>
+		<entry key="StatusSearch">Dokumenten Status</entry>
+        <entry key="portal.entry.document.search.status">Einstellungen des Dokumentenstatus nachdem gesucht werden soll.</entry>
+            <entry key="Searchapproveddocuments">Gültige Dokumente</entry>
+            <entry key="portal.element.document.search.approved">Auswählen um nach gültigen Dokumenten zu suchen</entry>
+            <entry key="Searchdeprecateddocuments">Ungültige Dokumente</entry>
+            <entry key="portal.element.document.search.deprecated">Auswählen um nach ungültigen Dokumenten zu suchen</entry>
+      	<entry key="DisplayOptions">Anzeigeoptionen</entry>
+      	<entry key="portal.document.display.option">Einstellungen zur Anzeige</entry>
+         	<entry key="DisplayOption">Dokumentenliste</entry>
+         	<entry key="portal.entry.document.display.option">Einstellungen zur Anzeige der Dokumentenliste.</entry>
+	            <entry key="OpenallSubnodes">Dokumentenbaum öffnen</entry>
+	            <entry key="portal.element.document.display.option.open">Auswählen um den gesamten Dokumentenbaum zu öffnen</entry>
+	            <entry key="MarklastDocument">Aktuellstes markieren</entry>
+	            <entry key="portal.element.document.display.option.mark">Auswählen um das Datumsmäßig aktuellste Dokument markiert anzuzeigen</entry>
+
+	<entry key="DocumentInsert">Dokumenteneingabe</entry>
+	<entry key="portal.document.insert">Einstellung der Dokumentenart welche eingegeben werden kann</entry>
+		<entry key="DocumentInsert">Dokumenteneingabe</entry>
+		<entry key="portal.entry.document.insert">Einstellung der Dokumentenart welche eingegeben werden kann.</entry>
+			<entry key="Standard">Vorhandene Dokumente</entry>
+            <entry key="portal.element.document.insert.standard">Auswählen um vorhandene Dokumente einzubringen</entry>
+            <entry key="CDA">CDA</entry>
+            <entry key="portal.element.document.search.cda">Auswählen um ein CDA Dokument zu erstellen</entry>
+            <entry key="Prescription">Verschreibung</entry>
+            <entry key="portal.element.document.search.prescription">Auswählen um eine Verschreibung zu erstellen</entry>
+            
+<entry key="cs-CZ">České</entry>
+<entry key="da-DK">Danske</entry>
+<entry key="de-AT">Deutsch - Österreich</entry>
+<entry key="ch-CH">Deutsch - Schweiz</entry>
+<entry key="de-DE">Deutsch - Deutschland</entry>
+<entry key="ee-EE">Estonia</entry>
+<entry key="el-GR">Ελληνικά</entry>
+<entry key="en-GB">English - United Kingdom</entry>
+<entry key="en-US">English - United States</entry>
+<entry key="es-ES">Español</entry>
+<entry key="fr-FR">Française</entry>
+<entry key="it-IT">Italiano</entry>
+<entry key="nl-NL">Nederlandse</entry>
+<entry key="sk-SK">Slovenskému</entry>
+<entry key="sl-SL">Slovenščina</entry>
+<entry key="sv-SE">Svenska</entry>
+<entry key="tr-TR">Türkiye</entry>
+<entry key="lt">Lietuvos</entry>
+<entry key="ar">العربية</entry>
+
+<entry key="AT">Österreich</entry>
+<entry key="CZ">Tschechische Republik</entry>
+<entry key="DK">Dänemark</entry>
+<entry key="FR">Frankreich</entry>
+<entry key="DE">Deutschland</entry>
+<entry key="GR">Griechenland</entry>
+<entry key="IT">Italien</entry>
+<entry key="NL">Niederlande</entry>
+<entry key="SK">Slowakei</entry>
+<entry key="ES">Spanien</entry>
+<entry key="SE">Schweden</entry>
+<entry key="GB">Groß Britanien</entry>
+<entry key="EE">Estland</entry>
+<entry key="CH">Schweiz</entry>
+<entry key="TR">Türkei</entry>
+
+</properties>

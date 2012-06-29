@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="portlet.ext.fof" extends="portlet" />
+	<definition name="portlet.ext.fof_cms" extends="portlet_cms" />
+
+	<!-- Course Listing by Author -->
+	<definition name="portlet.ext.course_list.list_by_author.list" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_author/listAuthors.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.course_list.list_by_author.listCoursesOfAuthor" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_author/listCoursesOfAuthor.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.course_list.list_by_author.ByAuthor_view_course_profile" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_author/view_course_profile.jsp" />
+	</definition>
+	
+	<!-- Course Listing by Title -->
+ 	<definition name="portlet.ext.course_list.list_by_title.list" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_title/listCoursesByTitle.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.course_list.list_by_title.ByTitle_view_course_profile" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_title/view_course_profile.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.course_list.list_by_title.listCoursesOfAuthor" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/course_list/list_by_title/listCoursesOfAuthor.jsp" />
+	</definition>
+	
+	<!-- manage author-provider -->
+	<definition name="portlet.ext.fof.provider_profile.list" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/provider_profile/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.fof.provider_profile.form" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/provider_profile/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.fof.provider_profile.lessonsList" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/provider_profile/lessonsList.jsp" />
+	</definition>
+	
+	
+	<!--  FOF Lessons-->
+	<definition name="portlet.ext.fof.lessons.list" extends="portlet.ext.fof_cms">
+		<put name="portlet_cms_nav" value="/portlet/ext/fof/lessons/menu/list_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/fof/lessons/list.jsp" />
+	</definition>
+	<definition name="portlet.ext.fof.lessons.form" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/lessons/form.jsp" />
+	</definition>
+	
+	<definition name="portlet.ext.fof.lessons.view_form" extends="portlet.ext.fof_cms">
+		<put name="portlet_cms_nav" value="/portlet/ext/fof/lessons/view_form_nav.jsp" />
+		<put name="portlet_content" value="/portlet/ext/fof/lessons/view_form.jsp" />
+	</definition>
+	<definition name="portlet.ext.fof.lessons.files.form" extends="portlet.ext.fof_cms">
+		<put name="portlet_content" value="/portlet/ext/fof/lessons/files/form.jsp" />
+	</definition>
+	<definition name="portlet.ext.fof.lessons.advancedSearch" extends="portlet.ext.fof">
+		<put name="portlet_content" value="/portlet/ext/fof/lessons/advancedSearch.jsp" />
+	</definition>
+</tiles-definitions>

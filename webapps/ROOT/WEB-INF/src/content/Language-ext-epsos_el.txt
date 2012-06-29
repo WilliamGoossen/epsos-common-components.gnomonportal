@@ -1,0 +1,249 @@
+## EPSOS  ##
+
+category.epsos=EPSOS
+
+javax.portlet.title.EPSOS_DEMO=EPSOS Portal Services
+javax.portlet.title.EPSOS_INFO=EPSOS INFO
+javax.portlet.title.EPSOS_CONSENT=EPSOS CONSENT MANAGEMENT
+
+
+epsos.user.displayname=Όνομα
+epsos.user.organizationname=Οργανισμός
+epsos.user.loginrole=Ρόλος
+
+epsos.demo.search.givenName=Όνομα
+epsos.demo.search.familyName=Επώνυμο
+epsos.demo.search.birthdate=Ημερομηνία Γέννησης
+epsos.demo.search.sex=Φύλο
+epsos.demo.search.sex.M=Αρσενικό
+epsos.demo.search.sex.F=Θηλυκό
+epsos.demo.search.streetAddress=Οδός
+epsos.demo.search.zip=Ταχυδρομικός Κώδικας
+epsos.demo.search.city=Πόλη
+epsos.demo.search.country=Χώρα
+epsos.demo.search.country.UK=UNITED KINGDOM
+epsos.demo.search.country.GR=GREECE
+epsos.demo.search.country.IT=ITALY
+epsos.demo.search.country.DE=GERMANY
+epsos.demo.search.country.AT=AUSTRIA
+epsos.demo.search.pid=Ταυτότητα Ασθενή
+epsos.demo.search.ssnNumber=Αριθμός Μητρώου Ασφάλισης
+epsos.demo.search.driversLicense=Αριθμός Διπλώματος Οδήγησης
+epsos.demo.search.accountNumber=Αριθμός Λογαριασμού
+
+epsos.demo.search.namePrefix=Τίτλος
+epsos.demo.search.middleName=Όνομα πατρός
+epsos.demo.search.state=Περιφέρεια
+epsos.demo.search.homePhone=Τηλέφωνο οικίας
+epsos.demo.search.businessPhone=Τηλέφωνο εργασίας
+epsos.demo.search.emailHome=Email οικίας
+epsos.demo.search.emailBusiness=Email εργασίας
+epsos.demo.search.birthPlace=Τόπος Γέννησης
+epsos.demo.search.citizenship=Υπηκοότητα
+epsos.demo.search.nationality=Εθνικότητα
+epsos.demo.search.accountData=Στοιχεία Λογαριασμού
+epsos.demo.search.drivingLicense=Αριθμός Διπλώματος Οδήγησης
+epsos.demo.search.dateOfDeath=Ημερομηνία Θανάτου
+epsos.demo.search.lastUpdate=Τελευταία Ενημέρωση
+
+epsos.demo.pid.id=Αριθμός
+epsos.demo.pid.type=Τύπος Αναγνωριστικού
+epsos.demo.pid.domain=Domain
+epsos.demo.pid.domainType=Τύπος Domain
+epsos.demo.pid.namespace=Namespace
+epsos.demo.pid.ehrType=EHR Type
+
+epsos.demo.search.patientCard=Καρτέλα Ασθενή
+epsos.demo.search.patiendIds=Αναγνωριστικά Ασθενή
+
+epsos.demo.document.list=Περιληπτικά Αρχεία Ασθενή
+epsos.demo.document.details=Στοιχεία Αρχείου
+epsos.demo.document.name=Τίτλος
+epsos.demo.document.description=Περιγραφή
+epsos.demo.document.formatCode=Format Code
+epsos.demo.document.language=Γλώσσα
+epsos.demo.document.creationTime=Ημερομηνία Δημιουργίας
+epsos.demo.document.documentClass=Κλάσση Αρχείου
+epsos.demo.document.status=Κατάσταση
+epsos.demo.document.documentType=Τύπος Αρχείου
+epsos.demo.document.healthcareFacilityCode=Φορέας Υγείας
+epsos.demo.document.practiceSetting=Ειδικότητα
+epsos.demo.document.confidentiality=Διαβάθμιση
+epsos.demo.document.authorPerson=Συγγραφέας
+epsos.demo.document.size=Μέγεθος
+epsos.demo.document.mimeType=mime type
+epsos.demo.document.submission.details=Στοιχεία Υποβολής
+epsos.demo.document.submission.title=Τίτλος
+epsos.demo.document.submission.description=Περιγραφή
+epsos.demo.document.submission.date=Ημερομηνία Υποβολής
+epsos.demo.document.submission.authorInstitution=Φορέας Συγγραφέα
+epsos.demo.document.submission.authorDepartment=Τμήμα Συγγραφέα
+epsos.demo.document.submission.contentType=Είδος Περιεχομένου
+epsos.demo.document.folder.details=Στοιχεία Φακέλου
+epsos.demo.document.folder.title=Τίτλος
+epsos.demo.document.folder.description=Περιγραφή
+epsos.demo.document.folder.code=Κωδικός Φακέλου
+
+epsos.demo.prescription.list=Λίστα Συνταγογραφήσεων Ασθενή
+epsos.demo.dispensation.list=Λίστα Εκτελέσεων Συνταγών Ασθενή
+epsos.demo.prescription.lines.list=Λίστα Επιμέρους Φαρμάκων
+
+epsos.demo.prescription.id=Αριθμός Συνταγής
+epsos.demo.prescription.performer=Υπεύθυνος Συνταγής
+epsos.demo.prescription.facility=Φορέας
+epsos.demo.prescription.profession=Ιδιότητα
+epsos.demo.prescription.address=Διεύθυνση
+epsos.demo.prescription.prescriber=Συνταγογραφήθηκε από
+epsos.demo.prescription.name=Όνομα
+epsos.demo.prescription.ingredient=Ενεργό Συστατικό
+epsos.demo.prescription.strength=Ποσότητα Σκευάσματος
+epsos.demo.prescription.package=Συσκευασία
+epsos.demo.prescription.dosage=Δοσολογία
+epsos.demo.prescription.frequency=Συχνότητα Λήψης
+epsos.demo.prescription.route=Μέθοδος
+epsos.demo.prescription.start=Αρχή Θεραπείας
+epsos.demo.prescription.end=Τέλος Θεραπείας
+epsos.demo.prescription.nrOfPacks=Αριθμός Συσκευασιών
+epsos.demo.prescription.instruction.patient=Σημείωση για Ασθενή
+epsos.demo.prescription.instruction.filler=Σημείωση για Φαρμακοποιό
+
+epsos.demo.dispensation=Εκτέλεση Συνταγής
+epsos.demo.dispensation.id=Αριθμός Συνταγογραφούμενου Είδους
+epsos.demo.dispensation.name=Όνομα Συνταγογραφούμενου Είδους
+epsos.demo.dispensation.strength=Ποσότητα Σκευάσματος
+epsos.demo.dispensation.packaging=Συσκευασία
+epsos.demo.dispensation.packaging-form=Μορφή
+epsos.demo.dispensation.packaging-pack=Συσκευασία
+epsos.demo.dispensation.packaging-quantity=Ποσότητα
+epsos.demo.dispensation.substitute=Αντικατάσταση
+epsos.demo.dispensation.substitute-not-permitted=Δεν επιτρέπετεται Αντικατάσταση
+epsos.demo.dispensation.nrOfPacks=Αριθμός Συσκευασιών
+
+epsos.demo.confirmation.title=Πρέπει να καταχωρήσετε την Επιβεβαίωση του Ασθενή για την πρόσβαση του Οργανισμού σας στα δεδομένα του.
+epsos.demo.confirmation.error=Υπήρξε κάποιο πρόβλημα και η Επιβεβαίωση του Ασθενή δεν μπόρεσε να καταχωρηθεί.
+epsos.demo.confirmation.button=Καταχώρηση Επιβεβαίωσης
+
+epsos.demo.consent.title=Πρέπει να καταχωρήσετε την Συγκατάθεση του Ασθενή για την πρόσβασή σας στα δεδομένα του.
+epsos.demo.consent.error=Υπήρξε κάποιο πρόβλημα και η Συγκατάθεση του Ασθενή δεν μπόρεσε να καταχωρηθεί.
+epsos.demo.consent.form=Φόρμα Συγκατάθεσης Ασθενή
+epsos.demo.consent.button=Καταχώρηση Συγκατάθεσης
+epsos.demo.consent.info=Παρακαλώ επιλέξτε μία από τις παρακάτω περιπτώσεις
+epsos.demo.consent.choice.1=ο ασθενής έχει δώσει ήδη την συγκατάθεσή του για την πρόσβαση στα δεδομένα epSOS
+epsos.demo.consent.choice.2=πρόκειται για περίπτωση έκτακτης ανάγκης
+epsos.demo.consent.choice.3=ο ασθενής επιθυμεί να υπογράψει τώρα την συγκατάθεσή του για την πρόσβαση στα δεδομένα epSOS
+epsos.demo.consent.date=Συγκατάθεση ισχύει εώς
+
+epsos.demo.consent.create.button=Δημιουργία Νέας Συγκατάθεσης
+epsos.demo.consent.continue.button=Χρήση Υπάρχουσας Συγκατάθεσης
+
+epsos.consent.patients=Λίστα Ασθενών
+epsos.consent.list=Λίστα Συγκαταθέσεων Ασθενή
+epsos.consent.view=Επισκόπηση Συγκατάθεσης Ασθενή
+epsos.consent.add=Προσθήκη Συγκατάθεσης Ασθενή
+epsos.consent.edit=Επεξεργασία Συγκατάθεσης Ασθενή
+epsos.consent.delete=Διαγραφή Συγκατάθεσης Ασθενή
+epsos.consent.country=Χώρα Φροντίδας
+epsos.consent.creationDate=Ημερομηνία Καταχώρησης Συγκατάθεσης
+epsos.consent.validFrom=Ισχύει από
+epsos.consent.validTo=Ισχύει εώς
+epsos.consent.doctor.name=Όνομα Ιατρού
+epsos.consent.doctor.address=Διεύθυνση Ιατρού
+
+epsos.identifier.username=Λογαριασμός χρήστη EPSOS
+epsos.identifier.password=Κωδικός πρόσβασης EPSOS
+
+epsos.xsl.view=Επισκόπηση Αρχείου
+epsos.patient.card.view=Επισκόπηση Πληροφοριών Ασθενή
+epsos.patient.doc.view=Επισκόπηση Πληροφοριών Αρχείου
+
+epsos.demo.confirmation.purposeofuse=Σκοπός χρήσης της υπηρεσίας
+epsos.demo.confirmation.treatment=Healthcare Facility (TREATMENT)
+epsos.demo.confirmation.emergency=Emergency Department (EMERGENCY)
+
+# properties translations
+
+epsos.search.countries.supported=Χώρες που υποστηρίζονται
+epsos.always.show.consent.denied=Εμφάνιση Άρνησης Συγκατάθεσης
+epsos.always.show.confirmation.denied=Εμφάνιση Άρνησης Επιβεβαίωσης
+epsos.webservice.password=Default Tiani web-service password 	
+epsos.webservice.url=Default Tiani web-service URL
+epsos.webservice.username=Default Tiani web-service username
+epsos.patient.identifier.main.type=Κύριο είδος Αναγνωριστικού Ασθενή
+
+epsos.consent.workflow.check.GR=Έλεγχος Συγκατάθεσης - Ελλάδα
+epsos.consent.workflow.check.AT=Έλεγχος Συγκατάθεσης - Αυστρία
+epsos.consent.workflow.check.FR=Έλεγχος Συγκατάθεσης - Γαλλία
+epsos.consent.workflow.check.DE=Έλεγχος Συγκατάθεσης - Γερμανία
+epsos.consent.workflow.check.default=Έλεγχος Συγκατάθεσης
+
+epsos.search.demographics.GR=Χρήση Δημογραφικών Ασθενή στην αναζήτηση - Ελλάδα
+epsos.search.demographics.AT=Χρήση Δημογραφικών Ασθενή στην αναζήτηση - Αυστρία
+epsos.search.demographics.FR=Χρήση Δημογραφικών Ασθενή στην αναζήτηση - Γαλλία
+epsos.search.demographics.DE=Χρήση Δημογραφικών Ασθενή στην αναζήτηση - Γερμανία
+epsos.search.demographics.default=Χρήση Δημογραφικών Ασθενή στην αναζήτηση
+
+epsos.search.metadata.ids.GR=Αναζήτηση με τα επιπρόσθετα αναγνωριστικά - Ελλάδα 	
+epsos.search.metadata.ids.AT=Αναζήτηση με τα επιπρόσθετα αναγνωριστικά - Αυστρία
+epsos.search.metadata.ids.FR=Αναζήτηση με τα επιπρόσθετα αναγνωριστικά - Γαλλία
+epsos.search.metadata.ids.DE=Αναζήτηση με τα επιπρόσθετα αναγνωριστικά - Γερμανία 
+epsos.search.metadata.ids.default=Αναζήτηση με τα επιπρόσθετα αναγνωριστικά
+
+epsos.search.patient.ids.GR=Αναζήτηση με τα αναγνωριστικά ασθενή - Ελλάδα 	
+epsos.search.patient.ids.AT=Αναζήτηση με τα αναγνωριστικά ασθενή - Αυστρία
+epsos.search.patient.ids.FR=Αναζήτηση με τα αναγνωριστικά ασθενή - Γαλλία
+epsos.search.patient.ids.DE=Αναζήτηση με τα αναγνωριστικά ασθενή - Γερμανία 
+epsos.search.patient.ids.default=Αναζήτηση με τα αναγνωριστικά ασθενή 
+
+
+epsos.search.patient.confirmation.duration.GR=Χρονική Διάρκεια επιβεβαίωσης ασθενή (λεπτά) - Ελλάδα
+epsos.search.patient.confirmation.duration.AT=Χρονική Διάρκεια επιβεβαίωσης ασθενή (λεπτά) - Αυστρία
+epsos.search.patient.confirmation.duration.FR=Χρονική Διάρκεια επιβεβαίωσης ασθενή (λεπτά) - Γαλλία
+epsos.search.patient.confirmation.duration.DE=Χρονική Διάρκεια επιβεβαίωσης ασθενή (λεπτά) - Γερμανία
+epsos.search.patient.confirmation.duration.default=Χρονική Διάρκεια επιβεβαίωσης ασθενή (λεπτά)
+
+epsos.search.requires.patient.confirmation.GR=Επιβάλεται η επιβεβαίωση ασθενή - Ελλάδα
+epsos.search.requires.patient.confirmation.AT=Επιβάλεται η επιβεβαίωση ασθενή - Αυστρία
+epsos.search.requires.patient.confirmation.FR=Επιβάλεται η επιβεβαίωση ασθενή- Γαλλία
+epsos.search.requires.patient.confirmation.DE=Επιβάλεται η επιβεβαίωση ασθενή - Γερμανία
+epsos.search.requires.patient.confirmation.default=Επιβάλεται η επιβεβαίωση ασθενή
+
+epsos.demo.search.pid.TAN=Transaction Number (TAN)
+epsos.demo.search.pid.RRI=RRI
+epsos.demo.search.pid.KVNR=Krankenversicherungsnummer (KVNR)
+
+epsos.demo.search.group.pid=Αναγνωριστικά Ασθενούς
+epsos.demo.search.group.demographics=Δημογραφικά Στοιχεία Ασθενούς
+epsos.demo.search.group.metadata=Επιπρόσθετα Στοιχεία Ασθενούς
+
+epsos.dispensation.error.id.required=Αριθμός Συνταγογραφούμενου Είδους πρέπει να συμπληρωθεί
+epsos.dispensation.error.nrOfPacks.required=Αριθμός Συσκευασιών πρέπει να συμπληρωθεί
+epsos.dispensation.error.nrOfPacks.too-large=Αριθμός Συσκευασιών δεν μπορεί να είναι μεγαλύτερος από την συνταγογράφηση
+epsos.dispensation.error.name.required=Όνομα πρέπει να συμπληρωθεί
+epsos.dispensation.error.packaging.required=Συσκευασία πρέπει να συμπληρωθεί
+
+contacts.highrole.PHARMACIST=Φαρμακοποιός
+contacts.highrole.physician=Ιατρός
+contacts.highrole.nurse=Νοσοκόμα
+contacts.highrole.administrator=Διαχειριστής
+
+epsos.demo.ps.nodocs=Δεν βρέθηκε ο ιατρικός φάκελος του ασθενή
+epsos.demo.ep.nodocs=Δεν βρέθηκαν συνταγές για τον ασθενή
+
+
+epsos.demo.search.pid.2.16.724.4.42=CITE-Regional Service
+epsos.demo.search.pid.2.16.724.4.41=CIP-Health ID Number
+
+
+
+error.1002=Δεν έχετε την απαραίτητη επιβεβαίωση ασθενή. 
+error.4701=Δεν έχετε εκχωρήσει τα δικαιώματα ώστε να είναι ορατά τα ιατρικά σας δεδεομένα
+
+error.PIN=Πρέπει να συμφωνήσετε με την Δήλωση Απορρήτου
+epsos.demo.confirmation.pin.doc=Συμφωνείτε με την Δήλωση Απορρήτου?
+epsos.demo.confirmation.pin.yes=Ναι
+epsos.demo.confirmation.pin.no=Όχι
+
+dispensation.submit.ok=Η εκτέλεση της συνταγής πραγματοποιήθηκε επιτυχώς
+
+
+epsos.demo.search.pid.2.16.840.1.113883.2.9.4.3.2=δοκιμή

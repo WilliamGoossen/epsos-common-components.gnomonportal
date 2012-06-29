@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<portlet-app>
+
+	<portlet>
+		<portlet-name>ESA_COMPONENT_BROWSING</portlet-name>
+		<display-name>ESA_COMPONENT_BROWSING</display-name>
+		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
+		<init-param>
+			<name>view-action</name>
+			<value>/ext/esa/componentBrowsing/viewHierarchy</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>ESA_ERROR_MODEL_BROWSING</portlet-name>
+		<display-name>ESA_ERROR_MODEL_BROWSING</display-name>
+		<portlet-class>com.liferay.portlet.StrutsPortlet</portlet-class>
+		<init-param>
+			<name>view-action</name>
+			<value>/ext/esa/errorModelBrowsing/viewHierarchy</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<resource-bundle>com.liferay.portlet.StrutsResourceBundle</resource-bundle>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+</portlet-app>

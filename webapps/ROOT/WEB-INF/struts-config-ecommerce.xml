@@ -1,0 +1,1213 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+    	<form-bean name="PrProductForm" type="com.ext.portlet.ecommerce.product.PrProductForm"/>
+    	
+    	<form-bean name="PrProductAdminForm" type="com.ext.portlet.ecommerce.product.admin.PrProductAdminForm"/>
+    	<form-bean name="PrProductPhotoForm" type="com.ext.portlet.ecommerce.product.admin.photos.PrProductPhotoForm"/>
+    	<form-bean name="PrManufacturerForm" type="com.ext.portlet.ecommerce.product.admin.manufacturers.PrManufacturerForm"/>
+    	<form-bean name="PrSupplierForm" type="com.ext.portlet.ecommerce.product.admin.suppliers.PrSupplierForm"/>
+    	<form-bean name="PrProducttypeForm" type="com.ext.portlet.ecommerce.product.admin.producttypes.PrProducttypeForm"/>
+    	<form-bean name="PrCatalogForm" type="com.ext.portlet.ecommerce.product.admin.catalogs.PrCatalogForm"/>
+    	<form-bean name="PrMetricForm" type="com.ext.portlet.ecommerce.product.admin.metrics.PrMetricForm"/>
+    	<form-bean name="PrFeaturesetForm" type="com.ext.portlet.ecommerce.product.admin.featuresets.PrFeaturesetForm"/>
+    	<form-bean name="PrFeatureForm" type="com.ext.portlet.ecommerce.product.admin.features.PrFeatureForm"/>
+    	<form-bean name="PrVisibilityForm" type="com.ext.portlet.ecommerce.product.admin.visibility.PrVisibilityForm"/>
+    	<form-bean name="PrCombinationForm" type="com.ext.portlet.ecommerce.product.admin.combinations.PrCombinationForm"/>
+    	<form-bean name="PrDiscountForm" type="com.ext.portlet.ecommerce.product.admin.discounts.PrDiscountForm"/>
+    	<form-bean name="ImportFileForm" type="com.ext.portlet.ecommerce.product.admin.bulkimport.ImportFileForm"/>
+    	
+    	<form-bean name="EcTaxForm" type="com.ext.portlet.ecommerce.order.admin.taxes.EcTaxForm"/>
+    	<form-bean name="EcShippingForm" type="com.ext.portlet.ecommerce.order.admin.shippings.EcShippingForm"/>
+    	<form-bean name="EcPaymenttypeForm" type="com.ext.portlet.ecommerce.order.admin.paymenttypes.EcPaymenttypeForm"/>
+    	<form-bean name="EcOrderstateForm" type="com.ext.portlet.ecommerce.order.admin.orderstates.EcOrderstateForm"/>
+    	<form-bean name="EcOrderForm" type="com.ext.portlet.ecommerce.order.admin.EcOrderForm"/>
+    	<form-bean name="EcOrderSearchForm" type="com.ext.portlet.ecommerce.order.admin.EcOrderSearchForm"/>
+    	<form-bean name="EcOrderlineForm" type="com.ext.portlet.ecommerce.order.admin.orderlines.EcOrderlineForm"/>
+    	<form-bean name="PmtServiceForm" type="com.ext.portlet.payment.service.PmtServiceForm"/>
+    	<form-bean name="PmtForm" type="com.ext.portlet.payment.pay_form.PmtForm"/>
+    	<form-bean name="PmtSrvPmtTypeForm" type="com.ext.portlet.payment.service_payment_type.PmtSrvPmtTypeForm"/>
+    </form-beans>
+	<action-mappings>
+
+		<!-- Payment -->
+		<!--============ Service Admin ===================-->
+		<action path="/ext/payment/service/view"
+				type="com.ext.portlet.payment.service.ViewAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.service.view" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/service/load"
+				name="PmtServiceForm" validate="false" type="com.ext.portlet.payment.service.LoadPmtServiceAction" scope="request">
+			<forward name="common.view" path="portlet.ext.payment.service.form" />
+			<forward name="common.add" path="portlet.ext.payment.service.form" />
+			<forward name="common.edit" path="portlet.ext.payment.service.form" />
+			<forward name="common.delete" path="portlet.ext.payment.service.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/service/add" type="com.ext.portlet.payment.service.AddPmtServiceAction"
+		    name="PmtServiceForm" validate="false" scope="request">
+			<forward name="/ext/payment/service/view" path="/ext/payment/service/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/payment/service/update" type="com.ext.portlet.payment.service.UpdatePmtServiceAction"
+		    name="PmtServiceForm" validate="false" scope="request">
+			<forward name="/ext/payment/service/view" path="/ext/payment/service/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/payment/service/activate" type="com.ext.portlet.payment.service.ActivatePmtServiceAction"
+		     validate="false" scope="request">
+			<forward name="/ext/payment/service/view" path="/ext/payment/service/view"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/payment/service/delete" type="com.ext.portlet.payment.service.DeletePmtServiceAction"
+		    name="PmtServiceForm" validate="false" scope="request">
+			<forward name="/ext/payment/service/view" path="/ext/payment/service/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--============ Service Payment Type Admin ===================-->
+		<action path="/ext/payment/service_payment_type/view"
+				type="com.ext.portlet.payment.service_payment_type.ViewAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.service_payment_type.view" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/service_payment_type/load"
+				name="PmtSrvPmtTypeForm" validate="false" type="com.ext.portlet.payment.service_payment_type.LoadPmtSrvPmtTypeAction" scope="request">
+			<forward name="common.view" path="portlet.ext.payment.service_payment_type.form" />
+			<forward name="common.add" path="portlet.ext.payment.service_payment_type.form" />
+			<forward name="common.edit" path="portlet.ext.payment.service_payment_type.form" />
+			<forward name="common.delete" path="portlet.ext.payment.service_payment_type.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/service_payment_type/add" type="com.ext.portlet.payment.service_payment_type.AddPmtSrvPmtTypeAction"
+		    name="PmtSrvPmtTypeForm" validate="false" scope="request">
+			<forward name="/ext/payment/service_payment_type/view" path="/ext/payment/service_payment_type/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service_payment_type.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/payment/service_payment_type/update" type="com.ext.portlet.payment.service_payment_type.UpdatePmtSrvPmtTypeAction"
+		    name="PmtSrvPmtTypeForm" validate="false" scope="request">
+			<forward name="/ext/payment/service_payment_type/view" path="/ext/payment/service_payment_type/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service_payment_type.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/payment/service_payment_type/activate" type="com.ext.portlet.payment.service_payment_type.ActivatePmtSrvPmtTypeAction"
+		     validate="false" scope="request">
+			<forward name="/ext/payment/service_payment_type/view" path="/ext/payment/service_payment_type/view"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/payment/service_payment_type/delete" type="com.ext.portlet.payment.service_payment_type.DeletePmtSrvPmtTypeAction"
+		    name="PmtSrvPmtTypeForm" validate="false" scope="request">
+			<forward name="/ext/payment/service_payment_type/view" path="/ext/payment/service_payment_type/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.payment.service_payment_type.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		
+		<!--============ Pay for Service ===================-->
+		
+		<action path="/ext/payment/pay_form/view"
+				type="com.ext.portlet.payment.pay_form.ViewAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.pay_form.view" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pay_form/loadForm" type="com.ext.portlet.payment.pay_form.LoadPmtFormAction"
+		    name="PmtForm" validate="false" scope="request">
+			<forward name="load.form" path="portlet.ext.payment.pay_form.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pay_form/pay" type="com.ext.portlet.payment.pay_form.PayAction"
+		    name="PmtForm" validate="false" scope="request">
+		    <forward name="common.validation" path="portlet.ext.payment.pay_form.form" />
+		</action>
+		<!--============ List Payment History by Service Responsible ===================-->
+		
+		<action path="/ext/payment/pmt_history_resp/view"
+				type="com.ext.portlet.payment.ViewServicesOfResponsibleAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.pmt_history_resp.viewServicesOfResponsible" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pmt_history_resp/listPaymentsByService"
+				type="com.ext.portlet.payment.ViewPaymentsByServiceAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.pmt_history_resp.listPaymentsByService" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pmt_history_resp/loadPmtStatusForm" type="com.ext.portlet.payment.LoadPmtStatusFormAction"
+		    scope="request">
+			<forward name="load.form" path="portlet.ext.payment.pmt_history_resp.loadPmtStatusForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pmt_history_resp/changePmtStatus" type="com.ext.portlet.payment.ChangePmtStatusAction"
+		     scope="request">
+			<forward name="common.success" path="portlet.ext.payment.pmt_history_resp.listPaymentsByService" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/payment/pmt_history_resp/viewPmt" type="com.ext.portlet.payment.LoadPmtStatusFormAction"
+             scope="request">
+            <forward name="load.form" path="portlet.ext.payment.pmt_history_resp.viewPmt" />
+            <forward name="common.failure" path="/common/error.jsp" />
+        </action>
+
+		<!--============ List My Payment History  ===================-->
+		
+		<action path="/ext/payment/pmt_history_my_pmts/view"
+				type="com.ext.portlet.payment.ViewMyPmtsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.payment.pmt_history_my_pmts.viewMyPmts" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+
+        <action path="/ext/payment/pmt_history_my_pmts/viewPmt"
+                type="com.ext.portlet.payment.LoadPmtStatusFormAction" scope="request">
+            <forward name="load.form" path="portlet.ext.payment.pmt_history_my_pmts.viewPmt" />
+            <forward name="common.failure" path="/common/error.jsp" />
+        </action>
+        		
+		<!-- ============================================= -->
+		<!-- ============================================================ -->
+		
+		
+		<!-- PAYCENTER -->
+		<action path="/portal/paycenter" type="com.ext.portlet.paycenter.action.ViewAction">
+			<forward name="portal.paycenter.view" path="portal.paycenter.view" />
+			<forward name="portal.paycenter.banktransfer.pay" path="portal.paycenter.banktransfer.pay" />
+			<forward name="portal.paycenter.paypal.pay" path="portal.paycenter.paypal.pay" />
+			<forward name="portal.paycenter.winbank.pay" path="portal.paycenter.winbank.pay" />
+		</action>
+		
+		<action path="/portal/paycenter/paypal" forward="portal.paycenter.paypal.pay" />
+		
+		<action path="/portal/paycenter/winbank" forward="portal.paycenter.winbank.pay" />
+		
+		<action path="/portal/paycenter/banktransfer" type="com.ext.portlet.paycenter.action.BankTransferPayAction">
+			<forward name="portal.paycenter.banktransfer.pay" path="portal.paycenter.banktransfer.pay" />
+			<forward name="portal.paycenter.banktransfer.response" path="portal.paycenter.banktransfer.response" />
+		</action>
+		
+		<action path="/portal/paycenter/banktransfer_response" forward="portal.paycenter.banktransfer.response" />
+		
+		<action path="/portal/paycenter/paypal_response" type="com.ext.portlet.paycenter.action.PaypalResponseAction">
+			<forward name="portal.paycenter.paypal.response" path="portal.paycenter.paypal.response" />
+		</action>
+
+		<action path="/portal/paycenter/paypal_notify" type="com.ext.portlet.paycenter.action.PaypalNotifyAction"/>
+		
+		<action path="/portal/paycenter/winbank_response" type="com.ext.portlet.paycenter.action.WinbankResponseAction">
+			<forward name="portal.paycenter.winbank.response" path="portal.paycenter.winbank.response" />
+		</action>
+		
+		<action path="/portal/paycenter/cod" type="com.ext.portlet.paycenter.action.CodPayAction">
+            <forward name="portal.paycenter.cod.pay" path="portal.paycenter.cod.pay" />
+            <forward name="portal.paycenter.cod.response" path="portal.paycenter.cod.response" />
+        </action>
+        
+        <action path="/portal/paycenter/oncredit" type="com.ext.portlet.paycenter.action.OnCreditPayAction">
+            <forward name="portal.paycenter.oncredit.pay" path="portal.paycenter.oncredit.pay" />
+            <forward name="portal.paycenter.oncredit.response" path="portal.paycenter.oncredit.response" />
+        </action>
+		
+		<!-- 
+		<action path="/portal/paycenter/response" type="com.ext.portlet.paycenter.action.ResponseAction">
+			<forward name="portal.paycenter.response" path="portal.paycenter.response" />
+			<forward name="portal.paycenter.cod.response" path="portal.paycenter.cod.response" />
+			<forward name="portal.paycenter.banktransfer.response" path="portal.paycenter.banktransfer.response" />
+			<forward name="portal.paycenter.winbank.response" path="portal.paycenter.winbank.response" />
+			<forward name="portal.paycenter.paypal.response" path="portal.paycenter.paypal.response" />
+		</action>
+		
+		<action path="/portal/paycenter/notify" type="com.ext.portlet.paycenter.action.NotifyAction">
+			<forward name="portal.paycenter.paypal.notify" path="portal.paycenter.paypal.notify" />
+		</action>
+		
+		<action path="/portal/paycenter/banktransfer" type="com.ext.portlet.paycenter.action.BankTransferPayAction">
+			<forward name="portal.paycenter.banktransfer.pay" path="portal.paycenter.banktransfer.pay" />
+		</action>
+		
+		<action path="/portal/paycenter/winbank" type="com.ext.portlet.paycenter.action.WinbankPayAction">
+			<forward name="portal.paycenter.winbank.pay" path="portal.paycenter.winbank.pay" />
+		</action>
+
+		<action path="/portal/paycenter/winbank_response" type="com.ext.portlet.paycenter.action.WinbankResponseAction">
+			<forward name="portal.paycenter.winbank.response" path="portal.paycenter.winbank.response" />
+		</action>
+
+		<action path="/portal/paycenter/paypal" type="com.ext.portlet.paycenter.action.PaypalPayAction">
+			<forward name="portal.paycenter.paypal.pay" path="portal.paycenter.paypal.pay" />
+		</action>
+
+		<action path="/portal/paycenter/paypal_response" type="com.ext.portlet.paycenter.action.PaypalResponseAction">
+			<forward name="portal.paycenter.paypal.response" path="portal.paycenter.paypal.response" />
+		</action>
+
+		<action path="/portal/paycenter/paypal_notify" type="com.ext.portlet.paycenter.action.PaypalNotifyAction">
+			<forward name="portal.paycenter.paypal.notify" path="portal.paycenter.paypal.notify" />
+		</action>
+		-->
+		<!-- 
+		<action path="/ext/paycenter/view" forward="portlet.ext.paycenter.view" />
+		 -->
+		
+		
+		<!-- USER_ORDERS -->
+		
+		<action path="/ext/orders/user/view"
+				type="com.ext.portlet.ecommerce.order.user.ViewAction" scope="request">
+			<forward name="view.orders" path="portlet.ext.orders.user.view.orders" />
+			<forward name="find.order" path="portlet.ext.orders.user.find.order" />
+		</action>
+
+		<action path="/ext/orders/user/viewOrder"
+				type="com.ext.portlet.ecommerce.order.user.ViewOrderAction" scope="request"
+				name="EcOrderForm" validate="false">
+			<forward name="view.order" path="portlet.ext.orders.user.view.order" />
+		</action>
+		
+		<action path="/ext/orders/user/findOrder"
+				type="com.ext.portlet.ecommerce.order.user.FindOrderAction" scope="request"
+				name="EcOrderForm" validate="false">
+			<forward name="view.order" path="portlet.ext.orders.user.view.order" />
+			<forward name="find.order" path="portlet.ext.orders.user.find.order" />
+		</action>
+
+		<action path="/ext/orders/user/cancelOrder"
+				type="com.ext.portlet.ecommerce.order.user.CancelOrderAction" scope="request">
+			<forward name="view.order" path="portlet.ext.orders.user.view.order" />
+		</action>		
+		
+		<action path="/ext/orders/user/repeatOrder" type="com.ext.portlet.ecommerce.order.user.RepeatOrderAction" >
+			<forward name="error" path="portlet.ext.orders.user.view.orders" />
+		</action>
+		
+		<action path="/ext/orders/user/payOrder" type="com.ext.portlet.ecommerce.order.user.PayOrderAction" >
+			<forward name="order.payment.form" path="portlet.ext.orders.user.order.payment.form" />
+		</action>
+		
+		<action path="/ext/orders/user/preparePayOrder" type="com.ext.portlet.ecommerce.order.user.PreparePayOrderAction" >
+            <forward name="order.payment.form" path="portlet.ext.orders.user.order.payment.form" />
+            <forward name="error" path="portlet.ext.orders.user.view.orders" />
+        </action>
+		
+		<!-- PRODUCTS BROWSER -->
+		
+		<action path="/ext/products/browser/send" type="com.ext.portlet.ecommerce.product.browser.SendMessageAction" />
+		
+		<action path="/ext/products/browser/view"
+				type="com.ext.portlet.ecommerce.product.browser.BrowseCategoriesAction" scope="request">
+			<forward name="success" path="portlet.ext.products.browser.view" />
+			<forward name="failure" path="/common/error.jsp" />
+		</action>
+			
+		<action path="/ext/products/browser/loadProduct"
+				name="PrProductForm" validate="false" type="com.ext.portlet.ecommerce.product.LoadProductAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.browser.viewProduct" />
+			<forward name="failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/browser/edit_product_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
+			<forward name="portlet.message_boards.error" path="portlet.ext.products.browser.error" />
+		</action>
+		
+		<action path="/ext/products/browser/rate_product" type="com.liferay.portlet.ratings.action.RateEntryAction" />
+		
+		
+		<!-- EC_PRODUCT_MENU_BROWSER /ext/products/menuBrowser/view -->
+		<action path="/ext/products/menuBrowser/view"
+				type="com.ext.portlet.ecommerce.product.browser.BrowseCategoriesAction" scope="request">
+			<forward name="success" path="portlet.ext.products.menuBrowser.view" />
+			<forward name="failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<!-- SHOPPING CART -->
+		<!-- <action path="/ext/ecommerce/cart/view" forward="portlet.ext.ecommerce.cart.view" />-->
+		
+		<action path="/ext/ecommerce/cart/get" type="com.ext.portlet.ecommerce.cart.action.GetCartAction" />
+		
+		<action path="/ext/ecommerce/cart/add" type="com.ext.portlet.ecommerce.cart.action.AddCartItemAction" />
+		
+		<action path="/ext/ecommerce/cart/delete" type="com.ext.portlet.ecommerce.cart.action.DeleteCartItemAction" />
+		
+		<action path="/ext/ecommerce/cart/update" type="com.ext.portlet.ecommerce.cart.action.UpdateCartAction" />
+		
+		<action path="/ext/ecommerce/cart/view" type="com.ext.portlet.ecommerce.cart.action.ViewAction">
+			<forward name="portlet.ext.ecommerce.cart.null" path="portlet.ext.ecommerce.cart.null" />
+			<forward name="portlet.ext.ecommerce.cart.view" path="portlet.ext.ecommerce.cart.view" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.welcome" path="portlet.ext.ecommerce.cart.checkout.welcome" />
+		</action>
+		
+		<action path="/ext/ecommerce/cart/edit" type="com.ext.portlet.ecommerce.cart.action.EditCartAction">
+			<forward name="portlet.ext.ecommerce.cart.view" path="portlet.ext.ecommerce.cart.view" />
+		</action>
+		
+		<action path="/ext/ecommerce/cart/checkout" type="com.ext.portlet.ecommerce.cart.action.CheckoutAction">
+			<forward name="portlet.ext.ecommerce.cart.checkout.welcome" path="portlet.ext.ecommerce.cart.checkout.welcome" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.create_account" path="portlet.ext.ecommerce.cart.checkout.create_account" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.billing_info" path="portlet.ext.ecommerce.cart.checkout.billing_info" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.shipping_info" path="portlet.ext.ecommerce.cart.checkout.shipping_info" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.shipping_method" path="portlet.ext.ecommerce.cart.checkout.shipping_method" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.payment_info" path="portlet.ext.ecommerce.cart.checkout.payment_info" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.confirm" path="portlet.ext.ecommerce.cart.checkout.confirm" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.result" path="portlet.ext.ecommerce.cart.checkout.result" />
+			<forward name="portlet.ext.ecommerce.cart.checkout.error" path="portlet.ext.ecommerce.cart.checkout.error" />
+		</action>
+		
+		<action path="/ext/ecommerce/cart/getPartyAddress" type="com.ext.portlet.ecommerce.cart.action.GetPartyAddressAction" />
+		<!--
+		<action path="/ext/ecommerce/cart/edit_configuration" type="com.ext.portlet.ecommerce.cart.action.EditConfigurationAction">
+			<forward name="portlet.edit_configuration" path="portlet.ext.ecommerce.cart.edit_configuration" />
+		</action>
+		-->
+		
+		
+		<!--  EC_PRODUCT_ADMIN portlet -->
+		<action path="/ext/products/admin/view"
+				type="com.ext.portlet.ecommerce.product.admin.ViewAction" scope="request">
+			<forward name="common.success.products" path="portlet.ext.products.admin.view.products" />
+			<forward name="common.success.features" path="portlet.ext.products.admin.view.features" />
+			<forward name="common.success.manufacturers" path="portlet.ext.products.admin.view.manufacturers" />
+			<forward name="common.success.suppliers" path="portlet.ext.products.admin.view.suppliers" />
+			<forward name="common.success.producttypes" path="portlet.ext.products.admin.view.producttypes" />
+			<forward name="common.success.metrics" path="portlet.ext.products.admin.view.metrics" />
+			<forward name="common.success.catalogs" path="portlet.ext.products.admin.view.catalogs" />
+			<forward name="common.success.bulkimport" path="portlet.ext.products.admin.view.bulkimport.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  BULK IMPORT -->
+		<action path="/ext/products/admin/bulkImport" name="ImportFileForm" 
+		        type="com.ext.portlet.ecommerce.product.admin.bulkimport.BulkImportAction" scope="session">
+            <forward name="portlet.ext.products.admin.view.bulkimport.form" path="portlet.ext.products.admin.view.bulkimport.form" />
+            <forward name="portlet.ext.products.admin.view.bulkimport.result" path="portlet.ext.products.admin.view.bulkimport.result" />
+            <forward name="common.failure" path="/common/error.jsp" />
+        </action>
+        <action path="/ext/products/admin/get_bulk_template" type="com.ext.portlet.ecommerce.product.admin.bulkimport.GetBulkTemplateFileAction" />
+			
+		<!--  PRODUCTS -->	
+		<action path="/ext/products/admin/loadProduct"
+				name="PrProductAdminForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.LoadProductAdminAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.productForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.productForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.productForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.productForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProduct" type="com.ext.portlet.ecommerce.product.admin.AddPrProductAction"
+		    name="PrProductAdminForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.productForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateProduct" type="com.ext.portlet.ecommerce.product.admin.UpdatePrProductAction"
+		    name="PrProductAdminForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.productForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/activateProduct" type="com.ext.portlet.ecommerce.product.admin.ActivatePrProductAction"
+		     validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/deleteProduct" type="com.ext.portlet.ecommerce.product.admin.DeletePrProductAction"
+		    name="PrProductAdminForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.productForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/listProductPhotos"
+				type="com.ext.portlet.ecommerce.product.admin.photos.ListPrProductPhotosAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.photo.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductPhoto"
+				name="PrProductPhotoForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.photos.LoadPrProductPhotoAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.photo.form" />
+			<forward name="common.add" path="portlet.ext.products.admin.photo.form" />
+			<forward name="common.edit" path="portlet.ext.products.admin.photo.form" />
+			<forward name="common.delete" path="portlet.ext.products.admin.photo.form" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductPhoto" type="com.ext.portlet.ecommerce.product.admin.photos.AddPrProductPhotoAction"
+		    name="PrProductPhotoForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductPhotos" path="/ext/products/admin/listProductPhotos"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.photo.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateProductPhoto" type="com.ext.portlet.ecommerce.product.admin.photos.UpdatePrProductPhotoAction"
+		    name="PrProductPhotoForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductPhotos" path="/ext/products/admin/listProductPhotos"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.photo.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteProductPhoto" type="com.ext.portlet.ecommerce.product.admin.photos.DeletePrProductPhotoAction"
+		    name="PrProductPhotoForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductPhotos" path="/ext/products/admin/listProductPhotos"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.photo.form"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/listProductSpecs"
+				type="com.ext.portlet.ecommerce.product.admin.specs.ListProductSpecsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.spec.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductSpecsFromSet"
+				type="com.ext.portlet.ecommerce.product.admin.specs.AddProductSpecsFromSetAction" scope="request">
+			<forward name="/ext/products/admin/listProductSpecs" path="/ext/products/admin/listProductSpecs" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductSpecs"
+				type="com.ext.portlet.ecommerce.product.admin.specs.AddProductSpecsAction" scope="request">
+			<forward name="/ext/products/admin/listProductSpecs" path="/ext/products/admin/listProductSpecs" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/listProductSpecsTranslations"
+				type="com.ext.portlet.ecommerce.product.admin.specs.ListProductSpecTranslationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.spec.translations.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/saveProductSpecs"
+				type="com.ext.portlet.ecommerce.product.admin.specs.SaveProductSpecsAction" scope="request">
+			<forward name="/ext/products/admin/listProductSpecs" path="/ext/products/admin/listProductSpecs" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/deleteProductSpecs"
+				type="com.ext.portlet.ecommerce.product.admin.specs.DeleteProductSpecsAction" scope="request">
+			<forward name="/ext/products/admin/listProductSpecs" path="/ext/products/admin/listProductSpecs" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/listProductAttributes"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.ListProductAttributesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.attribute.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductAttributesFromSet"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.AddProductAttributesFromSetAction" scope="request">
+			<forward name="/ext/products/admin/listProductAttributes" path="/ext/products/admin/listProductAttributes" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductAttributes"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.AddProductAttributesAction" scope="request">
+			<forward name="/ext/products/admin/listProductAttributes" path="/ext/products/admin/listProductAttributes" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/deleteProductAttribute"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.DeleteProductAttributeAction" scope="request">
+			<forward name="/ext/products/admin/listProductAttributes" path="/ext/products/admin/listProductAttributes" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductAttributeValues"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.LoadProductAttributeValuesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.attribute.values.list" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductAttributeValueTranslations"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.LoadProductAttributeValueTranslationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.attribute.values.translations.list" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/saveProductAttributeValues"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.SaveProductAttributeValuesAction" scope="request">
+			<forward name="/ext/products/admin/loadProductAttributeValues" path="/ext/products/admin/loadProductAttributeValues" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/deleteProductAttributeValues"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.DeleteProductAttributeValuesAction" scope="request">
+			<forward name="/ext/products/admin/loadProductAttributeValues" path="/ext/products/admin/loadProductAttributeValues" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductAttributeValues"
+				type="com.ext.portlet.ecommerce.product.admin.attributes.AddProductAttributeValuesAction" scope="request">
+			<forward name="/ext/products/admin/loadProductAttributeValues" path="/ext/products/admin/loadProductAttributeValues" redirect="true" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/listProductCombinations"
+				type="com.ext.portlet.ecommerce.product.admin.combinations.ListProductCombinationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.combinations.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/checkProductCombination"
+				name="PrCombinationForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.combinations.CheckPrCombinationAction" scope="request">
+			<forward name="/ext/products/admin/loadProductCombination" path="/ext/products/admin/loadProductCombination" redirect="true"/>
+			<forward name="/ext/products/admin/listProductCombinations" path="/ext/products/admin/listProductCombinations" redirect="true"/>
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductCombination"
+				name="PrCombinationForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.combinations.LoadPrCombinationAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.combinationForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.combinationForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.combinationForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.combinationForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductCombination" type="com.ext.portlet.ecommerce.product.admin.combinations.AddPrCombinationAction"
+		    name="PrCombinationForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductCombinations" path="/ext/products/admin/listProductCombinations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.combinationForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/loadRemainingProductCombinations"
+				type="com.ext.portlet.ecommerce.product.admin.combinations.LoadRemainingPrCombinationsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.combinations.remaining.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addRemainingProductCombinations" type="com.ext.portlet.ecommerce.product.admin.combinations.AddRemainingPrCombinationsAction"
+		    scope="request">
+			<forward name="/ext/products/admin/listProductCombinations" path="/ext/products/admin/listProductCombinations"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+	
+		<action path="/ext/products/admin/updateProductCombination" type="com.ext.portlet.ecommerce.product.admin.combinations.UpdatePrCombinationAction"
+		    name="PrCombinationForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductCombinations" path="/ext/products/admin/listProductCombinations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.combinationForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteProductCombination" type="com.ext.portlet.ecommerce.product.admin.combinations.DeletePrCombinationAction"
+		    name="PrCombinationForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductCombinations" path="/ext/products/admin/listProductCombinations"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.combinationForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		
+		
+		<action path="/ext/products/admin/listProductVisibility"
+				type="com.ext.portlet.ecommerce.product.admin.visibility.ListProductVisibilityAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.visibility.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductVisibility"
+				name="PrVisibilityForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.visibility.LoadPrVisibilityAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.visibilityForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.visibilityForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.visibilityForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.visibilityForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductVisibility" type="com.ext.portlet.ecommerce.product.admin.visibility.AddPrVisibilityAction"
+		    name="PrVisibilityForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductVisibility" path="/ext/products/admin/listProductVisibility"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.visibilityForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateProductVisibility" type="com.ext.portlet.ecommerce.product.admin.visibility.UpdatePrVisibilityAction"
+		    name="PrVisibilityForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductVisibility" path="/ext/products/admin/listProductVisibility"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.visibilityForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteProductVisibility" type="com.ext.portlet.ecommerce.product.admin.visibility.DeletePrVisibilityAction"
+		    name="PrVisibilityForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductVisibility" path="/ext/products/admin/listProductVisibility"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.visibilityForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/listProductDiscounts"
+				type="com.ext.portlet.ecommerce.product.admin.discounts.ListProductDiscountsAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.discount.list" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/loadProductDiscount"
+				name="PrDiscountForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.discounts.LoadPrDiscountAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.discountForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.discountForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.discountForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.discountForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProductDiscount" type="com.ext.portlet.ecommerce.product.admin.discounts.AddPrDiscountAction"
+		    name="PrDiscountForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductDiscounts" path="/ext/products/admin/listProductDiscounts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.discountForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateProductDiscount" type="com.ext.portlet.ecommerce.product.admin.discounts.UpdatePrDiscountAction"
+		    name="PrDiscountForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductDiscounts" path="/ext/products/admin/listProductDiscounts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.discountForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteProductDiscount" type="com.ext.portlet.ecommerce.product.admin.discounts.DeletePrDiscountAction"
+		    name="PrDiscountForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/listProductDiscounts" path="/ext/products/admin/listProductDiscounts"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.discountForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  MANUFACTURERS -->
+		<action path="/ext/products/admin/loadManufacturer"
+				name="PrManufacturerForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.manufacturers.LoadPrManufacturerAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.manufacturerForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.manufacturerForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.manufacturerForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.manufacturerForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addManufacturer" type="com.ext.portlet.ecommerce.product.admin.manufacturers.AddPrManufacturerAction"
+		    name="PrManufacturerForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.manufacturerForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateManufacturer" type="com.ext.portlet.ecommerce.product.admin.manufacturers.UpdatePrManufacturerAction"
+		    name="PrManufacturerForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.manufacturerForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteManufacturer" type="com.ext.portlet.ecommerce.product.admin.manufacturers.DeletePrManufacturerAction"
+		    name="PrManufacturerForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.manufacturerForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  SUPPLIERS -->
+		<action path="/ext/products/admin/loadSupplier"
+				name="PrSupplierForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.suppliers.LoadPrSupplierAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.supplierForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.supplierForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.supplierForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.supplierForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addSupplier" type="com.ext.portlet.ecommerce.product.admin.suppliers.AddPrSupplierAction"
+		    name="PrSupplierForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.supplierForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateSupplier" type="com.ext.portlet.ecommerce.product.admin.suppliers.UpdatePrSupplierAction"
+		    name="PrSupplierForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.supplierForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteSupplier" type="com.ext.portlet.ecommerce.product.admin.suppliers.DeletePrSupplierAction"
+		    name="PrSupplierForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.supplierForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<!--  PRODUCT TYPES -->
+		<action path="/ext/products/admin/loadProducttype"
+				name="PrProducttypeForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.producttypes.LoadPrProducttypeAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.producttypeForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.producttypeForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.producttypeForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.producttypeForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addProducttype" type="com.ext.portlet.ecommerce.product.admin.producttypes.AddPrProducttypeAction"
+		    name="PrProducttypeForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.producttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateProducttype" type="com.ext.portlet.ecommerce.product.admin.producttypes.UpdatePrProducttypeAction"
+		    name="PrProducttypeForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.producttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteProducttype" type="com.ext.portlet.ecommerce.product.admin.producttypes.DeletePrProducttypeAction"
+		    name="PrProducttypeForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.producttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  METRICS -->
+		<action path="/ext/products/admin/loadMetric"
+				name="PrMetricForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.metrics.LoadPrMetricAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.metricForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.metricForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.metricForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.metricForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addMetric" type="com.ext.portlet.ecommerce.product.admin.metrics.AddPrMetricAction"
+		    name="PrMetricForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.metricForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateMetric" type="com.ext.portlet.ecommerce.product.admin.metrics.UpdatePrMetricAction"
+		    name="PrMetricForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.metricForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteMetric" type="com.ext.portlet.ecommerce.product.admin.metrics.DeletePrMetricAction"
+		    name="PrMetricForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.metricForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<!--  CATALOGS -->
+		<action path="/ext/products/admin/loadCatalog"
+				name="PrCatalogForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.catalogs.LoadPrCatalogAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.catalogForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.catalogForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.catalogForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.catalogForm" />
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		
+		<action path="/ext/products/admin/addCatalog" type="com.ext.portlet.ecommerce.product.admin.catalogs.AddPrCatalogAction"
+		    name="PrCatalogForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.catalogForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateCatalog" type="com.ext.portlet.ecommerce.product.admin.catalogs.UpdatePrCatalogAction"
+		    name="PrCatalogForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.catalogForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteCatalog" type="com.ext.portlet.ecommerce.product.admin.catalogs.DeletePrCatalogAction"
+		    name="PrCatalogForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.catalogForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<action path="/ext/products/admin/listCatalogProfiles"
+				type="com.ext.portlet.ecommerce.product.admin.catalogs.ListCatalogProfilesAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.catalog.profile.list" />
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		
+		<action path="/ext/products/admin/updateCatalogProfiles"
+				type="com.ext.portlet.ecommerce.product.admin.catalogs.UpdateCatalogProfilesAction" scope="request">
+			<forward name="/ext/products/admin/listCatalogProfiles" path="/ext/products/admin/listCatalogProfiles" redirect="true"/>
+			<forward name="common.failure" path="portlet.error" />
+		</action>
+		
+		<!--  FEATURESETS -->
+		<action path="/ext/products/admin/loadFeatureset"
+				name="PrFeaturesetForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.featuresets.LoadPrFeaturesetAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.featuresetForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.featuresetForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.featuresetForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.featuresetForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addFeatureset" type="com.ext.portlet.ecommerce.product.admin.featuresets.AddPrFeaturesetAction"
+		    name="PrFeaturesetForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featuresetForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateFeatureset" type="com.ext.portlet.ecommerce.product.admin.featuresets.UpdatePrFeaturesetAction"
+		    name="PrFeaturesetForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featuresetForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteFeatureset" type="com.ext.portlet.ecommerce.product.admin.featuresets.DeletePrFeaturesetAction"
+		    name="PrFeaturesetForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featuresetForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/products/admin/listFeaturesetMembers"
+				type="com.ext.portlet.ecommerce.product.admin.featuresets.ListMembersAction" scope="request">
+			<forward name="common.success" path="portlet.ext.products.admin.featureset.members" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addFeaturesetMembers"
+				type="com.ext.portlet.ecommerce.product.admin.featuresets.AddMembersAction" scope="request">
+			<forward name="/ext/products/admin/listFeaturesetMembers" path="/ext/products/admin/listFeaturesetMembers" redirect="true"/>
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/deleteFeaturesetMembers"
+				type="com.ext.portlet.ecommerce.product.admin.featuresets.DeleteMembersAction" scope="request">
+			<forward name="/ext/products/admin/listFeaturesetMembers" path="/ext/products/admin/listFeaturesetMembers" redirect="true"/>
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  FEATURES -->
+		<action path="/ext/products/admin/loadFeature"
+				name="PrFeatureForm" validate="false" type="com.ext.portlet.ecommerce.product.admin.features.LoadPrFeatureAction" scope="request">
+			<forward name="common.view" path="portlet.ext.products.admin.featureForm" />
+			<forward name="common.add" path="portlet.ext.products.admin.featureForm" />
+			<forward name="common.edit" path="portlet.ext.products.admin.featureForm" />
+			<forward name="common.delete" path="portlet.ext.products.admin.featureForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/products/admin/addFeature" type="com.ext.portlet.ecommerce.product.admin.features.AddPrFeatureAction"
+		    name="PrFeatureForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featureForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/products/admin/updateFeature" type="com.ext.portlet.ecommerce.product.admin.features.UpdatePrFeatureAction"
+		    name="PrFeatureForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featureForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/products/admin/deleteFeature" type="com.ext.portlet.ecommerce.product.admin.features.DeletePrFeatureAction"
+		    name="PrFeatureForm" validate="false" scope="request">
+			<forward name="/ext/products/admin/view" path="/ext/products/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.products.admin.featureForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		
+		
+		<!--  EC_ORDER_ADMIN portlet -->
+		<action path="/ext/orders/admin/view"
+				type="com.ext.portlet.ecommerce.order.admin.ViewAction" 
+				name="EcOrderSearchForm" validate="false" scope="request">
+			<forward name="common.success.orders" path="portlet.ext.orders.admin.view.orders" />
+			<forward name="common.success.customers" path="portlet.ext.orders.admin.view.customers" />
+			<forward name="common.success.taxes" path="portlet.ext.orders.admin.view.taxes" />
+			<forward name="common.success.shippings" path="portlet.ext.orders.admin.view.shippings" />
+			<forward name="common.success.payments" path="portlet.ext.orders.admin.view.payments" />
+			<forward name="common.success.orderstates" path="portlet.ext.orders.admin.view.orderstates" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  ORDERS -->
+		
+		<action path="/ext/orders/admin/loadOrder"
+				name="EcOrderForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.LoadEcOrderAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.orderForm" />
+			<forward name="common.add" path="portlet.ext.orders.admin.orderForm" />
+			<forward name="common.edit" path="portlet.ext.orders.admin.orderForm" />
+			<forward name="common.delete" path="portlet.ext.orders.admin.orderForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/orders/admin/updateOrder" type="com.ext.portlet.ecommerce.order.admin.UpdateEcOrderAction"
+		    name="EcOrderForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.orderForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/orders/admin/changeOrderState" type="com.ext.portlet.ecommerce.order.admin.ChangeEcOrderStateAction"
+		    scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<action path="/ext/orders/admin/loadOrderLine"
+				name="EcOrderlineForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.orderlines.LoadEcOrderlineAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.orderLineForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		
+		<action path="/ext/orders/admin/viewOrderHistory"
+				type="com.ext.portlet.ecommerce.order.admin.ViewOrderHistoryAction" scope="request">
+			<forward name="common.success" path="portlet.ext.orders.admin.view.history" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		<!--  Generic Jasper Report action -->
+		<action path="/ext/orders/admin/genericPdfAction"
+			type="com.ext.portlet.ecommerce.order.print.ShowGenericPdfReportAction">
+				<forward name="common.success" path="portlet.ext.orders.reports.genericPDF" />
+				<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<!--  TAXES -->
+		<action path="/ext/orders/admin/loadTax"
+				name="EcTaxForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.taxes.LoadEcTaxAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.taxForm" />
+			<forward name="common.add" path="portlet.ext.orders.admin.taxForm" />
+			<forward name="common.edit" path="portlet.ext.orders.admin.taxForm" />
+			<forward name="common.delete" path="portlet.ext.orders.admin.taxForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/orders/admin/addTax" type="com.ext.portlet.ecommerce.order.admin.taxes.AddEcTaxAction"
+		    name="EcTaxForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.taxForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/orders/admin/updateTax" type="com.ext.portlet.ecommerce.order.admin.taxes.UpdateEcTaxAction"
+		    name="EcTaxForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.taxForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/orders/admin/deleteTax" type="com.ext.portlet.ecommerce.order.admin.taxes.DeleteEcTaxAction"
+		    name="EcTaxForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.taxForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<!--  PAYMENT TYPES -->
+		<action path="/ext/orders/admin/loadPaymenttype"
+				name="EcPaymenttypeForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.paymenttypes.LoadEcPaymenttypeAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.paymenttypeForm" />
+			<forward name="common.add" path="portlet.ext.orders.admin.paymenttypeForm" />
+			<forward name="common.edit" path="portlet.ext.orders.admin.paymenttypeForm" />
+			<forward name="common.delete" path="portlet.ext.orders.admin.paymenttypeForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/orders/admin/addPaymenttype" type="com.ext.portlet.ecommerce.order.admin.paymenttypes.AddEcPaymenttypeAction"
+		    name="EcPaymenttypeForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.paymenttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/orders/admin/updatePaymenttype" type="com.ext.portlet.ecommerce.order.admin.paymenttypes.UpdateEcPaymenttypeAction"
+		    name="EcPaymenttypeForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.paymenttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/orders/admin/deletePaymenttype" type="com.ext.portlet.ecommerce.order.admin.paymenttypes.DeleteEcPaymenttypeAction"
+		    name="EcPaymenttypeForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.paymenttypeForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<!--  SHIPPING -->
+		<action path="/ext/orders/admin/loadShipping"
+				name="EcShippingForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.shippings.LoadEcShippingAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.shippingForm" />
+			<forward name="common.add" path="portlet.ext.orders.admin.shippingForm" />
+			<forward name="common.edit" path="portlet.ext.orders.admin.shippingForm" />
+			<forward name="common.delete" path="portlet.ext.orders.admin.shippingForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/orders/admin/addShipping" type="com.ext.portlet.ecommerce.order.admin.shippings.AddEcShippingAction"
+		    name="EcShippingForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.shippingForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/orders/admin/updateShipping" type="com.ext.portlet.ecommerce.order.admin.shippings.UpdateEcShippingAction"
+		    name="EcShippingForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.shippingForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/orders/admin/deleteShipping" type="com.ext.portlet.ecommerce.order.admin.shippings.DeleteEcShippingAction"
+		    name="EcShippingForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.shippingForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		<!--  ORDER STATES -->
+		<action path="/ext/orders/admin/loadOrderstate"
+				name="EcOrderstateForm" validate="false" type="com.ext.portlet.ecommerce.order.admin.orderstates.LoadEcOrderstateAction" scope="request">
+			<forward name="common.view" path="portlet.ext.orders.admin.orderstateForm" />
+			<forward name="common.add" path="portlet.ext.orders.admin.orderstateForm" />
+			<forward name="common.edit" path="portlet.ext.orders.admin.orderstateForm" />
+			<forward name="common.delete" path="portlet.ext.orders.admin.orderstateForm" />
+			<forward name="common.failure" path="/common/error.jsp" />
+		</action>
+		
+		<action path="/ext/orders/admin/addOrderstate" type="com.ext.portlet.ecommerce.order.admin.orderstates.AddEcOrderstateAction"
+		    name="EcOrderstateForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.orderstateForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+	
+		<action path="/ext/orders/admin/updateOrderstate" type="com.ext.portlet.ecommerce.order.admin.orderstates.UpdateEcOrderstateAction"
+		    name="EcOrderstateForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.orderstateForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+
+		<action path="/ext/orders/admin/deleteOrderstate" type="com.ext.portlet.ecommerce.order.admin.orderstates.DeleteEcOrderstateAction"
+		    name="EcOrderstateForm" validate="false" scope="request">
+			<forward name="/ext/orders/admin/view" path="/ext/orders/admin/view"  redirect="true"/>
+			<forward name="common.validation" path="portlet.ext.orders.admin.orderstateForm"  />
+			<forward name="common.failure" path="portlet.error"  />
+		</action>
+		
+		
+		<action path="/ext/ecommerce/admin/view" forward="portlet.ext.ecommerce.admin.view"/>
+	
+		<action path="/ext/ecommerce/admin/save" type="com.ext.portlet.ecommerce.admin.SaveConfigurationAction">
+			<forward name="/ext/ecommerce/admin/view" path="portlet.ext.ecommerce.admin.view" />
+			</action>
+		
+		
+		<!-- ERP SYNC -->
+		<action path="/ext/ecommerce/erpsync/view" type="com.ext.portlet.ecommerce.erpsync.action.ViewAction">
+            <forward name="portlet.ext.ecommerce.erpsync.view" path="portlet.ext.ecommerce.erpsync.view" />
+            <forward name="portlet.ext.ecommerce.erpsync.error" path="portlet.ext.ecommerce.erpsync.error" />
+        </action>
+
+        <action path="/ext/ecommerce/erpsync/do" type="com.ext.portlet.ecommerce.erpsync.action.SyncAction">
+            <forward name="portlet.ext.ecommerce.erpsync.EntersoftErpConnector.products" path="portlet.ext.ecommerce.erpsync.entersoft.products" />
+            <forward name="portlet.ext.ecommerce.erpsync.EntersoftErpConnector.inventory" path="portlet.ext.ecommerce.erpsync.entersoft.inventory" />
+            <forward name="portlet.ext.ecommerce.erpsync.EntersoftErpConnector.customers" path="portlet.ext.ecommerce.erpsync.entersoft.customers" />
+            <forward name="portlet.ext.ecommerce.erpsync.KefErpConnector.products" path="portlet.ext.ecommerce.erpsync.kefweb.products" />
+            <forward name="portlet.ext.ecommerce.erpsync.KefErpConnector.inventory" path="portlet.ext.ecommerce.erpsync.kefweb.inventory" />
+            <forward name="portlet.ext.ecommerce.erpsync.KefErpConnector.customers" path="portlet.ext.ecommerce.erpsync.kefweb.customers" />
+            <forward name="portlet.ext.ecommerce.erpsync.error" path="portlet.ext.ecommerce.erpsync.error" />
+        </action>
+        
+        <!-- 
+        <action path="/ext/ecommerce/erpsync/products" type="com.ext.portlet.ecommerce.erpsync.action.SyncProductsAction">
+            <forward name="portlet.ext.ecommerce.erpsync.EntersoftErpConnector.products" path="portlet.ext.ecommerce.erpsync.entersoft.products" />
+            <forward name="portlet.ext.ecommerce.erpsync.KefErpConnector.products" path="portlet.ext.ecommerce.erpsync.kefweb.products" />
+            <forward name="portlet.ext.ecommerce.erpsync.error" path="portlet.ext.ecommerce.erpsync.error" />
+        </action>
+
+        <action path="/ext/ecommerce/erpsync/customers" type="com.ext.portlet.ecommerce.erpsync.action.SyncCustomersAction">
+            <forward name="portlet.ext.ecommerce.erpsync.customers" path="portlet.ext.ecommerce.erpsync.customers" />
+            <forward name="portlet.ext.ecommerce.erpsync.error" path="portlet.ext.ecommerce.erpsync.error" />
+        </action>
+
+        <action path="/ext/ecommerce/erpsync/inventory" type="com.ext.portlet.ecommerce.erpsync.action.SyncInventoryAction">
+            <forward name="portlet.ext.ecommerce.erpsync.inventory" path="portlet.ext.ecommerce.erpsync.inventory" />
+            <forward name="portlet.ext.ecommerce.erpsync.error" path="portlet.ext.ecommerce.erpsync.error" />
+        </action>
+         -->
+		<!-- 
+		<action path="/ext/ecommerce/admin/importalios"
+				type="com.ext.portlet.ecommerce.admin.AliosClientJob" scope="request">
+			<forward name="success" path="portlet.ext.products.admin.view.products" />
+			<forward name="failure" path="/common/error.jsp" />
+		</action>
+		-->
+		<!--  Testing Savvinopoulos ERP DATA -->
+		<!-- <action path="/ext/ecommerce/erpsync/testFetchErpViewsAction" 
+			type="com.ext.portlet.ecommerce.erp.entersoft.util.TestFetchErpViewsAction">
+            <forward name="action.success" path="portlet.ext.ecommerce.erpsync.testViewErpViews" />
+        </action>
+        -->
+        <!--  Fixing Savvinopoulos DATA -->
+        <!--
+        <action path="/ext/ecommerce/erpsync/fixCosmosTradeDefaultInstances"
+            type="com.ext.portlet.ecommerce.erpsync.action.FixCosmosTradeDefaultInstances" scope="request"/>
+        -->
+		
+	</action-mappings>
+
+</struts-config>

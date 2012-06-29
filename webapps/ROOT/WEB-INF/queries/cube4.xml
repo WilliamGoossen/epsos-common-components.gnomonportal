@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube4" measuresCaption="%{measures}">
+    <Cube name="cube4">
+        <Table name="mondian_Table4"/>
+        <Dimension name="mondian_Table4.deiktis" caption="%{deiktis}">
+            <Hierarchy name="mondian_Table4.deiktis" hasAll="true" allMemberName="All mondian_table4.deiktis" allMemberCaption="%{all_deiktes}">
+                <Table name="mondian_Table4"/>
+                <Level name="mondian_Table4.deiktis" table="mondian_Table4" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table4.pigi">
+            <Hierarchy name="mondian_Table4.pigi" hasAll="true" allMemberName="All mondian_table4.pigi">
+                <Table name="mondian_Table4"/>
+                <Level name="mondian_Table4.pigi" table="mondian_Table4" column="pigi" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table4.nomos" caption="%{nomos}">
+            <Hierarchy name="mondian_Table4.nomos" hasAll="true" allMemberName="All mondian_table4.nomos" allMemberCaption="%{all_nomoi}">
+                <Table name="mondian_Table4"/>
+                <Level name="mondian_Table4.nomos" table="mondian_Table4" column="nomos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table4.perifereia">
+            <Hierarchy name="mondian_Table4.perifereia" hasAll="true" allMemberName="All mondian_table4.perifereia">
+                <Table name="mondian_Table4"/>
+                <Level name="mondian_Table4.perifereia" table="mondian_Table4" column="perifereia" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table4.etos" caption="%{year}">
+            <Hierarchy name="mondian_Table4.etos" hasAll="true" allMemberName="All mondian_table4.etos" allMemberCaption="%{all_years}">
+                <Table name="mondian_Table4"/>
+                <Level name="mondian_Table4.etos" table="mondian_Table4" column="etos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table4.timi" column="timi" aggregator="sum" datatype="Numeric" formatString="###,###" caption="%{timi}"/>
+    </Cube>
+</Schema>

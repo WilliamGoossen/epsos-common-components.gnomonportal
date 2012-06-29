@@ -1,0 +1,1839 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 4.3.1//EN" "http://www.liferay.com/dtd/liferay-portlet-app_4_3_1.dtd">
+
+<liferay-portlet-app>
+
+	<!-- Custom Portlets -->
+
+	<portlet>
+		<portlet-name>favorites</portlet-name>
+		<!-- <icon>/html/portlet/ext/favorites/icon.png</icon>-->
+		<struts-path>ext/favorites</struts-path>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+	
+	<portlet>
+        <portlet-name>mediashow</portlet-name>
+        <!-- <icon>/html/portlet/ext/mediashow/icon.png</icon>-->
+        <struts-path>ext/mediashow</struts-path>
+        <configuration-action-class>com.ext.portlet.mediashow.action.ConfigurationActionImpl</configuration-action-class>
+        <use-default-template>false</use-default-template>
+        <restore-current-view>false</restore-current-view>
+        <layout-cacheable>true</layout-cacheable>
+        <private-request-attributes>false</private-request-attributes>
+        <private-session-attributes>false</private-session-attributes>
+        <render-weight>1</render-weight>
+    </portlet>
+
+	<portlet>
+		<portlet-name>topicarts</portlet-name>
+		<!-- <icon>/html/portlet/ext/topicarts/icon.png</icon>-->
+		<struts-path>ext/topicarts</struts-path>
+		<configuration-action-class>com.ext.portlet.topicarts.action.ConfigurationActionImpl</configuration-action-class>
+		<friendly-url-mapper-class>com.ext.portlet.topicarts.mapper.TopicArtsFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>topicnav</portlet-name>
+		<!-- <icon>/html/portlet/ext/topicnav/icon.png</icon>-->
+		<struts-path>ext/topicnav</struts-path>
+		<configuration-action-class>com.ext.portlet.topicnav.action.ConfigurationActionImpl</configuration-action-class>
+		<friendly-url-mapper-class>com.ext.portlet.topicnav.mapper.TopicNavFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+
+	<portlet>
+		<portlet-name>topicview</portlet-name>
+		<!-- <icon>/html/portlet/ext/topicview/icon.png</icon>-->
+		<struts-path>ext/topicview</struts-path>
+		<!--<configuration-action-class>com.ext.portlet.topicview.action.ConfigurationActionImpl</configuration-action-class>-->
+		<!--<friendly-url-mapper-class>com.ext.portlet.topicview.TopicViewFriendlyURLMapper</friendly-url-mapper-class>-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>quickmap</portlet-name>
+		<icon>/html/portlet/ext/quickmap/icon.png</icon>
+		<struts-path>ext/quickmap</struts-path>
+		<configuration-action-class>com.ext.portlet.quickmap.action.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>Jpivot</portlet-name>
+		<struts-path>ext/jpivot</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+	<portlet>
+		<portlet-name>JBPM_DEFINITIONS</portlet-name>
+		<struts-path>ext/jbpm</struts-path>
+		<!-- preferences-unique-per-layout>true</preferences-unique-per-layout -->
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<!-- private-request-attributes>false</private-request-attributes -->
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>PRJ_JBPM_TODO_MATRIX</portlet-name>
+		<struts-path>ext/jbpm</struts-path>
+		<configuration-action-class>com.ext.portlet.jbpm.ListUserTasksConfigurationAction</configuration-action-class>
+		<!-- preferences-unique-per-layout>true</preferences-unique-per-layout -->
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<!-- private-request-attributes>false</private-request-attributes -->
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>gn_dynamic_grid</portlet-name>
+		<struts-path>ext/dyngrid</struts-path>
+		<configuration-action-class>com.ext.portlet.dyngrid.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>gn_dms</portlet-name>
+		<struts-path>ext/dms</struts-path>
+		<configuration-action-class>com.ext.portlet.dms.action.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.dms.search.DmsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_PERMISSIONS</portlet-name>
+		<struts-path>ext/permissions</struts-path>
+		<!-- <configuration-path>/ext/permissions/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.permissions.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_KMS_METADATA</portlet-name>
+		<struts-path>ext/kms</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_KMS_TAG_SEARCH</portlet-name>
+		<struts-path>ext/kms/tagsearch</struts-path>
+		<configuration-action-class>com.ext.portlet.cms.kms.tagsearch.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_CMS_SEARCH</portlet-name>
+		<struts-path>ext/cms/search</struts-path>
+		<configuration-action-class>com.ext.portlet.cms.search.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>GN_CMS_HELP</portlet-name>
+		<struts-path>ext/cms/help</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_TOPICS</portlet-name>
+		<struts-path>ext/topics</struts-path>
+		<!-- <configuration-path>/ext/topics/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.topics.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>MENU_LAYOUT</portlet-name>
+		<struts-path>ext/menu_layout</struts-path>
+		<!-- <configuration-path>/ext/menu_layout/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.menu_layout.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>false</preferences-unique-per-layout>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GILAYOUT</portlet-name>
+		<struts-path>ext/gilayout</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_content</portlet-name>
+		<struts-path>ext/content</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<!-- <configuration-path>/ext/content/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.base.content.ConfigurationActionImpl</configuration-action-class>
+		<!-- <open-search-class>com.ext.portlet.base.content.ContentOpenSearchImpl</open-search-class> -->
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_content_rels</portlet-name>
+		<struts-path>ext/contentrel</struts-path>
+		<configuration-action-class>com.ext.portlet.base.contentrel.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_bookmarks</portlet-name>
+		<struts-path>ext/bookmarks</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.bookmarks.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.bookmarks.BookmarksOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_banners</portlet-name>
+		<struts-path>ext/banners</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<!-- <configuration-path>/ext/banners/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.base.banners.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_banners_display</portlet-name>
+		<struts-path>ext/banners_display</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<!-- <configuration-path>/ext/banners_display/edit_configuration</configuration-path> -->
+		<configuration-action-class>com.ext.portlet.base.banners_display.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_documents</portlet-name>
+		<struts-path>ext/documents</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.documents.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.documents.DocumentsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_mlists</portlet-name>
+		<struts-path>ext/mlists</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.mlists.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_mlists_display</portlet-name>
+		<struts-path>ext/mlists_display</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.mlists_display.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_smslists</portlet-name>
+		<struts-path>ext/smslists</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<!-- configuration-action-class>com.ext.portlet.base.smsLists.ConfigurationActionImpl</configuration-action-class -->
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+	</portlet>
+	<portlet>
+		<portlet-name>bs_smslists_display</portlet-name>
+		<struts-path>ext/smslists_display</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<!--  configuration-action-class>com.ext.portlet.base.smslists_display.ConfigurationActionImpl</configuration-action-class -->
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_news</portlet-name>
+		<struts-path>ext/news</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.news.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.news.NewsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_adds</portlet-name>
+		<struts-path>ext/adds</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.adds.ConfigurationActionImpl</configuration-action-class>
+		
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_yellowpages</portlet-name>
+		<struts-path>ext/yellowpages</struts-path>
+		<configuration-action-class>com.ext.portlet.base.yellowpages.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.yellowpages.YellowPagesOpenSearchImpl</open-search-class>		
+		<friendly-url-mapper-class>com.ext.portlet.base.yellowpages.mapper.YellowPagesFrientlyURLMapper</friendly-url-mapper-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>yellowpages_browser</portlet-name>
+		<struts-path>ext/base/yellowpages/browser</struts-path>
+		<configuration-action-class>com.ext.portlet.base.yellowpages.browser.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>		
+	</portlet>
+	<portlet>
+		<portlet-name>yellowpages_browser_google</portlet-name>
+		<struts-path>ext/base/yellowpages/browserGoogle</struts-path>
+		<configuration-action-class>com.ext.portlet.base.yellowpages.browser.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>		
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_faq</portlet-name>
+		<struts-path>ext/faq</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.faq.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.faq.FaqOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_guestbook</portlet-name>
+		<struts-path>ext/guestbook</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.guestbook.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.guestbook.GuestbookOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_events</portlet-name>
+		<struts-path>ext/events</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.events.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.events.EventsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>bs_events_browser</portlet-name>
+		<struts-path>ext/eventsbrowser</struts-path>
+		<configuration-action-class>com.ext.portlet.base.events.browser.ConfigurationActionImpl</configuration-action-class>
+		<friendly-url-mapper-class>com.ext.portlet.base.events.browser.EventBrowserFriendlyURLMapper</friendly-url-mapper-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_events_locationnav</portlet-name>
+		<struts-path>ext/eventlocationnav</struts-path>
+		<friendly-url-mapper-class>com.ext.portlet.base.events.locationnav.LocationNavFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_events_typenav</portlet-name>
+		<struts-path>ext/eventtypenav</struts-path>
+		<friendly-url-mapper-class>com.ext.portlet.base.events.typenav.TypeNavFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_event_locations</portlet-name>
+		<struts-path>ext/eventlocations</struts-path>
+		<configuration-action-class>com.ext.portlet.base.events.locations.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.events.locations.LocationsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_event_tickettypes</portlet-name>
+		<struts-path>ext/eventtickettypes</struts-path>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_event_eventtypes</portlet-name>
+		<struts-path>ext/eventtypes</struts-path>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_civitems</portlet-name>
+		<struts-path>ext/civitems</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.civitems.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.civitems.CivItemsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_courses</portlet-name>
+		<struts-path>ext/courses</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.base.courses.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.base.courses.CoursesOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_civitems_browser</portlet-name>
+		<struts-path>ext/civitemsbrowser</struts-path>
+		<configuration-action-class>com.ext.portlet.base.civitems.browser.ConfigurationActionImpl</configuration-action-class>
+		<friendly-url-mapper-class>com.ext.portlet.base.civitems.browser.CivItemBrowserFriendlyURLMapper</friendly-url-mapper-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_gnContentRss</portlet-name>
+		<struts-path>ext/gnContentRss</struts-path>
+		<configuration-action-class>com.ext.portlet.base.contentRss.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>bs_auditing</portlet-name>
+		<struts-path>ext/bsAuditing</struts-path>
+		<!--<configuration-action-class>com.ext.portlet.base.contentRss.ConfigurationActionImpl</configuration-action-class>-->
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	
+	<portlet>
+		<portlet-name>bs_auditing</portlet-name>
+		<struts-path>ext/bsAuditing</struts-path>
+		<!--<configuration-action-class>com.ext.portlet.base.contentRss.ConfigurationActionImpl</configuration-action-class>-->
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<!-- Parties Portlets -->
+	<portlet>
+		<portlet-name>PA_PARTIES_MANAGER</portlet-name>
+		<struts-path>ext/parties/manager</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PA_PARTIES_ADMIN</portlet-name>
+		<struts-path>ext/parties/admin</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PA_ORGANIZATION_CHART</portlet-name>
+		<struts-path>ext/parties/orgchart</struts-path>
+		<configuration-action-class>com.ext.portlet.parties.orgchart.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PA_PARTIES_BROWSER</portlet-name>
+		<struts-path>ext/parties/browser</struts-path>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>true</show-portlet-access-denied>
+		<show-portlet-inactive>false</show-portlet-inactive>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PA_CONTACTS</portlet-name>
+		<struts-path>ext/parties/contacts</struts-path>
+		<configuration-action-class>com.ext.portlet.parties.contacts.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.parties.browser.PartiesOpenSearchImpl</open-search-class>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>true</show-portlet-access-denied>
+		<show-portlet-inactive>false</show-portlet-inactive>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>PA_CONTACTS_TOPICS_LIST</portlet-name>
+		<struts-path>ext/parties/contactTopicsList</struts-path>
+		<configuration-action-class>com.ext.portlet.parties.contacts.topics.list.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>true</show-portlet-access-denied>
+		<show-portlet-inactive>false</show-portlet-inactive>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	
+	<portlet>
+		<portlet-name>PA_CONTACTS_BROWSE_BY_TOPIC</portlet-name>
+		<struts-path>ext/parties/contactTopicsNav</struts-path>
+		<configuration-action-class>com.ext.portlet.parties.contacts.topics.nav.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>true</show-portlet-access-denied>
+		<show-portlet-inactive>false</show-portlet-inactive>
+		<restore-current-view>false</restore-current-view>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<!-- ================================================== -->
+	<portlet>
+		<portlet-name>CRM_HELPDESK_CATEGORIES</portlet-name>
+		<struts-path>ext/crm/helpdeskCategories</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>CRM_HELPDESK_CHECKTYPES</portlet-name>
+		<struts-path>ext/crm/helpdeskCheckTypes</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>CRM_ADD_REQUEST</portlet-name>
+		<struts-path>ext/crm/helpdesk</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>CRM_ADD_VEVEOSI</portlet-name>
+		<struts-path>ext/crm/helpdesk</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>CRM_HELPDESK</portlet-name>
+		<struts-path>ext/crm/helpdesk</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>CRM_HELPDESK_STATS</portlet-name>
+		<struts-path>ext/crm/helpdeskStats</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>CRM_HELPDESK_REQUESTTYPES</portlet-name>
+		<struts-path>ext/crm/helpdeskRequestTypes</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	
+	<portlet>
+		<portlet-name>CRM_MESSAGES</portlet-name>
+		<struts-path>ext/crm/messages</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_MESSAGE_TYPES</portlet-name>
+		<struts-path>ext/crm/messagetypes</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_TASKS</portlet-name>
+		<struts-path>ext/crm/tasks</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_MEETINGS</portlet-name>
+		<struts-path>ext/crm/meetings</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_TASK_TYPES</portlet-name>
+		<struts-path>ext/crm/tasktypes</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_DASHBOARD</portlet-name>
+		<struts-path>ext/crm/dashboard</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_DEVICE_ALERTS</portlet-name>
+		<struts-path>ext/crm/devicealerts</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>CRM_DEVICES</portlet-name>
+		<struts-path>ext/crm/devices</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EGOV_TAP</portlet-name>
+		<struts-path>ext/e-services/tap</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.tap.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EGOV_DEBT</portlet-name>
+		<struts-path>ext/e-services/debt</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.kok.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EGOV_DEBTOR</portlet-name>
+		<struts-path>ext/e-services/debtor</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.kok.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>EGOV_TAX</portlet-name>
+		<struts-path>ext/e-services/tax</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.kok.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>EGOV_KOK</portlet-name>
+		<struts-path>ext/e-services/kok</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.kok.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>EGOV_SEARCH_KOK</portlet-name>
+		<struts-path>ext/e-services/kok</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.kok.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+	</portlet>
+	<portlet>
+		<portlet-name>EGOV_COUNCIL_MEETINGS</portlet-name>
+		<struts-path>ext/e-services/council</struts-path>
+		<configuration-action-class>com.ext.portlet.egov.council.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<instanceable>true</instanceable>
+	</portlet>
+	<portlet>
+		<portlet-name>EGOV_ADMIN_ROLES</portlet-name>
+		<struts-path>ext/e-services/roles</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>SRV_SERVICES</portlet-name>
+		<struts-path>ext/srv</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>SRV_USER_SERVICES</portlet-name>
+		<struts-path>ext/srv_registrations</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>SRV_ADMIN_USER_SERVICES</portlet-name>
+		<struts-path>ext/srv_adminregistrations</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+	<portlet>
+		<portlet-name>SRV_SERVICE_REPORTS</portlet-name>
+		<struts-path>ext/srv_reports</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>SRV_USER_SERVICE_REPORTS</portlet-name>
+		<struts-path>ext/srv_userreports</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>SRV_SERVICE_ACTIONS</portlet-name>
+		<struts-path>ext/srv_actions</struts-path>
+		<use-default-template>false</use-default-template>
+	</portlet>
+
+<!--
+	<portlet>
+		<portlet-name>EGOV_DEPARTMENTS</portlet-name>
+		<struts-path>ext/egov/departments</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+-->
+
+	<portlet>
+		<portlet-name>EGOV_VIEW_APPLICATIONS</portlet-name>
+		<struts-path>ext/egov/applications</struts-path>
+		<open-search-class>com.ext.portlet.egov.applications.search.ApplicationsOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+
+	<portlet>
+		<portlet-name>EC_ADMIN</portlet-name>
+		<struts-path>ext/ecommerce/admin</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.admin.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+			<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>EC_PRODUCT_BROWSER</portlet-name>
+		<struts-path>ext/products/browser</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.product.browser.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.ecommerce.product.search.ProductsOpenSearchImpl</open-search-class>
+		<friendly-url-mapper-class>com.ext.portlet.ecommerce.product.browser.mapper.ProductFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+			<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EC_PRODUCT_MENU_BROWSER</portlet-name>
+		<struts-path>ext/products/menuBrowser</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.product.browser.ConfigurationActionImpl</configuration-action-class>
+		<!--  open-search-class>com.ext.portlet.ecommerce.product.search.ProductsOpenSearchImpl</open-search-class --> 
+		<friendly-url-mapper-class>com.ext.portlet.ecommerce.product.browser.mapper.ProductFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+			<add-default-resource>true</add-default-resource>
+	</portlet>	
+	
+	<portlet>
+		<portlet-name>EC_PROM_PRODUCT_BROWSER</portlet-name>
+		<struts-path>ext/products/browser</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.product.browser.ConfigurationActionImpl</configuration-action-class>
+		<friendly-url-mapper-class>com.ext.portlet.ecommerce.product.browser.mapper.ProductFriendlyURLMapper</friendly-url-mapper-class>
+		<use-default-template>false</use-default-template>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+			<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EC_SHOPPING_CART</portlet-name>
+		<icon>/html/portlet/ext/ecommerce/cart/icon.gif</icon>
+		<struts-path>ext/ecommerce/cart</struts-path>
+		<!--<configuration-action-class>com.ext.portlet.ecommerce.cart.action.ConfigurationActionImpl</configuration-action-class>-->
+		<preferences-unique-per-layout>false</preferences-unique-per-layout>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+ 		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EC_PRODUCT_ADMIN</portlet-name>
+		<struts-path>ext/products/admin</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>EC_ORDER_ADMIN</portlet-name>
+		<struts-path>ext/orders/admin</struts-path>
+		<configuration-action-class>com.ext.portlet.ecommerce.order.admin.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+    <portlet>
+        <portlet-name>EC_ERP_SYNC</portlet-name>
+        <struts-path>ext/ecommerce/erpsync</struts-path>
+        <!--<configuration-action-class>com.ext.portlet.ecommerce.cart.action.ConfigurationActionImpl</configuration-action-class>-->
+        <preferences-unique-per-layout>false</preferences-unique-per-layout>
+        <preferences-owned-by-group>false</preferences-owned-by-group>
+        <use-default-template>false</use-default-template>
+        <restore-current-view>false</restore-current-view>
+        <layout-cacheable>true</layout-cacheable>
+        <private-request-attributes>false</private-request-attributes>
+        <private-session-attributes>false</private-session-attributes>
+        <render-weight>1</render-weight>
+    </portlet>
+    
+	<portlet>
+		<portlet-name>PMT_SERVICE_ADMIN</portlet-name>
+		<struts-path>ext/payment/service</struts-path>
+		<!-- configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>PMT_SERVICE_PAY_FORM</portlet-name>
+		<struts-path>ext/payment/pay_form</struts-path>
+		<!-- configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>PMT_SRV_PMT_TYPE</portlet-name>
+		<struts-path>ext/payment/service_payment_type</struts-path>
+		<!-- configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>PMT_LIST_BY_RESPONSIBLE</portlet-name>
+		<struts-path>ext/payment/pmt_history_resp</struts-path>
+		<!-- configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>PMT_LIST_MY_PAYMENTS</portlet-name>
+		<struts-path>ext/payment/pmt_history_my_pmts</struts-path>
+		<!-- configuration-action-class>com.ext.portlet.ecommerce.product.admin.ConfigurationActionImpl</configuration-action-class-->
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	
+	<portlet>
+		<portlet-name>PAYCENTER</portlet-name>
+		<struts-path>ext/paycenter</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>USER_ACCOUNT</portlet-name>
+		<struts-path>ext/useraccount</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EC_USER_ORDERS</portlet-name>
+		<struts-path>ext/orders/user</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+<!--
+	<portlet>
+		<portlet-name>EGOV_APPLICATIONS</portlet-name>
+		<struts-path>ext/egov/applications</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+
+	<portlet>
+		<portlet-name>PRJ_PROPOSALS</portlet-name>
+		<struts-path>ext/project/proposals</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PRJ_COMMON</portlet-name>
+		<struts-path>ext/project/common</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>PRJ_CATEGORIES</portlet-name>
+		<struts-path>ext/project/prjCategories</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>PRJ_SECTORS</portlet-name>
+		<struts-path>ext/project/prjSectors</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+ -->
+ 
+ <!-- NOVACERT -->
+<!-- ================================================== -->
+	<portlet>
+		<portlet-name>NVC_KALLIERGIES</portlet-name>
+		<struts-path>ext/novacert/kalliergies</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_PROD_KALLIERGIES</portlet-name>
+		<struts-path>ext/novacert/prodKalliergies</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_TASK_FPP</portlet-name>
+		<struts-path>ext/novacert/taskFpp</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_TASK_LIPANSH</portlet-name>
+		<struts-path>ext/novacert/taskLipansi</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_TASK_KALLIERG_CARES</portlet-name>
+		<struts-path>ext/novacert/taskKalliergiesCares</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_TASK_HARVEST</portlet-name>
+		<struts-path>ext/novacert/taskHarvest</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_TASK_LIPANSI</portlet-name>
+		<struts-path>ext/novacert/taskLipansi</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_PROD_EQUIPMENT</portlet-name>
+		<struts-path>ext/novacert/prodEquipment</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_PROD_INSPECTION</portlet-name>
+		<struts-path>ext/novacert/prodInspection</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_SYNETAIRISMOI</portlet-name>
+		<struts-path>ext/novacert/synetairismoi</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_PRODUCERS</portlet-name>
+		<struts-path>ext/novacert/producers</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_CERT_PROD_SEARCH</portlet-name>
+		<struts-path>ext/novacert/certifiedProdSearch</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_SYNETAIRISMOS_CERT</portlet-name>
+		<struts-path>ext/novacert/synetCertificates</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_WEATHER_CONDITIONS</portlet-name>
+		<struts-path>ext/novacert/weatherConditions</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_KALLIERGIES</portlet-name>
+		<struts-path>ext/novacert/kalliergies</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_FOREIS</portlet-name>
+		<struts-path>ext/novacert/certificateForeas</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_CERT_TYPE</portlet-name>
+		<struts-path>ext/novacert/certificateType</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_DIRECTIVE</portlet-name>
+		<struts-path>ext/novacert/directives</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_SYNET_DIRECTIVE</portlet-name>
+		<struts-path>ext/novacert/synetDirectives</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_EQUIPMENT</portlet-name>
+		<struts-path>ext/novacert/equipment</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_ENEMIES</portlet-name>
+		<struts-path>ext/novacert/enemies</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_ENEMIES</portlet-name>
+		<struts-path>ext/novacert/enemies</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_DRASTIC_SUBSTANCE</portlet-name>
+		<struts-path>ext/novacert/drasticSubstance</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_ANALYSIS_LABS</portlet-name>
+		<struts-path>ext/novacert/analysisLabs</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	<portlet>
+		<portlet-name>NVC_MANAGE_SKEVASMA</portlet-name>
+		<struts-path>ext/novacert/skevasma</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>NVC_FPP_ANALYSIS</portlet-name>
+		<struts-path>ext/novacert/fppAnalysis</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>NVC_REPORTS</portlet-name>
+		<struts-path>ext/novacert/reports</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+		<portlet>
+		<portlet-name>NVC_IMPORTS</portlet-name>
+		<struts-path>ext/novacert/import</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	
+		<portlet>
+		<portlet-name>NVC_DYNAMIC_REPORTS</portlet-name>
+		<struts-path>ext/novacert/dynreports</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>NVC_SALESMAN</portlet-name>
+		<struts-path>ext/novacert/sales</struts-path>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+<!-- ================================================== -->
+ 
+ <!-- FOF -->
+<!-- ================================================== -->
+	<portlet>
+		<portlet-name>FOF_COURSE_LIST_BY_AUTHOR</portlet-name>
+		<struts-path>ext/fof/course_list/list_by_author</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.fof.course_list.list_by_author.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>FOF_COURSE_LIST_BY_TITLE</portlet-name>
+		<struts-path>ext/fof/course_list/list_by_title</struts-path>
+		<!-- portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class-->
+		<configuration-action-class>com.ext.portlet.fof.course_list.list_by_title.ConfigurationActionImpl</configuration-action-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>FOF_MANAGE_PROVIDER_PROFILE</portlet-name>
+		<struts-path>ext/fof/provider_profile</struts-path>
+		<configuration-action-class>com.ext.portlet.fof.course_list.list_by_author.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<add-default-resource>true</add-default-resource>
+	</portlet>	
+	
+	<portlet>
+		<portlet-name>FOF_LESSONS</portlet-name>
+		<struts-path>ext/fof/lessons</struts-path>
+		<configuration-action-class>com.ext.portlet.fof.lessons.ConfigurationActionImpl</configuration-action-class>
+		<open-search-class>com.ext.portlet.fof.lessons.FofLessonOpenSearchImpl</open-search-class>
+		<preferences-unique-per-layout>true</preferences-unique-per-layout>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<private-request-attributes>false</private-request-attributes>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+<!-- ================================================== -->
+ 
+ 
+	<!--
+	Liferay Portlets
+
+	To create a minimal installation of Liferay so that only the essential
+	Liferay portlets are available, uncomment the following block.
+
+	To make a portlet available, set the include attribute to true. The
+	struts-path attribute is shown so that it's easier for the editor of this
+	file to associate a portlet id with a portlet.
+	-->
+
+	<portlet>
+		<portlet-name>1</portlet-name>
+		<struts-path>mail</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>2</portlet-name>
+		<struts-path>my_account</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>3</portlet-name>
+		<struts-path>search</struts-path>
+		<render-weight>1</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>4</portlet-name>
+		<struts-path>weather</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>5</portlet-name>
+		<struts-path>news</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>6</portlet-name>
+		<struts-path>reverend_fun</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>7</portlet-name>
+		<struts-path>bible_gateway</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>8</portlet-name>
+		<struts-path>calendar</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>9</portlet-name>
+		<struts-path>admin</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>10</portlet-name>
+		<struts-path>address_book</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>11</portlet-name>
+		<struts-path>directory</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>12</portlet-name>
+		<struts-path>stocks</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>13</portlet-name>
+		<struts-path>calculator</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>14</portlet-name>
+		<struts-path>games</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>15</portlet-name>
+		<struts-path>journal</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>16</portlet-name>
+		<struts-path>currency_converter</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>17</portlet-name>
+		<struts-path>csz_search</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>18</portlet-name>
+		<struts-path>maps</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>19</portlet-name>
+		<struts-path>message_boards</struts-path>
+		<render-weight>1</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>20</portlet-name>
+		<struts-path>document_library</struts-path>
+		<open-search-class></open-search-class>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>21</portlet-name>
+		<struts-path>random_bible_verse</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>22</portlet-name>
+		<struts-path>instant_messenger</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>23</portlet-name>
+		<struts-path>dictionary</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>24</portlet-name>
+		<struts-path>sms</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>25</portlet-name>
+		<struts-path>polls</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>26</portlet-name>
+		<struts-path>translator</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>27</portlet-name>
+		<struts-path>unit_converter</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>28</portlet-name>
+		<struts-path>bookmarks</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>29</portlet-name>
+		<struts-path>communities</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>30</portlet-name>
+		<struts-path>network</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>31</portlet-name>
+		<struts-path>image_gallery</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>32</portlet-name>
+		<struts-path>today_in_christian_history</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>33</portlet-name>
+		<struts-path>blogs</struts-path>
+		<open-search-class></open-search-class>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>34</portlet-name>
+		<struts-path>shopping</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>36</portlet-name>
+		<struts-path>wiki</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>37</portlet-name>
+		<struts-path>words</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>39</portlet-name>
+		<struts-path>rss</struts-path>
+		<preferences-owned-by-group>false</preferences-owned-by-group>
+		<render-weight>0</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>40</portlet-name>
+		<struts-path>location_admin</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>42</portlet-name>
+		<struts-path>pipeline</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>43</portlet-name>
+		<struts-path>top_opportunities</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>45</portlet-name>
+		<struts-path>westminster_catechism</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>46</portlet-name>
+		<struts-path>gospel_for_asia</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>47</portlet-name>
+		<struts-path>hello_world</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>48</portlet-name>
+		<struts-path>iframe</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>49</portlet-name>
+		<struts-path>my_places</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>50</portlet-name>
+		<struts-path>hello_velocity</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>51</portlet-name>
+		<struts-path>global_prayer_digest</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>52</portlet-name>
+		<struts-path>chat</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>53</portlet-name>
+		<struts-path>flash</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>54</portlet-name>
+		<struts-path>wiki_display</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>56</portlet-name>
+		<struts-path>journal_content</struts-path>
+		<render-weight>1</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>58</portlet-name>
+		<struts-path>login</struts-path>
+		<configuration-action-class>com.liferay.portlet.login.action.ConfigurationActionImpl</configuration-action-class>
+		<render-weight>1</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>59</portlet-name>
+		<struts-path>polls_display</struts-path>
+		<render-weight>1</render-weight>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>61</portlet-name>
+		<struts-path>loan_calculator</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>62</portlet-name>
+		<struts-path>journal_articles</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>64</portlet-name>
+		<struts-path>recent_documents</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>65</portlet-name>
+		<struts-path>analog_clock</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>66</portlet-name>
+		<struts-path>httpbridge</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>67</portlet-name>
+		<struts-path>amazon_rankings</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>68</portlet-name>
+		<struts-path>wsrp</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>70</portlet-name>
+		<struts-path>password_generator</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>71</portlet-name>
+		<struts-path>navigation</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>73</portlet-name>
+		<struts-path>breadcrumb</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>77</portlet-name>
+		<struts-path>journal_content_search</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>79</portlet-name>
+		<struts-path>enterprise_admin</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>80</portlet-name>
+		<struts-path>organization_admin</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>81</portlet-name>
+		<struts-path>countdown</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>82</portlet-name>
+		<struts-path>language</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>83</portlet-name>
+		<struts-path>announcements</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>85</portlet-name>
+		<struts-path>site_map</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>86</portlet-name>
+		<struts-path>portlet_configuration</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>87</portlet-name>
+		<struts-path>layout_configuration</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>88</portlet-name>
+		<struts-path>layout_management</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>90</portlet-name>
+		<struts-path>portal</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>92</portlet-name>
+		<struts-path>messaging</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>93</portlet-name>
+		<struts-path>workflow</struts-path>
+		<include>true</include>
+	</portlet>
+	<portlet>
+		<portlet-name>97</portlet-name>
+		<struts-path>quick_note</struts-path>
+		<include>false</include>
+	</portlet>
+
+	<portlet>
+		<portlet-name>MENU_LAYOUT</portlet-name>
+		<struts-path>ext/menu_layout</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>GILAYOUT</portlet-name>
+		<struts-path>ext/gilayout</struts-path>
+		<include>false</include>
+	</portlet>
+	<portlet>
+		<portlet-name>bs_journal</portlet-name>
+		<struts-path>ext/journal</struts-path>
+		<include>false</include>
+	</portlet>
+
+	<portlet>
+		<portlet-name>GN_PORTAL_MESSAGES</portlet-name>
+		<struts-path>ext/portalMessages</struts-path>
+		<configuration-action-class>com.ext.portlet.messages.ConfigurationActionImpl</configuration-action-class>
+		<use-default-template>false</use-default-template>
+		<restore-current-view>false</restore-current-view>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>false</instanceable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>1</render-weight>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+</liferay-portlet-app>

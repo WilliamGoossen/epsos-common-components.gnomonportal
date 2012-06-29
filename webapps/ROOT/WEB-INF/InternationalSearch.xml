@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patientSearch>
+   <countries>
+      <!-- this countries are displayed in the PatientSearch combobox -->
+      <country code="AT" />
+      <country code="CH" />
+      <country code="CZ" />
+      <country code="DE" />
+      <country code="DK" />
+      <country code="EE" />
+      <country code="ES" />
+      <country code="FR" />
+      <country code="GB" />
+      <country code="GR" />
+      <country code="IT" />
+      <country code="NL" />
+      <country code="SE" />
+      <country code="SK" />
+      <country code="TR" />
+   </countries>
+</patientSearch>
+

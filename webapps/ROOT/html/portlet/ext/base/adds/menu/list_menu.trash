@@ -1,0 +1,288 @@
+<%@ include file="/html/common/init.jsp" %>
+
+<portlet:defineObjects />
+
+<%
+String currentURL = PortletURLUtil.getCurrent(renderRequest, renderResponse).toString();
+String cmstab = ParamUtil.getString(request, "cmstab", "item");
+String loadaction = (String)request.getAttribute("loadaction");
+%>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+	<!--<td style="background-color: #92A8C0;" width="1"></td>-->
+	<td style="padding-left: 4px;" align="right">
+		<nobr>
+			<table cellpadding="0" cellspacing="0">
+			<tbody>
+
+			<c:if test="<%= CommonUtil.userHasAction(user,"add","bs_news") %>">
+			<tr>
+				<td>
+					<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="portletURL">
+						<portlet:param name="struts_action" value="/ext/news/load" />
+						<portlet:param name="loadaction" value="add" />
+						<portlet:param name="redirect" value="<%= currentURL %>" />
+						<portlet:param name="topicid" value="<%= ParamUtil.getString(request,"topicid", "") %>" />
+					</portlet:renderURL>
+
+					<a href="<%=portletURL%>"><img src="<%= themeDisplay.getPathThemeImage() %>/base/add.gif" border="0" align="absmiddle">&nbsp;<%= LanguageUtil.get(pageContext, "add-content") %></a>
+				</td>
+			</tr>
+			</c:if>
+
+
+			<c:if test="<%= CommonUtil.userHasAction(user,"view-unpublished","bs_news") %>">
+			<tr>
+				<td>
+					<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="portletURL">
+						<portlet:param name="struts_action" value="/ext/news/load" />
+						<portlet:param name="loadaction" value="add" />
+						<portlet:param name="redirect" value="<%= currentURL %>" />
+						<portlet:param name="topicid" value="<%= ParamUtil.getString(request,"topicid", "") %>" />
+					</portlet:renderURL>
+
+					<a href="<%=portletURL%>"><img src="<%= themeDisplay.getPathThemeImage() %>/base/add.gif" border="0" align="absmiddle">&nbsp;<%= LanguageUtil.get(pageContext, "view-unpublished") %></a>
+				</td>
+			</tr>
+			</c:if>
+
+
+			<c:if test="true">
+			<tr>
+				<td style="padding-left: 4px;">
+					<a href="#" onclick="javascript:_toggleMenu(event, 'browse:actionsMenu_1');return false;" style="white-space: nowrap;">More...<img src="<%= themeDisplay.getPathThemeImage() %>/base/menu.gif" align="absmiddle" border="0"></a>
+					<br>
+					<div id="browse:actionsMenu_1" style="position: absolute; display: none; padding-left: 2px;">
+						<table class="moreActionsMenu" border="0" cellpadding="0" cellspacing="4">
+						<tbody>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/View_details.gif" alt="View Unpublished" title="Show Details" border="0"></td>
+							<td>
+								<a href="<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="portletURL">
+									<portlet:param name="struts_action" value="/ext/news/list" />
+									<portlet:param name="loadaction" value="view-unpublished" />
+									<portlet:param name="topicid" value="<%= ParamUtil.getString(request,"topicid", "") %>" />
+									</portlet:renderURL>"><%= LanguageUtil.get(pageContext, "view-unpublished") %></a>
+							</td>
+						</tr>
+						<%--
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/delete.gif" alt="Delete" title="Delete" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:delete_space_id_4157';document.forms['browse']['id'].value='6a577c99-5504-11db-b494-f1da5dbcd4eb';document.forms['browse'].submit();return false;">Delete</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/cut.gif" alt="Cut" title="Cut" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:cut_node_id_4161';document.forms['browse']['id'].value='6a577c99-5504-11db-b494-f1da5dbcd4eb';document.forms['browse'].submit();return false;">Cut</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/copy.gif" alt="Copy" title="Copy" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:copy_node_id_4164';document.forms['browse']['id'].value='6a577c99-5504-11db-b494-f1da5dbcd4eb';document.forms['browse'].submit();return false;">Copy</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/paste.gif" alt="Paste All" title="Paste All" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:paste_all_id_4167';document.forms['browse'].submit();return false;">Paste All</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/invite.gif" alt="Manage Space Users" title="Manage Space Users" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:manage_space_users_id_4169';document.forms['browse']['id'].value='6a577c99-5504-11db-b494-f1da5dbcd4eb';document.forms['browse'].submit();return false;">Manage Space Users</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/rule.gif" alt="Manage Content Rules" title="Manage Content Rules" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:manage_space_rules_id_4172';document.forms['browse']['id'].value='6a577c99-5504-11db-b494-f1da5dbcd4eb';document.forms['browse'].submit();return false;">Manage Content Rules</a></td>
+						</tr>
+						<tr>
+							<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/trashcan.gif" alt="Manage Deleted Items" title="Manage Deleted Items" border="0"></td>
+							<td><a href="#" onclick="document.forms['browse']['browse:act'].value='browse:manage_deleted_items_id_4175';document.forms['browse'].submit();return false;">Manage Deleted Items</a></td>
+						</tr>
+						--%>
+						</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+			</c:if>
+
+			</tbody>
+			</table>
+		</nobr>
+	</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<%--
+	<td style="padding-left: 4px;" align="right">
+		<nobr>
+			<table cellpadding="0" cellspacing="0">
+			<tbody>
+
+			<c:if test="<%= CommonUtil.userHasAction(user,"view-unpublished","bs_news") %>">
+			<tr>
+				<td style="padding-left: 4px;">
+					<a href="#" onclick="javascript:_toggleMenu(event, 'browse:actionsMenu_1');return false;" style="white-space: nowrap;">More...<img src="<%= themeDisplay.getPathThemeImage() %>/base/menu.gif" align="absmiddle" border="0"></a>
+					<br>
+					<div id="browse:actionsMenu_1" style="position: absolute; display: none; padding-left: 2px;">
+						<table class="moreActionsMenu" border="0" cellpadding="0" cellspacing="4">
+						<tbody>
+						<c:choose>
+							<c:when test="<%= !ParamUtil.getString(request,"loadaction", "").equals("view-unpublished") %>">
+								<tr>
+									<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/View_details.gif" alt="View Unpublished" title="Show Details" border="0"></td>
+									<td>
+										<a href="<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="portletURL">
+											<portlet:param name="struts_action" value="/ext/news/list" />
+											<portlet:param name="loadaction" value="view-unpublished" />
+											<portlet:param name="topicid" value="<%= ParamUtil.getString(request,"topicid", "") %>" />
+											</portlet:renderURL>"><%= LanguageUtil.get(pageContext, "view-unpublished") %></a>
+										<a href="<%=portletURL%>"><img src="<%= themeDisplay.getPathThemeImage() %>/base/View_Details.gif" border="0" align="absmiddle">&nbsp;<%= LanguageUtil.get(pageContext, "view-unpublished") %></a>
+									</td>
+								</tr>
+							</c:when>
+							<c:when test="<%= !ParamUtil.getString(request,"loadaction", "").equals("view-all") %>">
+								<tr>
+									<td><img src="<%= themeDisplay.getPathThemeImage() %>/base/View_details.gif" alt="View Unpublished" title="Show Details" border="0"></td>
+									<td>
+										<portlet:renderURL windowState="<%= WindowState.NORMAL.toString() %>" var="portletURL">
+											<portlet:param name="struts_action" value="/ext/news/list" />
+											<portlet:param name="loadaction" value="view-unpublished" />
+											<portlet:param name="topicid" value="<%= ParamUtil.getString(request,"topicid", "") %>" />
+										</portlet:renderURL>
+										<a href="<%=portletURL%>"><img src="<%= themeDisplay.getPathThemeImage() %>/base/View_Details.gif" border="0" align="absmiddle">&nbsp;<%= LanguageUtil.get(pageContext, "view-unpublished") %></a>
+									</td>
+								</tr>
+							</c:when>
+						</c:choose>
+						</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+			</c:if>
+			</tbody>
+			</table>
+		</nobr>
+	</td>
+
+--%>
+
+					<%--
+						<html:link styleClass="beta1" action="/ext/news/load">
+						<img src="<%= themeDisplay.getPathThemeImage() %>/base/add.gif" border="0" align="absmiddle">&nbsp;
+						<%= LanguageUtil.get(pageContext, "add-content") %>
+						</html:link>
+
+						<portlet:renderURL windowState="<%= WindowState.MAXIMIZED.toString() %>"><portlet:param name="struts_action" value="/address_book/view_all" /></portlet:renderURL>
+
+						<liferay-portlet:actionURL windowState="<%= WindowState.MAXIMIZED.toString() %>" var="portletURL" portletName="<%= PortletKeys.JOURNAL %>">
+							<liferay-portlet:param name="struts_action" value="/journal/edit_article" />
+							<liferay-portlet:param name="redirect" value="<%= currentURL %>" />
+							<liferay-portlet:param name="articleId" value="<%= article.getArticleId() %>" />
+							<liferay-portlet:param name="version" value="<%= String.valueOf(article.getVersion()) %>" />
+						</liferay-portlet:actionURL>
+						--%>
+					<%--
+					<form name="NewsForm" action="/ext/news/load" method="post">
+					<tiles:insert page="/html/portlet/ext/struts_includes/button.jsp" flush="true">
+						<tiles:put name="action"  value="/ext/news/load" />
+						<tiles:put name="buttonName" value="addButton" />
+						<tiles:put name="buttonValue" value="add-content" />
+						<tiles:put name="formName"   value="NewsForm" />
+						<tiles:put name="actionParam" value="loadaction"/>
+						<tiles:put name="actionParamValue" value="add"/>
+						<tiles:put name="actionPermission" value="add"/>
+						<tiles:put name="portletId" value="bs_news"/>
+						<tiles:put name="actionType"  value="linkAction" />
+						<tiles:put name="iconPath"><%= themeDisplay.getPathThemeImage() %>/base/add.gif</tiles:put>
+					</tiles:insert>
+					</form>
+
+					<form name="NewsForm" action="/ext/news/load" method="post">
+					<tiles:insert page="/html/portlet/ext/struts_includes/button.jsp" flush="true">
+						<tiles:put name="action"  value="/ext/news/list" />
+						<tiles:put name="buttonName" value="addButton" />
+						<tiles:put name="buttonValue" value="view-unpublished" />
+						<tiles:put name="formName"   value="NewsForm" />
+						<tiles:put name="actionParam" value="topicid"/>
+						<tiles:put name="actionParamValue" value="1"/>
+						<tiles:put name="actionPermission" value="add"/>
+						<tiles:put name="portletId" value="bs_news"/>
+						<tiles:put name="actionType"  value="linkAction" />
+						<tiles:put name="iconPath"><%= themeDisplay.getPathThemeImage() %>/base/add.gif</tiles:put>
+					</tiles:insert>
+					</form>
+					--%>
+
+<%--
+<table style="white-space: nowrap;" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+		<td style="padding-right: 4px;"><img src="/alfresco/images/icons/Details.gif" align="absmiddle" border="0"></td>
+		<td>
+			<a href="#" onclick="javascript:_toggleMenu(event, 'browse:viewMode_2');return false;">
+			<span>???????? ??????????</span>
+			<img src="/alfresco/images/icons/menu.gif" align="absmiddle" border="0"></a>
+		</td>
+	</tr>
+</tbody>
+</table>
+<div id="browse:viewMode_2" style="position: absolute; display: none; padding-left: 2px;">
+<table class="moreActionsMenu" cellpadding="0" cellspacing="1">
+<tbody>
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="4" width="100%">
+			<tbody>
+				<tr>
+					<td width="20"></td>
+					<td><a href="#">???????? ????????????</a></td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table class="statusListHighlight" cellpadding="0" cellspacing="4" width="100%">
+			<tbody>
+				<tr>
+					<td width="20"><img src="/alfresco/images/icons/Details.gif" border="0"></td>
+					<td>
+						<a href="#">???????? ??????????</a>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="4" width="100%">
+			<tbody>
+				<tr>
+					<td width="20"></td>
+					<td><a href="#">???????? ?????????????</a></td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="4" width="100%">
+			<tbody>
+				<tr>
+					<td width="20"></td>
+					<td><span class="statusListDisabled">Custom View</span></td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>
+</tbody>
+</table>
+</div>
+--%>

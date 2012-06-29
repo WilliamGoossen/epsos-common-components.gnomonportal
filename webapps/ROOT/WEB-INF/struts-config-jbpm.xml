@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/ext/jbpmGrouping/list"
+			type="com.ext.portlet.jbpm.ListUserGroupedTasksAction">
+
+			<forward name="action.success" path="portlet.ext.jbpm.userGroupedTasksList" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.userGroupedTasksList" />
+		</action>
+
+
+		<action path="/ext/jbpm/closeAllAlerts"
+			type="com.ext.portlet.jbpm.CloseAllAlertsAction">
+
+			<forward name="action.success" path="/ext/jbpm/listTasks" redirect="true"/>
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.userTasksList" />
+		</action>
+
+		<action path="/ext/jbpm/listTasksMatrix"
+			type="com.ext.portlet.jbpm.ListUserTasksMatrixAction">
+
+			<forward name="action.success" path="portlet.ext.jbpm.userTasksListMatrix" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.userTasksList" />
+		</action>
+
+		<action path="/ext/jbpm/listDefinitions"
+			type="com.ext.portlet.jbpm.ListDefinitions">
+
+			<forward name="action.success" path="portlet.ext.jbpm.ListDefinitions" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.error" />
+		</action>
+
+
+		<action path="/ext/jbpm/listProcessInstanceTasks"
+			type="com.ext.portlet.jbpm.ListTasksForProcessInstance">
+
+			<forward name="action.success" path="portlet.ext.jbpm.processInstanceTasks" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.processInstanceTasks" />
+		</action>
+
+
+		<action path="/ext/jbpmAdminTest/testAxisAction"
+			type="com.ext.portlet.webservices.TestAxisWsAction">
+
+			<forward name="action.success" path="portlet.ext.jbpm.testAxisAction" />
+			<forward name="action.failure" path="portlet.ext.jbpm.testAxisAction" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.testAxisAction" />
+		</action>
+
+
+		<!--Redefining the Workflow actions to be used under the "PRJ_JBPM_TODO" portlet-->
+		<!-- -->
+		<action path="/ext/jbpm/edit_definition" type="com.liferay.portlet.workflow.action.EditDefinitionAction">
+			<forward name="portlet.workflow.edit_definition" path="portlet.workflow.edit_definition" />
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+		</action>
+
+		<action path="/ext/jbpm/edit_instance" type="com.liferay.portlet.workflow.action.EditInstanceAction">
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+		</action>
+
+		<action path="/ext/jbpm/edit_task" type="com.liferay.portlet.workflow.action.EditTaskAction">
+			<forward name="portlet.workflow.edit_task" path="portlet.workflow.edit_task" />
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+		</action>
+
+
+		<!-- ================================== -->
+
+		<action path="/ext/jbpm/listTasks"
+			type="com.ext.portlet.jbpm.ListUserTasksAction">
+
+			<forward name="action.success" path="portlet.ext.jbpm.userTasksList" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.userTasksList" />
+		</action>
+
+		<action path="/ext/jbpm/viewTask"
+			type="com.ext.portlet.jbpm.ViewTaskAction">
+
+			<forward name="action.success" path="portlet.ext.jbpm.taskFormView" />
+			<forward name="action.generalFailure" path="portlet.ext.jbpm.taskFormView" />
+		</action>
+
+
+
+
+		<!--Redefining the Workflow actions to be used under the "PRJ_JBPM_TEST" portlet-->
+		<action path="/ext/jbpm/edit_definition" type="com.liferay.portlet.workflow.action.EditDefinitionAction">
+			<forward name="portlet.workflow.edit_definition" path="portlet.workflow.edit_definition" />
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+		</action>
+
+		<action path="/ext/jbpm/edit_instance" type="com.liferay.portlet.workflow.action.EditInstanceAction">
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+		</action>
+
+		<action path="/ext/jbpm/edit_task" type="com.liferay.portlet.workflow.action.EditTaskAction">
+			<forward name="portlet.workflow.edit_task" path="portlet.ext.procure.jbpm.taskFormView" />
+			<forward name="portlet.workflow.error" path="portlet.ext.procure.jbpm.taskFormView" />
+		</action>
+
+
+		<action path="/ext/jbpm/view" type="com.liferay.portlet.workflow.action.ViewAction">
+			<forward name="portlet.workflow.error" path="portlet.workflow.error" />
+			<forward name="portlet.workflow.view" path="portlet.workflow.view" />
+		</action>
+
+
+
+	</action-mappings>
+
+	<!-- Message Resources -->
+
+
+</struts-config>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+   <formset>
+   		   
+        <form name="CrCategoryForm">
+        	<field property="name" depends="required,maxlength">
+        		<arg0 key="crm.helpdesk.category.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        	<field property="maxResponseDays" depends="long">
+        		<arg0 key="crm.helpdesk.category.maxresponsedays"/>
+        	</field>
+        </form>
+        
+        <form name="CrCategoryAuditorForm">
+        	<field property="partyid" depends="required">
+        		<arg0 key="crm.helpdesk.category.auditor"/>
+        	</field>
+        </form>
+        
+        <form name="CrRequestCommentForm">
+        	<field property="commentTitle" depends="required">
+        		<arg0 key="crm.helpdesk.request.comment.title"/>
+        	</field>
+        </form>
+        
+        <form name="CrCheckTypeForm">
+        	<field property="name" depends="required,maxlength">
+        		<arg0 key="crm.helpdesk.checktype.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        <form name="CrRequestForm">
+        	<field property="reqSubject" depends="required,maxlength">
+        		<arg0 key="crm.helpdesk.request.subject"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>500</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        
+        <form name="CrMessageTypeForm">
+        	<field property="name" depends="required,maxlength">
+        		<arg0 key="crm.messagetype.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        </form>
+       
+       <form name="CrTaskTypeForm">
+        	<field property="name" depends="required,maxlength">
+        		<arg0 key="crm.tasktype.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        <form name="CrTaskForm">
+        	<field property="subject" depends="required,maxlength">
+        		<arg0 key="crm.task.subject"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        	<field property="crmPartyName" depends="required">
+        		<arg0 key="crm.task.crmPartyId"/>
+        	</field>
+        	<field property="taskDate" depends="required">
+        		<arg0 key="crm.task.taskDate"/>
+        	</field>
+        </form>
+        
+        <form name="CrMessageForm">
+        	<field property="subject" depends="required,maxlength">
+        		<arg0 key="crm.message.subject"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        	<field property="crmPartyName" depends="required">
+        		<arg0 key="crm.message.crmPartyId"/>
+        	</field>
+        	<field property="messageDate" depends="required">
+        		<arg0 key="crm.message.messageDate"/>
+        	</field>
+        </form>
+        
+         <form name="CrTaskCommentForm">
+        	<field property="subject" depends="required">
+        		<arg0 key="crm.task.comment.subject"/>
+        	</field>
+        </form>
+        
+        
+        <form name="CrMeetingForm">
+        	<field property="subject" depends="required,maxlength">
+        		<arg0 key="crm.meeting.subject"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        	<field property="supplierPartyName" depends="required">
+        		<arg0 key="crm.meeting.supplierPartyId"/>
+        	</field>
+        	<field property="meetingDate" depends="required">
+        		<arg0 key="crm.meeting.meetingDate"/>
+        	</field>
+        </form>
+        
+        <form name="CrMeetingCommentForm">
+        	<field property="subject" depends="required">
+        		<arg0 key="crm.meeting.comment.subject"/>
+        	</field>
+        </form>
+        
+        
+         <form name="CrDeviceAlertForm">
+        	<field property="subject" depends="required,maxlength">
+        		<arg0 key="crm.devicealert.subject"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        	<field property="crmPartyName" depends="required">
+        		<arg0 key="crm.devicealert.crmPartyId"/>
+        	</field>
+        	<field property="alertDate" depends="required">
+        		<arg0 key="crm.devicealert.alertDate"/>
+        	</field>
+        </form>
+        
+        <form name="CrDeviceAlertCommentForm">
+        	<field property="subject" depends="required">
+        		<arg0 key="crm.devicealert.comment.subject"/>
+        	</field>
+        </form>
+        
+        <form name="CrDeviceForm">
+        	<field property="deviceId" depends="required,maxlength">
+        		<arg0 key="crm.device.deviceId"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        	<field property="name" depends="required,maxlength">
+        		<arg0 key="crm.device.name"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        <form name="CrDeviceAssignmentForm">
+        	<field property="fromDate" depends="required">
+        		<arg0 key="crm.device.assignment.fromDate"/>
+        	</field>
+        	<field property="crmPartyName" depends="required">
+        		<arg0 key="crm.device.assignment.crmPartyId"/>
+        	</field>
+        </form>
+        
+      </formset>
+</form-validation>

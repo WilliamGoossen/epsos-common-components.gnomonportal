@@ -1,0 +1,132 @@
+	<display:table name="${alfrescodata}" id="ad" style="width:100%; text-align:left;">
+
+	<%
+	com.ext.portlet.dms.util.AlfrescoRow ar = (com.ext.portlet.dms.util.AlfrescoRow)pageContext.getAttribute("ad");
+	Hashtable permissionResults = AlfrescoContentUtil.getPermissionsForUser(details,ar.getUuid());
+	String linkuuid=selUuid;
+	if (cmd.equals("search"))
+	{
+	linkuuid=ar.getParentuuid();
+	if (Validator.isNull(linkuuid)) linkuuid=selUuid;
+	}
+	boolean hasEditFolder = false;
+	boolean hasReadPermissions = false;
+	boolean hasChangePermissions = false;
+	boolean hasDeleteFolder = false;
+	boolean hasDeleteFile = false;
+
+	if (ar.getContenttype().equalsIgnoreCase("folder") && listFolderButtons)
+	{
+
+	hasEditFolder = permissionResults.containsKey("WriteContent");// com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"WriteContent");
+	hasReadPermissions = permissionResults.containsKey("ReadPermissions");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"ReadPermissions");
+	hasChangePermissions = permissionResults.containsKey("ChangePermissions");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"ChangePermissions");
+	hasDeleteFolder = permissionResults.containsKey("DeleteNode");//com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"DeleteNode");
+
+	}
+//	boolean hasDeleteFile = com.ext.portlet.dms.util.AlfrescoContentUtil.hasPermission(details,ar.getUuid(),"DeleteNode");
+//	hasChangePermissions = true;
+
+	%>
+
+	<%-- <display:column><%= ar.getCreated()%></display:column> --%>
+	<portlet:actionURL var="changePermissionsURL">
+		<portlet:param name="struts_action" value="/ext/dms/viewPermissions" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= linkuuid %>" />
+		<portlet:param name="contenttype" value="<%= ar.getContenttype() %>" />
+		<portlet:param name="foldername" value="<%=  ar.getName() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL var="deleteContentURL">
+		<portlet:param name="struts_action" value="/ext/dms/deleteContent" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= selUuid %>" />
+		<portlet:param name="contenttype" value="<%= ar.getContenttype() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>" var="downloadURL">
+		<portlet:param name="struts_action" value="/ext/dms/getfile" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="filename" value="<%= ar.getName() %>" />
+	</portlet:actionURL>
+
+	<portlet:actionURL var="editFolderURL">
+		<portlet:param name="struts_action" value="/ext/dms/editFolder" />
+		<portlet:param name="uuid" value="<%= ar.getUuid() %>" />
+		<portlet:param name="instanceUuid" value="<%= instanceUuid %>" />
+		<portlet:param name="parentuuid" value="<%= selUuid %>" />
+		<portlet:param name="foldername" value="<%=  ar.getName() %>" />
+		<portlet:param name="redirect" value="<%= currentURL %>" />
+	</portlet:actionURL>
+
+	<%
+	// create browsing urls
+	String p_strutsaction = "";
+	String p_uuid = "";
+	String p_parentuuid = "";
+	String p_filename = "";
+	String p_contenttype = "";
+	String icon_folder = "";
+	if (ar.getContenttype().equalsIgnoreCase("folder")) {
+		p_strutsaction = "/ext/dms/view";
+		p_uuid = ar.getUuid();
+		p_parentuuid = selUuid;
+		icon_folder = "icons/";
+	} else {
+		p_strutsaction = "/ext/dms/filedetails";
+		p_uuid = ar.getUuid();
+		p_parentuuid = linkuuid;
+		p_filename = ar.getName();
+		p_contenttype = ar.getContenttype();
+		icon_folder = "filetypes/";
+	}
+	String title = "";
+	if (Validator.isNull(ar.getTitle()))
+	{
+	 title = ar.getName();
+	}
+	else
+	{
+	title = ar.getTitle();
+	}
+	%>
+	<display:column titleKey="dms.contentname" style="width:99%;">
+		<a title="<%= gnomon.business.StringUtils.check_null(ar.getDescription(),"")%>" href="#" onClick="javascript:browseContent('<%=p_strutsaction%>','<%= p_uuid%>','<%= p_parentuuid%>','<%= p_filename%>','<%= p_contenttype%>');return false;"
+		"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/<%=icon_folder%><%=ar.getIcon()%>.png">&nbsp;<%= title %>
+		<% if (cmd.equals("search")) {%>
+		<% String breadcrumbs1 = AlfrescoContentUtil.createBreadcrumb(details,ar.getParentuuid(),(com.liferay.portlet.PortletURLImpl)portletURL,instanceUuid); %>
+		<br><%= breadcrumbs1%>
+		<% } %>
+		</a>
+	</display:column>
+
+	<display:column style="width:1%; white-space:nowrap; text-align:right; padding-right:5px;">
+		<c:choose>
+		<c:when test="<%=ar.getContenttype().equalsIgnoreCase("folder")%>">
+				<% if (hasEditFolder) { %>
+				<a href="<%=editFolderURL%>"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/icons/edit_icon.gif"></a>
+				<% } %>
+				<% if (hasChangePermissions) { %>
+				&nbsp;<a href="<%=changePermissionsURL%>"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/icons/invite.gif"></a>
+				<% } %>
+				<% if (hasDeleteFolder) { %>
+				&nbsp;<a href="#" onClick="deleteFolder('/ext/dms/deleteContent','<%= p_uuid%>','<%= ajaxBrowseURL%>');return 0;"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/icons/delete.gif"></a>
+				<% } %>
+		</c:when>
+		<c:otherwise>
+			<a href="<%=downloadURL%>"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/icons/save16.gif"></a>
+<%--
+			<% if (hasDeleteFile) { %>
+				&nbsp;<a href="#" onClick="javascript: if (confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-delete-the-selected-document-and-all-its-versions") %>')) {document.location='<%=deleteContentURL%>'};return 0;"><img border="0" src="<%=themeDisplay.getPathThemeImage()%>/alfresco/icons/delete.gif"></a>
+			<% } %>
+--%>
+		</c:otherwise>
+		</c:choose>
+	</display:column>
+</display:table>

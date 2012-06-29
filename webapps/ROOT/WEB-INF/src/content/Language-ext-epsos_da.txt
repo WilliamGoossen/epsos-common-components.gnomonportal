@@ -1,0 +1,359 @@
+﻿## EPSOS  ##
+
+category.epsos=EpSOS
+
+javax.portlet.title.EPSOS_DEMO=EpSOS DEMO
+javax.portlet.title.EPSOS_INFO=EpSOS INFO
+javax.portlet.title.EPSOS_CONSENT=EpSOS SAMTYKKE LEDELSE
+
+
+epsos.user.displayname=Navn
+epsos.user.organizationname=Agentur
+epsos.user.loginrole=Rolle
+
+epsos.demo.search.givenName=Navn
+epsos.demo.search.familyName=Efternavn
+epsos.demo.search.birthdate=Fødselsdato
+epsos.demo.search.sex=Sex
+epsos.demo.search.sex.M=Arsen
+epsos.demo.search.sex.F=Kvindelige
+epsos.demo.search.streetAddress=Street
+epsos.demo.search.zip=Postnummer
+epsos.demo.search.city=City
+epsos.demo.search.country=Land
+epsos.demo.search.country.UK=FORENEDE KONGERIGE
+epsos.demo.search.country.GR=GRÆKENLAND
+epsos.demo.search.country.IT=ITALIEN
+epsos.demo.search.country.DE=TYSKLAND
+epsos.demo.search.country.AT=ØSTRIG
+epsos.demo.search.pid=Patient Identitet
+epsos.demo.search.ssnNumber=Sikkerhed Reference nummer
+epsos.demo.search.driversLicense=Kørekortnummer
+epsos.demo.search.accountNumber=Kontonummer
+
+epsos.demo.search.namePrefix=Titel
+epsos.demo.search.middleName=Faders navn
+epsos.demo.search.state=Region
+epsos.demo.search.homePhone=Hjem Telefon
+epsos.demo.search.businessPhone=Arbejde Telefon
+epsos.demo.search.emailHome=Email Hjemme
+epsos.demo.search.emailBusiness=E-mail Arbejde
+epsos.demo.search.birthPlace=Fødested
+epsos.demo.search.citizenship=Borgerskab
+epsos.demo.search.nationality=Nationalitet
+epsos.demo.search.accountData=Kontooplysninger
+epsos.demo.search.drivingLicense=Kørekortnummer
+epsos.demo.search.dateOfDeath=Dato for Death
+epsos.demo.search.lastUpdate=Last Update
+
+epsos.demo.pid.id=Nummer
+epsos.demo.pid.type=Type ID
+epsos.demo.pid.domain=Domæne
+epsos.demo.pid.domainType=Domæne Type
+epsos.demo.pid.namespace=Namespace
+epsos.demo.pid.ehrType=EPJ Type
+
+epsos.demo.search.patientCard=Patient Tab
+epsos.demo.search.patiendIds=Patient Identifikation
+
+epsos.demo.document.list=Resumé patientjournaler
+epsos.demo.document.details=Data Arkiv
+epsos.demo.document.name=Titel
+epsos.demo.document.description=Beskrivelse
+epsos.demo.document.formatCode=Format Kode
+epsos.demo.document.language=Sprog
+epsos.demo.document.creationTime=Oprettet den
+epsos.demo.document.documentClass=Klassisk Arkiv
+epsos.demo.document.status=Status
+epsos.demo.document.documentType=Filtype
+epsos.demo.document.healthcareFacilityCode=Body Sundhed
+epsos.demo.document.practiceSetting=Specialty
+epsos.demo.document.confidentiality=Gradation
+epsos.demo.document.authorPerson=Forfatter
+epsos.demo.document.size=Størrelse
+epsos.demo.document.mimeType=mime type
+epsos.demo.document.submission.details=Data Indsendelse
+epsos.demo.document.submission.title=Titel
+epsos.demo.document.submission.description=Beskrivelse
+epsos.demo.document.submission.date=Dato Indsendt
+epsos.demo.document.submission.authorInstitution=Organisation Forfatter
+epsos.demo.document.submission.authorDepartment=Fakultet Forfatter
+epsos.demo.document.submission.contentType=Indholdstype
+epsos.demo.document.folder.details=Datafil
+epsos.demo.document.folder.title=Titel
+epsos.demo.document.folder.description=Beskrivelse
+epsos.demo.document.folder.code=File kode
+
+epsos.demo.prescription.list=Listen af ​​recepter Patient
+epsos.demo.dispensation.list=Listen af ​​recepter Patient
+epsos.demo.prescription.lines.list=Delvis liste over medicin
+
+epsos.demo.prescription.id=Opskrift nummer
+epsos.demo.prescription.performer=Opskrift Manager
+epsos.demo.prescription.facility=Body
+epsos.demo.prescription.profession=Status
+epsos.demo.prescription.address=Adresse
+epsos.demo.prescription.prescriber=Ordineret af
+epsos.demo.prescription.name=Navn
+epsos.demo.prescription.ingredient=Aktive indholdsstof
+epsos.demo.prescription.strength=Mængden af ​​forberedelse
+epsos.demo.prescription.package=Emballage
+epsos.demo.prescription.dosage=Dosering
+epsos.demo.prescription.frequency=Modtag Frekvens
+epsos.demo.prescription.route=Metode
+epsos.demo.prescription.start=Hjemmepleje
+epsos.demo.prescription.end=End Behandling
+epsos.demo.prescription.nrOfPacks=Antal kolli
+epsos.demo.prescription.instruction.patient=Note til Patient
+epsos.demo.prescription.instruction.filler=Note til Farmaceut
+
+epsos.demo.dispensation=Recepter
+epsos.demo.dispensation.id=Antallet af receptpligtige Corp
+epsos.demo.dispensation.name=Konto navn recept
+epsos.demo.dispensation.strength=Mængden af ​​forberedelse
+epsos.demo.dispensation.packaging=Emballage
+epsos.demo.dispensation.packaging-form=Form
+epsos.demo.dispensation.packaging-pack=Emballage
+epsos.demo.dispensation.packaging-quantity=Mængde
+epsos.demo.dispensation.substitute=Udskiftning
+epsos.demo.dispensation.substitute-not-permitted=Var og erstatning
+epsos.demo.dispensation.nrOfPacks=Antal kolli
+
+epsos.demo.confirmation.title=Du skal indtaste Bekræftelse af patienters adgang til din virksomheds data.
+epsos.demo.confirmation.error=Der var et problem, og bekræftelsen af ​​patienten kunne registreres.
+epsos.demo.confirmation.button=Bekræftelse af registrering
+
+epsos.demo.consent.title=Du skal indtaste patientens samtykke for at få adgang til dine data.
+epsos.demo.consent.error=Der var et problem, og patientens samtykke kunne ikke registreres.
+epsos.demo.consent.form=Patient Samtykke Form
+epsos.demo.consent.button=Samtykke Tilmeld
+epsos.demo.consent.info=Vælg venligst en af ​​følgende situationer
+epsos.demo.consent.choice.1=patienten allerede har givet sit samtykke til adgang til data epSOS
+epsos.demo.consent.choice.2=nødstilfælde
+epsos.demo.consent.choice.3=Patienten ønsker nu at underskrive samtykke til dataadgang epSOS
+epsos.demo.consent.date=Samtykke er gyldigt indtil
+
+epsos.demo.consent.create.button=Opret ny tilladelse
+epsos.demo.consent.continue.button=Brug af eksisterende Consent
+
+epsos.consent.patients=Listen af ​​patienter
+epsos.consent.list=Listen Patient Samtykke
+epsos.consent.view=Patient Review Samtykke
+epsos.consent.add=Tilføj Patient Samtykke
+epsos.consent.edit=Rediger Patient Samtykke
+epsos.consent.delete=Slet Patient Samtykke
+epsos.consent.country=Land Care
+epsos.consent.creationDate=Opslået Samtykke
+epsos.consent.validFrom=Gyldigt fra
+epsos.consent.validTo=Gyldig indtil
+epsos.consent.doctor.name=Læge navn
+epsos.consent.doctor.address=Læge Adresse
+
+epsos.identifier.username=Brugerkonto epSOS
+epsos.identifier.password=Adgangskode epSOS
+
+epsos.xsl.view=Review Arkiv
+epsos.patient.card.view=Oversigt Patient Information
+epsos.patient.doc.view=Review Filoplysninger
+
+epsos.demo.confirmation.purposeofuse=Formålet med at bruge denne service
+epsos.demo.confirmation.treatment=Healthcare Facility (Behandling)
+epsos.demo.confirmation.emergency=Skadestue (Emergency)
+
+# properties translations
+
+epsos.search.countries.supported=Lande støttede
+epsos.always.show.consent.denied=Se ¶ Afslag på samtykke
+epsos.always.show.confirmation.denied=Se ¶ Bekræftelse Afslag
+epsos.webservice.password=Default Tiani web-service adgangskode
+epsos.webservice.url=Default Tiani web-service URL
+epsos.webservice.username=Default Tiani web-service brugernavn
+epsos.patient.identifier.main.type=Hovedtype af patient-ID
+
+epsos.consent.workflow.check.GR=Check Samtykke - Grækenland
+epsos.consent.workflow.check.AT=Check Samtykke - Østrig
+epsos.consent.workflow.check.FR=Check Samtykke - Frankrig
+epsos.consent.workflow.check.DE=Check Samtykke - Tyskland
+epsos.consent.workflow.check.default=Check Samtykke
+
+epsos.search.demographics.GR=Brug af Patient Demografisk Søg - Grækenland
+epsos.search.demographics.AT=Brug af Patient Demografisk Søg - Østrig
+epsos.search.demographics.FR=Brug af Patient Demografisk Søg - Frankrig
+epsos.search.demographics.DE=Brug af Patient Demografisk Søg - Tyskland
+epsos.search.demographics.default=Brug af Patient Demografisk Søg
+
+epsos.search.metadata.ids.GR=Søg på løntrin ID'er - Grækenland
+epsos.search.metadata.ids.AT=Søg på løntrin ID'er - Østrig
+epsos.search.metadata.ids.FR=Søg på løntrin ID'er - Frankrig
+epsos.search.metadata.ids.DE=Søg på løntrin ID'er - Tyskland
+epsos.search.metadata.ids.default=Søg Enkeltprøvens ID'er
+
+epsos.search.patient.ids.GR=Søg efter patient identifikatorer - Grækenland
+epsos.search.patient.ids.AT=Søg efter patient identifikatorer - Østrig
+epsos.search.patient.ids.FR=Søg efter patient identifikatorer - Frankrig
+epsos.search.patient.ids.DE=Søg efter patient identifikatorer - Tyskland
+epsos.search.patient.ids.default=Søg efter patient identifikatorer
+
+
+epsos.search.patient.confirmation.duration.GR=Varighed bekræfte patient (minutter) - Grækenland
+epsos.search.patient.confirmation.duration.AT=Varighed bekræfte patient (minutter) - Østrig
+epsos.search.patient.confirmation.duration.FR=Varighed bekræfte patient (minutter) - Frankrig
+epsos.search.patient.confirmation.duration.DE=Varighed bekræfte patient (minutter) - Tyskland
+epsos.search.patient.confirmation.duration.default=Varighed bekræfte patient (minutter)
+
+epsos.search.requires.patient.confirmation.GR=Det skal først bekræfte patient - Grækenland
+epsos.search.requires.patient.confirmation.AT=Det skal først bekræfte patient - Østrig
+epsos.search.requires.patient.confirmation.FR=Det skal først bekræfte patient-France
+epsos.search.requires.patient.confirmation.DE=Det skal først bekræfte patient - Tyskland
+epsos.search.requires.patient.confirmation.default=Det skal først bekræfte patient
+
+epsos.demo.search.pid.TAN=Transaktion nummer (TAN)
+epsos.demo.search.pid.RRI=RRI
+epsos.demo.search.pid.KVNR=Krankenversicherungsnummer (KVNR)
+
+epsos.demo.search.group.pid=Patient Identifikation
+epsos.demo.search.group.demographics=Patient Demografi
+epsos.demo.search.group.metadata=Yderligere Patientinformation
+
+epsos.dispensation.error.id.required=Varenummer recept skal udfyldes
+epsos.dispensation.error.nrOfPacks.required=Antallet af pakker, der skal udfyldes
+epsos.dispensation.error.nrOfPacks.too-large=Antallet af emballage kan ikke være større end den recept
+epsos.dispensation.error.name.required=Navnet skal udfyldes
+epsos.dispensation.error.packaging.required=Pakken skal udfyldes
+
+contacts.highrole.PHARMACIST=Chemist
+contacts.highrole.physician=Læge
+contacts.highrole.nurse=Sygeplejerske
+contacts.highrole.administrator=Administrator
+
+epsos.demo.ps.nodocs=Det var patientens journal
+epsos.demo.ep.nodocs=Der var ingen forskrifter for patienten
+
+
+epsos.demo.search.pid.2.16.724.4.42=CITE-Regional Service
+epsos.demo.search.pid.2.16.724.4.41=CIP-Sundhed ID-nummer
+
+
+
+error.1002=Du har ikke den nødvendige bekræftelse af patienten.
+error.4701=Du har ikke overdraget deres rettigheder skal være synlige for din medicinske dedeomena
+
+
+## Portal related labels ###
+
+gn.myaccount.account-information=User Account Information
+gn.myaccount.change-password=Change Password
+gn.myaccount.contact-details=Contact Details
+gn.myaccount.eshop-preferences=E-Shop Preferences
+gn.myaccount.portal-preferences=Portal Preferences
+
+
+contacts.telecom.teltype=Telephone Type
+contacts.teltype.home=Home Number
+contacts.teltype.work=Work Number
+contacts.teltype.fax=Fax Number
+contacts.teltype.mobile=Mobile Number
+
+contacts.addresstype.home=Home Address
+contacts.addresstype.work=Work Address
+
+contacts.tab.0=Basic Information
+contacts.tab.1=Extra Information
+
+
+parties.addresses.email=Email
+parties.addresses.webpage=Web Page
+parties.addresses.geographic=Geographic
+parties.addresses.telecom=Telecom
+parties.addresses.webpage.url=URL
+parties.addresses.webpage.description=Description
+parties.addresses.geographic.addressline=Street
+parties.addresses.geographic.region=Region
+parties.addresses.geographic.ziporpostcode=Zip/Post Code
+parties.addresses.geographic.country=Country
+parties.addresses.geographic.type=Address Type
+parties.addresses.telecom.countrycode=Country Code
+parties.addresses.telecom.nationaldialingprefix=National Dialing Prefix
+parties.addresses.telecom.areacode=Area Code
+parties.addresses.telecom.number=Number
+parties.addresses.telecom.extension=Ext.
+parties.addresses.telecom.physicaltype=Physical Type
+parties.addresses.telecom.phonenumber=Phone Number
+
+parties.manager.for-telecom-address-description=Telecom Address
+parties.manager.for-geographic-address-description=Geographic Address
+parties.manager.addresses.delete-are-you-sure=Are you sure you want to delete this Address?
+parties.manager.addresses.remove-are-you-sure=Are you sure you want to remove this Address from the list of Related Addresses?
+
+parties.manager.lang=Language
+parties.manager.party.mainid=Party Unique Identifier
+parties.manager.party.description=Party Description
+parties.manager.person.name=Name
+parties.manager.person.firstname=First Name
+parties.manager.person.prefix=Prefix
+parties.manager.person.familyname=Family Name
+parties.manager.person.fathername=Father's Name
+parties.manager.person.gender=Gender
+parties.manager.person.gender.male=Male
+parties.manager.person.gender.female=Female
+parties.manager.person.gender.notspecified=Not Specified
+parties.manager.person.gender.notknown=Not Known
+parties.manager.person.validfrom=Valid From
+parties.manager.person.validto=Valid To
+parties.manager.person.userid=User Id
+parties.manager.person.createuser=Also create a new Portal User
+parties.manager.person.newuserid=Enter User Id
+parties.manager.person.password1=Enter Password
+parties.manager.person.password2=Re-enter Password
+parties.manager.person.emailaddress=Enter email address
+parties.manager.person.maskmsg={0} may only contain letters
+parties.manager.organization.name=Organization Name
+parties.manager.organization.validto=Valid To
+parties.manager.organization.validfrom=Valid From
+parties.manager.organization.typeid=Organization Type
+parties.manager.organization.liferaycompany=Is Liferay Company
+parties.manager.related-to-party-description=Parties Related to
+parties.manager.for-party-description=Party
+parties.manager.for-role-name=For Party Role
+parties.manager.for-rel-name=For Party Relationship
+parties.manager.add-role-to-party=Add Role to Party
+parties.manager.role.delete-are-you-sure=Are you sure you want to delete this Party Role? This will also delete all Relationships where this Role participates! 
+parties.manager.rel.delete-are-you-sure=Are you sure you want to delete this Relationship?
+parties.manager.party.delete-are-you-sure=Are you sure you want to delete this Party? This will also delete all addresses, names, roles and relationships assigned to this Party!
+parties.manager.RolesAndRelsForm.partyRoleId=Related Party Role
+parties.manager.RolesAndRelsForm.relationshipTypeId=Relationship Type
+parties.manager.RolesAndRelsForm.supplier=Role Allocation (Client/Supplier)
+parties.manager.person.name.validity.error=No other currently valid name exists for Person
+parties.manager.person.name.validity.action.update=update
+parties.manager.person.name.validity.action.delete=delete
+parties.manager.org.name.validity.error=No other currently valid name exists for Organization
+parties.manager.org.name.validity.action.update=update
+parties.manager.org.name.validity.action.delete=delete
+parties.manager.partyname.dates.error="Valid From" date must be before "Valid To" date
+parties.manager.relatedparty=Related Party
+parties.manager.relatedparty.role=Related Party Role
+parties.manager.partyrole.features.none=No features were defined for this Party Role Type!
+parties.manager.errors.company-already-assigned-to-organization=Liferay Company is already assigned to Organization {0}. You must first unassign that Organization, and then proceed in a new assignment.
+
+
+contacts.search.comments=Comments
+parties.manager.identifier.identifier=Identifier
+contacts.search.name=Party Name
+contacts.search.email=Email Address
+contacts.search.address=Geographic Address
+contacts.search.region=City/Region
+contacts.search.country=Country
+contacts.search.company=Belongs to company
+contacts.search.phone=Phone Number
+contacts.search.webpage=Web page
+contacts.search.identifier=Identifier
+contacts.search.comments=Comments
+contacts.search.isperson=Person
+contacts.search.modified=Last modified
+contacts.search.created=Created
+contacts.search.private=Private
+contacts.search.public=Public
+contacts.search.all=All
+contacts.search.contacttype=Contact Type
+
+epsos.identifier.poc=Epsos Identifier

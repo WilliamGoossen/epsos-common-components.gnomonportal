@@ -1,0 +1,92 @@
+
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: server1
+Creation date: 25 Ìבת 2010
+Entry type: PrivateKeyEntry
+Certificate chain length: 2
+Certificate[1]:
+Owner: EMAILADDRESS=massimiliano.masi@tiani-spirit.com, CN=server1, OU=Test Certificates, O=Tiani Spirit, ST=Austria, C=AT
+Issuer: EMAILADDRESS=massimiliano.masi@tiani-spirit.com, CN=Certification Authority, OU=Test Certificates, O=Tiani Spirit, L=Vienna, ST=Austria, C=AT
+Serial number: 1
+Valid from: Tue May 25 15:57:31 EEST 2010 until: Sun Jan 14 14:57:31 EET 2035
+Certificate fingerprints:
+	 MD5:  78:9C:8A:57:CE:3B:12:2D:19:95:F2:E6:42:62:8F:F0
+	 SHA1: 33:BE:DB:39:9E:C1:35:AD:B2:CE:77:BB:92:BA:5F:A1:0F:DD:D0:4C
+	 Signature algorithm name: SHA1withRSA
+	 Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 5C 5B EE AC 1D 81 DD 11   9E BD 31 D8 D4 43 BA 2F  \[........1..C./
+0010: 7A D6 1E 4F                                        z..O
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+#3: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 4F B0 69 D9 C5 41 B8 50   61 6B 8F BA AE 13 61 68  O.i..A.Pak....ah
+0010: 8B 06 4B 40                                        ..K@
+]
+
+]
+
+#4: ObjectId: 2.16.840.1.113730.1.13 Criticality=false
+
+Certificate[2]:
+Owner: EMAILADDRESS=massimiliano.masi@tiani-spirit.com, CN=Certification Authority, OU=Test Certificates, O=Tiani Spirit, L=Vienna, ST=Austria, C=AT
+Issuer: EMAILADDRESS=massimiliano.masi@tiani-spirit.com, CN=Certification Authority, OU=Test Certificates, O=Tiani Spirit, L=Vienna, ST=Austria, C=AT
+Serial number: e6f6369904294f40
+Valid from: Tue May 18 12:38:54 EEST 2010 until: Thu Oct 22 12:38:54 EEST 2189
+Certificate fingerprints:
+	 MD5:  38:B7:A0:DD:D7:6B:58:34:7E:05:0B:E8:28:98:9E:DC
+	 SHA1: 09:7C:50:3B:E2:1D:C5:44:CA:F6:9B:22:92:D0:9B:AA:C9:1D:7E:74
+	 Signature algorithm name: SHA1withRSA
+	 Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 4F B0 69 D9 C5 41 B8 50   61 6B 8F BA AE 13 61 68  O.i..A.Pak....ah
+0010: 8B 06 4B 40                                        ..K@
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+#3: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 4F B0 69 D9 C5 41 B8 50   61 6B 8F BA AE 13 61 68  O.i..A.Pak....ah
+0010: 8B 06 4B 40                                        ..K@
+]
+
+[EMAILADDRESS=massimiliano.masi@tiani-spirit.com, CN=Certification Authority, OU=Test Certificates, O=Tiani Spirit, L=Vienna, ST=Austria, C=AT]
+SerialNumber: [    e6f63699 04294f40]
+]
+
+
+
+*******************************************
+*******************************************
+
+

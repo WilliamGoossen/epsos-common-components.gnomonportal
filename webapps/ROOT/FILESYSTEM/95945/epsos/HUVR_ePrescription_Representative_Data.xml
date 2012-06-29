@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cda.xsl"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 \\tsclient\C\SVN\epSOS\schematron\epSOS\schema\CDA_extended.xsd" classCode="DOCCLIN" moodCode="EVN">
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.1.1"/>
+	<id root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/>
+	<code codeSystemName="LOINC" codeSystem="2.16.840.1.113883.6.1" code="57833-6" displayName="Prescription for medication"/>
+	<title>Prescription for medication</title>
+	<effectiveTime value="20100701"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="se-SV"/>
+	<recordTarget typeCode="RCT" contextControlCode="OP">
+		<patientRole classCode="PAT">
+			<id root="2" extension="191212121212"/>
+			<!--<id root="1" extension="992010-123456"/>-->
+			<addr use="HP">
+				<state>Sevilla</state>
+				<city>Sevillla</city>
+				<precinct>Sevilla</precinct>
+				<country>ES</country>
+				<postalCode>41013</postalCode>
+				<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+			</addr>
+			<telecom use="HP" value="tel:+34955013234"/>
+			<telecom use="HP" value="mailto:emiliomolina1980@hotmail.com"/>
+			<patient>
+				<name>
+					<given>Emilio</given>
+					<family>Molina De la Higuera</family>
+				</name>
+				<administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" displayName="Male"/>
+				<birthTime value="19121212"/>
+				<guardian classCode="GUARD">
+					<id root="2" extension="12345678"/>
+					<addr>
+						<state>Sevilla</state>
+						<city>Sevilla</city>
+						<precinct>Sevilla</precinct>
+						<country>ES</country>
+						<postalCode>41025</postalCode>
+						<streetAddressLine>Avenida de la Constitución nº12 piso 4ºB</streetAddressLine>
+					</addr>
+					<telecom use="WP" value="tel:+34955345678"/>
+					<telecom use="WP" value="mailto:paulamaria_rubio@gmail.com"/>
+					<guardianPerson>
+						<name>
+							<given>Paula María</given>
+							<family>Rubio Martínez de Trespuentes</family>
+							
+						</name>
+					</guardianPerson>
+				</guardian>
+				<!-- epSOS R1.7 Patient’s preferred language -->
+				<languageCommunication>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.1"/>
+					<languageCode code="es-ES"/>
+				</languageCommunication>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author typeCode="AUT" contextControlCode="OP">
+		<functionCode codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" code="ON"/>
+		<time value="20100701"/>
+		<!--  It is not possible to have an assigned author if the permormer is included -->
+
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id nullFlavor="NA"/>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<legalAuthenticator>
+		<time value="20100701"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<id extension="KP00017" root="2.16.840.1.113883.19.5"/>
+			<assignedPerson nullFlavor="UNK"/>
+			<representedOrganization>
+				<id root="2.16.840.1.113883.19.5"/>
+				<name>Farmacia  Puerta De La Carne</name>
+				<addr>
+					<state>Sevilla</state>
+					<city>Sevilla</city>
+					<precinct>Sevilla</precinct>
+					<country>ES</country>
+					<postalCode>41003</postalCode>
+					<streetAddressLine>Calle Demetrio de los Rios, 3</streetAddressLine>
+				</addr>
+			</representedOrganization>
+		</assignedEntity>
+	</legalAuthenticator>
+	<participant typeCode="IND">
+		<functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88"/>
+		<associatedEntity classCode="NOK">
+			<code code="FAMMEMB" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.38" displayName="family member"/>
+			<addr>
+				<state>Sevilla</state>
+				<city>Sevilla</city>
+				<precinct>Sevilla</precinct>
+				<country>ES</country>
+				<postalCode>41003</postalCode>
+				<streetAddressLine>Calle Demetrio de los Rios, 3</streetAddressLine>
+			</addr>
+			<telecom use="WP" value="tel:+4612345678"/>
+			<telecom use="WP" value="mailto:alberto@farmacia.es"/>
+			<associatedPerson>
+				<name>
+					<family>Martínez Pascual</family>
+					<given>Alberto</given>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+	<documentationOf>
+		<serviceEvent>
+			<!-- effectiveTime/high optional, last changed-->
+			<effectiveTime>
+				<high value="20100701"/>
+			</effectiveTime>
+			<!-- list of all perscribers -->
+			<performer typeCode="PRF">
+				<functionCode code="22" displayName="Health professionals" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" codeSystemName="epSOS:HealthcareProfessionalRoles"/>
+				<assignedEntity>
+					<!--  HUVR health Professional ID-->
+					<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0011"/>
+					<assignedPerson>
+						<name>
+							
+							<family>Moreno Sánchez</family>
+							<given>Oskar</given>
+						</name>
+					</assignedPerson>
+					<representedOrganization>
+						<id root="2.16.840.1.113883.2.19.40.5.410286" />
+						<name>Hospital Universitario Virgen del Rocío</name>
+						<addr>
+							<state>Sevilla</state>
+							<city>Sevillla</city>
+							<precinct>Sevilla</precinct>
+							<country>ES</country>
+							<postalCode>41013</postalCode>
+							<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+						</addr>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+			<!-- only one performer allowed-->
+
+		</serviceEvent>
+	</documentationOf>
+	<component>
+		<structuredBody>
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.8"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+					<templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.3"/>
+					<templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.1"/>
+					<!--HUVR prescription id -->
+					<id root="2.16.840.1.113883.2.19.40.5.410286.10.11" extension="P000001"/>
+					<code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF MEDICATION USE"/>
+					<title>Prescription P000001</title>
+					<text> Prescription of Metformin and rosiglitazone  500 +2 mg Film coatet tablet every 8 hours</text>
+					<!-- perscriber, in fact author of perscription, assumed to be the same if there is no author in the entry-->
+					<author>
+						<functionCode codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" code="KO"/>
+						<!-- Time of perscribing (authoring time if perscriber is  in the Entry)-->
+						<time value="20100601"/>
+						<assignedAuthor>
+							<!--  HUVR health Professional ID-->
+							<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0012"/>
+							<assignedPerson>
+								<name>
+									<family>Beltrán García</family>
+									<given>Bartolomé</given>
+									<prefix>Dr</prefix>
+								</name>
+							</assignedPerson>
+							<representedOrganization>
+								<id root="2.16.840.1.113883.2.19.40.5.410286" />
+								<name>Hospital Universitario Virgen del Rocío</name>
+								<addr>
+									<state>Sevilla</state>
+									<city>Sevillla</city>
+									<precinct>Sevilla</precinct>
+									<country>ES</country>
+									<postalCode>41013</postalCode>
+									<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+								</addr>
+							</representedOrganization>
+						</assignedAuthor>
+					</author>
+					<!-- each entry is a perscribed item-->
+					<entry>
+						<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.4'/>
+						<substanceAdministration classCode="SBADM" moodCode="INT">
+							<templateId root='2.16.840.1.113883.10.20.1.24'/>
+							<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7'/>
+							<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7.1'/>
+							<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.4'/>
+							<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.2'/>
+							<!--HUVR prescription item id. this  value might be provisional until the national medicine index (Alcantara code) has an OID-->
+							<id root="2.16.840.1.113883.2.19.40.5.410286.10.8" extension="M000001"/>
+							<!-- if perscription holds no medication a code should denote this
+							<code code="182904002" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.22" codeSystemName="epSOSCodeNoMedication" displayName="Drug treatment unknown" > -->
+							<!--status always completed -->
+							<statusCode code="completed"/>
+							<!-- Treatment period, low = start of treatment, high = end of treatment, nullFlavor = no time stated -->
+							<!-- Treatment period one week-->
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20100701"/>
+								<high value="20100708"/>
+							</effectiveTime>
+							<!-- effectiveTime2 is the interval of dosage -->
+							<!--  interval of dosage is every 8 hours -->
+							<effectiveTime xsi:type='PIVL_TS' institutionSpeci-fied='false' operator='A'> <period value='8' unit='h' /></effectiveTime> 
+							<!-- Optional route of administration-->
+							<routeCode code="20053000" displayName="Oral use" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.12" codeSystemName="epSOSRoutesofAdministration"/>
+							<!-- Dose optional: unit only if the dose is a unit, same value of low and high is no interval is given -->
+							<doseQuantity value="1" unit="1"/>
+								
+							<!-- The drug -->
+							<consumable>
+								<manufacturedProduct xmlns:epsos="urn:epsos-org:ep:medication" classCode="MANU">
+										<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7.2'/>
+										<templateId root='2.16.840.1.113883.10.20.1.53'/>
+									<manufacturedMaterial classCode="MMAT" determinerCode="KIND">
+										<code code="409120009" displayName="Metformin and rosiglitazone" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+											<originalText>
+												<reference value="referens"/>
+											</originalText>
+										</code>
+										<name>Metmorfina y Rosigitazona</name>
+										<!-- dose form -->
+										<epsos:formCode code="10221000" displayName="Film-coated tablet" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.2" codeSystemName="epSOS:DoseForm"/>
+										<epsos:asContent classCode="CONT">
+											<!-- Package size-->
+											<epsos:quantity>
+												<epsos:numerator xsi:type="epsos:PQ" value="112" unit="1" />
+												<epsos:denominator xsi:type="epsos:PQ" value="1" unit="1"/>
+											</epsos:quantity>
+											<!-- Package -->
+											<epsos:containerPackagedMedicine classCode="CONT" determinerCode="INSTANCE">
+												<epsos:formCode code="30009000" displayName="Box" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.3" codeSystemName="epSOS:Package"/>
+												<!-- A10BD03 Metformin and rosiglitazone -->
+												<epsos:name> Metformin and rosiglitazone</epsos:name>
+												<!-- random lot number has been assigned-->
+												<epsos:lotNumberText>1322231</epsos:lotNumberText>
+												<epsos:capacityQuantity value='112 ' unit=' 1'/>
+												
+												<!-- child proof-->
+												<epsos:capTypeCode code="ChildProof"/>
+											</epsos:containerPackagedMedicine>
+										</epsos:asContent>
+										<!-- Optional generic equivalent -->
+										<epsos:asSpecializedKind classCode="GRIC">
+											<epsos:generalizedMedicineClass classCode="MMAT">
+												<epsos:code code="A10BD03" displayName="Metformin and rosiglitazone" codeSystem="2.16.840.1.113883.6.73" codeSystemName="ATC"/>
+												<epsos:name>Metformin and rosiglitazone</epsos:name>
+											</epsos:generalizedMedicineClass>
+										</epsos:asSpecializedKind>
+										<!-- Different templates for substanceAdministration for one or several active ingredients, this is one with only one active ingredinet -->
+										<epsos:ingredient classCode="ACTI">
+											<!--Strength, -->
+											<epsos:quantity>
+												<epsos:numerator xsi:type="epsos:PQ" value="500+2" unit="mg"/>
+												<epsos:denominator xsi:type="epsos:PQ" value="1" unit="1"/>
+											</epsos:quantity>
+											<epsos:ingredient classCode="MMAT" determinerCode="KIND">
+												<!-- ATC-code-->
+												<epsos:code code="A10BD03" codeSystem="2.16.840.1.113883.6.73" displayName="Metformin and rosiglitazone" codeSystemName="ATC"/>
+												<epsos:name>Metformin and rosiglitazone</epsos:name>
+											</epsos:ingredient>
+										</epsos:ingredient>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+							<!-- if the perscribed iten is perscribed by someone else than the author of the perscription then the perscriber should be given here, if the same or unknown then left out-->
+							<author>
+								<functionCode codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" code="KO"/>
+								<!-- Time of perscribing -->
+								<time value="20100501"/>
+								<assignedAuthor>
+									
+									<!--  HUVR health Professional ID-->
+									<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0013"/>
+									
+									<assignedPerson>
+										<name>
+											<family>Pascual Jodar</family>
+											<given>Emilio</given>
+										</name>
+									</assignedPerson>
+									<representedOrganization>
+										<!-- OID of HUVR  -->
+										<id root="2.16.840.1.113883.2.19.40.5.410286" />
+										<name>Hospital Universitario Virgen del Rocío</name>
+										<addr>
+											<state>Sevilla</state>
+											<city>Sevillla</city>
+											<precinct>Sevilla</precinct>
+											<country>ES</country>
+											<postalCode>41013</postalCode>
+											<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+										</addr>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+							<participant typeCode="AUT">
+								<participantRole classCode="LIC">
+									<!--  HUVR health Professional ID-->
+									<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0013"/>
+									<scopingEntity classCode="ORG">
+										<id root="2.16.840.1.113883.2.19.40.5.410286" />
+										<desc>Hospital Universitario Virgen del Rocío</desc>
+									</scopingEntity>
+								</participantRole>
+							</participant>
+							<!-- number of packages in the perscription-->
+							<entryRelationship typeCode="COMP">
+								<supply classCode="SPLY" moodCode="RQO">
+									<independentInd value="false"/>
+									<quantity value="2" unit="1"/>
+								</supply>
+							</entryRelationship>
+							<!-- Optional instructions to the patient -->
+							<entryRelationship typeCode='SUBJ' inversionInd='true'>
+								<act classCode='ACT' moodCode='INT'>
+									<templateId root='2.16.840.1.113883.10.20.1.49'/>
+									<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.3'/>
+									<code code='PINSTRUCT' codeSystem='1.3.6.1.4.1.19376.1.5.3.2' codeSystemName='IHEActCode'/>
+									<text>
+										<reference value='#comment-2'/>
+									</text>
+									<statusCode code='completed'/>
+								</act>
+							</entryRelationship>
+							<!-- Optional instructons to the filler -->
+							<entryRelationship typeCode='SUBJ' inversionInd='true'>
+								<act classCode='ACT' moodCode='INT'>
+									<templateId root='2.16.840.1.113883.10.20.1.43'/>
+									<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.3.1'/>
+									<code code='FINSTRUCT' codeSystem='1.3.6.1.4.1.19376.1.5.3.2' codeSystemName='IHEActCode'/>
+									<text>
+										<reference value='#comment-2'/>
+									</text>
+									<statusCode code='completed'/>
+								</act>
+							</entryRelationship>
+							<!-- Optional information about replacement -->
+							<entryRelationship typeCode="SUBJ" inversionInd="true">
+								<observation classCode="OBS" moodCode="RQO">
+									<code nullFlavor="NA"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entryRelationship>
+						</substanceAdministration>
+					</entry>
+				</section>
+			</component>
+
+
+
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.8"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+					<templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.3"/>
+					<templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.1"/>
+					<!--HUVR prescription id -->
+					<id root="2.16.840.1.113883.2.19.40.5.410286.10.11" extension="P000002"/>
+					<code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF MEDICATION USE"/>
+					<title>Prescription P000002</title>
+					<text>DOLOTREN 50mg 40 tablets, 1 tablet each 8 hours during 365 days.</text>
+					<!-- perscriber, in fact author of perscription, assumed to be the same if there is no author in the entry-->
+					<author>
+						<functionCode codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" code="KO"/>
+						<!-- Time of perscribing (authoring time if perscriber is  in the Entry)-->
+						<time value="20100601"/>
+						<assignedAuthor>
+							<!--  HUVR health Professional ID-->
+							<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0012"/>
+							<assignedPerson>
+								<name>
+									<family>Beltrán García</family>
+									<given>Bartolomé</given>
+									<prefix>Dr</prefix>
+								</name>
+							</assignedPerson>
+							<representedOrganization>
+								<id root="2.16.840.1.113883.2.19.40.5.410286" />
+								<name>Hospital Universitario Virgen del Rocío</name>
+								<addr>
+									<state>Sevilla</state>
+									<city>Sevillla</city>
+									<precinct>Sevilla</precinct>
+									<country>ES</country>
+									<postalCode>41013</postalCode>
+									<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+								</addr>
+							</representedOrganization>
+						</assignedAuthor>
+					</author>
+					<!-- each entry is a perscribed item-->
+					<entry>
+						<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.4'/>
+						<substanceAdministration classCode="SBADM" moodCode="INT">
+							<templateId root='2.16.840.1.113883.10.20.1.24'/>
+							<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7'/>
+							<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7.1'/>
+							<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.4'/>
+							<templateId root='1.3.6.1.4.1.12559.11.10.1.3.1.3.2'/>
+							<!--HUVR prescription item id. this  value might be provisional until the national medicine index (Alcantara code) has an OID-->
+							<id root="2.16.840.1.113883.2.19.40.5.410286.10.8" extension="M000002"/>
+							<!-- if perscription holds no medication a code should denote this
+								<code code="182904002" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.22" codeSystemName="epSOSCodeNoMedication" displayName="Drug treatment unknown" > -->
+							<!--status always completed -->
+							<statusCode code="completed"/>
+							<!-- Treatment period, low = start of treatment, high = end of treatment, nullFlavor = no time stated -->
+							<!-- Treatment period one year-->
+							<effectiveTime xsi:type="IVL_TS">
+								<alow value="20100701"/>
+								<high value="20110701"/>
+							</effectiveTime>
+							<!-- effectiveTime2 is the interval of dosage -->
+							<!--  interval of dosage is every 8 hours -->
+							<effectiveTime xsi:type='PIVL_TS' institutionSpeci-fied='false' operator='A'> <period value='8' unit='h' /></effectiveTime> 
+							<!-- Optional route of administration-->
+							<routeCode code="20053000" displayName="Oral use" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.12" codeSystemName="epSOSRoutesofAdministration"/>
+							<!-- Dose optional: unit only if the dose is a unit, same value of low and high is no interval is given -->
+							<doseQuantity value="1" unit="1"/>
+							<!-- The drug -->
+							<consumable>
+								<manufacturedProduct xmlns:epsos="urn:epsos-org:ep:medication" classCode="MANU">
+									<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7.2'/>
+									<templateId root='2.16.840.1.113883.10.20.1.53'/>
+									<manufacturedMaterial classCode="MMAT" determinerCode="KIND">
+										<code code="363598004" displayName="Diclofenac" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+											<originalText>
+												<reference value="referens"/>
+											</originalText>
+										</code>
+										<name>Dolotren</name>
+										<!-- dose form -->
+											
+										<epsos:formCode code="10219000" displayName="Tablet" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.2" codeSystemName="epSOS:DoseForm"/>
+										<epsos:asContent classCode="CONT">
+											<!-- Package size-->
+											<epsos:quantity>
+												<epsos:numerator xsi:type="epsos:PQ" value="40" unit="1" />
+												<epsos:denominator xsi:type="epsos:PQ" value="1" unit="1"/>
+											</epsos:quantity>
+											<!-- Package -->
+											<epsos:containerPackagedMedicine classCode="CONT" determinerCode="INSTANCE">
+												<epsos:formCode code="30009000" displayName="Box" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.3" codeSystemName="epSOS:Package"/>
+												<!-- M01AB05  Diclofenac -->
+												<epsos:name> Diclofenac</epsos:name>
+												<!-- random lot number has been assigned-->
+												<epsos:lotNumberText>13422231</epsos:lotNumberText>
+												<epsos:capacityQuantity value=' 40' unit=' 1'/>
+												
+												<!-- child proof-->
+												<epsos:capTypeCode code="ChildProof"/>
+											</epsos:containerPackagedMedicine>
+										</epsos:asContent>
+										<!-- Optional generic equivalent -->
+										<epsos:asSpecializedKind classCode="GRIC">
+											<epsos:generalizedMedicineClass classCode="MMAT">
+												<epsos:code code="M01AB05 " codeSystem="2.16.840.1.113883.6.73" codeSystemName="ATC"/>
+												<epsos:name>Dolotren</epsos:name>
+											</epsos:generalizedMedicineClass>
+										</epsos:asSpecializedKind>
+										<!-- Different templates for substanceAdministration for one or several active ingredients, this is one with only one active ingredinet -->
+										<epsos:ingredient classCode="ACTI">
+											<!--Strength, -->
+											<epsos:quantity>
+												<epsos:numerator xsi:type="epsos:PQ" value="50" unit="mg"/>
+												<epsos:denominator xsi:type="epsos:PQ" value="1" unit="1"/>
+											</epsos:quantity>
+											<epsos:ingredient classCode="MMAT" determinerCode="KIND">
+												<!-- ATC-code-->
+												<epsos:code code="M01AB05" codeSystem="2.16.840.1.113883.6.73" displayName="Diclofenac" codeSystemName="ATC"/>
+												<epsos:name>Diclofenac</epsos:name>
+											</epsos:ingredient>
+										</epsos:ingredient>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+							<!-- if the perscribed iten is perscribed by someone else than the author of the perscription then the perscriber should be given here, if the same or unknown then left out-->
+							<author>
+								<functionCode codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.1" code="KO"/>
+								<!-- Time of perscribing -->
+								<time value="20100501"/>
+								<assignedAuthor>
+									
+									<!--  HUVR health Professional ID-->
+									<id root="2.16.840.1.113883.2.19.40.5.410286.10.1" extension="0013"/>
+									<assignedPerson>
+										<name>
+											<family>Pascual Jodar</family>
+											<given>Emilio</given>
+										</name>
+									</assignedPerson>
+									<representedOrganization>
+										<!-- OID of HUVR -->
+										<id root="2.16.840.1.113883.2.19.40.5.410286" />
+										<name>Hospital Universitario Virgen del Rocío</name>
+										<addr>
+											<state>Sevilla</state>
+											<city>Sevillla</city>
+											<precinct>Sevilla</precinct>
+											<country>ES</country>
+											<postalCode>41013</postalCode>
+											<streetAddressLine>Avenida Manuel Siurot N 28 2º Bloque 4º Piso 3º B</streetAddressLine>
+										</addr>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+							<participant typeCode="AUT">
+								<participantRole classCode="LIC">
+									<id root="2" extension="12345678"/>
+									<scopingEntity classCode="ORG">
+										<id root="2.16.840.1.113883.2.19.40.5.410286" />
+										<desc>Hospital Universitario Virgen del Rocío</desc>
+									</scopingEntity>
+								</participantRole>
+							</participant>
+							<!-- number of packages in the perscription-->
+							<entryRelationship typeCode="COMP">
+								<supply classCode="SPLY" moodCode="RQO">
+									<independentInd value="false"/>
+									<quantity value="2" unit="1"/>
+								</supply>
+							</entryRelationship>
+							<!-- Optional instructions to the patient -->
+							<entryRelationship typeCode='SUBJ' inversionInd='true'>
+								<act classCode='ACT' moodCode='INT'>
+									<templateId root='2.16.840.1.113883.10.20.1.49'/>
+									<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.3'/>
+									<code code='PINSTRUCT' codeSystem='1.3.6.1.4.1.19376.1.5.3.2' codeSystemName='IHEActCode'/>
+									<text>
+										<reference value='No ingerir más de tres unidades diarias'/>
+									</text>
+									<statusCode code='completed'/>
+								</act>
+							</entryRelationship>
+							<!-- Optional instructons to the filler -->
+							<entryRelationship typeCode='SUBJ' inversionInd='true'>
+								<act classCode='ACT' moodCode='INT'>
+									<templateId root='2.16.840.1.113883.10.20.1.43'/>
+									<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.3.1'/>
+									<code code='FINSTRUCT' codeSystem='1.3.6.1.4.1.19376.1.5.3.2' codeSystemName='IHEActCode'/>
+									<text>
+										<reference value='No existen limitaciones en esta dispensación'/>
+									</text>
+									<statusCode code='completed'/>
+								</act>
+							</entryRelationship>
+							<!-- Optional information about replacement -->
+							<entryRelationship typeCode="SUBJ" inversionInd="true">
+								<observation classCode="OBS" moodCode="RQO">
+									<code nullFlavor="NA"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entryRelationship>
+						</substanceAdministration>
+					</entry>
+				</section>
+			</component>			
+		</structuredBody>
+	</component>
+</ClinicalDocument>

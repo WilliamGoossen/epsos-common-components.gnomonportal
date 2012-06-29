@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+   <formset>
+   		   
+        <form name="EgovSearchMyDebdtForm">
+        	<field property="selectedYear" depends="required,integer">
+        		<arg0 key="egov.tax.selectedYear"/>
+        	</field>
+        </form>    
+        
+       
+        
+        <form name="EgovSearchKokForm">
+        	<field property="vehicleNumber" depends="required">
+        		<arg0 key="egov.kok.TCV_NumberPlate"/>
+        	</field>
+        	<field property="ticketNumber" depends="required">
+        		<arg0 key="egov.kok.TCT_DOCUMENT"/>
+        	</field>
+        	<field property="ticket_date" depends="required">
+        		<arg0 key="egov.kok.TCT_Date"/>
+        	</field>
+        </form> 
+        
+        <form name="EgovHelpdeskRecordForm">
+        	<field property="category" depends="required,maxlength">
+        		<arg0 key="egov.helpdesk.category"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>50</var-value>
+                     </var>
+        	</field>
+        	<field property="subject" depends="required,maxlength">
+        		<arg0 key="egov.helpdesk.category"/>
+        		<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <var>
+                       <var-name>maxlength</var-name>
+                       <var-value>200</var-value>
+                     </var>
+        	</field>
+        </form>
+        
+        <form name="EgovCouncilMeetingForm">
+        	<field property="seqNumber"
+         	   depends="required">
+				 <arg0 key="egov.council.meeting.seqnumber"/>
+        	</field> 
+        	<field property="meetingDate"
+         	   depends="required">
+				 <arg0 key="egov.council.meeting.date"/>
+        	</field> 
+        	<field property="startTime" depends="mask">
+        		<arg0 key="egov.council.meeting.starttime"/>
+				 <msg name="mask" key="egov.council.meeting.timemsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[0-2][0-9]\:[0-5][0-9]$</var-value>
+				 </var>
+        	</field>
+        	<field property="endTime" depends="mask">
+        		<arg0 key="egov.council.meeting.endtitme"/>
+				 <msg name="mask" key="egov.council.meeting.timemsg"/>
+				 <var>
+				 <var-name>mask</var-name>
+				 <var-value>^[0-2][0-9]\:[0-5][0-9]$</var-value>
+				 </var>
+        	</field>
+        </form>
+        
+        <form name="EgovCouncilMeetingMemberForm">
+        	<field property="partyName"
+         	   depends="required">
+				 <arg0 key="egov.council.member.partyid"/>
+        	</field> 
+        	<field property="role"
+         	   depends="required">
+				 <arg0 key="egov.council.member.role"/>
+        	</field> 
+       </form>
+        
+        <form name="EgovCouncilMeetingFileForm">
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="egov.council.file.title"/>
+        	</field> 
+        	<field property="identityNumber"
+         	   depends="required">
+				 <arg0 key="egov.council.file.identitynumber"/>
+        	</field> 
+       </form>
+
+  
+        <form name="EgovCouncilMeetingSubjectForm">
+        	<field property="seqNumber"
+         	   depends="required">
+				 <arg0 key="egov.council.subject.seqnumber"/>
+        	</field> 
+        	<field property="title"
+         	   depends="required">
+				 <arg0 key="egov.council.subject.title"/>
+        	</field> 
+       </form>
+       
+       <form name="EgovRoleForm">
+        	<field property="name"
+         	   depends="required">
+				 <arg0 key="egov.council.role.name"/>
+        	</field> 
+       </form>
+       
+      </formset>
+</form-validation>

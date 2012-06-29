@@ -1,0 +1,17 @@
+<%
+List<UserGroup> userUserGroups = UserGroupLocalServiceUtil.getUserUserGroups(user2.getUserId());
+%>
+<c:if test="<%= userUserGroups != null && userUserGroups.size()>0 %>">
+	<tr>
+		<td>
+			<liferay-ui:message key="user-groups" />
+		</td>
+		<td>
+		<% for (int i=0; userUserGroups!=null && i<userUserGroups.size()-1; i++) { %>
+			<%=userUserGroups.get(i).getName()%>, 
+			<%--import "/html/portlet/enterprise_admin/user_user_group_action.jsp" --%>
+		<% } %>
+		<%=userUserGroups.get(userUserGroups.size()-1).getName()%>
+		</td>
+	</tr>
+</c:if>

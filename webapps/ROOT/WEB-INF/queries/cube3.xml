@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="cube3" measuresCaption="%{measures}">
+    <Cube name="cube3">
+        <Table name="mondian_Table3"/>
+        <Dimension name="mondian_Table3.deiktis" caption="%{deiktis}">
+            <Hierarchy name="mondian_Table3.deiktis" hasAll="true" allMemberName="All mondian_table3.deiktis" allMemberCaption="%{all_deiktes}">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.deiktis" table="mondian_Table3" column="deiktis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.eidos">
+            <Hierarchy name="mondian_Table3.eidos" hasAll="true" allMemberName="All mondian_table3.eidos">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.eidos" table="mondian_Table3" column="eidos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.perifereia">
+            <Hierarchy name="mondian_Table3.perifereia" hasAll="true" allMemberName="All mondian_table3.perifereia">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.perifereia" table="mondian_Table3" column="perifereia" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.pigi">
+            <Hierarchy name="mondian_Table3.pigi" hasAll="true" allMemberName="All mondian_table3.pigi">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.pigi" table="mondian_Table3" column="pigi" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.etos" caption="%{year}">
+            <Hierarchy name="mondian_Table3.etos" hasAll="true" allMemberName="All mondian_table3.etos" allMemberCaption="%{all_years}">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.etos" table="mondian_Table3" column="etos" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.timi">
+            <Hierarchy name="mondian_Table3.timi" hasAll="true" allMemberName="All mondian_table3.timi">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.timi" table="mondian_Table3" column="timi" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="mondian_Table3.seira_katataksis">
+            <Hierarchy name="mondian_Table3.seira_katataksis" hasAll="true" allMemberName="All mondian_table3.seira_katataksis">
+                <Table name="mondian_Table3"/>
+                <Level name="mondian_Table3.seira_katataksis" table="mondian_Table3" column="seira_katataksis" uniqueMembers="false"/>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="SUM of mondian_Table3.timi" column="timi" aggregator="avg" datatype="Numeric" formatString="###,###" caption="%{timi}"/>
+        <Measure name="SUM of mondian_Table3.seira_katataksis" column="seira_katataksis" aggregator="avg" datatype="Numeric" formatString="###,###" caption="%{seira_katataksis}" />
+    </Cube>
+</Schema>
