@@ -50,7 +50,7 @@ public class DispensePrescriptionLinesAction extends PortletAction {
 
 		EpsosHelperService epsos = null;
 		SpiritUserClientDto usr = null;
-
+		User portaluser = PortalUtil.getUser(request);
 		try {
 
 			epsos = EpsosHelperService.getInstance(); 
@@ -90,15 +90,6 @@ public class DispensePrescriptionLinesAction extends PortletAction {
 					bytes = webservice.retrieveDocument(prescription);
 					lines = epsos.parsePrescriptionDocumentForPrescriptionLines(bytes);
 					}
-//					if (useLocalDocument)
-//					{
-//						bytes = FileUploadHelper.getFile(CommonUtil.getRootPath(this.getServlet().getServletContext())+"FILESYSTEM/"+PortalUtil.getCompanyId(request), "epsos", "epSOS_RTD_eP_SK_Pivot_CDA_L3_009.xml");
-//					}
-//					else
-//					{
-//						bytes = webservice.retrieveDocument(prescription);
-//					}
-
 					if (lines != null && lines.size() > 0)
 					{
 						// fill in title data with prescription header info
@@ -205,13 +196,15 @@ public class DispensePrescriptionLinesAction extends PortletAction {
 							else
 							{
 								/*
-								 * field7: quanity
+								 * field7: quantity
 								 * field2: dispensed name
 								 * field12: measure
 								 * field3: substitution
 								 * field4: strength
 								 */
-								bytes = epsos.generateDispensationDocumentFromPrescription(bytes, lines, dispensedLines, usr);
+//								
+								bytes = epsos.generateDispensationDocumentFromPrescription2(bytes, lines, dispensedLines, usr, portaluser);
+								//bytes = epsos.generateDispensationDocumentFromPrescription(bytes, lines, dispensedLines, usr,portaluser);
 								if (Validator.isNotNull(bytes))
 									epsos.uploadDispensationDocument(webservice, bytes, patient,request.getParameter("country"),usr, language,fullname);
 								else
@@ -315,5 +308,5 @@ public class DispensePrescriptionLinesAction extends PortletAction {
 		}
 		return result;
 	}
-
+	
 }

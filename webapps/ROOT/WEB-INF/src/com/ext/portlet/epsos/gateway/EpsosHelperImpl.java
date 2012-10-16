@@ -815,7 +815,7 @@ public class EpsosHelperImpl implements EpsosHelper {
 		{
 		EpsosHelperService epsos = EpsosHelperService.getInstance();
 		List<ViewResult> lines = epsos.parsePrescriptionDocumentForPrescriptionLines(prescription);
-		prescription = epsos.generateDispensationDocumentFromPrescription(prescription, lines, dispensedLines, usr);
+		prescription = epsos.generateDispensationDocumentFromPrescription(prescription, lines, dispensedLines, usr,null);
 		if (sent)
 		{
 		epsos.uploadDispensationDocument(webservice, prescription, patient,country,usr,language,fullname);

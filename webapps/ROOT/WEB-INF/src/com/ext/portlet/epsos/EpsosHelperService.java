@@ -6,8 +6,14 @@ import epsos.ccd.netsmart.securitymanager.sts.client.TRCAssertionRequest;
 import gnomon.business.FileUploadHelper;
 import gnomon.business.GeneralUtils;
 import gnomon.hibernate.GnPersistenceService;
+import gnomon.hibernate.PartiesService;
 import gnomon.hibernate.model.ConnectionFactory;
 import gnomon.hibernate.model.epsos.EpsosPatientConfirmation;
+import gnomon.hibernate.model.parties.PaEmailAddress;
+import gnomon.hibernate.model.parties.PaGeographicAddress;
+import gnomon.hibernate.model.parties.PaGeographicAddressLanguage;
+import gnomon.hibernate.model.parties.PaParty;
+import gnomon.hibernate.model.parties.PaTelecomAddress;
 import gnomon.hibernate.model.parties.PsPartyRoleType;
 import gnomon.hibernate.model.views.ViewResult;
 import gnomon.util.GnPropsUtil;
@@ -25,6 +31,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -86,6 +93,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.util.JRLoader;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.jfree.util.Log;
@@ -147,6 +155,9 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import com.ext.portlet.epsos.consent.PatientConsentObject;
+import com.ext.portlet.epsos.demo.CDAHeader;
+import com.ext.portlet.epsos.demo.CDAUtils;
+import com.ext.portlet.epsos.demo.EDDetail;
 import com.ext.portlet.epsos.demo.PatientSearchForm;
 import com.ext.portlet.epsos.gateway.EpsosHelperImpl;
 import com.ext.sql.StrutsFormFields;
@@ -161,9 +172,12 @@ import com.liferay.portal.kernel.util.ByteArrayMaker;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.Company;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.ActionRequestImpl;
 import com.liferay.portlet.ActionResponseImpl;
@@ -186,9 +200,7 @@ import com.spirit.ehr.ws.client.generated.XdsQArgsDocument;
 import com.spirit.ehr.ws.interfaces.InterfaceFactory;
 import com.spirit.ehr.ws.interfaces.SpiritEhrWsClientInterface;
 
-
 public class EpsosHelperService {
-
 	
 	static private BASE64Encoder encoder = new BASE64Encoder();
 	static private BASE64Decoder decoder = new BASE64Decoder();
@@ -216,7 +228,7 @@ public class EpsosHelperService {
 	public final static PsPartyRoleType PHARMACIST = (PsPartyRoleType)GnPersistenceService.getInstance(null).getOrCreateSystemType(PsPartyRoleType.class, "pharmacist");
 	public final static PsPartyRoleType PHYSICIAN = (PsPartyRoleType)GnPersistenceService.getInstance(null).getOrCreateSystemType(PsPartyRoleType.class, "physician");
 	
-	private final static String XML_LOINC_SYSTEM = "LOINC",
+	public final static String XML_LOINC_SYSTEM = "LOINC",
 	                            XML_LOINC_CODESYSTEM = "2.16.840.1.113883.6.1",
 	                            XML_PRESCRIPTION_TEMPLATEID =  "1.3.6.1.4.1.12559.11.10.1.3.1.1.1",
 	                            XML_PRESCRIPTION_ENTRY_TEMPLATEID = "1.3.6.1.4.1.12559.11.10.1.3.1.2.1",
@@ -1332,6 +1344,9 @@ return assertion;
 	        Element element = marshaller.marshall(trc);
 	        document = element.getOwnerDocument();	
 	        //EpsosHelperService.sendXMLtoStream(document,System.out);
+			EpsosHelperService.getInstance().createLog("CREATING TRCA : " + pat,usr);
+	    	usr1 = webservice.setTRCAssertion(document.getDocumentElement());    
+	    	created=true;
 	        }
 	        catch (Exception e)
 	        {
@@ -1340,10 +1355,9 @@ return assertion;
 	        
 	        // netsmart assertion
 	        
-			EpsosHelperService.getInstance().createLog("CREATING TRCA : " + pat,usr);
-	    	usr1 = webservice.setTRCAssertion(document.getDocumentElement());    
+
 	    	//request.getSession().setAttribute(EPSOS_LOGIN_INFORMATION_ATTRIBUTE, usr);
-	    	created=true;
+	    	
 		} catch (Exception e2) {
 			e2.printStackTrace();		
 		}
@@ -2374,8 +2388,212 @@ return assertion;
 		return result;
 	}
 	
+	private static CDAHeader createEdSample()
+	{
+		CDAHeader cda = new CDAHeader();
+		cda.setEffectiveTime("201205311010");
+		cda.setLanguageCode("el_GR");
+		cda.setPharmacistAMKA("AMKA PHARM");
+		cda.setPharmacistAddress("PH ADDRESS");
+		cda.setPharmacistCity("PH CITY");
+		cda.setPharmacistPostalCode("PH TK");
+		cda.setPharmacistCountry("PH Country");
+		cda.setPharmacistTelephone("003400044");
+		cda.setPharmacistEmail("mail@kdd.gr");
+		cda.setPharmacistFamilyName("PH name");
+		cda.setPharmacistGivenName("PH given name");
+		cda.setPharmacistOrgName("PHARMACY 1");
+		cda.setPharmacistOrgAddress("ORG PH ADDRESS");
+		cda.setPharmacistOrgCity("ORG PH CITY");
+		cda.setPharmacistOrgPostalCode("ORG PH TK");
+		cda.setPharmacistOrgCountry("ORG PH Country");
+		cda.setDispensationId("DISP ID");
+		cda.setPrescriptionBarcode("1205144406307");
+		
+		
+		ArrayList<EDDetail> medicines = new ArrayList<EDDetail>(); 
+		EDDetail detail = new EDDetail();
+		detail.setRelativePrescriptionLineId("0");
+		detail.setDispensedQuantity("1");
+		detail.setMedicineBarcode("2802383802022");
+		detail.setMedicineTainiaGnisiotitas("010101010101");
+		detail.setMedicineExecutionCase("1");
+		detail.setMedicinePrice("19");
+		detail.setMedicineRefPrice("16");
+		detail.setPatientParticipation("25");
+		detail.setMedicineExecutionCase("1");
+		
+		medicines.add(detail);
+		cda.setEDDetail(medicines);
+		return cda;
+	}
 	
-	public byte[] generateDispensationDocumentFromPrescription(byte[] bytes, List<ViewResult> lines, List<ViewResult> dispensedLines, SpiritUserClientDto doctor) 
+	
+	public static String formatDateHL7(Date date)
+	{
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		String s = formatter.format(date);
+		return s;
+	}
+	
+	private PersonDetail getPharmacistInfo(User user) {
+		Session session = ConnectionFactory.getInstance().getSession();
+		
+		PersonDetail pd = new PersonDetail();
+		try
+		{
+		pd.setFirstname(user.getFirstName());
+		pd.setLastname(user.getLastName());
+		pd.setOrgname(user.getLastName() + " " + user.getFirstName());
+		pd.setEmail(user.getEmailAddress());
+		PaParty party = PartiesService.getInstance().getPaPerson(user.getUserId());
+		pd.setOrgid(party.getMainid()+"");
+		Company company;
+		try {
+			company = CompanyLocalServiceUtil.getCompanyById(user.getCompanyId());
+			pd.setCountry(company.getLocale().getCountry());
+		} catch (PortalException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// get geographic addresses
+		if (party.getPaGeographicAddresses() != null)
+		{
+			Iterator geoAddressIter = party.getPaGeographicAddresses().iterator();
+			int i=0;
+			while (geoAddressIter.hasNext() && i<4)
+			{
+				PaGeographicAddress addr = (PaGeographicAddress)geoAddressIter.next();
+				// languages part
+				PaGeographicAddressLanguage addressLang = null;
+				String lang = user.getLanguageId();
+				List addressLangs = session.createQuery("from gnomon.hibernate.model.parties.PaGeographicAddressLanguage l where l.paGeographicAddress.mainid = "+addr.getMainid() +" and l.lang = '"+lang+"'").list();
+				if (addressLangs != null && addressLangs.size() > 0)
+				{
+					addressLang = (PaGeographicAddressLanguage)addressLangs.get(0);
+				}
+				else
+				{
+					addressLangs = session.createQuery("from gnomon.hibernate.model.parties.PaGeographicAddressLanguage l where l.paGeographicAddress.mainid = "+addr.getMainid() +" and l.lang = '"+PropsUtil.get("locale.default")+"'").list();
+					if (addressLangs != null && addressLangs.size() > 0)
+					{
+						addressLang = (PaGeographicAddressLanguage)addressLangs.get(0);
+					}
+				}
+				if (addressLang != null)
+				{
+					pd.setPostalCode(addressLang.getZipOrPostCode());
+					pd.setAddress(addressLang.getAddressLine());
+					pd.setCity(addressLang.getRegion());
+				}
+				i++;
+			}
+		}
+		
+		
+		
+		
+		
+		}
+		catch (Exception e)
+		{
+			System.err.println("Hibernate Exception" + e.getMessage());
+			throw new RuntimeException(e);
+		}
+		finally
+		{
+			if (session != null)
+			{
+				try
+				{
+					session.close();
+				}
+				catch (HibernateException e)
+				{
+					System.err.println("Hibernate Exception" + e.getMessage());
+					throw new RuntimeException(e);
+				}
+			}
+		}
+		return pd;
+		}
+	
+	
+	public byte[] generateDispensationDocumentFromPrescription2(byte[] bytes, List<ViewResult> lines, List<ViewResult> dispensedLines, 
+			SpiritUserClientDto doctor, User user) {
+		byte[] bytesED=null;
+		
+		PersonDetail pd = getPharmacistInfo(user);
+
+		String edDoc="";
+		CDAHeader cda = new CDAHeader();
+		Date now = new Date();
+		cda.setEffectiveTime(EpsosHelperService.formatDateHL7(now));
+		cda.setLanguageCode(user.getLanguageId());
+		cda.setPharmacistAddress(pd.getAddress());
+		cda.setPharmacistCity(pd.getCity());
+		cda.setPharmacistPostalCode(pd.getPostalCode());
+		cda.setPharmacistCountry(pd.getCountry());
+		cda.setPharmacistTelephone("");
+		cda.setPharmacistEmail(pd.getEmail());
+		cda.setPharmacistFamilyName(pd.getLastname());
+		cda.setPharmacistGivenName(pd.getFirstname());
+		cda.setPharmacistOrgId(pd.getOrgid());
+		cda.setPharmacistOrgName(pd.getOrgname());
+		cda.setPharmacistOrgAddress("N/A");
+		cda.setPharmacistOrgCity("N/A");
+		cda.setPharmacistOrgPostalCode("N/A");
+		cda.setPharmacistOrgCountry(pd.getCountry());
+		
+		
+/*
+ * ViewResult d_line = new ViewResult(
+									id, 						mainid
+									dispensed_id,             	1
+									dispensed_name, 			2
+									substitute,					3
+									dispensed_strength, 		4
+									dispensed_form, 			5 ok
+									dispensed_package, 			6
+									dispensed_quantity, 		7 ok
+									dispensed_nrOfPacks, 		8
+									prescriptionid, 			9
+									materialid, 				10
+									activeIngredient,			11
+									measures_id);				12
+ */		
+		List<EDDetail> edDetails = new ArrayList();
+		for (int i=0; i<dispensedLines.size(); i++)
+		{
+			ViewResult d_line = (ViewResult)dispensedLines.get(i);
+			EDDetail ed = new EDDetail();
+			ed.setRelativePrescriptionLineId(d_line.getField1().toString());
+			ed.setDispensedQuantity(d_line.getField7().toString());
+			ed.setMedicineFormCode(d_line.getField5().toString());
+			ed.setMedicineCommercialName(d_line.getField2().toString());
+			edDetails.add(ed);
+		}
+		cda.setEDDetail(edDetails);
+		try {
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = dbf.newDocumentBuilder();
+		Document epDoc  = db.parse(new ByteArrayInputStream(bytes));
+		cda.setPrescriptionBarcode(CDAUtils.getRelativePrescriptionBarcode(epDoc));
+		cda.setDispensationId("D-" + CDAUtils.getRelativePrescriptionBarcode(epDoc));
+		edDoc = CDAUtils.createDispensation(epDoc, cda);
+		}
+		catch (Exception e)
+		{
+		_log.error("error creating disp doc");
+		}
+		return edDoc.getBytes();
+	}
+	
+	public byte[] generateDispensationDocumentFromPrescription(byte[] bytes, List<ViewResult> lines, List<ViewResult> dispensedLines, SpiritUserClientDto doctor, User user) 
 	{
 		byte[] bytesED=null;
 		try {
@@ -2384,6 +2602,14 @@ return assertion;
 			Document dom  = db.parse(new ByteArrayInputStream(bytes));
 			
 			XPath xpath = XPathFactory.newInstance().newXPath();
+			
+			// TODO change effective time
+			// TODO change language code to fit dispenser
+			// TODO change OID, have to use country b OID
+			// TODO author must be the dispenser not the prescriber
+			// TODO custodian and legal authenticator should be not copied from ep doc
+			// TODO
+			
 			
 			// fixes 
 			// First I have to check if exists in order not to create it
@@ -2451,56 +2677,56 @@ return assertion;
 			
 	
 			
-//			// fix infullfillment
-//			XPathExpression rootNodeExpr = xpath.compile("/ClinicalDocument");
-//			Node rootNode = (Node)rootNodeExpr.evaluate(dom, XPathConstants.NODE);
-//			
-//			try
-//			{
-//			Node infulfilment = null;
-//			XPathExpression salRO = xpath.compile("/ClinicalDocument/inFulfillmentOf");
-//			NodeList salRONodes = (NodeList) salRO.evaluate(dom, XPathConstants.NODESET);
-//			if (salRONodes.getLength()==0)
-//			{
-//			XPathExpression salAddr = xpath.compile("/ClinicalDocument/relatedDocument");
-//			NodeList salAddrNodes = (NodeList) salAddr.evaluate(dom, XPathConstants.NODESET);
-//			if (salAddrNodes.getLength()>0)
-//			{
-//				for (int t=0; t<salAddrNodes.getLength(); t++)
-//				{		
-//					Node AddrNode = salAddrNodes.item(t);
-//					Node order = dom.createElement("inFulfillmentOf");
-//					//legalNode.appendChild(order);
-//					/*
-//					 * <relatedDocument typeCode="XFRM">
-//					*		<parentDocument>
-//					*   	<id extension="2601010002.pdf.ep.52105899467.52105899468:39" root="2.16.840.1.113883.2.24.2.30"/>
-//					*							</parentDocument>
-//					*						</relatedDocument>
-//					 * 
-//					 * 
-//					 */
-//					//Node order1 = dom.createElement("order");
-//					Node order1 = dom.createElement("relatedDocument");
-//					Node parentDoc = dom.createElement("parentDocument");
-//					addAttribute(dom, parentDoc, "typeCode", "XFRM");
-//					order1.appendChild(parentDoc);
-//				
-//					Node orderNode = dom.createElement("id");
-//					addAttribute(dom, orderNode, "extension",ful_ext);
-//					addAttribute(dom, orderNode, "root", ful_root);
-//					parentDoc.appendChild(orderNode);
-//					rootNode.insertBefore(order, AddrNode);	
-//					infulfilment = rootNode.cloneNode(true);
-//					
-//				}
-//			}
-//			}
-//			}
-//			catch (Exception e)
-//			{
-//				_log.error("Error fixing node inFulfillmentOf ...");
-//			}
+			// fix infullfillment
+			XPathExpression rootNodeExpr = xpath.compile("/ClinicalDocument");
+			Node rootNode = (Node)rootNodeExpr.evaluate(dom, XPathConstants.NODE);
+			
+			try
+			{
+			Node infulfilment = null;
+			XPathExpression salRO = xpath.compile("/ClinicalDocument/inFulfillmentOf");
+			NodeList salRONodes = (NodeList) salRO.evaluate(dom, XPathConstants.NODESET);
+			if (salRONodes.getLength()==0)
+			{
+			XPathExpression salAddr = xpath.compile("/ClinicalDocument/relatedDocument");
+			NodeList salAddrNodes = (NodeList) salAddr.evaluate(dom, XPathConstants.NODESET);
+			if (salAddrNodes.getLength()>0)
+			{
+				for (int t=0; t<salAddrNodes.getLength(); t++)
+				{		
+					Node AddrNode = salAddrNodes.item(t);
+					Node order = dom.createElement("inFulfillmentOf");
+					//legalNode.appendChild(order);
+					/*
+					 * <relatedDocument typeCode="XFRM">
+					*		<parentDocument>
+					*   	<id extension="2601010002.pdf.ep.52105899467.52105899468:39" root="2.16.840.1.113883.2.24.2.30"/>
+					*							</parentDocument>
+					*						</relatedDocument>
+					 * 
+					 * 
+					 */
+					//Node order1 = dom.createElement("order");
+					Node order1 = dom.createElement("relatedDocument");
+					Node parentDoc = dom.createElement("parentDocument");
+					addAttribute(dom, parentDoc, "typeCode", "XFRM");
+					order1.appendChild(parentDoc);
+				
+					Node orderNode = dom.createElement("id");
+					addAttribute(dom, orderNode, "extension",ful_ext);
+					addAttribute(dom, orderNode, "root", ful_root);
+					parentDoc.appendChild(orderNode);
+					rootNode.insertBefore(order, AddrNode);	
+					infulfilment = rootNode.cloneNode(true);
+					
+				}
+			}
+			}
+			}
+			catch (Exception e)
+			{
+				_log.error("Error fixing node inFulfillmentOf ...");
+			}
 			
 			
 			XPathExpression Telecom = xpath.compile("/ClinicalDocument/author/assignedAuthor/representedOrganization");
@@ -2820,7 +3046,7 @@ return assertion;
 	 * @param attributeName
 	 * @param attributeValue
 	 */
-	private void addAttribute(Document dom, Node node, String attributeName, String attributeValue)
+	public void addAttribute(Document dom, Node node, String attributeName, String attributeValue)
 	{
 		Attr rootAttr = dom.createAttribute(attributeName);
 		rootAttr.setValue(attributeValue);
@@ -4040,7 +4266,6 @@ public String getLanguagesFromCS()
 	return listOfLangs;
 }
 
-
 public String getCountriesFromCS()
 {
 	String listOfCountries="";
@@ -4204,8 +4429,6 @@ public static String getSafeString(String arg0)
 	return result;
 }
 
-
-
 public byte[] printReport(String path, String reportName1, Map parameters) {
 	byte[] bytes = null;
 	try {
@@ -4221,7 +4444,6 @@ public byte[] printReport(String path, String reportName1, Map parameters) {
 		catch (JRException e) {
 			e.printStackTrace();
 		}
-
 	return bytes;
 }
 }
