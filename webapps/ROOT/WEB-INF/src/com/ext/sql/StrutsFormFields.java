@@ -39,7 +39,6 @@ public class StrutsFormFields {
 	private String onChange;
 	private String alignment;
 	private String textAreaToolBar = GNOMON_TOOLBAR;
-	
 	// For lookup field
 	private String lookupAction;
 	private Hashtable lookupParameters;

@@ -91,7 +91,7 @@
     </set>
     <set
         name="paGeographicAddresses"
-        lazy="true"
+        lazy="false"
         inverse="true"
         order-by="mainid asc"
 		cascade="all"
@@ -120,7 +120,7 @@
     <!-- bi-directional one-to-many association to PaTelecomAddress -->
     <set
         name="paTelecomAddresses"
-        lazy="true"
+        lazy="false"
         inverse="true"
 		cascade="all"
     >
