@@ -458,42 +458,42 @@ public class CDAUtils {
 		sb.append("</assignedAuthor>");sb.append("\r\n");
 		sb.append("</author>");sb.append("\r\n");
 		
-		sb.append("<custodian typeCode=\"CST\">" +
-				"<assignedCustodian classCode=\"ASSIGNED\">" +
-				"<representedCustodianOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" +
-				"<id root=\"" + custodianOid + "\"/>" +
-				"<name>" + custodianName + "</name>" +
-				"<telecom nullFlavor=\"NI\"/>" +
-				"<addr>" +
-				"<country>" + edCountry + "</country>" + 
-				"</addr>" +
-				"</representedCustodianOrganization>" +
-				"</assignedCustodian></custodian>");
+		sb.append("<custodian typeCode=\"CST\">" + "\r\n" +
+				"<assignedCustodian classCode=\"ASSIGNED\">" + "\r\n" +
+				"<representedCustodianOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" + "\r\n" +
+				"<id root=\"" + custodianOid + "\"/>" + "\r\n" +
+				"<name>" + custodianName + "</name>" + "\r\n" +
+				"<telecom nullFlavor=\"NI\"/>" + "\r\n" +
+				"<addr>" + "\r\n" +
+				"<country>" + edCountry + "</country>" +"\r\n" + 
+				"</addr>" +"\r\n" +
+				"</representedCustodianOrganization>" +"\r\n" +
+				"</assignedCustodian></custodian>" + "\r\n");
 
-		sb.append("<legalAuthenticator contextControlCode=\"OP\" typeCode=\"LA\">" + 
-	    "<time value=\"20120927112208\"/>" +
-	    "<signatureCode code=\"S\"/>" +
-	    "<assignedEntity classCode=\"ASSIGNED\">" +
-	    "<id root=\"" + legalOrgOid + "\"/>" +
-	     "<telecom nullFlavor=\"NI\"/>" +
-	      "<assignedPerson>" +
-	        "<name>" +
-	          "<family>" + legalauthenticatorfirstname + "</family>" +
-	          "<given>"+ legalauthenticatorlastname + "</given>" +
-	        "</name>" +
-	      "</assignedPerson>" +
-	      "<representedOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" +
-	        "<id root=\"" + legalOrgOid + "\"/>" +
-	        "<name>Kansaneläkelaitos</name>" +
-	        "<addr use=\"PST\">" +
-	          "<city>" + legalauthenticatorcity + "</city>" +
-	          "<postalCode>" + legalauthenticatorpostalcode + "</postalCode>" +
-	          "<state nullFlavor=\"UNK\"/>" +
-	          "<country>" + edCountry + "</country>" +
-	        "</addr>" +
-	      "</representedOrganization>" +
-	    "</assignedEntity>" +
-	  "</legalAuthenticator>");
+		sb.append("<legalAuthenticator contextControlCode=\"OP\" typeCode=\"LA\">" +"\r\n" + 
+	    "<time value=\"20120927112208\"/>" +"\r\n" +
+	    "<signatureCode code=\"S\"/>" +"\r\n" +
+	    "<assignedEntity classCode=\"ASSIGNED\">" +"\r\n" +
+	    "<id root=\"" + legalOrgOid + "\"/>" +"\r\n" +
+	     "<telecom nullFlavor=\"NI\"/>" +"\r\n" +
+	      "<assignedPerson>" +"\r\n" +
+	        "<name>" +"\r\n" +
+	          "<family>" + legalauthenticatorfirstname + "</family>" +"\r\n" +
+	          "<given>"+ legalauthenticatorlastname + "</given>" +"\r\n" +
+	        "</name>" +"\r\n" +
+	      "</assignedPerson>" +"\r\n" +
+	      "<representedOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" +"\r\n" +
+	        "<id root=\"" + legalOrgOid + "\"/>" +"\r\n" +
+	        "<name>Kansaneläkelaitos</name>" +"\r\n" +
+	        "<addr use=\"PST\">" +"\r\n" +
+	          "<city>" + legalauthenticatorcity + "</city>" +"\r\n" +
+	          "<postalCode>" + legalauthenticatorpostalcode + "</postalCode>" +"\r\n" +
+	          "<state nullFlavor=\"UNK\"/>" +"\r\n" +
+	          "<country>" + edCountry + "</country>" +"\r\n" +
+	        "</addr>" +"\r\n" +
+	      "</representedOrganization>" +"\r\n" +
+	    "</assignedEntity>" +"\r\n" +
+	  "</legalAuthenticator>" + "\r\n");
 	
 		String relRoot = getRelativePrescriptionRoot(epDoc);
 		// Add relative prescription
