@@ -213,6 +213,28 @@ public class CDAUtils {
 		return doc;
 	}
 	
+	
+	public static String getRelativePrescriptionRoot(Document doc)
+	{
+		NodeList nl=null;
+		String refBarcode="";
+		try
+			{
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			xpath.setNamespaceContext(new CDANameSpaceContext());
+			///ClinicalDocument/component/structuredBody/component/section/id
+			XPathExpression epExpr = xpath.compile("//component/structuredBody/component/section//id/@root");
+			nl = (NodeList) epExpr.evaluate(doc, XPathConstants.NODESET);
+			if (nl.item(0) !=null)
+				refBarcode = nl.item(0).getNodeValue();
+			}
+		catch (Exception e)
+			{
+			_log.error(e.getMessage());
+			}		
+		return refBarcode;		
+	}
 
 	public static String getRelativePrescriptionBarcode(Document doc)
 	{
@@ -384,15 +406,21 @@ public class CDAUtils {
 	
 	private static String CDAModelToEDXML(Document epDoc, CDAHeader cda)
 	{
+		String edCountry = GetterUtil.getString(GnPropsUtil.get("portalb", "ed.country"), "");
 		String edOid = GetterUtil.getString(GnPropsUtil.get("portalb", "ed.oid"), "");
 		String entryOid = GetterUtil.getString(GnPropsUtil.get("portalb", "entry.oid"), "");
 		String orderOid = GetterUtil.getString(GnPropsUtil.get("portalb", "order.oid"), "");
 		String pharmacistsOid = GetterUtil.getString(GnPropsUtil.get("portalb", "pharmacists.oid"), "");
 		String pharmaciesOid = GetterUtil.getString(GnPropsUtil.get("portalb", "pharmacies.oid"), "");
 		String custodianOid = GetterUtil.getString(GnPropsUtil.get("portalb", "custodian.oid"), "");
+		String custodianName = GetterUtil.getString(GnPropsUtil.get("portalb", "custodian.name"), "");
 		String legalPersonOid = GetterUtil.getString(GnPropsUtil.get("portalb", "legalauth.person.oid"), "");
 		String legalOrgOid = GetterUtil.getString(GnPropsUtil.get("portalb", "legalauth.org.oid"), "");
 		
+		String legalauthenticatorfirstname = GetterUtil.getString(GnPropsUtil.get("portalb", "legal.authenticator.firstname"), "");
+		String legalauthenticatorlastname = GetterUtil.getString(GnPropsUtil.get("portalb", "legal.authenticator.lastname"), "");
+		String legalauthenticatorcity = GetterUtil.getString(GnPropsUtil.get("portalb", "legal.authenticator.city"), "");
+		String legalauthenticatorpostalcode = GetterUtil.getString(GnPropsUtil.get("portalb", "legal.authenticator.postalcode"), "");				
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
@@ -429,13 +457,49 @@ public class CDAUtils {
 		sb.append("</assignedPerson>");sb.append("\r\n");
 		sb.append("</assignedAuthor>");sb.append("\r\n");
 		sb.append("</author>");sb.append("\r\n");
-		sb.append(getCustodianFromEP(epDoc));sb.append("\r\n");
-		sb.append(getLegalAuthFromEP(epDoc));sb.append("\r\n");	
+		
+		sb.append("<custodian typeCode=\"CST\">" +
+				"<assignedCustodian classCode=\"ASSIGNED\">" +
+				"<representedCustodianOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" +
+				"<id root=\"" + custodianOid + "\"/>" +
+				"<name>" + custodianName + "</name>" +
+				"<telecom nullFlavor=\"NI\"/>" +
+				"<addr>" +
+				"<country>" + edCountry + "</country>" + 
+				"</addr>" +
+				"</representedCustodianOrganization>" +
+				"</assignedCustodian></custodian>");
+
+		sb.append("<legalAuthenticator contextControlCode=\"OP\" typeCode=\"LA\">" + 
+	    "<time value=\"20120927112208\"/>" +
+	    "<signatureCode code=\"S\"/>" +
+	    "<assignedEntity classCode=\"ASSIGNED\">" +
+	    "<id root=\"" + legalOrgOid + "\"/>" +
+	     "<telecom nullFlavor=\"NI\"/>" +
+	      "<assignedPerson>" +
+	        "<name>" +
+	          "<family>" + legalauthenticatorfirstname + "</family>" +
+	          "<given>"+ legalauthenticatorlastname + "</given>" +
+	        "</name>" +
+	      "</assignedPerson>" +
+	      "<representedOrganization classCode=\"ORG\" determinerCode=\"INSTANCE\">" +
+	        "<id root=\"" + legalOrgOid + "\"/>" +
+	        "<name>Kansaneläkelaitos</name>" +
+	        "<addr use=\"PST\">" +
+	          "<city>" + legalauthenticatorcity + "</city>" +
+	          "<postalCode>" + legalauthenticatorpostalcode + "</postalCode>" +
+	          "<state nullFlavor=\"UNK\"/>" +
+	          "<country>" + edCountry + "</country>" +
+	        "</addr>" +
+	      "</representedOrganization>" +
+	    "</assignedEntity>" +
+	  "</legalAuthenticator>");
 	
+		String relRoot = getRelativePrescriptionRoot(epDoc);
 		// Add relative prescription
 		sb.append("<inFulfillmentOf>");sb.append("\r\n");
 		sb.append("<order>");sb.append("\r\n");
-		sb.append(" <id extension=\"" + cda.getPrescriptionBarcode() + "\" root=\"" + orderOid + "\" />");sb.append("\r\n");
+		sb.append(" <id extension=\"" + cda.getPrescriptionBarcode() + "\" root=\"" + relRoot + "\" />");sb.append("\r\n");
 		sb.append("</order>");sb.append("\r\n");
 		sb.append("</inFulfillmentOf>");sb.append("\r\n");
 		//prescription header

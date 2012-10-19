@@ -1315,7 +1315,8 @@ return assertion;
 		}
 		return translation;
 	}
-	public final SpiritUserClientDto createPatientConfirmationPlain(SpiritUserClientDto usr, String purpose, SpiritEhrWsClientInterface webservice, Assertion idAs, EhrPatientClientDto patient) throws PortalException, SystemException
+	public final SpiritUserClientDto createPatientConfirmationPlain(SpiritUserClientDto usr, String purpose, 
+			SpiritEhrWsClientInterface webservice, Assertion idAs, EhrPatientClientDto patient) throws PortalException, SystemException
 	{
 		//User user = PortalUtil.getUser(request);
 		//SpiritUserClientDto usr = (SpiritUserClientDto)request.getSession().getAttribute(EPSOS_LOGIN_INFORMATION_ATTRIBUTE);
