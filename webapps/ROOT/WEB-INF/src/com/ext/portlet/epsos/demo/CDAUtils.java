@@ -431,7 +431,8 @@ public class CDAUtils {
 		sb.append("<typeId root=\"2.16.840.1.113883.1.3\" extension=\"POCD_MT000040\"/>");sb.append("\r\n");
 		sb.append("<templateId root=\"1.3.6.1.4.1.12559.11.10.1.3.1.1.2\"/>");
 		sb.append("\r\n");	
-		sb.append("<id root=\"" + edOid + "\"/>");
+		String uuid = java.util.UUID.randomUUID().toString().replaceAll("-", "");
+		sb.append("<id extension=\"" + uuid + "\" root=\"" + edOid + "\"/>");
 		sb.append("\r\n");
 		sb.append("<code codeSystemName=\"LOINC\" codeSystem=\"2.16.840.1.113883.6.1\" code=\"60593-1\" displayName=\"eDispensation\"/>");
 		sb.append("\r\n");
@@ -596,7 +597,7 @@ public class CDAUtils {
 						sb.append("<id root=\"" + pharmaciesOid + "\" extension=\"" + cda.getPharmacistOrgId() +"\"/>");sb.append("\r\n");
 						sb.append("<name>" + cda.getPharmacistOrgName() + "</name>");sb.append("\r\n");
 						sb.append(addAddress(cda.getPharmacistOrgAddress(),cda.getPharmacistOrgCity(),cda.getPharmacistOrgPostalCode(),
-								cda.getPharmacistOrgCountry(),cda.getPharmacistOrgTelephone(),cda.getPharmacistOrgEmail()));sb.append("\r\n");
+								edCountry,cda.getPharmacistOrgTelephone(),cda.getPharmacistOrgEmail()));sb.append("\r\n");
 						sb.append("</representedOrganization>");sb.append("\r\n");
 						sb.append("</assignedEntity>");sb.append("\r\n");
 						sb.append("</performer>");sb.append("\r\n");
